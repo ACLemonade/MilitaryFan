@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MFInfoNetManager.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [MFInfoNetManager getMFInfoWithType:1 startPage:1 completionHandle:^(id model, NSError *error) {
+        NSLog(@"...");
+    }];
+    
+    
+    
+    
     return YES;
 }
 

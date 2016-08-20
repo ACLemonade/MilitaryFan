@@ -7,15 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E9DB46C66C4A90FC2E8ADA2 /* libPods-MilitaryFanUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */; };
 		8C2A6F371D67F8CA0028F634 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F361D67F8CA0028F634 /* main.m */; };
 		8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F391D67F8CA0028F634 /* AppDelegate.m */; };
-		8C2A6F3D1D67F8CA0028F634 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F3C1D67F8CA0028F634 /* ViewController.m */; };
 		8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A6F3E1D67F8CA0028F634 /* Main.storyboard */; };
 		8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */; };
 		8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A6F441D67F8CA0028F634 /* Assets.xcassets */; };
 		8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A6F461D67F8CA0028F634 /* LaunchScreen.storyboard */; };
 		8C2A6F531D67F8CA0028F634 /* MilitaryFanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F521D67F8CA0028F634 /* MilitaryFanTests.m */; };
 		8C2A6F5E1D67F8CA0028F634 /* MilitaryFanUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F5D1D67F8CA0028F634 /* MilitaryFanUITests.m */; };
+		8C2A6F7D1D6801000028F634 /* NSObject+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F761D6801000028F634 /* NSObject+AFNetworking.m */; };
+		8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F781D6801000028F634 /* NSObject+MJExtension.m */; };
+		8C2A6F7F1D6801000028F634 /* NSObject+ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F7A1D6801000028F634 /* NSObject+ViewModel.m */; };
+		8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F7C1D6801000028F634 /* UIScrollView+Refresh.m */; };
+		8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F851D6802690028F634 /* iCarousel.m */; };
+		8C2A6F8D1D6802690028F634 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A6F871D6802690028F634 /* .gitignore */; };
+		8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F891D6802690028F634 /* PSCollectionView.m */; };
+		8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F8B1D6802690028F634 /* PSCollectionViewCell.m */; };
+		8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F911D68058E0028F634 /* BaseModel.m */; };
+		8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F941D6805C70028F634 /* MFInfoModel.m */; };
+		8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */; };
+		D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */; };
+		F6612A65A54B599A37E32B50 /* libPods-MilitaryFanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,15 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1832F944B7D21E168AFFABFC /* Pods-MilitaryFanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanUITests/Pods-MilitaryFanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D020FC397F4E0454EA9A664 /* Pods-MilitaryFanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.debug.xcconfig"; sourceTree = "<group>"; };
+		4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E5B5C791D1448B6CF7BD3ED /* Pods-MilitaryFanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests.release.xcconfig"; sourceTree = "<group>"; };
 		8C2A6F321D67F8CA0028F634 /* MilitaryFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilitaryFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A6F361D67F8CA0028F634 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C2A6F381D67F8CA0028F634 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8C2A6F391D67F8CA0028F634 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8C2A6F3B1D67F8CA0028F634 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8C2A6F3C1D67F8CA0028F634 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		8C2A6F3F1D67F8CA0028F634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C2A6F421D67F8CA0028F634 /* MilitaryFan.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MilitaryFan.xcdatamodel; sourceTree = "<group>"; };
-		8C2A6F441D67F8CA0028F634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C2A6F441D67F8CA0028F634 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		8C2A6F471D67F8CA0028F634 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C2A6F491D67F8CA0028F634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C2A6F4E1D67F8CA0028F634 /* MilitaryFanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilitaryFanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,6 +70,33 @@
 		8C2A6F591D67F8CA0028F634 /* MilitaryFanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilitaryFanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A6F5D1D67F8CA0028F634 /* MilitaryFanUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MilitaryFanUITests.m; sourceTree = "<group>"; };
 		8C2A6F5F1D67F8CB0028F634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C2A6F751D6801000028F634 /* NSObject+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AFNetworking.h"; sourceTree = "<group>"; };
+		8C2A6F761D6801000028F634 /* NSObject+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AFNetworking.m"; sourceTree = "<group>"; };
+		8C2A6F771D6801000028F634 /* NSObject+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJExtension.h"; sourceTree = "<group>"; };
+		8C2A6F781D6801000028F634 /* NSObject+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJExtension.m"; sourceTree = "<group>"; };
+		8C2A6F791D6801000028F634 /* NSObject+ViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ViewModel.h"; sourceTree = "<group>"; };
+		8C2A6F7A1D6801000028F634 /* NSObject+ViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ViewModel.m"; sourceTree = "<group>"; };
+		8C2A6F7B1D6801000028F634 /* UIScrollView+Refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Refresh.h"; sourceTree = "<group>"; };
+		8C2A6F7C1D6801000028F634 /* UIScrollView+Refresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Refresh.m"; sourceTree = "<group>"; };
+		8C2A6F811D6801450028F634 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		8C2A6F821D6801870028F634 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		8C2A6F841D6802690028F634 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		8C2A6F851D6802690028F634 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		8C2A6F871D6802690028F634 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8C2A6F881D6802690028F634 /* PSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionView.h; sourceTree = "<group>"; };
+		8C2A6F891D6802690028F634 /* PSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCollectionView.m; sourceTree = "<group>"; };
+		8C2A6F8A1D6802690028F634 /* PSCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSCollectionViewCell.h; sourceTree = "<group>"; };
+		8C2A6F8B1D6802690028F634 /* PSCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSCollectionViewCell.m; sourceTree = "<group>"; };
+		8C2A6F901D68058E0028F634 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		8C2A6F911D68058E0028F634 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		8C2A6F931D6805C70028F634 /* MFInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoModel.h; sourceTree = "<group>"; };
+		8C2A6F941D6805C70028F634 /* MFInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoModel.m; sourceTree = "<group>"; };
+		8C2A6F991D68095A0028F634 /* MFInfoNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoNetManager.h; sourceTree = "<group>"; };
+		8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoNetManager.m; sourceTree = "<group>"; };
+		8C2A6F9C1D6809830028F634 /* MFInfoPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFInfoPath.h; sourceTree = "<group>"; };
+		9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.release.xcconfig"; sourceTree = "<group>"; };
+		AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanUITests/Pods-MilitaryFanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6612A65A54B599A37E32B50 /* libPods-MilitaryFanTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +120,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E9DB46C66C4A90FC2E8ADA2 /* libPods-MilitaryFanUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		750B184706D73A94C7DB7255 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */,
+				9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */,
+				1D020FC397F4E0454EA9A664 /* Pods-MilitaryFanTests.debug.xcconfig */,
+				7E5B5C791D1448B6CF7BD3ED /* Pods-MilitaryFanTests.release.xcconfig */,
+				1832F944B7D21E168AFFABFC /* Pods-MilitaryFanUITests.debug.xcconfig */,
+				AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8C2A6F291D67F8CA0028F634 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +147,8 @@
 				8C2A6F511D67F8CA0028F634 /* MilitaryFanTests */,
 				8C2A6F5C1D67F8CA0028F634 /* MilitaryFanUITests */,
 				8C2A6F331D67F8CA0028F634 /* Products */,
+				750B184706D73A94C7DB7255 /* Pods */,
+				AA81014BFDE7981FF535E469 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,13 +167,16 @@
 			children = (
 				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
 				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
-				8C2A6F3B1D67F8CA0028F634 /* ViewController.h */,
-				8C2A6F3C1D67F8CA0028F634 /* ViewController.m */,
-				8C2A6F3E1D67F8CA0028F634 /* Main.storyboard */,
-				8C2A6F441D67F8CA0028F634 /* Assets.xcassets */,
-				8C2A6F461D67F8CA0028F634 /* LaunchScreen.storyboard */,
-				8C2A6F491D67F8CA0028F634 /* Info.plist */,
-				8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */,
+				8C2A6F6B1D68006F0028F634 /* CacheManager */,
+				8C2A6F6C1D68006F0028F634 /* Category */,
+				8C2A6F6D1D68006F0028F634 /* Define */,
+				8C2A6F6E1D68006F0028F634 /* Model */,
+				8C2A6F6F1D68006F0028F634 /* NetManager */,
+				8C2A6F701D68006F0028F634 /* Resources */,
+				8C2A6F711D68006F0028F634 /* Vendor */,
+				8C2A6F721D68006F0028F634 /* View */,
+				8C2A6F731D68006F0028F634 /* ViewController */,
+				8C2A6F741D68006F0028F634 /* ViewModel */,
 				8C2A6F351D67F8CA0028F634 /* Supporting Files */,
 			);
 			path = MilitaryFan;
@@ -120,6 +185,9 @@
 		8C2A6F351D67F8CA0028F634 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A6F821D6801870028F634 /* PrefixHeader.pch */,
+				8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */,
+				8C2A6F491D67F8CA0028F634 /* Info.plist */,
 				8C2A6F361D67F8CA0028F634 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -143,6 +211,128 @@
 			path = MilitaryFanUITests;
 			sourceTree = "<group>";
 		};
+		8C2A6F6B1D68006F0028F634 /* CacheManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CacheManager;
+			sourceTree = "<group>";
+		};
+		8C2A6F6C1D68006F0028F634 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F751D6801000028F634 /* NSObject+AFNetworking.h */,
+				8C2A6F761D6801000028F634 /* NSObject+AFNetworking.m */,
+				8C2A6F771D6801000028F634 /* NSObject+MJExtension.h */,
+				8C2A6F781D6801000028F634 /* NSObject+MJExtension.m */,
+				8C2A6F791D6801000028F634 /* NSObject+ViewModel.h */,
+				8C2A6F7A1D6801000028F634 /* NSObject+ViewModel.m */,
+				8C2A6F7B1D6801000028F634 /* UIScrollView+Refresh.h */,
+				8C2A6F7C1D6801000028F634 /* UIScrollView+Refresh.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		8C2A6F6D1D68006F0028F634 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F811D6801450028F634 /* Constants.h */,
+				8C2A6F9C1D6809830028F634 /* MFInfoPath.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		8C2A6F6E1D68006F0028F634 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F901D68058E0028F634 /* BaseModel.h */,
+				8C2A6F911D68058E0028F634 /* BaseModel.m */,
+				8C2A6F931D6805C70028F634 /* MFInfoModel.h */,
+				8C2A6F941D6805C70028F634 /* MFInfoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C2A6F6F1D68006F0028F634 /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F991D68095A0028F634 /* MFInfoNetManager.h */,
+				8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */,
+			);
+			path = NetManager;
+			sourceTree = "<group>";
+		};
+		8C2A6F701D68006F0028F634 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F3E1D67F8CA0028F634 /* Main.storyboard */,
+				8C2A6F441D67F8CA0028F634 /* Assets.xcassets */,
+				8C2A6F461D67F8CA0028F634 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C2A6F711D68006F0028F634 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F831D6802690028F634 /* iCarousel */,
+				8C2A6F861D6802690028F634 /* PSCollectionView */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		8C2A6F721D68006F0028F634 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C2A6F731D68006F0028F634 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8C2A6F741D68006F0028F634 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C2A6F831D6802690028F634 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F841D6802690028F634 /* iCarousel.h */,
+				8C2A6F851D6802690028F634 /* iCarousel.m */,
+			);
+			path = iCarousel;
+			sourceTree = "<group>";
+		};
+		8C2A6F861D6802690028F634 /* PSCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F871D6802690028F634 /* .gitignore */,
+				8C2A6F881D6802690028F634 /* PSCollectionView.h */,
+				8C2A6F891D6802690028F634 /* PSCollectionView.m */,
+				8C2A6F8A1D6802690028F634 /* PSCollectionViewCell.h */,
+				8C2A6F8B1D6802690028F634 /* PSCollectionViewCell.m */,
+			);
+			path = PSCollectionView;
+			sourceTree = "<group>";
+		};
+		AA81014BFDE7981FF535E469 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */,
+				1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */,
+				4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,9 +340,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C2A6F621D67F8CB0028F634 /* Build configuration list for PBXNativeTarget "MilitaryFan" */;
 			buildPhases = (
+				02D86947DC2E1139B6C35D05 /* [CP] Check Pods Manifest.lock */,
 				8C2A6F2E1D67F8CA0028F634 /* Sources */,
 				8C2A6F2F1D67F8CA0028F634 /* Frameworks */,
 				8C2A6F301D67F8CA0028F634 /* Resources */,
+				6363AB9753FF02AB3008F517 /* [CP] Embed Pods Frameworks */,
+				911EE8DD2E9033024C90F9DA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +360,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C2A6F651D67F8CB0028F634 /* Build configuration list for PBXNativeTarget "MilitaryFanTests" */;
 			buildPhases = (
+				A2F41A0670B5366D4F5F078C /* [CP] Check Pods Manifest.lock */,
 				8C2A6F4A1D67F8CA0028F634 /* Sources */,
 				8C2A6F4B1D67F8CA0028F634 /* Frameworks */,
 				8C2A6F4C1D67F8CA0028F634 /* Resources */,
+				2E39363C3683BC7E9F46A028 /* [CP] Embed Pods Frameworks */,
+				C6FEB98F5461AF36351B80E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +381,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C2A6F681D67F8CB0028F634 /* Build configuration list for PBXNativeTarget "MilitaryFanUITests" */;
 			buildPhases = (
+				2FE790C0766D306220B70B16 /* [CP] Check Pods Manifest.lock */,
 				8C2A6F551D67F8CA0028F634 /* Sources */,
 				8C2A6F561D67F8CA0028F634 /* Frameworks */,
 				8C2A6F571D67F8CA0028F634 /* Resources */,
+				C039CAA66C5DCDE4236ACD8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -249,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */,
@@ -271,15 +470,147 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02D86947DC2E1139B6C35D05 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2E39363C3683BC7E9F46A028 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FE790C0766D306220B70B16 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6363AB9753FF02AB3008F517 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911EE8DD2E9033024C90F9DA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2F41A0670B5366D4F5F078C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C039CAA66C5DCDE4236ACD8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MilitaryFanUITests/Pods-MilitaryFanUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6FEB98F5461AF36351B80E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8C2A6F2E1D67F8CA0028F634 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C2A6F7F1D6801000028F634 /* NSObject+ViewModel.m in Sources */,
+				8C2A6F7D1D6801000028F634 /* NSObject+AFNetworking.m in Sources */,
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
-				8C2A6F3D1D67F8CA0028F634 /* ViewController.m in Sources */,
+				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
+				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
+				8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */,
+				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
+				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
 				8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */,
+				8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */,
+				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
+				8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +652,7 @@
 				8C2A6F3F1D67F8CA0028F634 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		8C2A6F461D67F8CA0028F634 /* LaunchScreen.storyboard */ = {
@@ -329,6 +661,7 @@
 				8C2A6F471D67F8CA0028F634 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -420,8 +753,10 @@
 		};
 		8C2A6F631D67F8CB0028F634 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MilitaryFan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lemonade.MilitaryFan;
@@ -431,8 +766,10 @@
 		};
 		8C2A6F641D67F8CB0028F634 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MilitaryFan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lemonade.MilitaryFan;
@@ -442,6 +779,7 @@
 		};
 		8C2A6F661D67F8CB0028F634 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D020FC397F4E0454EA9A664 /* Pods-MilitaryFanTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MilitaryFanTests/Info.plist;
@@ -454,6 +792,7 @@
 		};
 		8C2A6F671D67F8CB0028F634 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E5B5C791D1448B6CF7BD3ED /* Pods-MilitaryFanTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = MilitaryFanTests/Info.plist;
@@ -466,6 +805,7 @@
 		};
 		8C2A6F691D67F8CB0028F634 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1832F944B7D21E168AFFABFC /* Pods-MilitaryFanUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MilitaryFanUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -477,6 +817,7 @@
 		};
 		8C2A6F6A1D67F8CB0028F634 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = MilitaryFanUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -505,6 +846,7 @@
 				8C2A6F641D67F8CB0028F634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C2A6F651D67F8CB0028F634 /* Build configuration list for PBXNativeTarget "MilitaryFanTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +855,7 @@
 				8C2A6F671D67F8CB0028F634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8C2A6F681D67F8CB0028F634 /* Build configuration list for PBXNativeTarget "MilitaryFanUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +864,7 @@
 				8C2A6F6A1D67F8CB0028F634 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
