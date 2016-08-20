@@ -17,9 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [MFInfoNetManager getMFInfoWithType:1 startPage:1 completionHandle:^(id model, NSError *error) {
-        NSLog(@"...");
-    }];
+//    [MFInfoNetManager getMFInfoWithType:1 currentPage:1 completionHandle:^(id model, NSError *error) {
+//        NSLog(@"...");
+//    }];
     
     
     

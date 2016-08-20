@@ -20,5 +20,5 @@ typedef NS_ENUM(NSUInteger, InfoType) {
 };
 
 @interface MFInfoNetManager : NSObject
-+ (id)getMFInfoWithType:(InfoType)infoType startPage:(NSInteger)startPage completionHandle:kCompletionHandleBlock
++ (id)getMFInfoWithType:(InfoType)infoType currentPage:(NSInteger)currentPage completionHandle:kCompletionHandleBlock
 @end

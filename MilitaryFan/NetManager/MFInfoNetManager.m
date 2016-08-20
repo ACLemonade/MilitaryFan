@@ -9,17 +9,17 @@
 #import "MFInfoNetManager.h"
 
 @implementation MFInfoNetManager
-+ (id)getMFInfoWithType:(InfoType)infoType startPage:(NSInteger)startPage completionHandle:(void (^)(id, NSError *))completionHandle{
++ (id)getMFInfoWithType:(InfoType)infoType currentPage:(NSInteger)currentPage completionHandle:(void (^)(id, NSError *))completionHandle{
     NSString *path = nil;
     switch (infoType) {
         case InfoTypeRecommend:
-            path = [NSString stringWithFormat:kRecommendPath, startPage];
+            path = [NSString stringWithFormat:kRecommendPath, currentPage];
             break;
             case InfoTypeRankList:
-            path = [NSString stringWithFormat:kRankListPath, startPage];
+            path = [NSString stringWithFormat:kRankListPath, currentPage];
             break;
             case InfoTypeTop:
-            path = [NSString stringWithFormat:kTopPath, startPage];
+            path = [NSString stringWithFormat:kTopPath, currentPage];
             break;
         default:
             break;
