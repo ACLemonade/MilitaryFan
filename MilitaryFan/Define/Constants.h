@@ -24,4 +24,10 @@
 #define WK(weakSelf) \
 __block __weak __typeof(&*self)weakSelf = self;\
 
+
+
+
+
+
+
 #endif /* Constants_h */

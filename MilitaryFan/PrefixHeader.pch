@@ -29,4 +29,6 @@
 
 #import <WMPageController.h>
 
+#import <BmobSDK/Bmob.h>
+
 #endif /* PrefixHeader_pch */

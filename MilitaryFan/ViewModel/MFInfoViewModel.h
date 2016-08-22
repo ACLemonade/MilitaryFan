@@ -11,25 +11,28 @@
 #import "NSObject+ViewModel.h"
 
 @interface MFInfoViewModel : NSObject
+
 /** UI部分 */
+//头部
 - (NSURL *)topIconURLForIndex:(NSInteger)index;
 - (NSString *)topTitleForIndex:(NSInteger)index;
-
+//主体
 - (NSURL *)itemIconURLForRow:(NSInteger)row;
 - (NSString *)itemTitleForRow:(NSInteger)row;
 - (NSString *)itemPubDateForRow:(NSInteger)row;
 - (NSString *)itemAuthorForRow:(NSInteger)row;
 
 /** 数据部分 */
+//头部
 @property (nonatomic) NSInteger topNumber;
 @property (nonatomic, getter=isHasTop) BOOL hasTop;
 @property (nonatomic) NSArray<MFSlideModel *> *topList;
 - (MFSlideModel *)topModelForIndex:(NSInteger)index;
-
+//主体
 @property (nonatomic) NSInteger itemNumber;
 @property (nonatomic) NSMutableArray<MFItemModel *> *itemList;
 - (MFItemModel *)itemModelForRow:(NSInteger)row;
-
+//全局
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) InfoType infoType;
 @property (nonatomic) NSInteger maxPage;
