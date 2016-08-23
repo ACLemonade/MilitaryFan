@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UIKit+AFNetworking.h>
 #import "MFInfoNetManager.h"
 @interface AppDelegate ()
 
@@ -16,11 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    [MFInfoNetManager getMFInfoWithType:1 currentPage:1 completionHandle:^(id model, NSError *error) {
-//        NSLog(@"...");
-//    }];
     
+    //电池条左上角wifi旁菊花标识
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     
     

@@ -22,6 +22,7 @@
 //每个item什么样子
 - (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index{
     MFInfoViewController *vc = [MFInfoViewController new];
+    vc.infoType = index;
     return vc;
 }
 //每个item的题目
@@ -56,6 +57,6 @@
     return self;
 }
 - (NSArray<NSString *> *)titles{
-    return @[@"推荐", @"排行榜", @"制高点"];
+    return @[@"推荐", @"排行榜", @"制高点", @"图片控", @"大视野", @"读点史", @"流媒体"];
 }
 @end

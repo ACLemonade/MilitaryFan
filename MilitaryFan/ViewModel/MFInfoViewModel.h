@@ -18,6 +18,7 @@
 - (NSString *)topTitleForIndex:(NSInteger)index;
 //主体
 - (NSURL *)itemIconURLForRow:(NSInteger)row;
+- (NSArray<NSURL *> *)itemIconURLsForRow:(NSInteger)row;
 - (NSString *)itemTitleForRow:(NSInteger)row;
 - (NSString *)itemPubDateForRow:(NSInteger)row;
 - (NSString *)itemAuthorForRow:(NSInteger)row;
@@ -32,10 +33,16 @@
 @property (nonatomic) NSInteger itemNumber;
 @property (nonatomic) NSMutableArray<MFItemModel *> *itemList;
 - (MFItemModel *)itemModelForRow:(NSInteger)row;
+
+- (NSString *)itemAidForRow:(NSInteger)row;
+- (NSString *)itemCategoryForRow:(NSInteger)row;
 //全局
 @property (nonatomic) NSInteger currentPage;
 @property (nonatomic) InfoType infoType;
 @property (nonatomic) NSInteger maxPage;
 - (instancetype)initWithInfoType:(InfoType)infoType;
 
+
+//判断哪种cell
+- (NSInteger)indexOfCellForRow:(NSInteger)row;
 @end

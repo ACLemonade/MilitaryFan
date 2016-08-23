@@ -21,11 +21,29 @@
             case InfoTypeTop:
             path = [NSString stringWithFormat:kTopPath, currentPage];
             break;
+            case InfoTypePicture:
+            path = [NSString stringWithFormat:kPicturePath, currentPage];
+            break;
+            case InfoTypeBigWide:
+            path = [NSString stringWithFormat:kBigWidePath, currentPage];
+            break;
+            case InfoTypeHistory:
+            path = [NSString stringWithFormat:kHistoryPath, currentPage];
+            break;
+            case InfoTypeVideo:
+            path = [NSString stringWithFormat:kVideoPath, currentPage];
+            break;
         default:
             break;
     }
     return [self GET:path parameters:nil progress:nil completionHandle:^(id responseObj, NSError *error) {
         completionHandle([MFInfoModel parse:responseObj], error);
+    }];
+}
++ (id)getDetailWithAid:(NSString *)aid detailType:(NSInteger)detailType completionHandle:(void (^)(id, NSError *))completionHandle{
+    NSString *path = [NSString stringWithFormat:kDetailPath, aid, detailType];
+    return [self GET:path parameters:nil progress:nil completionHandle:^(id responseObj, NSError *error) {
+        completionHandle([MFDetailModel parse:responseObj], error);
     }];
 }
 @end

@@ -15,6 +15,14 @@
 #define kRankListPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=rank_list&maxid=0&page=%ld"
 //制高点
 #define kTopPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=fenghuo&maxid=0&page=%ld"
+//图片控
+#define kPicturePath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=tuwen&maxid=0&page=%ld"
+//大视野
+#define kBigWidePath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=2&maxid=0&page=%ld"
+//读点史
+#define kHistoryPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=6&maxid=0&page=%ld"
+//流媒体
+#define kVideoPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=video&maxid=0&page=%ld"
 //详情页
 #define kDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=%ld"
 

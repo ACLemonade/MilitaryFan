@@ -28,12 +28,15 @@
 		8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F941D6805C70028F634 /* MFInfoModel.m */; };
 		8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */; };
 		8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */; };
+		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
+		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
+		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
-		8CC9543F1D6840B10022F157 /* ThreePicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* ThreePicCell.m */; };
-		8CC954401D6840B10022F157 /* ThreePicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC9543E1D6840B10022F157 /* ThreePicCell.xib */; };
-		8CC954441D6840C40022F157 /* BigPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954421D6840C40022F157 /* BigPicCell.m */; };
-		8CC954451D6840C40022F157 /* BigPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954431D6840C40022F157 /* BigPicCell.xib */; };
+		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
+		8CC954401D6840B10022F157 /* RankListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC9543E1D6840B10022F157 /* RankListCell.xib */; };
+		8CC954441D6840C40022F157 /* TopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954421D6840C40022F157 /* TopCell.m */; };
+		8CC954451D6840C40022F157 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954431D6840C40022F157 /* TopCell.xib */; };
 		8CC954481D6850190022F157 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954471D6850190022F157 /* PageController.m */; };
 		8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9544A1D68522E0022F157 /* MFInfoViewController.m */; };
 		D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */; };
@@ -105,15 +108,21 @@
 		8C2A6F9C1D6809830028F634 /* MFInfoPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFInfoPath.h; sourceTree = "<group>"; };
 		8C2A6F9D1D682F5C0028F634 /* MFInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewModel.h; sourceTree = "<group>"; };
 		8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewModel.m; sourceTree = "<group>"; };
+		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
+		8C9304B01D6BE82E00F9182D /* MFDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailModel.m; sourceTree = "<group>"; };
+		8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailViewModel.h; sourceTree = "<group>"; };
+		8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailViewModel.m; sourceTree = "<group>"; };
+		8C9304B51D6BEEB000F9182D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		8C9304B61D6BEEB000F9182D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
-		8CC9543C1D6840B10022F157 /* ThreePicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreePicCell.h; sourceTree = "<group>"; };
-		8CC9543D1D6840B10022F157 /* ThreePicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreePicCell.m; sourceTree = "<group>"; };
-		8CC9543E1D6840B10022F157 /* ThreePicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThreePicCell.xib; sourceTree = "<group>"; };
-		8CC954411D6840C40022F157 /* BigPicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BigPicCell.h; sourceTree = "<group>"; };
-		8CC954421D6840C40022F157 /* BigPicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BigPicCell.m; sourceTree = "<group>"; };
-		8CC954431D6840C40022F157 /* BigPicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BigPicCell.xib; sourceTree = "<group>"; };
+		8CC9543C1D6840B10022F157 /* RankListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankListCell.h; sourceTree = "<group>"; };
+		8CC9543D1D6840B10022F157 /* RankListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankListCell.m; sourceTree = "<group>"; };
+		8CC9543E1D6840B10022F157 /* RankListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankListCell.xib; sourceTree = "<group>"; };
+		8CC954411D6840C40022F157 /* TopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCell.h; sourceTree = "<group>"; };
+		8CC954421D6840C40022F157 /* TopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCell.m; sourceTree = "<group>"; };
+		8CC954431D6840C40022F157 /* TopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCell.xib; sourceTree = "<group>"; };
 		8CC954461D6850190022F157 /* PageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageController.h; sourceTree = "<group>"; };
 		8CC954471D6850190022F157 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		8CC954491D68522E0022F157 /* MFInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewController.h; sourceTree = "<group>"; };
@@ -273,6 +282,8 @@
 				8C2A6F911D68058E0028F634 /* BaseModel.m */,
 				8C2A6F931D6805C70028F634 /* MFInfoModel.h */,
 				8C2A6F941D6805C70028F634 /* MFInfoModel.m */,
+				8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */,
+				8C9304B01D6BE82E00F9182D /* MFDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,12 +322,12 @@
 				8CC954371D68406B0022F157 /* NormalCell.h */,
 				8CC954381D68406B0022F157 /* NormalCell.m */,
 				8CC954391D68406B0022F157 /* NormalCell.xib */,
-				8CC9543C1D6840B10022F157 /* ThreePicCell.h */,
-				8CC9543D1D6840B10022F157 /* ThreePicCell.m */,
-				8CC9543E1D6840B10022F157 /* ThreePicCell.xib */,
-				8CC954411D6840C40022F157 /* BigPicCell.h */,
-				8CC954421D6840C40022F157 /* BigPicCell.m */,
-				8CC954431D6840C40022F157 /* BigPicCell.xib */,
+				8CC9543C1D6840B10022F157 /* RankListCell.h */,
+				8CC9543D1D6840B10022F157 /* RankListCell.m */,
+				8CC9543E1D6840B10022F157 /* RankListCell.xib */,
+				8CC954411D6840C40022F157 /* TopCell.h */,
+				8CC954421D6840C40022F157 /* TopCell.m */,
+				8CC954431D6840C40022F157 /* TopCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +339,8 @@
 				8CC954471D6850190022F157 /* PageController.m */,
 				8CC954491D68522E0022F157 /* MFInfoViewController.h */,
 				8CC9544A1D68522E0022F157 /* MFInfoViewController.m */,
+				8C9304B51D6BEEB000F9182D /* DetailViewController.h */,
+				8C9304B61D6BEEB000F9182D /* DetailViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -337,6 +350,8 @@
 			children = (
 				8C2A6F9D1D682F5C0028F634 /* MFInfoViewModel.h */,
 				8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */,
+				8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */,
+				8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -487,9 +502,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
-				8CC954401D6840B10022F157 /* ThreePicCell.xib in Resources */,
+				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
-				8CC954451D6840C40022F157 /* BigPicCell.xib in Resources */,
+				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
@@ -647,16 +662,19 @@
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,
+				8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */,
 				8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */,
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
+				8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */,
 				8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */,
 				8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */,
+				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
-				8CC9543F1D6840B10022F157 /* ThreePicCell.m in Sources */,
+				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
-				8CC954441D6840C40022F157 /* BigPicCell.m in Sources */,
+				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
 				8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */,
 			);

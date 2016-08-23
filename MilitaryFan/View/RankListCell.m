@@ -1,14 +1,14 @@
 //
-//  BigPicCell.m
+//  ThreePicCell.m
 //  MilitaryFan
 //
 //  Created by Lemonade on 16/8/20.
 //  Copyright © 2016年 Lemonade. All rights reserved.
 //
 
-#import "BigPicCell.h"
+#import "RankListCell.h"
 
-@implementation BigPicCell
+@implementation RankListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

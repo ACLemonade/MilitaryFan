@@ -1,5 +1,5 @@
 //
-//  BigPicCell.h
+//  ThreePicCell.h
 //  MilitaryFan
 //
 //  Created by Lemonade on 16/8/20.
@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BigPicCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *iconIV;
+@interface RankListCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLb;
-@property (weak, nonatomic) IBOutlet UILabel *authorLb;
+@property (weak, nonatomic) IBOutlet UIImageView *iconIV_0;
+@property (weak, nonatomic) IBOutlet UIImageView *iconIV_1;
+@property (weak, nonatomic) IBOutlet UIImageView *iconIV_2;
 @property (weak, nonatomic) IBOutlet UILabel *pubDateLb;
 
 @end

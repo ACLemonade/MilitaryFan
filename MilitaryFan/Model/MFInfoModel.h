@@ -7,7 +7,6 @@
 //
 
 #import "BaseModel.h"
-#import "NSObject+MJExtension.h"
 
 @class MFDataModel,MFTitleModel,MFNavModel,MFSlideModel,MFItemModel;
 @interface MFInfoModel : BaseModel

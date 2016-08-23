@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MFInfoViewModel.h"
 
 @interface MFInfoViewController : UIViewController
-
+@property (nonatomic) InfoType infoType;
 @end
