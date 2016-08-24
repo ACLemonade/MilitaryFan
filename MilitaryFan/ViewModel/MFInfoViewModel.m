@@ -102,6 +102,9 @@
     if ([category isEqualToString:@"制高点"]){
         return 2;
     }
+    if ([category isEqualToString:@"图片控"]) {
+        return 3;
+    }
     //大视野
     if ([category isEqualToString:@"大视野"]) {
         return 0;
@@ -115,7 +118,7 @@
         return 2;
     }
     //推广
-    return 3;
+    return 4;
 }
 
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{

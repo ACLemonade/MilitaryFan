@@ -31,6 +31,14 @@
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
 		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
+		8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304BC1D6C1F1D00F9182D /* PicCell.m */; };
+		8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9304BD1D6C1F1D00F9182D /* PicCell.xib */; };
+		8C9304CC1D6C449100F9182D /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */; };
+		8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304D41D6C72BF00F9182D /* SettingsViewController.m */; };
+		8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304D71D6C74EE00F9182D /* VideoViewController.m */; };
+		8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E71D6D2DAE00F9182D /* MFVideoModel.m */; };
+		8C9304EB1D6D2EAF00F9182D /* MFVideoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */; };
+		8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
 		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
@@ -114,6 +122,21 @@
 		8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailViewModel.m; sourceTree = "<group>"; };
 		8C9304B51D6BEEB000F9182D /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		8C9304B61D6BEEB000F9182D /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		8C9304BB1D6C1F1D00F9182D /* PicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicCell.h; sourceTree = "<group>"; };
+		8C9304BC1D6C1F1D00F9182D /* PicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicCell.m; sourceTree = "<group>"; };
+		8C9304BD1D6C1F1D00F9182D /* PicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PicCell.xib; sourceTree = "<group>"; };
+		8C9304C91D6C449100F9182D /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = ViewController/LeftMenuViewController.h; sourceTree = "<group>"; };
+		8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuViewController.m; path = ViewController/LeftMenuViewController.m; sourceTree = "<group>"; };
+		8C9304D31D6C72BF00F9182D /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ViewController/SettingsViewController.h; sourceTree = "<group>"; };
+		8C9304D41D6C72BF00F9182D /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ViewController/SettingsViewController.m; sourceTree = "<group>"; };
+		8C9304D61D6C74EE00F9182D /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoViewController.h; path = ViewController/VideoViewController.h; sourceTree = "<group>"; };
+		8C9304D71D6C74EE00F9182D /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoViewController.m; path = ViewController/VideoViewController.m; sourceTree = "<group>"; };
+		8C9304E61D6D2DAE00F9182D /* MFVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoModel.h; sourceTree = "<group>"; };
+		8C9304E71D6D2DAE00F9182D /* MFVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoModel.m; sourceTree = "<group>"; };
+		8C9304E91D6D2EAF00F9182D /* MFVideoNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoNetManager.h; sourceTree = "<group>"; };
+		8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoNetManager.m; sourceTree = "<group>"; };
+		8C9304EC1D6D322900F9182D /* MFVideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoViewModel.h; sourceTree = "<group>"; };
+		8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoViewModel.m; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -177,6 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				8C2A6F341D67F8CA0028F634 /* MilitaryFan */,
+				8C2A6F6C1D68006F0028F634 /* Category */,
+				8C2A6F6D1D68006F0028F634 /* Define */,
+				8C2A6F701D68006F0028F634 /* Resources */,
+				8C2A6F351D67F8CA0028F634 /* Supporting Files */,
 				8C2A6F511D67F8CA0028F634 /* MilitaryFanTests */,
 				8C2A6F5C1D67F8CA0028F634 /* MilitaryFanUITests */,
 				8C2A6F331D67F8CA0028F634 /* Products */,
@@ -200,17 +227,10 @@
 			children = (
 				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
 				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
-				8C2A6F6B1D68006F0028F634 /* CacheManager */,
-				8C2A6F6C1D68006F0028F634 /* Category */,
-				8C2A6F6D1D68006F0028F634 /* Define */,
-				8C2A6F6E1D68006F0028F634 /* Model */,
-				8C2A6F6F1D68006F0028F634 /* NetManager */,
-				8C2A6F701D68006F0028F634 /* Resources */,
-				8C2A6F711D68006F0028F634 /* Vendor */,
-				8C2A6F721D68006F0028F634 /* View */,
-				8C2A6F731D68006F0028F634 /* ViewController */,
-				8C2A6F741D68006F0028F634 /* ViewModel */,
-				8C2A6F351D67F8CA0028F634 /* Supporting Files */,
+				8C9304E21D6C777600F9182D /* 我的 */,
+				8C9304DA1D6C762C00F9182D /* 视频 */,
+				8C9304DB1D6C763900F9182D /* 设置 */,
+				8C9304D91D6C762200F9182D /* 资讯 */,
 			);
 			path = MilitaryFan;
 			sourceTree = "<group>";
@@ -224,6 +244,7 @@
 				8C2A6F361D67F8CA0028F634 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = MilitaryFan;
 			sourceTree = "<group>";
 		};
 		8C2A6F511D67F8CA0028F634 /* MilitaryFanTests */ = {
@@ -263,7 +284,8 @@
 				8C2A6F7B1D6801000028F634 /* UIScrollView+Refresh.h */,
 				8C2A6F7C1D6801000028F634 /* UIScrollView+Refresh.m */,
 			);
-			path = Category;
+			name = Category;
+			path = MilitaryFan/Category;
 			sourceTree = "<group>";
 		};
 		8C2A6F6D1D68006F0028F634 /* Define */ = {
@@ -272,7 +294,8 @@
 				8C2A6F811D6801450028F634 /* Constants.h */,
 				8C2A6F9C1D6809830028F634 /* MFInfoPath.h */,
 			);
-			path = Define;
+			name = Define;
+			path = MilitaryFan/Define;
 			sourceTree = "<group>";
 		};
 		8C2A6F6E1D68006F0028F634 /* Model */ = {
@@ -304,7 +327,8 @@
 				8C2A6F441D67F8CA0028F634 /* Assets.xcassets */,
 				8C2A6F461D67F8CA0028F634 /* LaunchScreen.storyboard */,
 			);
-			path = Resources;
+			name = Resources;
+			path = MilitaryFan/Resources;
 			sourceTree = "<group>";
 		};
 		8C2A6F711D68006F0028F634 /* Vendor */ = {
@@ -328,6 +352,9 @@
 				8CC954411D6840C40022F157 /* TopCell.h */,
 				8CC954421D6840C40022F157 /* TopCell.m */,
 				8CC954431D6840C40022F157 /* TopCell.xib */,
+				8C9304BB1D6C1F1D00F9182D /* PicCell.h */,
+				8C9304BC1D6C1F1D00F9182D /* PicCell.m */,
+				8C9304BD1D6C1F1D00F9182D /* PicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -375,6 +402,101 @@
 				8C2A6F8B1D6802690028F634 /* PSCollectionViewCell.m */,
 			);
 			path = PSCollectionView;
+			sourceTree = "<group>";
+		};
+		8C9304D91D6C762200F9182D /* 资讯 */ = {
+			isa = PBXGroup;
+			children = (
+				8C2A6F6E1D68006F0028F634 /* Model */,
+				8C2A6F711D68006F0028F634 /* Vendor */,
+				8C2A6F721D68006F0028F634 /* View */,
+				8C2A6F731D68006F0028F634 /* ViewController */,
+				8C2A6F741D68006F0028F634 /* ViewModel */,
+				8C2A6F6B1D68006F0028F634 /* CacheManager */,
+				8C2A6F6F1D68006F0028F634 /* NetManager */,
+			);
+			name = "资讯";
+			sourceTree = "<group>";
+		};
+		8C9304DA1D6C762C00F9182D /* 视频 */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304DD1D6C76C700F9182D /* Model */,
+				8C9304DE1D6C76CE00F9182D /* NetManager */,
+				8C9304E01D6C76E100F9182D /* View */,
+				8C9304DF1D6C76D800F9182D /* ViewModel */,
+				8C9304DC1D6C76B100F9182D /* ViewController */,
+			);
+			name = "视频";
+			sourceTree = "<group>";
+		};
+		8C9304DB1D6C763900F9182D /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304E11D6C76FA00F9182D /* ViewController */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		8C9304DC1D6C76B100F9182D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304D61D6C74EE00F9182D /* VideoViewController.h */,
+				8C9304D71D6C74EE00F9182D /* VideoViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8C9304DD1D6C76C700F9182D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304E61D6D2DAE00F9182D /* MFVideoModel.h */,
+				8C9304E71D6D2DAE00F9182D /* MFVideoModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8C9304DE1D6C76CE00F9182D /* NetManager */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304E91D6D2EAF00F9182D /* MFVideoNetManager.h */,
+				8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */,
+			);
+			name = NetManager;
+			sourceTree = "<group>";
+		};
+		8C9304DF1D6C76D800F9182D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304EC1D6D322900F9182D /* MFVideoViewModel.h */,
+				8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C9304E01D6C76E100F9182D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8C9304E11D6C76FA00F9182D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304D31D6C72BF00F9182D /* SettingsViewController.h */,
+				8C9304D41D6C72BF00F9182D /* SettingsViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8C9304E21D6C777600F9182D /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304C91D6C449100F9182D /* LeftMenuViewController.h */,
+				8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */,
+			);
+			name = "我的";
 			sourceTree = "<group>";
 		};
 		AA81014BFDE7981FF535E469 /* Frameworks */ = {
@@ -501,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
@@ -658,12 +781,16 @@
 				8C2A6F7F1D6801000028F634 /* NSObject+ViewModel.m in Sources */,
 				8C2A6F7D1D6801000028F634 /* NSObject+AFNetworking.m in Sources */,
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
+				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
+				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,
 				8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */,
 				8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */,
+				8C9304EB1D6D2EAF00F9182D /* MFVideoNetManager.m in Sources */,
+				8C9304CC1D6C449100F9182D /* LeftMenuViewController.m in Sources */,
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
@@ -674,8 +801,11 @@
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
+				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
+				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
+				8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */,
 				8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

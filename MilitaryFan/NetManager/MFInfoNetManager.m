@@ -30,9 +30,6 @@
             case InfoTypeHistory:
             path = [NSString stringWithFormat:kHistoryPath, currentPage];
             break;
-            case InfoTypeVideo:
-            path = [NSString stringWithFormat:kVideoPath, currentPage];
-            break;
         default:
             break;
     }

@@ -20,8 +20,7 @@ typedef NS_ENUM(NSUInteger, InfoType) {
     InfoTypeTop,
     InfoTypePicture,
     InfoTypeBigWide,
-    InfoTypeHistory,
-    InfoTypeVideo
+    InfoTypeHistory
 };
 
 @interface MFInfoNetManager : NSObject

@@ -9,20 +9,54 @@
 #import "AppDelegate.h"
 #import <UIKit+AFNetworking.h>
 #import "MFInfoNetManager.h"
+
+#import "PageController.h"
+#import "LeftMenuViewController.h"
+#import "VideoViewController.h"
+#import "SettingsViewController.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
-
+#pragma mark - 懒加载 Lazy Load
+-(UIWindow *)window{
+    if (_window == nil) {
+        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        [_window makeKeyAndVisible];
+    }
+    return _window;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tab = [[UITabBarController alloc] init];
+    
+    PageController *pageVC = [PageController new];
+    VideoViewController *videoVC = [VideoViewController new];
+    SettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+    
+    UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
+    UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
+    UINavigationController *settingsNavi = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    
+    pageNavi.tabBarItem.title = @"资讯";
+    videoNavi.tabBarItem.title = @"视频";
+    settingsNavi.tabBarItem.title = @"设置";
+    
+    tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
+    
+    [UINavigationBar appearance].translucent = NO;
+    
+    LeftMenuViewController *leftVC = [LeftMenuViewController new];
+    
+    RESideMenu *sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
+    self.window.rootViewController = sideMenuVC;
+    
     //电池条左上角wifi旁菊花标识
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-    
-    
     return YES;
 }
 

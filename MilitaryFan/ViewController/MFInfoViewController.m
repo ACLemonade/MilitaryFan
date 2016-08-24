@@ -8,9 +8,12 @@
 
 #import "MFInfoViewController.h"
 #import "DetailViewController.h"
+
 #import "TopCell.h"
 #import "NormalCell.h"
 #import "RankListCell.h"
+#import "PicCell.h"
+
 #import <UIKit+AFNetworking.h>
 #import "UIScrollView+Refresh.h"
 #import "iCarousel.h"
@@ -103,6 +106,21 @@
             return cell;
             break;
         }
+        case 3:
+        {
+            PicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PicCell" forIndexPath:indexPath];
+            NSArray<NSURL *> *imgArr = [self.infoVM itemIconURLsForRow:row];
+            [cell.iconIV_0 setImageWithURL:imgArr[0]];
+            cell.iconIV_0.layer.cornerRadius = 3;
+            [cell.iconIV_1 setImageWithURL:imgArr[1]];
+            cell.iconIV_1.layer.cornerRadius = 3;
+            [cell.iconIV_2 setImageWithURL:imgArr[2]];
+            cell.iconIV_2.layer.cornerRadius = 3;
+            cell.titleLb.text = [self.infoVM itemTitleForRow:row];
+            cell.pubDateLb.text = [self.infoVM itemPubDateForRow:row];
+            return cell;
+            break;
+        }
         default:
             return [UITableViewCell new];
             break;
@@ -122,6 +140,9 @@
             break;
         case 2:
             return 240;
+            break;
+        case 3:
+            return 272;
             break;
         default:
             return 103;
@@ -225,6 +246,7 @@
         [_tableView registerNib:[UINib nibWithNibName:@"NormalCell" bundle:nil] forCellReuseIdentifier:@"NormalCell"];
         [_tableView registerNib:[UINib nibWithNibName:@"RankListCell" bundle:nil] forCellReuseIdentifier:@"RankListCell"];
         [_tableView registerNib:[UINib nibWithNibName:@"TopCell" bundle:nil] forCellReuseIdentifier:@"TopCell"];
+        [_tableView registerNib:[UINib nibWithNibName:@"PicCell" bundle:nil] forCellReuseIdentifier:@"PicCell"];
         
 	}
 	return _tableView;

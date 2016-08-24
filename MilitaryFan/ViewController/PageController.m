@@ -29,11 +29,15 @@
 - (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index{
     return [self.titles objectAtIndex:index];
 }
-
+#pragma mark - 方法 Methods
+- (void)segueLeft{
+    [self.sideMenuViewController presentLeftMenuViewController];
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(segueLeft)];
+    self.navigationItem.leftBarButtonItem = leftBtn;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,6 +61,6 @@
     return self;
 }
 - (NSArray<NSString *> *)titles{
-    return @[@"推荐", @"排行榜", @"制高点", @"图片控", @"大视野", @"读点史", @"流媒体"];
+    return @[@"推荐", @"排行榜", @"制高点", @"图片控", @"大视野", @"读点史"];
 }
 @end
