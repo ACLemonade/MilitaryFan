@@ -7,6 +7,7 @@
 //
 
 #import "VideoViewController.h"
+#import "VideoDetailViewController.h"
 #import "MFVideoViewModel.h"
 #import <UIKit+AFNetworking.h>
 #import "UIScrollView+Refresh.h"
@@ -34,6 +35,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 272;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    VideoDetailViewController *detailVC = [[VideoDetailViewController alloc] initWithAid:[self.videoVM aidForRow:indexPath.row]];
+    detailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //左侧分割线留白
     cell.separatorInset = UIEdgeInsetsZero;
@@ -44,6 +52,8 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
         [weakSelf.videoVM getDataWithMode:RequestRefresh completionHandle:^(NSError *error) {

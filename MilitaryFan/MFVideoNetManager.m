@@ -15,4 +15,10 @@
         completionHandle([MFVideoModel parse:responseObj], error);
     }];
 }
++ (id)getMFVideoDetailWithAid:(NSString *)aid completionHandle:(void (^)(id, NSError *))completionHandle{
+    NSString *path = [NSString stringWithFormat:kVideoDetailPath, aid];
+    return [self GET:path parameters:nil progress:nil completionHandle:^(id responseObj, NSError *error) {
+        completionHandle([MFVideoDetailModel parse:responseObj], error);
+    }];
+}
 @end

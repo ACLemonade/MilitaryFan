@@ -39,6 +39,9 @@
 - (NSString *)pubDateForRow:(NSInteger)row{
     return [self modelForRow:row].pubDate;
 }
+- (NSString *)aidForRow:(NSInteger)row{
+    return [self modelForRow:row].aid;
+}
 
 - (MFVideoItemModel *)modelForRow:(NSInteger)row{
     return [self.itemList objectAtIndex:row];

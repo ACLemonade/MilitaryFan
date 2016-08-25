@@ -22,4 +22,5 @@
 @property (nonatomic) NSMutableArray<MFVideoItemModel *> *itemList;
 
 @property (nonatomic) NSInteger currentPage;
+- (NSString *)aidForRow:(NSInteger)row;
 @end

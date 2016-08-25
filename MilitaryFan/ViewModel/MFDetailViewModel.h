@@ -11,9 +11,21 @@
 #import "NSObject+ViewModel.h"
 
 @interface MFDetailViewModel : NSObject
+/** UI部分 */
+/** 头部 */
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *pubDate;
+@property (nonatomic) NSString *author;
+@property (nonatomic) NSString *click;
+/** 内容 */
+//图片数组
+@property (nonatomic) NSArray *pics;
+//文章数组
+@property (nonatomic) NSArray<NSString *> *content;
+
+/** 数据部分 */
 @property (nonatomic) NSString *aid;
 @property (nonatomic) NSInteger detailType;
-@property (nonatomic) NSURL *linkURL;
 - (instancetype)initWithAid:(NSString *)aid detailType:(NSInteger)detailType;
 @property (nonatomic) MFDetailDataModel *model;
 @end

@@ -39,6 +39,18 @@
 		8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E71D6D2DAE00F9182D /* MFVideoModel.m */; };
 		8C9304EB1D6D2EAF00F9182D /* MFVideoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */; };
 		8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */; };
+		8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304F01D6D416700F9182D /* VideoDetailViewController.m */; };
+		8C9304F51D6D481C00F9182D /* VideoDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */; };
+		8C9304F61D6D481C00F9182D /* VideoDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */; };
+		8C9305021D6D499C00F9182D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305011D6D499C00F9182D /* Factory.m */; };
+		8C9305061D6D791800F9182D /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305041D6D791800F9182D /* ShareCell.m */; };
+		8C9305071D6D791800F9182D /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9305051D6D791800F9182D /* ShareCell.xib */; };
+		8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305091D6D90D600F9182D /* MFVideoDetailViewModel.m */; };
+		8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C93050C1D6D953000F9182D /* MFVideoDetailModel.m */; };
+		8C93056D1D6DC92100F9182D /* DetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C93056B1D6DC92100F9182D /* DetailHeaderCell.m */; };
+		8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C93056C1D6DC92100F9182D /* DetailHeaderCell.xib */; };
+		8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305701D6DCB5400F9182D /* DetailLikeCell.m */; };
+		8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
 		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
@@ -137,6 +149,26 @@
 		8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoNetManager.m; sourceTree = "<group>"; };
 		8C9304EC1D6D322900F9182D /* MFVideoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoViewModel.h; sourceTree = "<group>"; };
 		8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoViewModel.m; sourceTree = "<group>"; };
+		8C9304EF1D6D416700F9182D /* VideoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailViewController.h; sourceTree = "<group>"; };
+		8C9304F01D6D416700F9182D /* VideoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailViewController.m; sourceTree = "<group>"; };
+		8C9304F21D6D481C00F9182D /* VideoDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailHeaderCell.h; sourceTree = "<group>"; };
+		8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailHeaderCell.m; sourceTree = "<group>"; };
+		8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoDetailHeaderCell.xib; sourceTree = "<group>"; };
+		8C9305001D6D499C00F9182D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
+		8C9305011D6D499C00F9182D /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
+		8C9305031D6D791800F9182D /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
+		8C9305041D6D791800F9182D /* ShareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareCell.m; sourceTree = "<group>"; };
+		8C9305051D6D791800F9182D /* ShareCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareCell.xib; sourceTree = "<group>"; };
+		8C9305081D6D90D600F9182D /* MFVideoDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoDetailViewModel.h; sourceTree = "<group>"; };
+		8C9305091D6D90D600F9182D /* MFVideoDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoDetailViewModel.m; sourceTree = "<group>"; };
+		8C93050B1D6D953000F9182D /* MFVideoDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFVideoDetailModel.h; sourceTree = "<group>"; };
+		8C93050C1D6D953000F9182D /* MFVideoDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoDetailModel.m; sourceTree = "<group>"; };
+		8C93056A1D6DC92100F9182D /* DetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailHeaderCell.h; sourceTree = "<group>"; };
+		8C93056B1D6DC92100F9182D /* DetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailHeaderCell.m; sourceTree = "<group>"; };
+		8C93056C1D6DC92100F9182D /* DetailHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailHeaderCell.xib; sourceTree = "<group>"; };
+		8C93056F1D6DCB5400F9182D /* DetailLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLikeCell.h; sourceTree = "<group>"; };
+		8C9305701D6DCB5400F9182D /* DetailLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLikeCell.m; sourceTree = "<group>"; };
+		8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLikeCell.xib; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -200,7 +232,9 @@
 			isa = PBXGroup;
 			children = (
 				8C2A6F341D67F8CA0028F634 /* MilitaryFan */,
+				8C2A6F711D68006F0028F634 /* Vendor */,
 				8C2A6F6C1D68006F0028F634 /* Category */,
+				8C9304FF1D6D498000F9182D /* Tools */,
 				8C2A6F6D1D68006F0028F634 /* Define */,
 				8C2A6F701D68006F0028F634 /* Resources */,
 				8C2A6F351D67F8CA0028F634 /* Supporting Files */,
@@ -337,24 +371,15 @@
 				8C2A6F831D6802690028F634 /* iCarousel */,
 				8C2A6F861D6802690028F634 /* PSCollectionView */,
 			);
-			path = Vendor;
+			name = Vendor;
+			path = MilitaryFan/Vendor;
 			sourceTree = "<group>";
 		};
 		8C2A6F721D68006F0028F634 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8CC954371D68406B0022F157 /* NormalCell.h */,
-				8CC954381D68406B0022F157 /* NormalCell.m */,
-				8CC954391D68406B0022F157 /* NormalCell.xib */,
-				8CC9543C1D6840B10022F157 /* RankListCell.h */,
-				8CC9543D1D6840B10022F157 /* RankListCell.m */,
-				8CC9543E1D6840B10022F157 /* RankListCell.xib */,
-				8CC954411D6840C40022F157 /* TopCell.h */,
-				8CC954421D6840C40022F157 /* TopCell.m */,
-				8CC954431D6840C40022F157 /* TopCell.xib */,
-				8C9304BB1D6C1F1D00F9182D /* PicCell.h */,
-				8C9304BC1D6C1F1D00F9182D /* PicCell.m */,
-				8C9304BD1D6C1F1D00F9182D /* PicCell.xib */,
+				8C9305741D6DCE6600F9182D /* NewsView */,
+				8C9305751D6DCE8200F9182D /* DetailView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -408,7 +433,6 @@
 			isa = PBXGroup;
 			children = (
 				8C2A6F6E1D68006F0028F634 /* Model */,
-				8C2A6F711D68006F0028F634 /* Vendor */,
 				8C2A6F721D68006F0028F634 /* View */,
 				8C2A6F731D68006F0028F634 /* ViewController */,
 				8C2A6F741D68006F0028F634 /* ViewModel */,
@@ -443,6 +467,8 @@
 			children = (
 				8C9304D61D6C74EE00F9182D /* VideoViewController.h */,
 				8C9304D71D6C74EE00F9182D /* VideoViewController.m */,
+				8C9304EF1D6D416700F9182D /* VideoDetailViewController.h */,
+				8C9304F01D6D416700F9182D /* VideoDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -452,6 +478,8 @@
 			children = (
 				8C9304E61D6D2DAE00F9182D /* MFVideoModel.h */,
 				8C9304E71D6D2DAE00F9182D /* MFVideoModel.m */,
+				8C93050B1D6D953000F9182D /* MFVideoDetailModel.h */,
+				8C93050C1D6D953000F9182D /* MFVideoDetailModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -470,6 +498,8 @@
 			children = (
 				8C9304EC1D6D322900F9182D /* MFVideoViewModel.h */,
 				8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */,
+				8C9305081D6D90D600F9182D /* MFVideoDetailViewModel.h */,
+				8C9305091D6D90D600F9182D /* MFVideoDetailViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -477,6 +507,12 @@
 		8C9304E01D6C76E100F9182D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C9304F21D6D481C00F9182D /* VideoDetailHeaderCell.h */,
+				8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */,
+				8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */,
+				8C9305031D6D791800F9182D /* ShareCell.h */,
+				8C9305041D6D791800F9182D /* ShareCell.m */,
+				8C9305051D6D791800F9182D /* ShareCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -497,6 +533,48 @@
 				8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */,
 			);
 			name = "我的";
+			sourceTree = "<group>";
+		};
+		8C9304FF1D6D498000F9182D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				8C9305001D6D499C00F9182D /* Factory.h */,
+				8C9305011D6D499C00F9182D /* Factory.m */,
+			);
+			name = Tools;
+			path = MilitaryFan/Define;
+			sourceTree = "<group>";
+		};
+		8C9305741D6DCE6600F9182D /* NewsView */ = {
+			isa = PBXGroup;
+			children = (
+				8CC954371D68406B0022F157 /* NormalCell.h */,
+				8CC954381D68406B0022F157 /* NormalCell.m */,
+				8CC954391D68406B0022F157 /* NormalCell.xib */,
+				8CC9543C1D6840B10022F157 /* RankListCell.h */,
+				8CC9543D1D6840B10022F157 /* RankListCell.m */,
+				8CC9543E1D6840B10022F157 /* RankListCell.xib */,
+				8CC954411D6840C40022F157 /* TopCell.h */,
+				8CC954421D6840C40022F157 /* TopCell.m */,
+				8CC954431D6840C40022F157 /* TopCell.xib */,
+				8C9304BB1D6C1F1D00F9182D /* PicCell.h */,
+				8C9304BC1D6C1F1D00F9182D /* PicCell.m */,
+				8C9304BD1D6C1F1D00F9182D /* PicCell.xib */,
+			);
+			name = NewsView;
+			sourceTree = "<group>";
+		};
+		8C9305751D6DCE8200F9182D /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				8C93056A1D6DC92100F9182D /* DetailHeaderCell.h */,
+				8C93056B1D6DC92100F9182D /* DetailHeaderCell.m */,
+				8C93056C1D6DC92100F9182D /* DetailHeaderCell.xib */,
+				8C93056F1D6DCB5400F9182D /* DetailLikeCell.h */,
+				8C9305701D6DCB5400F9182D /* DetailLikeCell.m */,
+				8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */,
+			);
+			name = DetailView;
 			sourceTree = "<group>";
 		};
 		AA81014BFDE7981FF535E469 /* Frameworks */ = {
@@ -623,10 +701,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9304F61D6D481C00F9182D /* VideoDetailHeaderCell.xib in Resources */,
 				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
+				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
+				8C9305071D6D791800F9182D /* ShareCell.xib in Resources */,
+				8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */,
 				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */,
@@ -780,8 +862,12 @@
 			files = (
 				8C2A6F7F1D6801000028F634 /* NSObject+ViewModel.m in Sources */,
 				8C2A6F7D1D6801000028F634 /* NSObject+AFNetworking.m in Sources */,
+				8C9304F51D6D481C00F9182D /* VideoDetailHeaderCell.m in Sources */,
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
+				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
+				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
+				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
 				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
@@ -794,15 +880,19 @@
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
+				8C9305021D6D499C00F9182D /* Factory.m in Sources */,
+				8C93056D1D6DC92100F9182D /* DetailHeaderCell.m in Sources */,
 				8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */,
 				8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */,
 				8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */,
+				8C9305061D6D791800F9182D /* ShareCell.m in Sources */,
 				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
+				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
 				8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */,

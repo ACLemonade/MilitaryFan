@@ -10,28 +10,24 @@
 
 @implementation MFVideoModel
 
+
 @end
 @implementation MFVideoDataModel
-
 + (NSDictionary *)objectClassInArray{
     return @{@"item" : [MFVideoItemModel class]};
 }
 
 @end
-
-
 @implementation MFVideoTitleModel
 + (NSDictionary *)replacedKeyFromPropertyName{
     return @{
              @"typeName": @"typename",
-             @"desc": @"description"
+             @"desc": @"decription"
              };
 }
+
 @end
-
-
 @implementation MFVideoItemModel
 
+
 @end
-
-

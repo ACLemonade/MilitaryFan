@@ -166,8 +166,6 @@
     NSString *category = [self.infoVM itemCategoryForRow:row];
     if ([category isEqualToString:@"图片控"]) {
         dVC.detailType = 2;
-    }else if([category isEqualToString:@"流媒体"]){
-        dVC.detailType = 18;
     }else{
         dVC.detailType = 1;
     }

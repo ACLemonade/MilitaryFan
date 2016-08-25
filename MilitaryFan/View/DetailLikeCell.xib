@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailLikeCell" rowHeight="104" id="KGk-i7-Jjw" customClass="DetailLikeCell">
+            <rect key="frame" x="0.0" y="0.0" width="490" height="104"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="490" height="103.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKu-LY-afa">
+                        <rect key="frame" x="403" y="35" width="69" height="34"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xjs_article_cai" translatesAutoresizingMaskIntoConstraints="NO" id="chh-iy-7fY">
+                                <rect key="frame" x="10" y="3" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="lWD-Vo-eVv"/>
+                                    <constraint firstAttribute="height" constant="27" id="n6d-Vu-ZoT"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-v1-nq0">
+                                <rect key="frame" x="40" y="10" width="13" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1UO-v1-nq0" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="2Fu-he-6gx"/>
+                            <constraint firstItem="chh-iy-7fY" firstAttribute="leading" secondItem="FKu-LY-afa" secondAttribute="leading" constant="10" id="G0I-qu-OUg"/>
+                            <constraint firstItem="1UO-v1-nq0" firstAttribute="leading" secondItem="chh-iy-7fY" secondAttribute="trailing" constant="3" id="Zbf-GI-E4Y"/>
+                            <constraint firstAttribute="width" constant="69" id="cHp-ma-fn2"/>
+                            <constraint firstAttribute="height" constant="34" id="hoQ-yI-FiL"/>
+                            <constraint firstItem="chh-iy-7fY" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="rOa-Rb-3P3"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t93-Cn-Yax">
+                        <rect key="frame" x="319" y="34" width="69" height="34"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fenghuo_article_zan" translatesAutoresizingMaskIntoConstraints="NO" id="GrN-AQ-JCk">
+                                <rect key="frame" x="10" y="3" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="5dq-nM-tUg"/>
+                                    <constraint firstAttribute="width" constant="27" id="Tyd-T8-xQ4"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-Ds-Ds9">
+                                <rect key="frame" x="40" y="10" width="13.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="34" id="366-XQ-TJu"/>
+                            <constraint firstItem="GrN-AQ-JCk" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="CDb-wy-dtq"/>
+                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="aAR-8b-4ut"/>
+                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="leading" secondItem="GrN-AQ-JCk" secondAttribute="trailing" constant="3" id="b4z-CX-6y0"/>
+                            <constraint firstAttribute="width" constant="69" id="cPv-Kl-8JK"/>
+                            <constraint firstItem="GrN-AQ-JCk" firstAttribute="leading" secondItem="t93-Cn-Yax" secondAttribute="leading" constant="10" id="v1v-ag-jAY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="FKu-LY-afa" secondAttribute="trailing" constant="18" id="2WS-Te-zQd"/>
+                    <constraint firstItem="FKu-LY-afa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QM2-jg-eRZ"/>
+                    <constraint firstItem="FKu-LY-afa" firstAttribute="leading" secondItem="t93-Cn-Yax" secondAttribute="trailing" constant="15" id="Sux-hV-vlj"/>
+                    <constraint firstItem="t93-Cn-Yax" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="h60-Xg-mGE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="likeLb" destination="63f-Ds-Ds9" id="pCf-GE-lcz"/>
+                <outlet property="likeView" destination="t93-Cn-Yax" id="h2n-70-0ao"/>
+                <outlet property="unlikeLb" destination="1UO-v1-nq0" id="RbE-eB-8VY"/>
+                <outlet property="unlikeView" destination="FKu-LY-afa" id="Rvy-PW-HZ2"/>
+            </connections>
+            <point key="canvasLocation" x="298" y="283"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="fenghuo_article_zan" width="27" height="27"/>
+        <image name="xjs_article_cai" width="27" height="27"/>
+    </resources>
+</document>

@@ -12,7 +12,9 @@
 #import "MFInfoPath.h"
 
 #import "MFVideoModel.h"
+#import "MFVideoDetailModel.h"
 
 @interface MFVideoNetManager : NSObject
 + (id)getMFVideoWithCurrentPage:(NSInteger)currentPage completionHandle:kCompletionHandleBlock;
++ (id)getMFVideoDetailWithAid:(NSString *)aid completionHandle:kCompletionHandleBlock;
 @end

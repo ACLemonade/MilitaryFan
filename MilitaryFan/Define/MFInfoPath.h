@@ -23,6 +23,8 @@
 #define kHistoryPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=6&maxid=0&page=%ld"
 //流媒体
 #define kVideoPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=video&maxid=0&page=%ld"
+//视频详情页
+#define kVideoDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=18"
 //详情页
 #define kDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=%ld"
 

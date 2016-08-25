@@ -46,9 +46,12 @@
     videoNavi.tabBarItem.title = @"视频";
     settingsNavi.tabBarItem.title = @"设置";
     
+    pageVC.navigationItem.title = @"美女";
     tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
     
     [UINavigationBar appearance].translucent = NO;
+    
+    [UITabBar appearance].translucent = NO;
     
     LeftMenuViewController *leftVC = [LeftMenuViewController new];
     
