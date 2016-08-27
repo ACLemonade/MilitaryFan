@@ -8,6 +8,7 @@
 
 #import "MFInfoViewController.h"
 #import "DetailViewController.h"
+#import "MFPicViewController.h"
 
 #import "TopCell.h"
 #import "NormalCell.h"
@@ -65,6 +66,12 @@
         return YES;
     }
     return value;
+}
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+    DetailViewController *dVC = [DetailViewController new];
+    dVC.aid = [self.infoVM topAidForRow:index];
+    dVC.detailType = 1;
+    [self.navigationController pushViewController:dVC animated:YES];
 }
 
 
@@ -161,15 +168,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = indexPath.row;
-    DetailViewController *dVC = [DetailViewController new];
-    dVC.aid = [self.infoVM itemAidForRow:row];
-    NSString *category = [self.infoVM itemCategoryForRow:row];
-    if ([category isEqualToString:@"图片控"]) {
-        dVC.detailType = 2;
+    if ([[self.infoVM itemCategoryForRow:row] isEqualToString:@"图片控"]) {
+        MFPicViewController *picVC = [MFPicViewController new];
+        picVC.aid = [self.infoVM itemAidForRow:row];
+        [self.navigationController pushViewController:picVC animated:YES];
     }else{
-        dVC.detailType = 1;
+        DetailViewController *detailVC = [DetailViewController new];
+        detailVC.aid = [self.infoVM itemAidForRow:row];
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
-    [self.navigationController pushViewController:dVC animated:YES];
+    
 }
 
 #pragma mark - 生命周期 LifeCircle

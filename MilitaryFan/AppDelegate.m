@@ -46,7 +46,7 @@
     videoNavi.tabBarItem.title = @"视频";
     settingsNavi.tabBarItem.title = @"设置";
     
-    pageVC.navigationItem.title = @"美女";
+    pageVC.navigationItem.title = @"军事迷";
     tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
     
     [UINavigationBar appearance].translucent = NO;

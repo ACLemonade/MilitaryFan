@@ -13,6 +13,7 @@
 
 #import "MFInfoModel.h"
 #import "MFDetailModel.h"
+#import "MFPicModel.h"
 
 typedef NS_ENUM(NSUInteger, InfoType) {
     InfoTypeRecommend,
@@ -27,5 +28,7 @@ typedef NS_ENUM(NSUInteger, InfoType) {
 //第一页
 + (id)getMFInfoWithType:(InfoType)infoType currentPage:(NSInteger)currentPage completionHandle:kCompletionHandleBlock
 //详情页
-+ (id)getDetailWithAid:(NSString *)aid detailType:(NSInteger)detailType completionHandle:kCompletionHandleBlock;
++ (id)getDetailWithAid:(NSString *)aid completionHandle:kCompletionHandleBlock;
+//详情页--图片
++ (id)getPicWithAid:(NSString *)aid completionHandle:kCompletionHandleBlock;
 @end

@@ -37,10 +37,16 @@
         completionHandle([MFInfoModel parse:responseObj], error);
     }];
 }
-+ (id)getDetailWithAid:(NSString *)aid detailType:(NSInteger)detailType completionHandle:(void (^)(id, NSError *))completionHandle{
-    NSString *path = [NSString stringWithFormat:kDetailPath, aid, detailType];
++ (id)getDetailWithAid:(NSString *)aid completionHandle:(void (^)(id, NSError *))completionHandle{
+    NSString *path = [NSString stringWithFormat:kDetailPath, aid];
     return [self GET:path parameters:nil progress:nil completionHandle:^(id responseObj, NSError *error) {
         completionHandle([MFDetailModel parse:responseObj], error);
+    }];
+}
++ (id)getPicWithAid:(NSString *)aid completionHandle:(void (^)(id, NSError *))completionHandle{
+    NSString *path = [NSString stringWithFormat:kPicDetailPath, aid];
+    return [self GET:path parameters:nil progress:nil completionHandle:^(id responseObj, NSError *error) {
+        completionHandle([MFPicModel parse:responseObj], error);
     }];
 }
 @end

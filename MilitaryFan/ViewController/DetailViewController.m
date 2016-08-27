@@ -102,9 +102,12 @@
             return 100;
             break;
     }
-    
-    
-    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
 }
 #pragma mark - 方法 Methods
 //返回一个数组
@@ -181,7 +184,7 @@
 #pragma mark - 懒加载 Lazy Load
 - (MFDetailViewModel *)detailVM {
 	if(_detailVM == nil) {
-        _detailVM = [[MFDetailViewModel alloc] initWithAid:self.aid detailType:self.detailType];
+        _detailVM = [[MFDetailViewModel alloc] initWithAid:self.aid];
 	}
 	return _detailVM;
 }
@@ -195,6 +198,8 @@
         [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.mas_equalTo(0);
         }];
+        _tableview.allowsSelection = NO;
+        _tableview.separatorStyle = 0;
         [_tableview registerNib:[UINib nibWithNibName:@"DetailLikeCell" bundle:nil] forCellReuseIdentifier:@"DetailLikeCell"];
         [_tableview registerNib:[UINib nibWithNibName:@"DetailHeaderCell" bundle:nil] forCellReuseIdentifier:@"DetailHeaderCell"];
         [_tableview registerClass:[DetailContentCell class] forCellReuseIdentifier:@"DetailContentCell"];

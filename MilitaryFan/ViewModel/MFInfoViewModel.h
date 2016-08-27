@@ -29,6 +29,8 @@
 @property (nonatomic, getter=isHasTop) BOOL hasTop;
 @property (nonatomic) NSArray<MFSlideModel *> *topList;
 - (MFSlideModel *)topModelForIndex:(NSInteger)index;
+
+- (NSString *)topAidForRow:(NSInteger)row;
 //主体
 @property (nonatomic) NSInteger itemNumber;
 @property (nonatomic) NSMutableArray<MFItemModel *> *itemList;

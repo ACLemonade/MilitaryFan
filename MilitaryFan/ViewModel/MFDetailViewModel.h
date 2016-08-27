@@ -25,7 +25,6 @@
 
 /** 数据部分 */
 @property (nonatomic) NSString *aid;
-@property (nonatomic) NSInteger detailType;
-- (instancetype)initWithAid:(NSString *)aid detailType:(NSInteger)detailType;
+- (instancetype)initWithAid:(NSString *)aid;
 @property (nonatomic) MFDetailDataModel *model;
 @end

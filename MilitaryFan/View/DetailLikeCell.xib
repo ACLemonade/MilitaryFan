@@ -17,41 +17,43 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKu-LY-afa">
                         <rect key="frame" x="403" y="35" width="69" height="34"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xjs_article_cai" translatesAutoresizingMaskIntoConstraints="NO" id="chh-iy-7fY">
-                                <rect key="frame" x="10" y="3" width="27" height="27"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ZZ-8T-Hly">
+                                <rect key="frame" x="10" y="4" width="27" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="27" id="lWD-Vo-eVv"/>
-                                    <constraint firstAttribute="height" constant="27" id="n6d-Vu-ZoT"/>
+                                    <constraint firstAttribute="width" constant="27" id="XeY-76-Ot4"/>
+                                    <constraint firstAttribute="height" constant="27" id="dGf-5u-J0F"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="xjs_article_cai"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-v1-nq0">
-                                <rect key="frame" x="40" y="10" width="13" height="14.5"/>
+                                <rect key="frame" x="40" y="10" width="13" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="1UO-v1-nq0" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="2Fu-he-6gx"/>
-                            <constraint firstItem="chh-iy-7fY" firstAttribute="leading" secondItem="FKu-LY-afa" secondAttribute="leading" constant="10" id="G0I-qu-OUg"/>
-                            <constraint firstItem="1UO-v1-nq0" firstAttribute="leading" secondItem="chh-iy-7fY" secondAttribute="trailing" constant="3" id="Zbf-GI-E4Y"/>
+                            <constraint firstItem="1UO-v1-nq0" firstAttribute="leading" secondItem="7ZZ-8T-Hly" secondAttribute="trailing" constant="3" id="4mR-si-bTc"/>
+                            <constraint firstItem="7ZZ-8T-Hly" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="Pe2-OR-Qef"/>
+                            <constraint firstItem="1UO-v1-nq0" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="Tgp-eo-ZMj"/>
                             <constraint firstAttribute="width" constant="69" id="cHp-ma-fn2"/>
                             <constraint firstAttribute="height" constant="34" id="hoQ-yI-FiL"/>
-                            <constraint firstItem="chh-iy-7fY" firstAttribute="centerY" secondItem="FKu-LY-afa" secondAttribute="centerY" id="rOa-Rb-3P3"/>
+                            <constraint firstItem="7ZZ-8T-Hly" firstAttribute="leading" secondItem="FKu-LY-afa" secondAttribute="leading" constant="10" id="rqI-5p-OwA"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t93-Cn-Yax">
                         <rect key="frame" x="319" y="34" width="69" height="34"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fenghuo_article_zan" translatesAutoresizingMaskIntoConstraints="NO" id="GrN-AQ-JCk">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSE-yS-b2A">
                                 <rect key="frame" x="10" y="3" width="27" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="27" id="5dq-nM-tUg"/>
-                                    <constraint firstAttribute="width" constant="27" id="Tyd-T8-xQ4"/>
+                                    <constraint firstAttribute="height" constant="27" id="3oF-cg-Fcz"/>
+                                    <constraint firstAttribute="width" constant="27" id="Aoq-4T-6NO"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="xjs_article_zan"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-Ds-Ds9">
-                                <rect key="frame" x="40" y="10" width="13.5" height="14.5"/>
+                                <rect key="frame" x="40" y="10" width="14" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,11 +61,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="366-XQ-TJu"/>
-                            <constraint firstItem="GrN-AQ-JCk" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="CDb-wy-dtq"/>
-                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="aAR-8b-4ut"/>
-                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="leading" secondItem="GrN-AQ-JCk" secondAttribute="trailing" constant="3" id="b4z-CX-6y0"/>
+                            <constraint firstItem="aSE-yS-b2A" firstAttribute="leading" secondItem="t93-Cn-Yax" secondAttribute="leading" constant="10" id="3pE-Ue-8v8"/>
+                            <constraint firstItem="aSE-yS-b2A" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="Rs1-5w-Moj"/>
                             <constraint firstAttribute="width" constant="69" id="cPv-Kl-8JK"/>
-                            <constraint firstItem="GrN-AQ-JCk" firstAttribute="leading" secondItem="t93-Cn-Yax" secondAttribute="leading" constant="10" id="v1v-ag-jAY"/>
+                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="leading" secondItem="aSE-yS-b2A" secondAttribute="trailing" constant="3" id="eoM-jp-DHC"/>
+                            <constraint firstItem="63f-Ds-Ds9" firstAttribute="centerY" secondItem="t93-Cn-Yax" secondAttribute="centerY" id="kuy-bH-Avj"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -75,8 +77,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="likeBtn" destination="aSE-yS-b2A" id="Akq-le-gVs"/>
                 <outlet property="likeLb" destination="63f-Ds-Ds9" id="pCf-GE-lcz"/>
                 <outlet property="likeView" destination="t93-Cn-Yax" id="h2n-70-0ao"/>
+                <outlet property="unlikeBtn" destination="7ZZ-8T-Hly" id="CoJ-7r-bDT"/>
                 <outlet property="unlikeLb" destination="1UO-v1-nq0" id="RbE-eB-8VY"/>
                 <outlet property="unlikeView" destination="FKu-LY-afa" id="Rvy-PW-HZ2"/>
             </connections>
@@ -84,7 +88,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="fenghuo_article_zan" width="27" height="27"/>
         <image name="xjs_article_cai" width="27" height="27"/>
+        <image name="xjs_article_zan" width="27" height="27"/>
     </resources>
 </document>

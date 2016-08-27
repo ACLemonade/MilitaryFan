@@ -25,7 +25,9 @@
 #define kVideoPath @"http://if.wap.xinjunshi.com/api2.2/app.php?mod=newslist&act=video&maxid=0&page=%ld"
 //视频详情页
 #define kVideoDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=18"
-//详情页
-#define kDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=%ld"
+//普通详情页
+#define kDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=1"
+//图片详情页
+#define kPicDetailPath @"http://if.wap.xinjunshi.com/api2.2/app.php?aid=%@&mod=show&type=2"
 
 #endif /* MFInfoPath_h */

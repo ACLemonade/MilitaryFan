@@ -28,6 +28,9 @@
 		8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F941D6805C70028F634 /* MFInfoModel.m */; };
 		8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */; };
 		8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */; };
+		8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F85F1D7127380046F218 /* MFPicViewModel.m */; };
+		8C32F8631D7128230046F218 /* MFPicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8621D7128230046F218 /* MFPicModel.m */; };
+		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
 		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
@@ -128,6 +131,12 @@
 		8C2A6F9C1D6809830028F634 /* MFInfoPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFInfoPath.h; sourceTree = "<group>"; };
 		8C2A6F9D1D682F5C0028F634 /* MFInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewModel.h; sourceTree = "<group>"; };
 		8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewModel.m; sourceTree = "<group>"; };
+		8C32F85E1D7127380046F218 /* MFPicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicViewModel.h; sourceTree = "<group>"; };
+		8C32F85F1D7127380046F218 /* MFPicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicViewModel.m; sourceTree = "<group>"; };
+		8C32F8611D7128230046F218 /* MFPicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicModel.h; sourceTree = "<group>"; };
+		8C32F8621D7128230046F218 /* MFPicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicModel.m; sourceTree = "<group>"; };
+		8C32F8641D7132960046F218 /* MFPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicViewController.h; sourceTree = "<group>"; };
+		8C32F8651D7132960046F218 /* MFPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicViewController.m; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
 		8C9304B01D6BE82E00F9182D /* MFDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailModel.m; sourceTree = "<group>"; };
 		8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailViewModel.h; sourceTree = "<group>"; };
@@ -341,6 +350,8 @@
 				8C2A6F941D6805C70028F634 /* MFInfoModel.m */,
 				8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */,
 				8C9304B01D6BE82E00F9182D /* MFDetailModel.m */,
+				8C32F8611D7128230046F218 /* MFPicModel.h */,
+				8C32F8621D7128230046F218 /* MFPicModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,7 +389,7 @@
 		8C2A6F721D68006F0028F634 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C9305741D6DCE6600F9182D /* NewsView */,
+				8C9305741D6DCE6600F9182D /* InfoView */,
 				8C9305751D6DCE8200F9182D /* DetailView */,
 			);
 			path = View;
@@ -393,6 +404,8 @@
 				8CC9544A1D68522E0022F157 /* MFInfoViewController.m */,
 				8C9304B51D6BEEB000F9182D /* DetailViewController.h */,
 				8C9304B61D6BEEB000F9182D /* DetailViewController.m */,
+				8C32F8641D7132960046F218 /* MFPicViewController.h */,
+				8C32F8651D7132960046F218 /* MFPicViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -404,6 +417,8 @@
 				8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */,
 				8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */,
 				8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */,
+				8C32F85E1D7127380046F218 /* MFPicViewModel.h */,
+				8C32F85F1D7127380046F218 /* MFPicViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -545,7 +560,7 @@
 			path = MilitaryFan/Define;
 			sourceTree = "<group>";
 		};
-		8C9305741D6DCE6600F9182D /* NewsView */ = {
+		8C9305741D6DCE6600F9182D /* InfoView */ = {
 			isa = PBXGroup;
 			children = (
 				8CC954371D68406B0022F157 /* NormalCell.h */,
@@ -561,7 +576,7 @@
 				8C9304BC1D6C1F1D00F9182D /* PicCell.m */,
 				8C9304BD1D6C1F1D00F9182D /* PicCell.xib */,
 			);
-			name = NewsView;
+			name = InfoView;
 			sourceTree = "<group>";
 		};
 		8C9305751D6DCE8200F9182D /* DetailView */ = {
@@ -865,6 +880,7 @@
 				8C9304F51D6D481C00F9182D /* VideoDetailHeaderCell.m in Sources */,
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
 				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
+				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
@@ -872,6 +888,7 @@
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
+				8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,
 				8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */,
 				8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */,
@@ -880,6 +897,7 @@
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
+				8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */,
 				8C9305021D6D499C00F9182D /* Factory.m in Sources */,
 				8C93056D1D6DC92100F9182D /* DetailHeaderCell.m in Sources */,
 				8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */,

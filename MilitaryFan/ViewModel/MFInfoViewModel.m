@@ -71,6 +71,10 @@
     }
     return [arr copy];
 }
+- (NSString *)topAidForRow:(NSInteger)row{
+    return [self topModelForIndex:row].aid;
+}
+
 - (NSString *)itemTitleForRow:(NSInteger)row{
     return [self itemModelForRow:row].title;
 }
