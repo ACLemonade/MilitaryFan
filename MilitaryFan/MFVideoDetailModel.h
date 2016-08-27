@@ -24,7 +24,7 @@
 
 @property (nonatomic, copy) NSString *desc;
 
-@property (nonatomic, copy) NSString *video_play;
+@property (nonatomic, copy) NSString *videoPlay;
 
 @property (nonatomic, copy) NSString *category;
 

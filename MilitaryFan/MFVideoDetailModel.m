@@ -17,7 +17,8 @@
 @implementation MFVideoDetailDataModel
 + (NSDictionary *)replacedKeyFromPropertyName{
     return @{
-             @"desc": @"description"
+             @"desc": @"description",
+             @"videoPlay": @"video_play"
              };
 }
 @end

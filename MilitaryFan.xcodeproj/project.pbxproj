@@ -31,6 +31,8 @@
 		8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F85F1D7127380046F218 /* MFPicViewModel.m */; };
 		8C32F8631D7128230046F218 /* MFPicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8621D7128230046F218 /* MFPicModel.m */; };
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
+		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
+		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
 		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
@@ -43,8 +45,6 @@
 		8C9304EB1D6D2EAF00F9182D /* MFVideoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304EA1D6D2EAF00F9182D /* MFVideoNetManager.m */; };
 		8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */; };
 		8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304F01D6D416700F9182D /* VideoDetailViewController.m */; };
-		8C9304F51D6D481C00F9182D /* VideoDetailHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */; };
-		8C9304F61D6D481C00F9182D /* VideoDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */; };
 		8C9305021D6D499C00F9182D /* Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305011D6D499C00F9182D /* Factory.m */; };
 		8C9305061D6D791800F9182D /* ShareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305041D6D791800F9182D /* ShareCell.m */; };
 		8C9305071D6D791800F9182D /* ShareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9305051D6D791800F9182D /* ShareCell.xib */; };
@@ -137,6 +137,9 @@
 		8C32F8621D7128230046F218 /* MFPicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicModel.m; sourceTree = "<group>"; };
 		8C32F8641D7132960046F218 /* MFPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicViewController.h; sourceTree = "<group>"; };
 		8C32F8651D7132960046F218 /* MFPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicViewController.m; sourceTree = "<group>"; };
+		8C32F8671D717BE50046F218 /* DetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoCell.h; sourceTree = "<group>"; };
+		8C32F8681D717BE50046F218 /* DetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoCell.m; sourceTree = "<group>"; };
+		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
 		8C9304B01D6BE82E00F9182D /* MFDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailModel.m; sourceTree = "<group>"; };
 		8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailViewModel.h; sourceTree = "<group>"; };
@@ -160,9 +163,6 @@
 		8C9304ED1D6D322900F9182D /* MFVideoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFVideoViewModel.m; sourceTree = "<group>"; };
 		8C9304EF1D6D416700F9182D /* VideoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailViewController.h; sourceTree = "<group>"; };
 		8C9304F01D6D416700F9182D /* VideoDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailViewController.m; sourceTree = "<group>"; };
-		8C9304F21D6D481C00F9182D /* VideoDetailHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailHeaderCell.h; sourceTree = "<group>"; };
-		8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailHeaderCell.m; sourceTree = "<group>"; };
-		8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoDetailHeaderCell.xib; sourceTree = "<group>"; };
 		8C9305001D6D499C00F9182D /* Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Factory.h; sourceTree = "<group>"; };
 		8C9305011D6D499C00F9182D /* Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Factory.m; sourceTree = "<group>"; };
 		8C9305031D6D791800F9182D /* ShareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareCell.h; sourceTree = "<group>"; };
@@ -522,9 +522,9 @@
 		8C9304E01D6C76E100F9182D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C9304F21D6D481C00F9182D /* VideoDetailHeaderCell.h */,
-				8C9304F31D6D481C00F9182D /* VideoDetailHeaderCell.m */,
-				8C9304F41D6D481C00F9182D /* VideoDetailHeaderCell.xib */,
+				8C32F8671D717BE50046F218 /* DetailVideoCell.h */,
+				8C32F8681D717BE50046F218 /* DetailVideoCell.m */,
+				8C32F8691D717BE50046F218 /* DetailVideoCell.xib */,
 				8C9305031D6D791800F9182D /* ShareCell.h */,
 				8C9305041D6D791800F9182D /* ShareCell.m */,
 				8C9305051D6D791800F9182D /* ShareCell.xib */,
@@ -716,7 +716,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C9304F61D6D481C00F9182D /* VideoDetailHeaderCell.xib in Resources */,
 				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
 				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
@@ -727,6 +726,7 @@
 				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */,
+				8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -877,13 +877,13 @@
 			files = (
 				8C2A6F7F1D6801000028F634 /* NSObject+ViewModel.m in Sources */,
 				8C2A6F7D1D6801000028F634 /* NSObject+AFNetworking.m in Sources */,
-				8C9304F51D6D481C00F9182D /* VideoDetailHeaderCell.m in Sources */,
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
 				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
+				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
 				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,

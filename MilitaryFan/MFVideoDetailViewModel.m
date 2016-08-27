@@ -32,10 +32,15 @@
 - (NSString *)click{
     return self.model.click;
 }
+- (NSURL *)videoPlay{
+    return [NSURL URLWithString:self.model.videoPlay];
+}
 - (NSURL *)iconIV{
     return [NSURL URLWithString:self.model.image];
 }
-
+- (NSString *)link{
+    return self.model.link;
+}
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{
     self.dataTask = [MFVideoNetManager getMFVideoDetailWithAid:self.aid completionHandle:^(MFVideoDetailModel *model, NSError *error) {
         if (!error) {
