@@ -19,6 +19,9 @@
 
 @end
 
+#define kSMSAppKey @"1698cf6171690"
+#define kSMSAppSecret @"b4683962a07c26fd45e35394266d52e2"
+
 @implementation AppDelegate
 #pragma mark - 懒加载 Lazy Load
 -(UIWindow *)window{
@@ -31,7 +34,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //shareSDK短信注册
+    [SMSSDK registerApp:kSMSAppKey withSecret:kSMSAppSecret];
+    
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     UITabBarController *tab = [[UITabBarController alloc] init];
     
     PageController *pageVC = [PageController new];
@@ -47,6 +54,9 @@
     settingsNavi.tabBarItem.title = @"设置";
     
     pageVC.navigationItem.title = @"军事迷";
+    videoVC.navigationItem.title = @"军事迷";
+    settingsVC.navigationItem.title = @"军事迷";
+    
     tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
     
     [UINavigationBar appearance].translucent = NO;

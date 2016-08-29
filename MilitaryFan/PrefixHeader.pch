@@ -30,5 +30,6 @@
 #import <WMPageController.h>
 
 #import <BmobSDK/Bmob.h>
+#import <SMS_SDK/SMSSDK.h>
 
 #endif /* PrefixHeader_pch */

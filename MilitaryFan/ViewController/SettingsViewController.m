@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *cachesNumberLb;
 
 @end
 
@@ -19,6 +20,13 @@
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 1) {
+        UIStoryboard *loginSb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        [self.navigationController pushViewController:[loginSb instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:YES];
+    }
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
