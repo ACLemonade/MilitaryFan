@@ -62,6 +62,7 @@
 		8CC954451D6840C40022F157 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954431D6840C40022F157 /* TopCell.xib */; };
 		8CC954481D6850190022F157 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954471D6850190022F157 /* PageController.m */; };
 		8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9544A1D68522E0022F157 /* MFInfoViewController.m */; };
+		8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */; };
 		D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */; };
 		F6612A65A54B599A37E32B50 /* libPods-MilitaryFanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */; };
 /* End PBXBuildFile section */
@@ -191,6 +192,7 @@
 		8CC954471D6850190022F157 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		8CC954491D68522E0022F157 /* MFInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewController.h; sourceTree = "<group>"; };
 		8CC9544A1D68522E0022F157 /* MFInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewController.m; sourceTree = "<group>"; };
+		8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.release.xcconfig"; sourceTree = "<group>"; };
 		AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanUITests/Pods-MilitaryFanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 			children = (
 				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
 				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
+				8CFA13B11D73E54200DAF1E4 /* 登录&注册 */,
 				8C9304E21D6C777600F9182D /* 我的 */,
 				8C9304DA1D6C762C00F9182D /* 视频 */,
 				8C9304DB1D6C763900F9182D /* 设置 */,
@@ -592,6 +595,14 @@
 			name = DetailView;
 			sourceTree = "<group>";
 		};
+		8CFA13B11D73E54200DAF1E4 /* 登录&注册 */ = {
+			isa = PBXGroup;
+			children = (
+				8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */,
+			);
+			name = "登录&注册";
+			sourceTree = "<group>";
+		};
 		AA81014BFDE7981FF535E469 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -728,6 +739,7 @@
 				8C2A6F401D67F8CA0028F634 /* Main.storyboard in Resources */,
 				8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
+				8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
