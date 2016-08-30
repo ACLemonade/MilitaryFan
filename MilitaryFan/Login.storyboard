@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称/手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w44-N2-HJe">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w44-N2-HJe">
                                 <rect key="frame" x="64" y="140" width="226" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="19" id="R2C-4B-Iu8"/>
@@ -49,6 +49,9 @@
                                 <state key="normal" title="登录">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="userLogin:" destination="0Uv-Xp-qZQ" eventType="touchUpInside" id="eqK-2Z-Lk0"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_account" translatesAutoresizingMaskIntoConstraints="NO" id="dYP-pc-OiQ">
                                 <rect key="frame" x="30" y="140" width="19" height="19"/>
