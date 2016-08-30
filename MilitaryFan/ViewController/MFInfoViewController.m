@@ -118,11 +118,11 @@
             PicCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PicCell" forIndexPath:indexPath];
             NSArray<NSURL *> *imgArr = [self.infoVM itemIconURLsForRow:row];
             [cell.iconIV_0 setImageWithURL:imgArr[0]];
-            cell.iconIV_0.layer.cornerRadius = 3;
+
             [cell.iconIV_1 setImageWithURL:imgArr[1]];
-            cell.iconIV_1.layer.cornerRadius = 3;
+
             [cell.iconIV_2 setImageWithURL:imgArr[2]];
-            cell.iconIV_2.layer.cornerRadius = 3;
+
             cell.titleLb.text = [self.infoVM itemTitleForRow:row];
             cell.pubDateLb.text = [self.infoVM itemPubDateForRow:row];
             return cell;

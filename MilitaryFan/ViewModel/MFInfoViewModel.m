@@ -106,8 +106,13 @@
     if ([category isEqualToString:@"制高点"]){
         return 2;
     }
+    //图片控
     if ([category isEqualToString:@"图片控"]) {
-        return 3;
+        if (image) {
+            return 0;
+        }else{
+            return 3;
+        }
     }
     //大视野
     if ([category isEqualToString:@"大视野"]) {
@@ -116,10 +121,6 @@
     //读点史
     if ([category isEqualToString:@"读点史"]) {
         return 0;
-    }
-    //流媒体
-    if ([category isEqualToString:@"流媒体"]) {
-        return 2;
     }
     //推广
     return 4;

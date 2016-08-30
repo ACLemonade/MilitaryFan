@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+typedef void(^MyBlock)(NSString *account, NSString *password);
 
+@interface RegisterViewController : UIViewController
+@property (nonatomic, copy) MyBlock myBlock;
 @end

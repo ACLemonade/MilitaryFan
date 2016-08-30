@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "RegisterViewController.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
@@ -31,6 +32,15 @@
 #pragma mark - 方法 Methods
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+    
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    RegisterViewController *registerVC = segue.destinationViewController;
+    WK(weakSelf);
+    registerVC.myBlock = ^(NSString *account, NSString *password){
+        weakSelf.accountTF.text = account;
+        weakSelf.passwordTF.text = password;
+    };
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
