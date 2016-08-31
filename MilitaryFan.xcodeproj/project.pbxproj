@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5E9DB46C66C4A90FC2E8ADA2 /* libPods-MilitaryFanUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */; };
+		8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */; };
+		8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */; };
+		8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */; };
+		8C1E770C1D767D760051F8B1 /* UserCenter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E770B1D767D760051F8B1 /* UserCenter.storyboard */; };
 		8C2A6F371D67F8CA0028F634 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F361D67F8CA0028F634 /* main.m */; };
 		8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F391D67F8CA0028F634 /* AppDelegate.m */; };
 		8C2A6F401D67F8CA0028F634 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C2A6F3E1D67F8CA0028F634 /* Settings.storyboard */; };
@@ -93,6 +97,12 @@
 		481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.debug.xcconfig"; sourceTree = "<group>"; };
 		4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5B5C791D1448B6CF7BD3ED /* Pods-MilitaryFanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
+		8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
+		8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		8C1E77081D767D5E0051F8B1 /* UserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterViewController.h; sourceTree = "<group>"; };
+		8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterViewController.m; sourceTree = "<group>"; };
+		8C1E770B1D767D760051F8B1 /* UserCenter.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserCenter.storyboard; sourceTree = "<group>"; };
 		8C2A6F321D67F8CA0028F634 /* MilitaryFan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilitaryFan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2A6F361D67F8CA0028F634 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8C2A6F381D67F8CA0028F634 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -243,6 +253,42 @@
 				AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C1E76FA1D765B0B0051F8B1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */,
+				8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */,
+				8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8C1E76FB1D765B120051F8B1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C9304C91D6C449100F9182D /* LeftMenuViewController.h */,
+				8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */,
+				8C1E77081D767D5E0051F8B1 /* UserCenterViewController.h */,
+				8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */,
+				8C1E770B1D767D760051F8B1 /* UserCenter.storyboard */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8C1E76FC1D765B1B0051F8B1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8C1E76FD1D765B270051F8B1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		8C2A6F291D67F8CA0028F634 = {
@@ -553,8 +599,10 @@
 		8C9304E21D6C777600F9182D /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				8C9304C91D6C449100F9182D /* LeftMenuViewController.h */,
-				8C9304CA1D6C449100F9182D /* LeftMenuViewController.m */,
+				8C1E76FD1D765B270051F8B1 /* ViewModel */,
+				8C1E76FC1D765B1B0051F8B1 /* Model */,
+				8C1E76FB1D765B120051F8B1 /* ViewController */,
+				8C1E76FA1D765B0B0051F8B1 /* View */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -742,11 +790,13 @@
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
+				8C1E770C1D767D760051F8B1 /* UserCenter.storyboard in Resources */,
 				8C9305071D6D791800F9182D /* ShareCell.xib in Resources */,
 				8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */,
 				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Settings.storyboard in Resources */,
+				8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */,
 				8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
 				8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */,
@@ -911,6 +961,7 @@
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
 				8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */,
+				8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,
 				8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */,
 				8C2A6F8E1D6802690028F634 /* PSCollectionView.m in Sources */,
@@ -920,6 +971,7 @@
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
+				8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */,
 				8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */,
 				8C9305021D6D499C00F9182D /* Factory.m in Sources */,
 				8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */,

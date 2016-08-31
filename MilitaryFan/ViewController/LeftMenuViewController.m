@@ -7,6 +7,8 @@
 //
 
 #import "LeftMenuViewController.h"
+#import "UserCenterViewController.h"
+#import "UserInfoCell.h"
 
 @interface LeftMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
@@ -15,22 +17,51 @@
 
 @implementation LeftMenuViewController
 #pragma mark - 协议方法 UITableView Delegate/DataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataList.count;
+    if (section == 0) {
+        return 1;
+    }else{
+        return self.dataList.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+    if (indexPath.section == 0) {
+        UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserInfoCell" forIndexPath:indexPath];
+        
+        return cell;
+    }else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NormalCell"];
+        }
+        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
+        
+        return cell;
     }
-    cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
-    
-    return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        UIStoryboard *userCenterSb = [UIStoryboard storyboardWithName:@"UserCenter" bundle:nil];
+        UINavigationController *userNavi = [userCenterSb instantiateViewControllerWithIdentifier:@"UserCenterNavigationController"];
+        [self presentViewController:userNavi animated:YES completion:nil];
+    }
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 134;
+    }
+    return 44;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 20;
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,18 +72,22 @@
 #pragma mark - 懒加载 Lazy Load
 - (UITableView *)tableView {
 	if(_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(176);
+            make.height.mas_equalTo(390);
         }];
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        //去弹簧效果
+        _tableView.bounces = NO;
         
         //去掉分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        [_tableView registerNib:[UINib nibWithNibName:@"UserInfoCell" bundle:nil] forCellReuseIdentifier:@"UserInfoCell"];
         
 	}
 	return _tableView;
