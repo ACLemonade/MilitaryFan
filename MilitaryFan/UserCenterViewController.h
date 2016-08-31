@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserCenterViewController : UITableViewController
+@interface UserCenterViewController : UIViewController
 
 @end

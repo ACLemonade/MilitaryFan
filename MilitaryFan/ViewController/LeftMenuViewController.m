@@ -45,8 +45,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        UIStoryboard *userCenterSb = [UIStoryboard storyboardWithName:@"UserCenter" bundle:nil];
-        UINavigationController *userNavi = [userCenterSb instantiateViewControllerWithIdentifier:@"UserCenterNavigationController"];
+        UserCenterViewController *userVC = [UserCenterViewController new];
+        UINavigationController *userNavi = [[UINavigationController alloc] initWithRootViewController:userVC];
         [self presentViewController:userNavi animated:YES completion:nil];
     }
 }
