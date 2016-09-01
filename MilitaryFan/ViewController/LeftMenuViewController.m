@@ -30,6 +30,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserInfoCell" forIndexPath:indexPath];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
+            [[NSOperationQueue new] addOperationWithBlock:^{
+                NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
+                UIImage *headImage = [UIImage imageWithData:data];
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    cell.iconIV.image = headImage;
+                }];
+            }];
+        }
         
         return cell;
     }else{
@@ -45,8 +54,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        UserCenterViewController *userVC = [UserCenterViewController new];
-        UINavigationController *userNavi = [[UINavigationController alloc] initWithRootViewController:userVC];
+        UserInfoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        UINavigationController *userNavi = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateInitialViewController];
+        UserCenterViewController *userCenterVC = [userNavi.viewControllers objectAtIndex:0];
+        userCenterVC.myBlock = ^(UIImage *image){
+            cell.iconIV.image = image;
+        };
         [self presentViewController:userNavi animated:YES completion:nil];
     }
 }

@@ -34,7 +34,7 @@
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
-
+    [Factory naviClickBackWithViewController:self];
 }
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)init{

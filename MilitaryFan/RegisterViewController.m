@@ -204,7 +204,7 @@
     self.haveValidation = NO;
     self.havePassword = NO;
     self.haveConfirm = NO;
-    
+    [Factory naviClickBackWithViewController:self];
 }
 
 @end

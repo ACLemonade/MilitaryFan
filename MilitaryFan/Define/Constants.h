@@ -24,8 +24,8 @@
 #define WK(weakSelf) \
 __block __weak __typeof(&*self)weakSelf = self;\
 
-
-
+//头像图片路径
+#define kHeadImagePath [kDocPath stringByAppendingPathComponent:@"/headImage.png"]
 
 
 

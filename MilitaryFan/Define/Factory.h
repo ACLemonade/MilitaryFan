@@ -10,5 +10,5 @@
 #import <UIKit/UIKit.h>
 
 @interface Factory : NSObject
-
++ (void)naviClickBackWithViewController:(UIViewController *)viewController;
 @end

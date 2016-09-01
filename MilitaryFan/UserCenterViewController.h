@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MyBlock)(UIImage *image);
 @interface UserCenterViewController : UIViewController
-
+@property (nonatomic, copy) MyBlock myBlock;
 @end

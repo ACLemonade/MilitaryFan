@@ -53,7 +53,7 @@
         //是否左右翻页
         self.displayNavArrows = YES;
         //是否被选中
-        self.displaySelectionButtons = YES;
+        self.displaySelectionButtons = NO;
         //是否支持缩放
         self.zoomPhotosToFill = YES;
         //是否总是显示控制界面

@@ -172,9 +172,8 @@
             [self.tableview reloadData];
         }
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        CGFloat h = [self getImagesTotalHeightWithImageArray:self.detailVM.pics];
-//        NSLog(@"h: %f", h);
     }];
+    [Factory naviClickBackWithViewController:self];
     
 }
 - (void)viewWillAppear:(BOOL)animated{

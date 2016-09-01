@@ -82,8 +82,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_accountTF becomeFirstResponder];
-
-
+    [Factory naviClickBackWithViewController:self];
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "UserCenterViewController.h"
 
 #define kTopViewH 350
-@interface UserCenterViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface UserCenterViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UIImageView *topView;
 @property (nonatomic) UIButton *iconBtn;
@@ -47,14 +47,36 @@
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+#pragma mark - 协议方法 UIImagePickerController Delegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    image = info[UIImagePickerControllerEditedImage];
+    //关闭自动渲染
+    [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    //设置头像
+    [_iconBtn setImage:image forState:UIControlStateNormal];
+    //将存储图片放到子线程
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        //将图片存入文件
+        [UIImagePNGRepresentation(image) writeToFile:kHeadImagePath atomically:YES];
+    }];
+    NSLog(@"%@", kHeadImagePath);
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - 方法 Methods
 - (void)changeMyIconIV{
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:@"换个头像吧!" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"拍一张照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ;
+        [self takeOnePhoto];
     }];
     UIAlertAction *localAction = [UIAlertAction actionWithTitle:@"从本地照片选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        ;
+        [self chooseLocalPic];
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         ;
@@ -64,12 +86,44 @@
     [alertVC addAction:cancelAction];
     [self presentViewController:alertVC animated:YES completion:nil];
 }
+//选取本地照片
+- (void)chooseLocalPic{
+    UIImagePickerController *pickerVC = [[UIImagePickerController alloc] init];
+    pickerVC.delegate = self;
+    pickerVC.allowsEditing = YES;
+    [self presentViewController:pickerVC animated:YES completion:nil];
+}
+//通过摄像头拍一张照片
+- (void)takeOnePhoto{
+    UIImagePickerController *pickerVC = [[UIImagePickerController alloc] init];
+    pickerVC.delegate = self;
+    pickerVC.allowsEditing = YES;
+    pickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:pickerVC animated:YES completion:nil];
+    
+}
+- (void)naviBack:sender{
+    //将上传的头像返回前一个界面
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
+        UIImage *headImage = [UIImage imageWithData:data];
+        _myBlock(headImage);
+    }];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tableView];
     self.navigationItem.title = @"我";
-    
+    //返回按钮
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backBtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    backBtn.bounds = CGRectMake(0, 0, 22, 22);
+    [backBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    self.navigationItem.leftBarButtonItem = backBarBtn;
 }
 #pragma mark - 懒加载 Lazy Load
 - (UIImageView *)topView {
@@ -79,14 +133,27 @@
         _topView.image = [UIImage imageNamed:@"BlackBird"];
         //打开imageView的用户交互,因为需要点击button更换头像
         _topView.userInteractionEnabled = YES;
-        _iconBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_topView addSubview:_iconBtn];
         [_iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.bottom.mas_equalTo(0);
             make.centerX.mas_equalTo(0);
             make.size.mas_equalTo(75);
         }];
-        [_iconBtn setImage:[UIImage imageNamed:@"Persn_login"] forState:UIControlStateNormal];
+        //如果已经设置过头像,则将其从文件中取出来
+        if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
+            [[NSOperationQueue new] addOperationWithBlock:^{
+                NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
+                UIImage *headImage = [UIImage imageWithData:data];
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    [_iconBtn setImage:headImage forState:UIControlStateNormal];
+                }];
+                
+            }];
+        }else{//否则,使用默认头像
+            [_iconBtn setImage:[UIImage imageNamed:@"Persn_login"] forState:UIControlStateNormal];
+        }
+        
         [_iconBtn addTarget:self action:@selector(changeMyIconIV) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _topView;
