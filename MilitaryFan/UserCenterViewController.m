@@ -7,6 +7,7 @@
 //
 
 #import "UserCenterViewController.h"
+#import "ModifyPasswordViewController.h"
 
 #define kTopViewH 350
 @interface UserCenterViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -16,22 +17,32 @@
 @property (nonatomic) NSArray *dataList;
 @end
 
+@interface LogoutCell : UITableViewCell
+@property (nonatomic) UIButton *logoutBtn;
+@end
+
 @implementation UserCenterViewController
 #pragma mark - 协议方法 UITableView Delegate/DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.dataList.count;
+    return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSArray *arr = [self.dataList objectAtIndex:section];
-    return arr.count;
+    if (section == 1) {
+        return 1;
+    }
+    return self.dataList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell" forIndexPath:indexPath];
-    NSArray *arr = [self.dataList objectAtIndex:indexPath.section];
-    cell.textLabel.text = [arr objectAtIndex:indexPath.row];
-    //小箭头
-    cell.accessoryType = 1;
-    return cell;
+    if (indexPath.section == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell" forIndexPath:indexPath];
+        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
+        //小箭头
+        cell.accessoryType = 1;
+        return cell;
+    }else{
+        LogoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LogoutCell"];
+        return cell;
+    }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat offsetY = scrollView.contentOffset.y;
@@ -49,6 +60,16 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0 && indexPath.row == 2) {
+        ModifyPasswordViewController *pwdVC = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ModifyPasswordViewController"];
+        [self.navigationController pushViewController:pwdVC animated:YES];
+    }
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        return 50;
+    }
+    return 44;
 }
 #pragma mark - 协议方法 UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
@@ -172,15 +193,40 @@
         _tableView.dataSource = self;
         
         [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NormalCell"];
+        [_tableView registerClass:[LogoutCell class] forCellReuseIdentifier:@"LogoutCell"];
 	}
 	return _tableView;
 }
 
 - (NSArray *)dataList {
 	if(_dataList == nil) {
-        _dataList = @[@[@"个人资料", @"我的好友", @"修改密码"], @[@"我的点赞", @"我的收藏", @"我的评论"]];
+        _dataList = @[@"个人资料", @"我的好友", @"修改密码"];
 	}
 	return _dataList;
+}
+
+@end
+@implementation LogoutCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self logoutBtn];
+    }
+    return self;
+}
+- (UIButton *)logoutBtn{
+    if (_logoutBtn == nil) {
+        _logoutBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.contentView addSubview:_logoutBtn];
+        [_logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.left.mas_equalTo(8);
+            make.bottom.right.mas_equalTo(-8);
+        }];
+        _logoutBtn.backgroundColor = [UIColor redColor];
+        [_logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+        _logoutBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+        [_logoutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    }
+    return _logoutBtn;
 }
 
 @end
