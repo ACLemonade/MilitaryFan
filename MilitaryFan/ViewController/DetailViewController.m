@@ -12,7 +12,9 @@
 #import "DetailHeaderCell.h"
 #import <UIImageView+WebCache.h>
 #import <SDWebImage/SDImageCache.h>
+#import <UIControl+BlocksKit.h>
 
+#import "FunctionView.h"
 
 @interface DetailContentCell : UITableViewCell
 @end
@@ -22,6 +24,8 @@
 @property (nonatomic) UITableView *tableview;
 @property (nonatomic) MFDetailViewModel *detailVM;
 @property (nonatomic) CGFloat contentCellHeight;
+@property (nonatomic) FunctionView *funcView;
+@property (nonatomic) FMDatabase *dataBase;
 @end
 
 @implementation DetailViewController
@@ -157,7 +161,41 @@
     }
     return @[@(totalHeight), contentArr];
 }
+- (void)collectArticle:(UIButton *)sender{
+    //判断是否能够打开数据库
+//    if (![self.dataBase open]) {
+//        NSLog(@"数据库不能打开");
+//        NSLog(@"error: %@", [_dataBase lastErrorMessage]);
+//        return;
+//    }
+//    //创建一张表----收藏表
+//    BOOL suc1 = [_dataBase executeUpdate:@"CREATE TABLE Collection (Name text, Aid text, Type integer)"];
+//    if (suc1) {
+//        NSLog(@"创建collection表成功");
+//    }
+//    [_dataBase close];
 
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
+//    NSLog(@"%@", kDataBasePath);
+    [queue inDatabase:^(FMDatabase *db) {
+        NSInteger resultCount = [db intForQuery:@"select count(*) from Collection where Aid = ?", self.aid];
+        if (resultCount) {
+                BOOL success = [db executeUpdate:@"delete from Collection where Aid = ?", self.aid];
+                if (success) {
+                    NSLog(@"取消收藏成功");
+                    [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
+            }
+        }else{
+            BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type) values (?,?,?)", @"Test", self.aid, @(self.detailType)];
+            if (success) {
+                NSLog(@"收藏成功");
+                [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
+            }
+        }
+//        [result close];
+    }];
+//    [queue close];
+}
 
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
@@ -170,15 +208,20 @@
             NSLog(@"error: %@", error);
         }else{
             [self.tableview reloadData];
+            [self.view bringSubviewToFront:self.funcView];
         }
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     [Factory naviClickBackWithViewController:self];
+
     
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
+}
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
 }
 #pragma mark - 懒加载 Lazy Load
 - (MFDetailViewModel *)detailVM {
@@ -195,7 +238,9 @@
         _tableview.dataSource = self;
         [self.view addSubview:_tableview];
         [_tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
+            make.left.top.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(-40);
+            
         }];
         _tableview.allowsSelection = NO;
         _tableview.separatorStyle = 0;
@@ -205,9 +250,33 @@
 	}
 	return _tableview;
 }
-
+- (FunctionView *)funcView{
+    if (_funcView == nil) {
+        _funcView = [[FunctionView alloc] init];
+        [self.view addSubview:_funcView];
+        [_funcView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.bottom.mas_equalTo(0);
+            make.height.mas_equalTo(40);
+        }];
+        _funcView.backgroundColor = [UIColor lightGrayColor];
+        //点击收藏
+        [_funcView.collectionBtn addTarget:self action:@selector(collectArticle:) forControlEvents:UIControlEventTouchUpInside];
+        
+        FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
+        [queue inDatabase:^(FMDatabase *db) {
+            NSInteger resultCount = [db intForQuery:@"select count(*) from Collection where Aid = ?", self.aid];
+            if (resultCount) {
+                //已被收藏的显示黄星星✨
+                [_funcView.collectionBtn setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
+            }
+        }];
+//        [queue close];
+    }
+    return _funcView;
+}
 @end
 
 @implementation DetailContentCell
+
 
 @end

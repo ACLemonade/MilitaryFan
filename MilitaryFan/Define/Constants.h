@@ -27,6 +27,7 @@ __block __weak __typeof(&*self)weakSelf = self;\
 //头像图片路径
 #define kHeadImagePath [kDocPath stringByAppendingPathComponent:@"/headImage.png"]
 
+#define kDataBasePath [kDocPath stringByAppendingPathComponent:@"MilitaryFan.db"]
 
 
 

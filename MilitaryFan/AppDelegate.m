@@ -70,6 +70,7 @@
     
     //电池条左上角wifi旁菊花标识
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+
     return YES;
 }
 

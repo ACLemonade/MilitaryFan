@@ -71,6 +71,8 @@
     DetailViewController *dVC = [DetailViewController new];
     dVC.aid = [self.infoVM topAidForRow:index];
     dVC.detailType = 1;
+    //隐藏tabBar
+    dVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:dVC animated:YES];
 }
 
@@ -175,6 +177,9 @@
     }else{
         DetailViewController *detailVC = [DetailViewController new];
         detailVC.aid = [self.infoVM itemAidForRow:row];
+        detailVC.detailType = 1;
+        //隐藏tabBar
+        detailVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:detailVC animated:YES];
     }
     

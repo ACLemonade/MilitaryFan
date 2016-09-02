@@ -37,6 +37,7 @@
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
 		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
 		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
+		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
 		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
@@ -154,6 +155,8 @@
 		8C32F8671D717BE50046F218 /* DetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoCell.h; sourceTree = "<group>"; };
 		8C32F8681D717BE50046F218 /* DetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoCell.m; sourceTree = "<group>"; };
 		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
+		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
+		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
 		8C9304B01D6BE82E00F9182D /* MFDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailModel.m; sourceTree = "<group>"; };
 		8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailViewModel.h; sourceTree = "<group>"; };
@@ -650,6 +653,8 @@
 				8C9305031D6D791800F9182D /* ShareCell.h */,
 				8C9305041D6D791800F9182D /* ShareCell.m */,
 				8C9305051D6D791800F9182D /* ShareCell.xib */,
+				8C79062D1D790D42005555C8 /* FunctionView.h */,
+				8C79062E1D790D42005555C8 /* FunctionView.m */,
 			);
 			name = DetailView;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
+				8C79062F1D790D42005555C8 /* FunctionView.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
 				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
