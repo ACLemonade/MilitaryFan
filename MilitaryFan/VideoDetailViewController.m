@@ -7,8 +7,7 @@
 //
 
 #import "VideoDetailViewController.h"
-
-#include "MFVideoDetailViewModel.h"
+#import "MFVideoDetailViewModel.h"
 #import "UIScrollView+Refresh.h"
 #import <UIKit+AFNetworking.h>
 
