@@ -54,6 +54,22 @@
     detailVC.aid = [self.collectionVM aidForRow:indexPath.row];
     [self.navigationController pushViewController:detailVC animated:YES];
 }
+//左滑按钮
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
+        if ([db open]) {
+            BOOL suc = [db executeUpdate:@"delete from Collection where Aid = ?", [self.collectionVM aidForRow:indexPath.row]];
+            if (suc) {
+                NSLog(@"取消收藏成功!");
+                [self.collectionVM collectionUpdate];
+                [self.tableView reloadData];
+            }
+        }
+        [db close];
+    }];
+    return @[deleteAction];
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];

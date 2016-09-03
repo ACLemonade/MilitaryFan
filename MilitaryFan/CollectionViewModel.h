@@ -23,4 +23,5 @@
 - (CollectionDetailModel *)detailModelForRow:(NSInteger)row;
 @property (nonatomic) NSMutableArray<CollectionDetailModel *> *itemList;
 @property (nonatomic) NSInteger itemNumber;
+- (void)collectionUpdate;
 @end

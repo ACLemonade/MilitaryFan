@@ -21,10 +21,8 @@
     return _collectionModel;
 }
 - (NSMutableArray<CollectionDetailModel *> *)itemList{
-    if (_itemList == nil) {
-        _itemList = [NSMutableArray<CollectionDetailModel *> arrayWithArray:[self.collectionModel.collectionList copy]];
-    }
-    return _itemList;
+    //在懒加载的情况下无法实时更新数据
+    return self.collectionModel.collectionList;
 }
 - (CollectionDetailModel *)detailModelForRow:(NSInteger)row{
     return [self.itemList objectAtIndex:row];
@@ -43,5 +41,8 @@
 }
 - (NSString *)aidForRow:(NSInteger)row{
     return [self detailModelForRow:row].aid;
+}
+- (void)collectionUpdate{
+    [self.collectionModel dbUpdate];
 }
 @end
