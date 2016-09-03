@@ -162,18 +162,14 @@
     return @[@(totalHeight), contentArr];
 }
 - (void)collectArticle:(UIButton *)sender{
-    //判断是否能够打开数据库
-//    if (![self.dataBase open]) {
-//        NSLog(@"数据库不能打开");
-//        NSLog(@"error: %@", [_dataBase lastErrorMessage]);
-//        return;
+//    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
+//    if ([db open]) {
+//        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
+//        if (suc) {
+//            NSLog(@"创建表成功");
+//        }
 //    }
-//    //创建一张表----收藏表
-//    BOOL suc1 = [_dataBase executeUpdate:@"CREATE TABLE Collection (Name text, Aid text, Type integer)"];
-//    if (suc1) {
-//        NSLog(@"创建collection表成功");
-//    }
-//    [_dataBase close];
+//    [db close];
 
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
 //    NSLog(@"%@", kDataBasePath);
@@ -186,15 +182,14 @@
                     [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
             }
         }else{
-            BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type) values (?,?,?)", @"Test", self.aid, @(self.detailType)];
+            BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @(self.detailType), self.detailVM.image, self.detailVM.title, self.detailVM.pubDate];
             if (success) {
                 NSLog(@"收藏成功");
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }
-//        [result close];
     }];
-//    [queue close];
+
 }
 
 #pragma mark - 生命周期 LifeCircle

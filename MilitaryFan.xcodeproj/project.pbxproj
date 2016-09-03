@@ -59,6 +59,9 @@
 		8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C93056C1D6DC92100F9182D /* DetailHeaderCell.xib */; };
 		8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305701D6DCB5400F9182D /* DetailLikeCell.m */; };
 		8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */; };
+		8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */; };
+		8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA421D7A502300616F53 /* CollectionModel.m */; };
+		8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA451D7A602C00616F53 /* CollectionViewController.m */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
 		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
@@ -195,6 +198,12 @@
 		8C93056F1D6DCB5400F9182D /* DetailLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailLikeCell.h; sourceTree = "<group>"; };
 		8C9305701D6DCB5400F9182D /* DetailLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailLikeCell.m; sourceTree = "<group>"; };
 		8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLikeCell.xib; sourceTree = "<group>"; };
+		8CAFCA3A1D7A4F5800616F53 /* CollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewModel.h; sourceTree = "<group>"; };
+		8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewModel.m; sourceTree = "<group>"; };
+		8CAFCA411D7A502300616F53 /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
+		8CAFCA421D7A502300616F53 /* CollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionModel.m; sourceTree = "<group>"; };
+		8CAFCA441D7A602C00616F53 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		8CAFCA451D7A602C00616F53 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -332,6 +341,7 @@
 			children = (
 				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
 				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
+				8CAFCA361D7A4EB200616F53 /* 收藏 */,
 				8CFA13B11D73E54200DAF1E4 /* 登录&注册 */,
 				8C9304E21D6C777600F9182D /* 我的 */,
 				8C9304DA1D6C762C00F9182D /* 视频 */,
@@ -659,6 +669,51 @@
 			name = DetailView;
 			sourceTree = "<group>";
 		};
+		8CAFCA361D7A4EB200616F53 /* 收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFCA401D7A4FE000616F53 /* Model */,
+				8CAFCA391D7A4EE700616F53 /* ViewController */,
+				8CAFCA381D7A4ED700616F53 /* ViewModel */,
+				8CAFCA371D7A4EC700616F53 /* View */,
+			);
+			name = "收藏";
+			sourceTree = "<group>";
+		};
+		8CAFCA371D7A4EC700616F53 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8CAFCA381D7A4ED700616F53 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFCA3A1D7A4F5800616F53 /* CollectionViewModel.h */,
+				8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		8CAFCA391D7A4EE700616F53 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFCA441D7A602C00616F53 /* CollectionViewController.h */,
+				8CAFCA451D7A602C00616F53 /* CollectionViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8CAFCA401D7A4FE000616F53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CAFCA411D7A502300616F53 /* CollectionModel.h */,
+				8CAFCA421D7A502300616F53 /* CollectionModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8CFA13B11D73E54200DAF1E4 /* 登录&注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,9 +1034,11 @@
 				8C9304EB1D6D2EAF00F9182D /* MFVideoNetManager.m in Sources */,
 				8C9304CC1D6C449100F9182D /* LeftMenuViewController.m in Sources */,
 				8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */,
+				8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */,
 				8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */,
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
+				8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
 				8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */,
 				8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */,
@@ -995,6 +1052,7 @@
 				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
+				8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,

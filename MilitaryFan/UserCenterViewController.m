@@ -145,6 +145,7 @@
     [backBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = backBarBtn;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 #pragma mark - 懒加载 Lazy Load
 - (UIImageView *)topView {

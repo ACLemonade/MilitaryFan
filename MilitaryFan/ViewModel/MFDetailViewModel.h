@@ -23,6 +23,8 @@
 //文章数组
 @property (nonatomic) NSArray<NSString *> *content;
 
+@property (nonatomic) NSString *image;
+
 /** 数据部分 */
 @property (nonatomic) NSString *aid;
 - (instancetype)initWithAid:(NSString *)aid;

@@ -8,6 +8,7 @@
 
 #import "LeftMenuViewController.h"
 #import "UserCenterViewController.h"
+#import "CollectionViewController.h"
 #import "UserInfoCell.h"
 
 @interface LeftMenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -61,6 +62,11 @@
             cell.iconIV.image = image;
         };
         [self presentViewController:userNavi animated:YES completion:nil];
+    }
+    if (indexPath.section == 1) {
+        CollectionViewController *collectionVC = [CollectionViewController new];
+        UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
+        [self presentViewController:collectNavi animated:YES completion:nil];
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

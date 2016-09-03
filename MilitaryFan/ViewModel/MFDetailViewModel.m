@@ -37,7 +37,9 @@
 - (NSArray<NSString *> *)content{
     return self.model.content;
 }
-
+- (NSString *)image{
+    return self.model.image;
+}
 
 
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{
