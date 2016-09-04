@@ -29,6 +29,6 @@ __block __weak __typeof(&*self)weakSelf = self;\
 
 #define kDataBasePath [kDocPath stringByAppendingPathComponent:@"MilitaryFan.db"]
 
-
+#define kUserPlistPath [kDocPath stringByAppendingPathComponent:@"User.plist"]
 
 #endif /* Constants_h */

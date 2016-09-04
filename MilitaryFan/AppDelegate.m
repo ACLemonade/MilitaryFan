@@ -31,46 +31,64 @@
     }
     return _window;
 }
-
+- (RESideMenu *)sideMenuVC{
+    if (_sideMenuVC == nil) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+        UITabBarController *tab = [[UITabBarController alloc] init];
+        
+        PageController *pageVC = [PageController new];
+        VideoViewController *videoVC = [VideoViewController new];
+        SettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+        
+        UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
+        UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
+        UINavigationController *settingsNavi = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+        
+        pageNavi.tabBarItem.title = @"资讯";
+        videoNavi.tabBarItem.title = @"视频";
+        settingsNavi.tabBarItem.title = @"设置";
+        
+        pageVC.navigationItem.title = @"军事迷";
+        videoVC.navigationItem.title = @"军事迷";
+        settingsVC.navigationItem.title = @"军事迷";
+        
+        tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
+        LeftMenuViewController *leftVC = [LeftMenuViewController new];
+        
+        self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
+        self.window.rootViewController = self.sideMenuVC;
+    }
+    return _sideMenuVC;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     //shareSDK短信注册
     [SMSSDK registerApp:kSMSAppKey withSecret:kSMSAppSecret];
     
-    
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-    UITabBarController *tab = [[UITabBarController alloc] init];
-    
-    PageController *pageVC = [PageController new];
-    VideoViewController *videoVC = [VideoViewController new];
-    SettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"SettingsViewController"];
-    
-    UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
-    UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
-    UINavigationController *settingsNavi = [[UINavigationController alloc] initWithRootViewController:settingsVC];
-    
-    pageNavi.tabBarItem.title = @"资讯";
-    videoNavi.tabBarItem.title = @"视频";
-    settingsNavi.tabBarItem.title = @"设置";
-    
-    pageVC.navigationItem.title = @"军事迷";
-    videoVC.navigationItem.title = @"军事迷";
-    settingsVC.navigationItem.title = @"军事迷";
-    
-    tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
-    
     [UINavigationBar appearance].translucent = NO;
-    
     [UITabBar appearance].translucent = NO;
     
-    LeftMenuViewController *leftVC = [LeftMenuViewController new];
-    
-    RESideMenu *sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
-    self.window.rootViewController = sideMenuVC;
+    [self sideMenuVC];
     
     //电池条左上角wifi旁菊花标识
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-
+    
+    
+    
+//    NSString *path = [kDocPath stringByAppendingPathComponent:@"User.plist"];
+//    [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
+//    NSLog(@"%@", path);
+//    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
+//    [dic setObject:@"Test" forKey:@"userName"];
+//    [dic setObject:@"" forKey:@"password"];
+//    [dic setObject:@(NO) forKey:@"loginState"];
+//    
+//    [dic writeToFile:path atomically:YES];
+    
+    
+    
+    
+    
     return YES;
 }
 

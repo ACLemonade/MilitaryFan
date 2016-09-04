@@ -38,6 +38,9 @@
 - (NSURL *)iconIV{
     return [NSURL URLWithString:self.model.image];
 }
+- (NSString *)image{
+    return self.model.image;
+}
 - (NSString *)link{
     return self.model.link;
 }

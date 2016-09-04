@@ -162,7 +162,7 @@
     return @[@(totalHeight), contentArr];
 }
 - (void)collectArticle:(UIButton *)sender{
-    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
+//    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
 //    if ([db open]) {
 //        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
 //        if (suc) {
@@ -170,9 +170,12 @@
 //        }
 //    }
 //    [db close];
+    
+    
+    
 
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
-//    NSLog(@"%@", kDataBasePath);
+    NSLog(@"%@", kDocPath);
     [queue inDatabase:^(FMDatabase *db) {
         NSInteger resultCount = [db intForQuery:@"select count(*) from Collection where Aid = ?", self.aid];
         if (resultCount) {

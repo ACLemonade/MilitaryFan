@@ -37,6 +37,7 @@
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
 		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
 		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
+		8C3E11A31D7BA9D6001716C9 /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C3E11A21D7BA9D6001716C9 /* User.plist */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
@@ -158,6 +159,7 @@
 		8C32F8671D717BE50046F218 /* DetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoCell.h; sourceTree = "<group>"; };
 		8C32F8681D717BE50046F218 /* DetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoCell.m; sourceTree = "<group>"; };
 		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
+		8C3E11A21D7BA9D6001716C9 /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */,
 				8C2A6F491D67F8CA0028F634 /* Info.plist */,
 				8C2A6F361D67F8CA0028F634 /* main.m */,
+				8C3E11A21D7BA9D6001716C9 /* User.plist */,
 			);
 			name = "Supporting Files";
 			path = MilitaryFan;
@@ -614,10 +617,10 @@
 		8C9304E21D6C777600F9182D /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				8C1E76FD1D765B270051F8B1 /* ViewModel */,
 				8C1E76FC1D765B1B0051F8B1 /* Model */,
-				8C1E76FB1D765B120051F8B1 /* ViewController */,
 				8C1E76FA1D765B0B0051F8B1 /* View */,
+				8C1E76FD1D765B270051F8B1 /* ViewModel */,
+				8C1E76FB1D765B120051F8B1 /* ViewController */,
 			);
 			name = "我的";
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
 				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
+				8C3E11A31D7BA9D6001716C9 /* User.plist in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
 				8C1E770C1D767D760051F8B1 /* UserCenter.storyboard in Resources */,

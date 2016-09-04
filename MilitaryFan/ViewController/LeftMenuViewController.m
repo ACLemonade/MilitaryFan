@@ -9,7 +9,10 @@
 #import "LeftMenuViewController.h"
 #import "UserCenterViewController.h"
 #import "CollectionViewController.h"
+#import "LoginViewController.h"
 #import "UserInfoCell.h"
+
+#import "UIScrollView+Refresh.h"
 
 @interface LeftMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
@@ -31,16 +34,28 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserInfoCell" forIndexPath:indexPath];
-        if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
-            [[NSOperationQueue new] addOperationWithBlock:^{
-                NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
-                UIImage *headImage = [UIImage imageWithData:data];
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    cell.iconIV.image = headImage;
+        //从User.plist读取登录信息
+        NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+        NSString *userName = [userDic objectForKey:@"userName"];
+        NSNumber *loginState = [userDic objectForKey:@"loginState"];
+        if ([loginState integerValue]) {
+            cell.userNameLb.text = userName;
+            cell.userNameLb.textColor = [UIColor blackColor];
+            if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
+                [[NSOperationQueue new] addOperationWithBlock:^{
+                    NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
+                    UIImage *headImage = [UIImage imageWithData:data];
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                        cell.iconIV.image = headImage;
+                    }];
                 }];
-            }];
+            }
+        }else{
+            cell.userNameLb.text = @"点击登录";
+            cell.userNameLb.textColor = [UIColor grayColor];
+            cell.userNameLb.font = [UIFont systemFontOfSize:20];
+            [cell.iconIV setImage:[UIImage imageNamed:@"Persn_login"]];
         }
-        
         return cell;
     }else{
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell"];
@@ -55,13 +70,22 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        UserInfoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        UINavigationController *userNavi = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateInitialViewController];
-        UserCenterViewController *userCenterVC = [userNavi.viewControllers objectAtIndex:0];
-        userCenterVC.myBlock = ^(UIImage *image){
-            cell.iconIV.image = image;
-        };
-        [self presentViewController:userNavi animated:YES completion:nil];
+        //从User.plist读取登录信息
+        NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+        NSNumber *loginState = [userDic objectForKey:@"loginState"];
+        if ([loginState integerValue]) {
+            UserInfoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+            UINavigationController *userNavi = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateInitialViewController];
+            UserCenterViewController *userCenterVC = [userNavi.viewControllers objectAtIndex:0];
+            userCenterVC.myBlock = ^(UIImage *image){
+                cell.iconIV.image = image;
+            };
+            [self presentViewController:userNavi animated:YES completion:nil];
+        }else{
+            LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
+            [self presentViewController:loginNavi animated:YES completion:nil];
+        }
     }
     if (indexPath.section == 1) {
         CollectionViewController *collectionVC = [CollectionViewController new];
@@ -84,7 +108,12 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self tableView];
+    WK(weakSelf);
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.tableView reloadData];
+        [weakSelf.tableView endHeaderRefresh];
+    }];
+    [self.tableView beginHeaderRefresh];
 }
 
 
@@ -101,7 +130,7 @@
         _tableView.delegate = self;
         _tableView.dataSource = self;
         //去弹簧效果
-        _tableView.bounces = NO;
+//        _tableView.bounces = NO;
         
         //去掉分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
+#import "LeftMenuViewController.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
@@ -44,11 +46,17 @@
             NSLog(@"错误信息: %@",error);
         }else{
             if (array.firstObject) {
+                //将登录信息写入User.plist文件中
+                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+                [dic setObject:_accountTF.text forKey:@"userName"];
+                [dic setObject:_passwordTF.text forKey:@"password"];
+                [dic setObject:@(YES) forKey:@"loginState"];
+                [dic writeToFile:kUserPlistPath atomically:YES];
                 //登录成功,弹出提示框
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    //点击确定返回导航控制器根视图
-                    [self.navigationController popToRootViewControllerAnimated:YES];
+                    //点击确定刷新界面
+                    [self.navigationController popViewControllerAnimated:YES];
                 }];
                 [alertVC addAction:yesAction];
                 [self presentViewController:alertVC animated:YES completion:nil];
@@ -82,7 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_accountTF becomeFirstResponder];
-    [Factory naviClickBackWithViewController:self];
+    [Factory nonNaviClickBackWithViewController:self];
 }
 
 @end
