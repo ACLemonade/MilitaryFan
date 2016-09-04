@@ -25,7 +25,7 @@
                                 </constraints>
                                 <state key="normal" image="xjs_article_cai"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-v1-nq0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UO-v1-nq0">
                                 <rect key="frame" x="40" y="10" width="13" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,7 +52,7 @@
                                 </constraints>
                                 <state key="normal" image="xjs_article_zan"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-Ds-Ds9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63f-Ds-Ds9">
                                 <rect key="frame" x="40" y="10" width="14" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,10 +77,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="likeBtn" destination="aSE-yS-b2A" id="Akq-le-gVs"/>
+                <outlet property="likeBtn" destination="aSE-yS-b2A" id="i3h-Jn-vX8"/>
                 <outlet property="likeLb" destination="63f-Ds-Ds9" id="pCf-GE-lcz"/>
                 <outlet property="likeView" destination="t93-Cn-Yax" id="h2n-70-0ao"/>
-                <outlet property="unlikeBtn" destination="7ZZ-8T-Hly" id="CoJ-7r-bDT"/>
+                <outlet property="unlikeBtn" destination="7ZZ-8T-Hly" id="AoV-RS-xa2"/>
                 <outlet property="unlikeLb" destination="1UO-v1-nq0" id="RbE-eB-8VY"/>
                 <outlet property="unlikeView" destination="FKu-LY-afa" id="Rvy-PW-HZ2"/>
             </connections>

@@ -69,15 +69,46 @@
                     [cell.contentView addSubview:iv];
                     iv.frame = CGRectMake(8, currentHeight, iv.bounds.size.width, iv.bounds.size.height);
                     currentHeight += iv.bounds.size.height;
-                //    NSLog(@"imgSize: %@", NSStringFromCGSize(iv.frame.size));
                 }
             }
             return cell;
             break;
         }
+        //点赞cell
         case 2:
         {
             DetailLikeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailLikeCell" forIndexPath:indexPath];
+            NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+            NSString *userName = [userDic objectForKey:@"userName"];
+            
+            
+            [cell.likeBtn bk_addEventHandler:^(id sender) {
+                BmobObject *obj = [BmobObject objectWithClassName:@"Like"];
+                [obj setObject:userName forKey:@"userName"];
+                [obj setObject:self.aid forKey:@"Aid"];
+                [obj setObject:@(self.detailType) forKey:@"Type"];
+                [obj setObject:@1 forKey:@"likeState"];
+                [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                    if (isSuccessful) {
+                        //
+                        NSLog(@"点赞成功");
+                    }
+                }];
+            } forControlEvents:UIControlEventTouchUpInside];
+            
+            BmobQuery *likeQuery = [BmobQuery queryWithClassName:@"Like"];
+            //查询当前用户,当前aid并且点赞状态为1数据
+            [likeQuery addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @1}]];
+            likeQuery.limit = 1000;
+            [likeQuery sumKeys:@[@"likeState"]];
+            [likeQuery calcInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                NSLog(@"%@, %@", array, [NSThread currentThread]);
+                NSDictionary *countDic = [array objectAtIndex:0];
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    cell.likeLb.text = [[countDic objectForKey:@"_sumLikeState"] stringValue];
+                }];
+                
+            }];
             return cell;
             break;
         }

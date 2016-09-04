@@ -11,8 +11,7 @@
 @interface DetailLikeCell()
 @property (weak, nonatomic) IBOutlet UIView *likeView;
 @property (weak, nonatomic) IBOutlet UIView *unlikeView;
-@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
-@property (weak, nonatomic) IBOutlet UIButton *unlikeBtn;
+
 
 @end
 
@@ -29,11 +28,6 @@
     _unlikeView.layer.cornerRadius = 3;
     _unlikeView.layer.borderColor = kRGBA(229, 229, 229, 1.0).CGColor;
     _unlikeView.layer.borderWidth = 1;
-    
-    //打开 点赞/踩 按钮 用户交互
-    [_likeBtn addTarget:self action:@selector(clickLike) forControlEvents:UIControlEventTouchUpInside];
-    [_unlikeBtn addTarget:self action:@selector(clickUnlike) forControlEvents:UIControlEventTouchUpInside];
- 
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -41,12 +35,4 @@
 
     // Configure the view for the selected state
 }
-#pragma mark - 方法 Methods
-- (void)clickLike{
-    NSLog(@"点赞了");
-}
-- (void)clickUnlike{
-    NSLog(@"踩了");
-}
-
 @end
