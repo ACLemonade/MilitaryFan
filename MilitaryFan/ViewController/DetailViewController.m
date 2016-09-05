@@ -26,6 +26,7 @@
 @property (nonatomic) CGFloat contentCellHeight;
 @property (nonatomic) FunctionView *funcView;
 @property (nonatomic) FMDatabase *dataBase;
+
 @end
 
 @implementation DetailViewController
@@ -80,35 +81,140 @@
             DetailLikeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailLikeCell" forIndexPath:indexPath];
             NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
             NSString *userName = [userDic objectForKey:@"userName"];
-            
-            
-            [cell.likeBtn bk_addEventHandler:^(id sender) {
-                BmobObject *obj = [BmobObject objectWithClassName:@"Like"];
-                [obj setObject:userName forKey:@"userName"];
-                [obj setObject:self.aid forKey:@"Aid"];
-                [obj setObject:@(self.detailType) forKey:@"Type"];
-                [obj setObject:@1 forKey:@"likeState"];
-                [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-                    if (isSuccessful) {
-                        //
-                        NSLog(@"点赞成功");
-                    }
-                }];
-            } forControlEvents:UIControlEventTouchUpInside];
-            
+            __block NSInteger likeNumber;
+            __block NSInteger unlikeNumber;
+            //总点赞数
             BmobQuery *likeQuery = [BmobQuery queryWithClassName:@"Like"];
-            //查询当前用户,当前aid并且点赞状态为1数据
-            [likeQuery addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @1}]];
-            likeQuery.limit = 1000;
-            [likeQuery sumKeys:@[@"likeState"]];
-            [likeQuery calcInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-                NSLog(@"%@, %@", array, [NSThread currentThread]);
-                NSDictionary *countDic = [array objectAtIndex:0];
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    cell.likeLb.text = [[countDic objectForKey:@"_sumLikeState"] stringValue];
-                }];
-                
+            [likeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @1}]];
+            [likeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                cell.likeLb.text = [NSString stringWithFormat:@"%d", number];
+                likeNumber = number;
             }];
+//            likeNumber = [self clickLike];
+//            NSLog(@"%d", __LINE__);
+            //总踩数
+            BmobQuery *unlikeQuery = [BmobQuery queryWithClassName:@"Like"];
+            [unlikeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @2}]];
+            [unlikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                cell.unlikeLb.text = [NSString stringWithFormat:@"%d", number];
+                unlikeNumber = number;
+            }];
+            __block NSInteger myLikeNumber = 0;
+            //查询当前aid并且点赞状态为1数据
+            BmobQuery *myLikeQuery = [BmobQuery queryWithClassName:@"Like"];
+            [myLikeQuery addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @1}]];
+            [myLikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                myLikeNumber = number;
+//                NSLog(@"%@, %d", [NSThread currentThread], __LINE__);
+            }];
+            __block NSInteger myUnlikeNumber = 0;
+            //查询当前aid并且踩状态为2数据
+            BmobQuery *myUnlikeQuery = [BmobQuery queryWithClassName:@"Like"];
+            [myUnlikeQuery addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @2}]];
+            [myUnlikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+                myUnlikeNumber = number;
+            }];
+//            NSLog(@"%d", __LINE__);
+            //------- 点赞/取消点赞 --------//
+            [cell.likeBtn bk_addEventHandler:^(id sender) {
+                if (myUnlikeNumber) {
+                    NSLog(@"已经踩过,不能点赞");
+                }else{
+                    if (myLikeNumber) {
+                        //取消点赞
+                        BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+                        [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @1}]];
+                        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                            if (array.firstObject) {
+                                BmobObject *obj = array.firstObject;
+                                [obj setObject:@0 forKey:@"likeState"];
+                                [obj updateInBackground];
+                                NSLog(@"取消点赞");
+                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    likeNumber--;
+                                    myLikeNumber--;
+                                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                        cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
+                                    }];
+                                    
+                                }];
+                            }
+                        }];
+                        
+                    }else{
+                        //点赞
+                        BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+                        [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @0}]];
+                        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                            if (array.firstObject) {
+                                BmobObject *obj = array.firstObject;
+                                [obj setObject:@1 forKey:@"likeState"];
+                                //异步更新数据
+                                [obj updateInBackground];
+                                NSLog(@"点赞成功");
+                                likeNumber++;
+                                myLikeNumber++;
+                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
+                                }];
+                                
+                                
+                            }
+                        }];
+                        
+                    }
+
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+            //------- 踩/取消踩 --------//
+            [cell.unlikeBtn bk_addEventHandler:^(id sender) {
+                if (myLikeNumber) {
+                    NSLog(@"已经赞过,不能踩");
+                }else{
+                    //取消踩
+                    if (myUnlikeNumber) {
+                        BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+                        [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @2}]];
+                        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                            if (array.firstObject) {
+                                BmobObject *obj = array.firstObject;
+                                [obj setObject:@0 forKey:@"likeState"];
+                                [obj updateInBackground];
+                                NSLog(@"取消踩");
+                                myUnlikeNumber--;
+                                unlikeNumber--;
+                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
+                                }];
+                                
+                                
+                            }
+                        }];
+                    }else{
+                        //踩
+                        BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+                        [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @0}]];
+                        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                            if (array.firstObject) {
+                                BmobObject *obj = array.firstObject;
+                                [obj setObject:@2 forKey:@"likeState"];
+                                //异步更新数据
+                                [obj updateInBackground];
+                                NSLog(@"踩成功");
+                                myUnlikeNumber++;
+                                unlikeNumber++;
+                                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
+                                }];
+                                
+                            }
+                        }];
+                        
+                    }
+
+                }
+            } forControlEvents:UIControlEventTouchUpInside];
+
             return cell;
             break;
         }
@@ -201,10 +307,6 @@
 //        }
 //    }
 //    [db close];
-    
-    
-    
-
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
     NSLog(@"%@", kDocPath);
     [queue inDatabase:^(FMDatabase *db) {
@@ -223,9 +325,21 @@
             }
         }
     }];
-
 }
-
+- (NSInteger)clickLike{
+    __block NSInteger myLikeNumber = 0;
+    //查询当前aid并且点赞状态为1数据
+    BmobQuery *myLikeQuery = [BmobQuery queryWithClassName:@"Like"];
+    [myLikeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @1}]];
+    [myLikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        [[NSOperationQueue new] addOperationWithBlock:^{
+            myLikeNumber = number;
+            NSLog(@"%@, %d", [NSThread currentThread], __LINE__);
+        }];
+    }];
+    NSLog(@"%d", __LINE__);
+    return myLikeNumber;
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -247,6 +361,20 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+    NSString *userName = [userDic objectForKey:@"userName"];
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+    [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}]];
+    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+        if (number == 0) {
+            BmobObject *obj = [BmobObject objectWithClassName:@"Like"];
+            [obj setObject:userName forKey:@"userName"];
+            [obj setObject:self.aid forKey:@"Aid"];
+            [obj setObject:@(self.detailType) forKey:@"Type"];
+            [obj setObject:@0 forKey:@"likeState"];
+            [obj saveInBackground];
+        }
+    }];
     
 }
 - (void)viewDidDisappear:(BOOL)animated{
