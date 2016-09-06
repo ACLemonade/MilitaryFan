@@ -63,6 +63,7 @@
 		8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */; };
 		8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA421D7A502300616F53 /* CollectionModel.m */; };
 		8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA451D7A602C00616F53 /* CollectionViewController.m */; };
+		8CC41D961D7E3B6C00748D0D /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41D951D7E3B6C00748D0D /* CommentViewController.m */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
 		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
@@ -206,6 +207,8 @@
 		8CAFCA421D7A502300616F53 /* CollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionModel.m; sourceTree = "<group>"; };
 		8CAFCA441D7A602C00616F53 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		8CAFCA451D7A602C00616F53 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		8CC41D941D7E3B6C00748D0D /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		8CC41D951D7E3B6C00748D0D /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -343,6 +346,7 @@
 			children = (
 				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
 				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
+				8CC41D931D7E3B4D00748D0D /* 评论 */,
 				8CAFCA361D7A4EB200616F53 /* 收藏 */,
 				8CFA13B11D73E54200DAF1E4 /* 登录&注册 */,
 				8C9304E21D6C777600F9182D /* 我的 */,
@@ -717,6 +721,47 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		8CC41D931D7E3B4D00748D0D /* 评论 */ = {
+			isa = PBXGroup;
+			children = (
+				8CC41D9A1D7E3BA800748D0D /* Model */,
+				8CC41D991D7E3BA200748D0D /* ViewModel */,
+				8CC41D981D7E3B8A00748D0D /* View */,
+				8CC41D971D7E3B7F00748D0D /* ViewController */,
+			);
+			name = "评论";
+			sourceTree = "<group>";
+		};
+		8CC41D971D7E3B7F00748D0D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CC41D941D7E3B6C00748D0D /* CommentViewController.h */,
+				8CC41D951D7E3B6C00748D0D /* CommentViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8CC41D981D7E3B8A00748D0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8CC41D991D7E3BA200748D0D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		8CC41D9A1D7E3BA800748D0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		8CFA13B11D73E54200DAF1E4 /* 登录&注册 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1040,6 +1085,7 @@
 				8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */,
 				8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */,
 				8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */,
+				8CC41D961D7E3B6C00748D0D /* CommentViewController.m in Sources */,
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */,

@@ -7,6 +7,8 @@
 //
 
 #import "DetailViewController.h"
+#import "CommentViewController.h"
+
 #import "MFDetailViewModel.h"
 #import "DetailLikeCell.h"
 #import "DetailHeaderCell.h"
@@ -214,7 +216,6 @@
 
                 }
             } forControlEvents:UIControlEventTouchUpInside];
-
             return cell;
             break;
         }
@@ -427,7 +428,12 @@
                 [_funcView.collectionBtn setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }];
-//        [queue close];
+        [_funcView.myCommentBtn bk_addEventHandler:^(id sender) {
+            CommentViewController *commentVC = [CommentViewController new];
+            commentVC.aid = self.aid;
+            commentVC.detailType = self.detailType;
+            [self.navigationController pushViewController:commentVC animated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
     }
     return _funcView;
 }

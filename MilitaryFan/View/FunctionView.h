@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FunctionView : UIView
-@property (nonatomic) UITextField *commentTF;
-@property (nonatomic) UIButton *commentBtn;
+@property (nonatomic) UIButton *myCommentBtn;
+@property (nonatomic) UIButton *allCommentBtn;
 @property (nonatomic) UIButton *collectionBtn;
 @property (nonatomic) UIButton *shareBtn;
 

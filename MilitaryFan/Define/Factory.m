@@ -32,4 +32,16 @@
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     viewController.navigationItem.leftBarButtonItem = backBarBtn;
 }
+//+ (void)naviBarButtonWithViewController:(UIViewController *)viewController position:(NSString *)position image:(UIImage *)image text:(NSString *)text{
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    //设置文字
+//    [btn setTitle:text forState:UIControlStateNormal];
+//    //设置图片
+//    [btn setImage:image forState:UIControlStateNormal];
+//    [btn bk_addEventHandler:^(id sender) {
+//        [viewController dismissViewControllerAnimated:YES completion:nil];
+//    } forControlEvents:UIControlEventTouchUpInside];
+//    
+//}
+
 @end

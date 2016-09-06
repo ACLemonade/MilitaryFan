@@ -15,6 +15,7 @@
 #import <AFNetworking.h>
 #import <Block.h>
 #import <BlocksKit.h>
+#import <UIControl+BlocksKit.h>
 #import <GCDAsyncSocket.h>
 #import <GCDAsyncUdpSocket.h>
 #import <CocoaLumberjack.h>

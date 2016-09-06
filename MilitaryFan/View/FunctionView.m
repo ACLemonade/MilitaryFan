@@ -15,32 +15,34 @@
     }
     return self;
 }
-- (UITextField *)commentTF {
-    if(_commentTF == nil) {
-        _commentTF = [[UITextField alloc] init];
-        _commentTF.borderStyle = UITextBorderStyleRoundedRect;
-        _commentTF.placeholder = @"说点什么吧";
-        _commentTF.font = [UIFont systemFontOfSize:14];
-        [self addSubview:_commentTF];
-        [_commentTF mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(8);
-            make.centerY.mas_equalTo(0);
+- (UIButton *)myCommentBtn{
+    if (_myCommentBtn == nil) {
+        _myCommentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:_myCommentBtn];
+        [_myCommentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.top.mas_equalTo(8);
+            make.bottom.mas_equalTo(-8);
         }];
+        [_myCommentBtn setTitle:@"说点什么吧" forState:UIControlStateNormal];
+        _myCommentBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_myCommentBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        _myCommentBtn.backgroundColor = [UIColor whiteColor];
+        _myCommentBtn.layer.cornerRadius = 3;
     }
-    return _commentTF;
+    return _myCommentBtn;
 }
-- (UIButton *)commentBtn{
-    if (_commentBtn == nil) {
-        _commentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self addSubview:_commentBtn];
-        [_commentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.commentTF.mas_right).mas_equalTo(8);
+- (UIButton *)allCommentBtn{
+    if (_allCommentBtn == nil) {
+        _allCommentBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [self addSubview:_allCommentBtn];
+        [_allCommentBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(self.myCommentBtn.mas_right).mas_equalTo(8);
             make.centerY.mas_equalTo(0);
             make.size.mas_equalTo(24);
         }];
-        [_commentBtn setImage:[UIImage imageNamed:@"my_comment"] forState:UIControlStateNormal];
+        [_allCommentBtn setImage:[UIImage imageNamed:@"my_comment"] forState:UIControlStateNormal];
     }
-    return _commentBtn;
+    return _allCommentBtn;
 }
 - (UIButton *)collectionBtn {
     if(_collectionBtn == nil) {
@@ -48,7 +50,7 @@
         [self addSubview:_collectionBtn];
         [_collectionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.mas_equalTo(24);
-            make.left.mas_equalTo(self.commentBtn.mas_right).mas_equalTo(8);
+            make.left.mas_equalTo(self.allCommentBtn.mas_right).mas_equalTo(8);
             make.centerY.mas_equalTo(0);
         }];
         [_collectionBtn setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
