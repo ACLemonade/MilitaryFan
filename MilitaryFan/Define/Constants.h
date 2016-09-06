@@ -31,4 +31,5 @@ __block __weak __typeof(&*self)weakSelf = self;\
 
 #define kUserPlistPath [kDocPath stringByAppendingPathComponent:@"User.plist"]
 
+#define kDetailPlistPath [kDocPath stringByAppendingPathComponent:@"Detail.plist"]
 #endif /* Constants_h */

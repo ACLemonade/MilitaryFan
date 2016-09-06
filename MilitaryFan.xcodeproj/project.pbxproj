@@ -64,6 +64,11 @@
 		8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA421D7A502300616F53 /* CollectionModel.m */; };
 		8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA451D7A602C00616F53 /* CollectionViewController.m */; };
 		8CC41D961D7E3B6C00748D0D /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41D951D7E3B6C00748D0D /* CommentViewController.m */; };
+		8CC41D9D1D7EB5E400748D0D /* AllCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41D9C1D7EB5E400748D0D /* AllCommentsViewController.m */; };
+		8CC41DA01D7EB61100748D0D /* AllCommentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41D9F1D7EB61100748D0D /* AllCommentsModel.m */; };
+		8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41DA21D7EB62500748D0D /* AllCommentsViewModel.m */; };
+		8CC41DA71D7EC41800748D0D /* AllCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC41DA51D7EC41800748D0D /* AllCommentsCell.m */; };
+		8CC41DA81D7EC41800748D0D /* AllCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC41DA61D7EC41800748D0D /* AllCommentsCell.xib */; };
 		8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954381D68406B0022F157 /* NormalCell.m */; };
 		8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954391D68406B0022F157 /* NormalCell.xib */; };
 		8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9543D1D6840B10022F157 /* RankListCell.m */; };
@@ -209,6 +214,15 @@
 		8CAFCA451D7A602C00616F53 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
 		8CC41D941D7E3B6C00748D0D /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		8CC41D951D7E3B6C00748D0D /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		8CC41D9B1D7EB5E400748D0D /* AllCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsViewController.h; sourceTree = "<group>"; };
+		8CC41D9C1D7EB5E400748D0D /* AllCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsViewController.m; sourceTree = "<group>"; };
+		8CC41D9E1D7EB61100748D0D /* AllCommentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsModel.h; sourceTree = "<group>"; };
+		8CC41D9F1D7EB61100748D0D /* AllCommentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsModel.m; sourceTree = "<group>"; };
+		8CC41DA11D7EB62500748D0D /* AllCommentsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsViewModel.h; sourceTree = "<group>"; };
+		8CC41DA21D7EB62500748D0D /* AllCommentsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsViewModel.m; sourceTree = "<group>"; };
+		8CC41DA41D7EC41800748D0D /* AllCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllCommentsCell.h; sourceTree = "<group>"; };
+		8CC41DA51D7EC41800748D0D /* AllCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllCommentsCell.m; sourceTree = "<group>"; };
+		8CC41DA61D7EC41800748D0D /* AllCommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllCommentsCell.xib; sourceTree = "<group>"; };
 		8CC954371D68406B0022F157 /* NormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCell.h; sourceTree = "<group>"; };
 		8CC954381D68406B0022F157 /* NormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCell.m; sourceTree = "<group>"; };
 		8CC954391D68406B0022F157 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
@@ -737,6 +751,8 @@
 			children = (
 				8CC41D941D7E3B6C00748D0D /* CommentViewController.h */,
 				8CC41D951D7E3B6C00748D0D /* CommentViewController.m */,
+				8CC41D9B1D7EB5E400748D0D /* AllCommentsViewController.h */,
+				8CC41D9C1D7EB5E400748D0D /* AllCommentsViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -744,6 +760,9 @@
 		8CC41D981D7E3B8A00748D0D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8CC41DA41D7EC41800748D0D /* AllCommentsCell.h */,
+				8CC41DA51D7EC41800748D0D /* AllCommentsCell.m */,
+				8CC41DA61D7EC41800748D0D /* AllCommentsCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -751,6 +770,8 @@
 		8CC41D991D7E3BA200748D0D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8CC41DA11D7EB62500748D0D /* AllCommentsViewModel.h */,
+				8CC41DA21D7EB62500748D0D /* AllCommentsViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -758,6 +779,8 @@
 		8CC41D9A1D7E3BA800748D0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8CC41D9E1D7EB61100748D0D /* AllCommentsModel.h */,
+				8CC41D9F1D7EB61100748D0D /* AllCommentsModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -908,6 +931,7 @@
 				8C9305071D6D791800F9182D /* ShareCell.xib in Resources */,
 				8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */,
 				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
+				8CC41DA81D7EC41800748D0D /* AllCommentsCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Settings.storyboard in Resources */,
 				8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */,
@@ -1066,9 +1090,11 @@
 				8C2A6F431D67F8CA0028F634 /* MilitaryFan.xcdatamodeld in Sources */,
 				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
+				8CC41DA01D7EB61100748D0D /* AllCommentsModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
 				8C79062F1D790D42005555C8 /* FunctionView.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
+				8CC41DA71D7EC41800748D0D /* AllCommentsCell.m in Sources */,
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
 				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
 				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
@@ -1096,6 +1122,7 @@
 				8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */,
 				8C93056D1D6DC92100F9182D /* DetailHeaderCell.m in Sources */,
 				8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */,
+				8CC41D9D1D7EB5E400748D0D /* AllCommentsViewController.m in Sources */,
 				8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */,
 				8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */,
 				8C9305061D6D791800F9182D /* ShareCell.m in Sources */,
@@ -1108,6 +1135,7 @@
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
+				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
 				8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */,
 				8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */,

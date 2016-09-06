@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "CommentViewController.h"
+#import "AllCommentsViewController.h"
 
 #import "MFDetailViewModel.h"
 #import "DetailLikeCell.h"
@@ -376,7 +377,19 @@
             [obj saveInBackground];
         }
     }];
-    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:kDetailPlistPath]) {
+        NSMutableDictionary *detailDic = [NSMutableDictionary dictionaryWithContentsOfFile:kDetailPlistPath];
+        [detailDic setObject:userName forKey:@"userName"];
+        [detailDic setObject:self.aid forKey:@"Aid"];
+        [detailDic setObject:@(self.detailType) forKey:@"Type"];
+        [detailDic writeToFile:kDetailPlistPath atomically:YES];
+    }else{
+        NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
+        [detailDic setObject:userName forKey:@"userName"];
+        [detailDic setObject:self.aid forKey:@"Aid"];
+        [detailDic setObject:@(self.detailType) forKey:@"Type"];
+        [detailDic writeToFile:kDetailPlistPath atomically:YES];
+    }
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
@@ -433,6 +446,10 @@
             commentVC.aid = self.aid;
             commentVC.detailType = self.detailType;
             [self.navigationController pushViewController:commentVC animated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
+        [_funcView.allCommentBtn bk_addEventHandler:^(id sender) {
+            AllCommentsViewController *allCommentsVC = [AllCommentsViewController new];
+            [self.navigationController pushViewController:allCommentsVC animated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
     }
     return _funcView;

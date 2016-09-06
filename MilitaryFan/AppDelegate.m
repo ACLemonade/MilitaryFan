@@ -72,23 +72,14 @@
     
     //电池条左上角wifi旁菊花标识
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
-    
-    
-    
-//    NSString *path = [kDocPath stringByAppendingPathComponent:@"User.plist"];
-//    [[NSFileManager defaultManager] createFileAtPath:path contents:nil attributes:nil];
-//    NSLog(@"%@", path);
-//    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:path];
-//    [dic setObject:@"Test" forKey:@"userName"];
-//    [dic setObject:@"" forKey:@"password"];
-//    [dic setObject:@(NO) forKey:@"loginState"];
-//    
-//    [dic writeToFile:path atomically:YES];
-    
-    
-    
-    
-    
+    //创建用户设置表默认配置
+    if (![[NSFileManager defaultManager] fileExistsAtPath:kUserPlistPath]) {
+        NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+        [dic setObject:@"Test" forKey:@"userName"];
+        [dic setObject:@"" forKey:@"password"];
+        [dic setObject:@(NO) forKey:@"loginState"];
+        [dic writeToFile:kUserPlistPath atomically:YES];
+    }
     return YES;
 }
 
