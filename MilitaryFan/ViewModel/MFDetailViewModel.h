@@ -26,6 +26,8 @@
 @property (nonatomic) NSString *image;
 
 /** 数据部分 */
+@property (nonatomic) NSString *desc;
+@property (nonatomic) NSString *link;
 @property (nonatomic) NSString *aid;
 - (instancetype)initWithAid:(NSString *)aid;
 @property (nonatomic) MFDetailDataModel *model;

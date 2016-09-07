@@ -34,4 +34,6 @@
 #import <BmobSDK/Bmob.h>
 #import <SMS_SDK/SMSSDK.h>
 
+#import <UMSocial.h>
+
 #endif /* PrefixHeader_pch */

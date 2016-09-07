@@ -15,12 +15,27 @@
 #import "VideoViewController.h"
 #import "SettingsViewController.h"
 
+#import <UMSocialQQHandler.h>
+#import <UMSocialWechatHandler.h>
+#import <UMSocialSinaSSOHandler.h>
+
 @interface AppDelegate ()
 
 @end
 
-#define kSMSAppKey @"1698cf6171690"
-#define kSMSAppSecret @"b4683962a07c26fd45e35394266d52e2"
+
+
+//微信
+#define kWeChatAppId @"wx4868b35061f87885"
+#define kWeChatSecret @"64020361b8ec4c99936c0e3999a9f249"
+
+//QQ
+#define kQQAppId @"100371282"
+#define kQQAppKey @"aed9b0303e3ed1e27bae87c33761161d"
+
+//新浪微博
+#define kSinaAppKey @"568898243"
+#define kSinaAppSecret @"38a4f8204cc784f81f9f0daaf31e02e3"
 
 @implementation AppDelegate
 #pragma mark - 懒加载 Lazy Load
@@ -62,9 +77,6 @@
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    //shareSDK短信注册
-    [SMSSDK registerApp:kSMSAppKey withSecret:kSMSAppSecret];
-    
     [UINavigationBar appearance].translucent = NO;
     [UITabBar appearance].translucent = NO;
     
@@ -80,7 +92,25 @@
         [dic setObject:@(NO) forKey:@"loginState"];
         [dic writeToFile:kUserPlistPath atomically:YES];
     }
+    
+    //shareSDK唯一标识符
+    [SMSSDK registerApp:kSMSAppKey withSecret:kSMSAppSecret];
+    //友盟唯一标识符
+    [UMSocialData setAppKey:kUMengAppKey];
+    
+    [UMSocialWechatHandler setWXAppId:kWeChatAppId appSecret:kWeChatSecret url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppKey url:@"http://www.umeng.com/social"];
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kSinaAppKey secret:kSinaAppSecret RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
     return YES;
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

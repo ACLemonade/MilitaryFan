@@ -342,6 +342,29 @@
     NSLog(@"%d", __LINE__);
     return myLikeNumber;
 }
+- (void)clickShare:sender{
+    NSArray *shareToSnsNames = @[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone];
+    
+    [UMSocialData defaultData].extConfig.title = self.detailVM.title;
+    //微信好友
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.detailVM.link;
+    //微信朋友圈
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.detailVM.link;
+    //qq好友
+    [UMSocialData defaultData].extConfig.qqData.url = self.detailVM.link;
+    //qq空间
+    [UMSocialData defaultData].extConfig.qzoneData.url = self.detailVM.link;
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUMengAppKey shareText:self.detailVM.desc shareImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:kDetailImagePath]] shareToSnsNames:shareToSnsNames delegate:nil];
+}
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -354,13 +377,17 @@
         }else{
             [self.tableview reloadData];
             [self.view bringSubviewToFront:self.funcView];
+            UIImageView *iv = [UIImageView new];
+            [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
+            [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
         }
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     }];
     [Factory naviClickBackWithViewController:self];
-
     
+    NSLog(@"%@", kDocPath);
 }
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
@@ -441,16 +468,20 @@
                 [_funcView.collectionBtn setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }];
+        //点击评论
         [_funcView.myCommentBtn bk_addEventHandler:^(id sender) {
             CommentViewController *commentVC = [CommentViewController new];
             commentVC.aid = self.aid;
             commentVC.detailType = self.detailType;
             [self.navigationController pushViewController:commentVC animated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
+        //所有评论
         [_funcView.allCommentBtn bk_addEventHandler:^(id sender) {
             AllCommentsViewController *allCommentsVC = [AllCommentsViewController new];
             [self.navigationController pushViewController:allCommentsVC animated:YES];
         } forControlEvents:UIControlEventTouchUpInside];
+        //分享按钮
+        [_funcView.shareBtn addTarget:self action:@selector(clickShare:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _funcView;
 }

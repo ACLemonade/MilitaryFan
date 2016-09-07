@@ -40,8 +40,12 @@
 - (NSString *)image{
     return self.model.image;
 }
-
-
+- (NSString *)link{
+    return self.model.link;
+}
+- (NSString *)desc{
+    return self.model.desc;
+}
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{
     [MFInfoNetManager getDetailWithAid:self.aid completionHandle:^(MFDetailModel *model, NSError *error) {
         if (!error) {

@@ -23,9 +23,15 @@
 //把self转化为 __weak __block的方式, 方便的在block中使用而不导致内存循环应用问题
 #define WK(weakSelf) \
 __block __weak __typeof(&*self)weakSelf = self;\
-
+//SMS标识
+#define kSMSAppKey @"1698cf6171690"
+#define kSMSAppSecret @"b4683962a07c26fd45e35394266d52e2"
+//UMeng标识
+#define kUMengAppKey @"57cf5bfce0f55ac7d30007b0"
 //头像图片路径
 #define kHeadImagePath [kDocPath stringByAppendingPathComponent:@"/headImage.png"]
+//详情页图片路径(用于分享)
+#define kDetailImagePath [kDocPath stringByAppendingPathComponent:@"/detailImage.png"]
 
 #define kDataBasePath [kDocPath stringByAppendingPathComponent:@"MilitaryFan.db"]
 

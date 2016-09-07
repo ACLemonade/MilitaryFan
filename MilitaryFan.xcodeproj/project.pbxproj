@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		5E9DB46C66C4A90FC2E8ADA2 /* libPods-MilitaryFanUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */; };
+		8C0DC5171D7F9C6100CC8120 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5161D7F9C6100CC8120 /* Security.framework */; };
+		8C0DC5191D7F9C6D00CC8120 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5181D7F9C6D00CC8120 /* libiconv.tbd */; };
+		8C0DC51B1D7F9C8300CC8120 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC51A1D7F9C8300CC8120 /* SystemConfiguration.framework */; };
+		8C0DC51D1D7F9C8D00CC8120 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC51C1D7F9C8D00CC8120 /* CoreGraphics.framework */; };
+		8C0DC51F1D7F9C9F00CC8120 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC51E1D7F9C9F00CC8120 /* libsqlite3.tbd */; };
+		8C0DC5211D7F9CA900CC8120 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5201D7F9CA900CC8120 /* CoreTelephony.framework */; };
+		8C0DC5231D7F9CE700CC8120 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5221D7F9CE700CC8120 /* libz.tbd */; };
+		8C0DC5251D7F9CF900CC8120 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */; };
 		8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */; };
 		8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */; };
 		8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */; };
@@ -37,7 +45,6 @@
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
 		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
 		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
-		8C3E11A31D7BA9D6001716C9 /* User.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C3E11A21D7BA9D6001716C9 /* User.plist */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
@@ -109,6 +116,14 @@
 		481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.debug.xcconfig"; sourceTree = "<group>"; };
 		4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFanUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5B5C791D1448B6CF7BD3ED /* Pods-MilitaryFanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanTests/Pods-MilitaryFanTests.release.xcconfig"; sourceTree = "<group>"; };
+		8C0DC5161D7F9C6100CC8120 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8C0DC5181D7F9C6D00CC8120 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		8C0DC51A1D7F9C8300CC8120 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8C0DC51C1D7F9C8D00CC8120 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		8C0DC51E1D7F9C9F00CC8120 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8C0DC5201D7F9CA900CC8120 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8C0DC5221D7F9CE700CC8120 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
 		8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
 		8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
@@ -165,7 +180,6 @@
 		8C32F8671D717BE50046F218 /* DetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoCell.h; sourceTree = "<group>"; };
 		8C32F8681D717BE50046F218 /* DetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoCell.m; sourceTree = "<group>"; };
 		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
-		8C3E11A21D7BA9D6001716C9 /* User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = User.plist; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
@@ -253,6 +267,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0DC5251D7F9CF900CC8120 /* libstdc++.tbd in Frameworks */,
+				8C0DC5231D7F9CE700CC8120 /* libz.tbd in Frameworks */,
+				8C0DC5211D7F9CA900CC8120 /* CoreTelephony.framework in Frameworks */,
+				8C0DC51F1D7F9C9F00CC8120 /* libsqlite3.tbd in Frameworks */,
+				8C0DC51D1D7F9C8D00CC8120 /* CoreGraphics.framework in Frameworks */,
+				8C0DC51B1D7F9C8300CC8120 /* SystemConfiguration.framework in Frameworks */,
+				8C0DC5191D7F9C6D00CC8120 /* libiconv.tbd in Frameworks */,
+				8C0DC5171D7F9C6100CC8120 /* Security.framework in Frameworks */,
 				D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +400,6 @@
 				8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */,
 				8C2A6F491D67F8CA0028F634 /* Info.plist */,
 				8C2A6F361D67F8CA0028F634 /* main.m */,
-				8C3E11A21D7BA9D6001716C9 /* User.plist */,
 			);
 			name = "Supporting Files";
 			path = MilitaryFan;
@@ -800,6 +821,14 @@
 		AA81014BFDE7981FF535E469 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */,
+				8C0DC5221D7F9CE700CC8120 /* libz.tbd */,
+				8C0DC5201D7F9CA900CC8120 /* CoreTelephony.framework */,
+				8C0DC51E1D7F9C9F00CC8120 /* libsqlite3.tbd */,
+				8C0DC51C1D7F9C8D00CC8120 /* CoreGraphics.framework */,
+				8C0DC51A1D7F9C8300CC8120 /* SystemConfiguration.framework */,
+				8C0DC5181D7F9C6D00CC8120 /* libiconv.tbd */,
+				8C0DC5161D7F9C6100CC8120 /* Security.framework */,
 				FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */,
 				1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */,
 				4F25444A4FC62F3CA2555215 /* libPods-MilitaryFanUITests.a */,
@@ -924,7 +953,6 @@
 				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
 				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
-				8C3E11A31D7BA9D6001716C9 /* User.plist in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
 				8C1E770C1D767D760051F8B1 /* UserCenter.storyboard in Resources */,
@@ -1283,6 +1311,7 @@
 			baseConfigurationReference = 481567B2054625B214DCBB1B /* Pods-MilitaryFan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MilitaryFan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1296,6 +1325,7 @@
 			baseConfigurationReference = 9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(PRODUCT_NAME)/PrefixHeader.pch";
 				INFOPLIST_FILE = MilitaryFan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
