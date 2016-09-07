@@ -44,6 +44,9 @@
 - (NSString *)link{
     return self.model.link;
 }
+- (NSString *)desc{
+    return self.model.desc;
+}
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{
     self.dataTask = [MFVideoNetManager getMFVideoDetailWithAid:self.aid completionHandle:^(MFVideoDetailModel *model, NSError *error) {
         if (!error) {

@@ -20,6 +20,7 @@
 @property (nonatomic) NSURL *iconIV;
 /** 数据部分 */
 @property (nonatomic) NSString *image;
+@property (nonatomic) NSString *desc;
 @property (nonatomic) MFVideoDetailDataModel *model;
 @property (nonatomic) NSString *aid;
 - (instancetype)initWithAid:(NSString *)aid;

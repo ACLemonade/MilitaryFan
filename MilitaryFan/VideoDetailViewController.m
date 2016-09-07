@@ -16,6 +16,7 @@
 @property (nonatomic) MFVideoDetailViewModel *detailVM;
 @property (nonatomic) UIWebView *webView;
 @property (nonatomic) UIBarButtonItem *collectionBtn;
+@property (nonatomic) UIBarButtonItem *shareBtn;
 @end
 
 @implementation VideoDetailViewController
@@ -41,6 +42,30 @@
     }];
 
 }
+- (void)shareVideo:(UIButton *)sender{
+    NSArray *shareToSnsNames = @[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone];
+    
+    [UMSocialData defaultData].extConfig.title = self.detailVM.title;
+    //微信好友
+    [UMSocialData defaultData].extConfig.wechatSessionData.url = self.detailVM.link;
+    //微信朋友圈
+    [UMSocialData defaultData].extConfig.wechatTimelineData.url = self.detailVM.link;
+    //qq好友
+    [UMSocialData defaultData].extConfig.qqData.url = self.detailVM.link;
+    //qq空间
+    [UMSocialData defaultData].extConfig.qzoneData.url = self.detailVM.link;
+    [UMSocialSnsService presentSnsIconSheetView:self appKey:kUMengAppKey shareText:self.detailVM.desc shareImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:kDetailImagePath]] shareToSnsNames:shareToSnsNames delegate:nil];
+}
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    //根据`responseCode`得到发送结果,如果分享成功
+    if(response.responseCode == UMSResponseCodeSuccess)
+    {
+        //得到分享到的平台名
+        NSLog(@"share to sns name is %@",[[response.data allKeys] objectAtIndex:0]);
+    }
+}
+
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -52,11 +77,15 @@
                 NSLog(@"error: %@", error);
             }else{
                 [self webView];
+                UIImageView *iv = [UIImageView new];
+                [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
+                [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
             }
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
     [Factory naviClickBackWithViewController:self];
-    self.navigationItem.rightBarButtonItem = self.collectionBtn;
+    self.navigationItem.rightBarButtonItems = @[self.shareBtn, self.collectionBtn];
+    NSLog(@"%@", kDocPath);
 }
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)init{
@@ -113,6 +142,18 @@
         _collectionBtn = [[UIBarButtonItem alloc] initWithCustomView:colBtn];
 	}
 	return _collectionBtn;
+}
+
+- (UIBarButtonItem *)shareBtn {
+	if(_shareBtn == nil) {
+        UIButton *shaBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        shaBtn.bounds = CGRectMake(0, 0, 24, 24);
+        //点击分享
+        [shaBtn addTarget:self action:@selector(shareVideo:) forControlEvents:UIControlEventTouchUpInside];
+        [shaBtn setImage:[UIImage imageNamed:@"nav_img_share"] forState:UIControlStateNormal];
+        _shareBtn = [[UIBarButtonItem alloc] initWithCustomView:shaBtn];
+	}
+	return _shareBtn;
 }
 
 @end
