@@ -73,6 +73,7 @@
         //从User.plist读取登录信息
         NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
         NSNumber *loginState = [userDic objectForKey:@"loginState"];
+        //已经登录,则跳转至用户中心
         if ([loginState integerValue]) {
             UserInfoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             UINavigationController *userNavi = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateInitialViewController];
@@ -81,8 +82,9 @@
                 cell.iconIV.image = image;
             };
             [self presentViewController:userNavi animated:YES completion:nil];
-        }else{
+        }else{//否则跳转至登录界面
             LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
+            loginVC.previousVC = @"leftMenuVC";
             UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
             [self presentViewController:loginNavi animated:YES completion:nil];
         }

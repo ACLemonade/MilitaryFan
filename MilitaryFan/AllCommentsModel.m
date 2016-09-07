@@ -34,9 +34,10 @@
                 AllCommentsDetailModel *model = [AllCommentsDetailModel new];
                 model.userName = [obj objectForKey:@"userName"];
                 model.comment = [obj objectForKey:@"comment"];
-                model.createDate = [obj objectForKey:@"createDate"];
+                model.createDate = [obj objectForKey:@"createdAt"];
+                model.location = [obj objectForKey:@"location"];
                 [self.commentList addObject:model];
-                NSLog(@"数据库查询");
+//                NSLog(@"数据库查询");
             }
         }
     }];

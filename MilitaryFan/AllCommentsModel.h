@@ -20,5 +20,7 @@
 //评论内容
 @property (nonatomic) NSString *comment;
 //评论时间
-@property (nonatomic) NSDate *createDate;
+@property (nonatomic) NSString *createDate;
+//评论地点
+@property (nonatomic) NSString *location;
 @end

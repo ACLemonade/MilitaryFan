@@ -90,7 +90,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_accountTF becomeFirstResponder];
-    [Factory nonNaviClickBackWithViewController:self];
+    if ([self.previousVC isEqualToString:@"leftMenuVC"]) {
+        [Factory nonNaviClickBackWithViewController:self];
+    }
+    if ([self.previousVC isEqualToString:@"settingsVC"]) {
+        [Factory naviClickBackWithViewController:self];
+    }
+    
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@import CoreLocation;
 
 @interface CommentViewController : UIViewController
 @property (nonatomic) NSString *aid;

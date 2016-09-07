@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "LoginViewController.h"
 
 @interface SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cachesNumberLb;
@@ -25,7 +26,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 1) {
         UIStoryboard *loginSb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-        [self.navigationController pushViewController:[loginSb instantiateViewControllerWithIdentifier:@"LoginViewController"] animated:YES];
+        LoginViewController *loginVC = [loginSb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        loginVC.previousVC = @"settingsVC";
+        [self.navigationController pushViewController:loginVC animated:YES];
     }
 }
 #pragma mark - 生命周期 LifeCircle

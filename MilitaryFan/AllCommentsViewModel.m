@@ -16,11 +16,11 @@
     return [self modelForRow:row].userName;
 }
 - (NSString *)userLocationForRow:(NSInteger)row{
-    return nil;
+    return [self modelForRow:row].location;
 }
 - (NSString *)createDateForRow:(NSInteger)row{
-    NSDate *date = [self modelForRow:row].createDate;
-    return nil;
+   NSString *date = [self modelForRow:row].createDate;
+    return date;
 }
 - (NSString *)commentForRow:(NSInteger)row{
     return [self modelForRow:row].comment;

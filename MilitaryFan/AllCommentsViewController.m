@@ -8,11 +8,13 @@
 
 #import "AllCommentsViewController.h"
 #import "AllCommentsCell.h"
+
 #import "AllCommentsViewModel.h"
 #import "UIScrollView+Refresh.h"
 @interface AllCommentsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) AllCommentsViewModel *allCommentsVM;
+
 @end
 
 @implementation AllCommentsViewController
@@ -25,10 +27,12 @@
     AllCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AllCommentsCell"];
     cell.userNameLb.text = [self.allCommentsVM userNameForRow:row];
     cell.commentLb.text = [self.allCommentsVM commentForRow:row];
+    cell.commentDateLb.text = [self.allCommentsVM createDateForRow:row];
+    cell.commentLocationLb.text = [self.allCommentsVM userLocationForRow:row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 150;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;
@@ -77,5 +81,7 @@
 	}
 	return _allCommentsVM;
 }
+
+
 
 @end
