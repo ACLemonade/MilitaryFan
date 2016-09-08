@@ -33,10 +33,28 @@
 - (MFPicPicsModel *)modelForIndex:(NSInteger)index{
     return [self.picList objectAtIndex:index];
 }
+- (NSString *)pubDate{
+    return self.picDataModel.pubDate;
+}
+//分享
+- (NSString *)title{
+    return self.picDataModel.title;
+}
+- (NSString *)desc{
+    return self.picDataModel.desc;
+}
+- (NSString *)image{
+    return self.picDataModel.image;
+}
+- (NSString *)link{
+    return self.picDataModel.link;
+}
 - (void)getDataWithMode:(RequestType)mode completionHandle:(void (^)(NSError *))completionHandle{
     self.dataTask = [MFInfoNetManager getPicWithAid:self.aid completionHandle:^(MFPicModel *model, NSError *error) {
         if (!error) {
             self.picList = model.data.pics;
+            //分享需要
+            self.picDataModel = model.data;
         }
         completionHandle(error);
     }];

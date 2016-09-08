@@ -20,4 +20,11 @@
 @property (nonatomic) NSArray<MFPicPicsModel *> *picList;
 @property (nonatomic) NSString *aid;
 - (instancetype)initWithAid:(NSString *)aid;
+@property (nonatomic) NSString *pubDate;
+//分享
+@property (nonatomic) MFPicDataModel *picDataModel;
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *desc;
+@property (nonatomic) NSString *image;
+@property (nonatomic) NSString *link;
 @end

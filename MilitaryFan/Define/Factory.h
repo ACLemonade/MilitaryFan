@@ -16,4 +16,5 @@
 //+ (void)naviBarButtonWithViewController:(UIViewController *)viewController position:(NSString *)position image:(UIImage *)image text:(NSString *)text;
 //非导航控制器返回
 + (void)nonNaviClickBackWithViewController:(UIViewController *)viewController;
+
 @end
