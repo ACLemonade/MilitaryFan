@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *mod;
 
 @end
-@interface MFPicDataModel : NSObject
+@interface MFPicDataModel : BaseModel
 
 @property (nonatomic, copy) NSString *desc;
 
@@ -56,7 +56,7 @@
 
 @end
 
-@interface MFPicAdd_CodeModel : NSObject
+@interface MFPicAdd_CodeModel : BaseModel
 
 @property (nonatomic, copy) NSString *ad_place_id;
 
@@ -70,13 +70,13 @@
 
 @end
 
-@interface MFPicCommentsModel : NSObject
+@interface MFPicCommentsModel : BaseModel
 
 @property (nonatomic, copy) NSString *count;
 
 @end
 
-@interface MFPicPicsModel : NSObject
+@interface MFPicPicsModel : BaseModel
 
 @property (nonatomic, copy) NSString *picstext;
 
@@ -88,7 +88,7 @@
 
 @end
 
-@interface MFPicRelationsModel : NSObject
+@interface MFPicRelationsModel : BaseModel
 
 @property (nonatomic, copy) NSString *title;
 

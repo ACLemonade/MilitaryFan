@@ -12,7 +12,6 @@
 //dataTaskKey变量存的是它自己的地址,因为是静态的,所以地址不会有重复
 static const void *dataTaskKey = &dataTaskKey;
 @implementation NSObject (ViewModel)
-
 //通过运行时,动态绑定实现属性的setter方法
 - (void)setDataTask:(NSURLSessionDataTask *)dataTask{
     //参数4:属性的内存管理方式 ARC:strong MRC:retain

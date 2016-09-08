@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *mod;
 
 @end
-@interface MFVideoDataModel : NSObject
+@interface MFVideoDataModel : BaseModel
 
 @property (nonatomic, strong) MFVideoTitleModel *title;
 
@@ -32,7 +32,7 @@
 
 @end
 
-@interface MFVideoTitleModel : NSObject
+@interface MFVideoTitleModel : BaseModel
 
 @property (nonatomic, copy) NSString *link;
 
@@ -42,7 +42,7 @@
 
 @end
 
-@interface MFVideoItemModel : NSObject
+@interface MFVideoItemModel : BaseModel
 
 @property (nonatomic, copy) NSString *category;
 

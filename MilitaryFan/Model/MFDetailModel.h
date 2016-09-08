@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *mod;
 
 @end
-@interface MFDetailDataModel : NSObject
+@interface MFDetailDataModel : BaseModel
 
 @property (nonatomic, copy) NSString *desc;
 
@@ -62,7 +62,7 @@
 
 @end
 
-@interface MFDetailAdd_CodeModel : NSObject
+@interface MFDetailAdd_CodeModel : BaseModel
 
 @property (nonatomic, copy) NSString *ad_place_id;
 
@@ -76,7 +76,7 @@
 
 @end
 
-@interface MFDetailCommentsModel : NSObject
+@interface MFDetailCommentsModel : BaseModel
 
 @property (nonatomic, copy) NSString *count;
 
@@ -84,7 +84,7 @@
 
 @end
 
-@interface MFDetailListModel : NSObject
+@interface MFDetailListModel : BaseModel
 
 @property (nonatomic, copy) NSString *replys;
 

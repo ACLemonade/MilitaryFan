@@ -7,8 +7,10 @@
 //
 
 #import "MFPicViewModel.h"
+#import "CacheManager.h"
 
 @implementation MFPicViewModel
+kLemonadeArchive
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)init{
     NSAssert(NO, @"必须使用initWithAid方法进行初始化 %s", __func__);
@@ -17,6 +19,10 @@
 - (instancetype)initWithAid:(NSString *)aid{
     if (self = [super init]) {
         self.aid = aid;
+        id obj = [CacheManager unArchiveMFPicWithAid:aid];
+        if (obj) {
+            self = obj;
+        }
     }
     return self;
 }
@@ -55,6 +61,7 @@
             self.picList = model.data.pics;
             //分享需要
             self.picDataModel = model.data;
+            [CacheManager archiveMFDetailWithVM:self];
         }
         completionHandle(error);
     }];

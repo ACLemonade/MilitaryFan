@@ -101,6 +101,10 @@
     [UMSocialWechatHandler setWXAppId:kWeChatAppId appSecret:kWeChatSecret url:@"http://www.umeng.com/social"];
     [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppKey url:@"http://www.umeng.com/social"];
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kSinaAppKey secret:kSinaAppSecret RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    //创建首页缓存文件夹
+    [[NSFileManager defaultManager] createDirectoryAtPath:kInfoCachePath withIntermediateDirectories:YES attributes:nil error:nil];
+    //创建详情页缓存文件夹
+    [[NSFileManager defaultManager] createDirectoryAtPath:kDetailCachePath withIntermediateDirectories:YES attributes:nil error:nil];
     
     return YES;
 }

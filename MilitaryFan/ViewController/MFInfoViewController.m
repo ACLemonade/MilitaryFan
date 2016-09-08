@@ -161,6 +161,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //左侧分割线留白
     cell.separatorInset = UIEdgeInsetsZero;
@@ -188,6 +191,7 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
         [weakSelf.infoVM getDataWithMode:RequestRefresh completionHandle:^(NSError *error) {
@@ -199,14 +203,14 @@
             [weakSelf.tableView endHeaderRefresh];
         }];
     }];
-    [self.tableView addAutoFooterRefresh:^{
+    [self.tableView addBackFooterRefresh:^{
         [weakSelf.infoVM getDataWithMode:RequestGetMore completionHandle:^(NSError *error) {
             if (error) {
                 NSLog(@"error: %@", error);
             }else{
                 [weakSelf topRefresh];
             }
-            [weakSelf.tableView endHeaderRefresh];
+            [weakSelf.tableView endFooterRefresh];
         }];
     }];
     [self.tableView beginHeaderRefresh];

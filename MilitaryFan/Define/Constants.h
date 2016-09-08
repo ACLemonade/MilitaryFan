@@ -38,4 +38,37 @@ __block __weak __typeof(&*self)weakSelf = self;\
 #define kUserPlistPath [kDocPath stringByAppendingPathComponent:@"User.plist"]
 
 #define kDetailPlistPath [kDocPath stringByAppendingPathComponent:@"Detail.plist"]
+//缓存
+#define kInfoCachePath [kDocPath stringByAppendingPathComponent:@"InfoCache"]
+#define kDetailCachePath [kDocPath stringByAppendingPathComponent:@"DetailCache"]
+//归解档
+#define kLemonadeArchive \
+- (void)encodeWithCoder:(NSCoder *)aCoder{\
+unsigned int outCount = 0;\
+Ivar *varList = class_copyIvarList(self.class, &outCount);\
+for (int i = 0; i<outCount; i++) {\
+Ivar tmpIvar = varList[i];\
+const char *name = ivar_getName(tmpIvar);\
+NSString *propertyName = [NSString stringWithUTF8String:name];\
+id obj = [self valueForKey:propertyName];\
+[aCoder encodeObject:obj forKey:propertyName];\
+}\
+free(varList);\
+}\
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{\
+if (self = [super init]) {\
+unsigned int outCount = 0;\
+Ivar *varList = class_copyIvarList(self.class, &outCount);\
+for (int i = 0; i<outCount; i++) {\
+Ivar tmpIvar = varList[i];\
+const char *name = ivar_getName(tmpIvar);\
+NSString *propertyName = [NSString stringWithUTF8String:name];\
+id obj = [aDecoder decodeObjectForKey:propertyName];\
+[self setValue:obj forKey:propertyName];\
+}\
+free(varList);\
+}\
+return self;\
+}\
+
 #endif /* Constants_h */

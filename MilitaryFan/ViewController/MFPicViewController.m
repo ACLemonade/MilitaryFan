@@ -11,8 +11,9 @@
 
 #import <UIImageView+WebCache.h>
 #import <SDWebImage/SDImageCache.h>
+#import <SDWebImageManager.h>
 
-@interface MFPicViewController () <MWPhotoBrowserDelegate>
+@interface MFPicViewController () <MWPhotoBrowserDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) MFPicViewModel *picVM;
 @property (nonatomic) UIBarButtonItem *collectionBtn;
 @property (nonatomic) UIBarButtonItem *downloadBtn;
@@ -33,6 +34,13 @@
         photo.caption = [self.picVM pictextForIndex:index];
     }
     return photo;
+}
+#pragma mark - 协议方法 UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark - 方法 Methods
 //点击收藏
@@ -59,7 +67,38 @@
 }
 //点击下载/保存
 - (void)downloadPic:sender{
-
+    NSURL *currentImageURL = [self.picVM iconURLForIndex:self.currentIndex];
+    [[SDWebImageManager sharedManager] downloadWithURL:currentImageURL options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        //下载进度
+        ;
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+        if (image && finished) {
+            NSLog(@"下载完成");
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        }
+    }];
+}
+// 指定回调方法
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if(!error){
+        NSLog(@"保存成功");
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"图片已成功保存至相册" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *scanAction = [UIAlertAction actionWithTitle:@"查看" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+            picker.allowsEditing = YES;
+            picker.delegate = self;
+            [self presentViewController:picker animated:YES completion:nil];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertVC addAction:scanAction];
+        [alertVC addAction:cancelAction];
+        [self presentViewController:alertVC animated:YES completion:nil];
+    }else{
+        NSLog(@"保存失败");
+    }
 }
 //点击分享
 - (void)sharePic:sender{
@@ -94,7 +133,7 @@
             NSLog(@"error: %@", error);
         }else{
             [self reloadData];
-            /** 问题有待解决,image对象为空 */
+            /** 问题有待解决,image对象有时为空,有时不为空 */
             UIImageView *iv = [UIImageView new];
             [iv setImageWithURL:[NSURL URLWithString:self.picVM.image]];
             [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];

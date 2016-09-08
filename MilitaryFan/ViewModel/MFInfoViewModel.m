@@ -7,9 +7,11 @@
 //
 
 #import "MFInfoViewModel.h"
+#import "CacheManager.h"
 
 @implementation MFInfoViewModel
 #pragma mark - 懒加载 Lazy Load
+kLemonadeArchive
 - (instancetype)init{
     NSAssert(NO, @"%s", __func__);
     return nil;
@@ -18,6 +20,10 @@
     if (self = [super init]) {
         self.infoType = infoType;
         self.currentPage = 1;
+//        id obj = [CacheManager unArchiveMFInfoWithType:infoType];
+//        if (obj) {
+//            self = obj;
+//        }
     }
     return self;
 }
@@ -144,9 +150,11 @@
             }
             self.topList = model.data.slide;
             [self.itemList addObjectsFromArray:model.data.item];
+            _currentPage = tmpPage;
+            [CacheManager archiveMFInfoWithVM:self];
         }
         completionHandle(error);
-        _currentPage = tmpPage + 1;
+        
     }];
     
 }

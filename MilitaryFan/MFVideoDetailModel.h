@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *mod;
 
 @end
-@interface MFVideoDetailDataModel : NSObject
+@interface MFVideoDetailDataModel : BaseModel
 
 @property (nonatomic, copy) NSString *desc;
 
@@ -62,7 +62,7 @@
 
 @end
 
-@interface MFVideoDetailAdd_CodeModel : NSObject
+@interface MFVideoDetailAdd_CodeModel : BaseModel
 
 @property (nonatomic, copy) NSString *ad_place_id;
 
@@ -76,7 +76,7 @@
 
 @end
 
-@interface MFVideoDetailCommentsModel : NSObject
+@interface MFVideoDetailCommentsModel : BaseModel
 
 @property (nonatomic, copy) NSString *count;
 
@@ -84,7 +84,7 @@
 
 @end
 
-@interface MFVideoDetailListModel : NSObject
+@interface MFVideoDetailListModel : BaseModel
 
 @property (nonatomic, copy) NSString *replys;
 

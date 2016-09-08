@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString *mod;
 
 @end
-@interface MFDataModel : NSObject
+@interface MFDataModel : BaseModel
 
 @property (nonatomic, assign) NSInteger maxpage;
 
@@ -36,7 +36,7 @@
 
 @end
 
-@interface MFTitleModel : NSObject
+@interface MFTitleModel : BaseModel
 
 @property (nonatomic, copy) NSString *link;
 
@@ -46,7 +46,7 @@
 
 @end
 
-@interface MFNavModel : NSObject
+@interface MFNavModel : BaseModel
 
 @property (nonatomic, copy) NSString *name;
 
@@ -54,7 +54,7 @@
 
 @end
 
-@interface MFSlideModel : NSObject
+@interface MFSlideModel : BaseModel
 
 @property (nonatomic, assign) BOOL category;
 
@@ -80,7 +80,7 @@
 
 @end
 
-@interface MFItemModel : NSObject
+@interface MFItemModel : BaseModel
 
 @property (nonatomic, copy) NSString *category;
 

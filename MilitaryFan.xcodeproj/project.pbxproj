@@ -85,6 +85,7 @@
 		8CC954451D6840C40022F157 /* TopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CC954431D6840C40022F157 /* TopCell.xib */; };
 		8CC954481D6850190022F157 /* PageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC954471D6850190022F157 /* PageController.m */; };
 		8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9544A1D68522E0022F157 /* MFInfoViewController.m */; };
+		8CE370091D815F95004D5B93 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE370081D815F95004D5B93 /* CacheManager.m */; };
 		8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */; };
 		8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */; };
 		8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */; };
@@ -253,6 +254,8 @@
 		8CC954471D6850190022F157 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		8CC954491D68522E0022F157 /* MFInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewController.h; sourceTree = "<group>"; };
 		8CC9544A1D68522E0022F157 /* MFInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewController.m; sourceTree = "<group>"; };
+		8CE370071D815F95004D5B93 /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
+		8CE370081D815F95004D5B93 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
 		8CE5F4551D781FFE00FC85D6 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -429,6 +432,8 @@
 		8C2A6F6B1D68006F0028F634 /* CacheManager */ = {
 			isa = PBXGroup;
 			children = (
+				8CE370071D815F95004D5B93 /* CacheManager.h */,
+				8CE370081D815F95004D5B93 /* CacheManager.m */,
 			);
 			path = CacheManager;
 			sourceTree = "<group>";
@@ -1134,6 +1139,7 @@
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
+				8CE370091D815F95004D5B93 /* CacheManager.m in Sources */,
 				8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */,
 				8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,

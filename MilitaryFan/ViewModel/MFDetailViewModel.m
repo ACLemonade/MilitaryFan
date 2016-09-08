@@ -7,8 +7,10 @@
 //
 
 #import "MFDetailViewModel.h"
+#import "CacheManager.h"
 
 @implementation MFDetailViewModel
+kLemonadeArchive
 - (instancetype)init{
     NSAssert(NO, @"%s", __func__);
     return nil;
@@ -16,6 +18,10 @@
 - (instancetype)initWithAid:(NSString *)aid{
     if (self = [super init]) {
         self.aid = aid;
+        id obj = [CacheManager unArchiveMFDetailWithAid:aid];
+        if (obj) {
+            self = obj;
+        }
     }
     return self;
 }
@@ -50,6 +56,7 @@
     [MFInfoNetManager getDetailWithAid:self.aid completionHandle:^(MFDetailModel *model, NSError *error) {
         if (!error) {
             self.model = model.data;
+            [CacheManager archiveMFDetailWithVM:self];
         }
         completionHandle(error);
     }];

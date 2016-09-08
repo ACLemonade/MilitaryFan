@@ -9,5 +9,5 @@
 #import "BaseModel.h"
 
 @implementation BaseModel
-MJExtensionCodingImplementation
+kLemonadeArchive
 @end
