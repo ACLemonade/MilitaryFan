@@ -46,16 +46,26 @@
             NSLog(@"错误信息: %@",error);
         }else{
             if (array.firstObject) {
-                //将登录信息写入User.plist文件中
-                NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
-                [dic setObject:_accountTF.text forKey:@"userName"];
-                [dic setObject:_passwordTF.text forKey:@"password"];
-                [dic setObject:@(YES) forKey:@"loginState"];
-                [dic writeToFile:kUserPlistPath atomically:YES];
+                [[NSOperationQueue new] addOperationWithBlock:^{
+                    //将登录信息写入User.plist文件中
+                    NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+                    [dic setObject:_accountTF.text forKey:@"userName"];
+                    [dic setObject:_passwordTF.text forKey:@"password"];
+                    [dic setObject:@(YES) forKey:@"loginState"];
+                    [dic writeToFile:kUserPlistPath atomically:YES];
+                    //创建每个用户独有的文件夹
+                    [[NSFileManager defaultManager] createDirectoryAtPath:kUserDirectoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+                    //每个用户独有的plist文件
+                    NSMutableDictionary *meDic = [NSMutableDictionary dictionary];
+                    [meDic setObject:_accountTF.text forKey:@"userName"];
+                    [meDic setObject:@"" forKey:@"headImageURL"];
+                    [meDic writeToFile:kMePlistPath atomically:YES];
+                }];
                 //登录成功,弹出提示框
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
+                    [self.view endEditing:YES];
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }];
                 [alertVC addAction:yesAction];

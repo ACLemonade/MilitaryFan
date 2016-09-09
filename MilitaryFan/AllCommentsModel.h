@@ -15,6 +15,8 @@
 - (void)dbUpdate;
 @end
 @interface AllCommentsDetailModel : BaseModel
+//头像
+@property (nonatomic) NSString *headImageURL;
 //用户名
 @property (nonatomic) NSString *userName;
 //评论内容

@@ -159,6 +159,11 @@
     [super viewDidLoad];
     [self tableView];
     self.navigationItem.title = @"我";
+    if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
+        NSLog(@"存在头像");
+    }else{
+        NSLog(@"不存在头像");
+    }
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
@@ -167,6 +172,22 @@
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     self.navigationItem.leftBarButtonItem = backBarBtn;
     self.automaticallyAdjustsScrollViewInsets = NO;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+    NSMutableDictionary *meDic = [NSMutableDictionary dictionaryWithContentsOfFile:kMePlistPath];
+    NSString *userName = [userDic objectForKey:@"userName"];
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        NSData *imageData = [NSData dataWithContentsOfFile:kHeadImagePath];
+        [BmobFile filesUploadBatchWithDataArray:@[@{@"filename": [NSString stringWithFormat:@"%@.png", userName], @"data": imageData}] progressBlock:nil resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+            if (isSuccessful) {
+                BmobFile *bFile = array.firstObject;
+                [meDic setObject:bFile.url forKey:@"headImageURL"];
+                [meDic writeToFile:kMePlistPath atomically:YES];
+            }
+        }];
+    }];
 }
 #pragma mark - 懒加载 Lazy Load
 - (UIImageView *)topView {

@@ -11,6 +11,7 @@
 
 #import "AllCommentsViewModel.h"
 #import "UIScrollView+Refresh.h"
+#import <UIKit+AFNetworking.h>
 @interface AllCommentsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) AllCommentsViewModel *allCommentsVM;
@@ -24,6 +25,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = indexPath.row;
     AllCommentsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AllCommentsCell"];
+    [cell.iconIV setImageWithURL:[self.allCommentsVM iconURLForRow:row]];
     cell.userNameLb.text = [self.allCommentsVM userNameForRow:row];
     cell.commentLb.text = [self.allCommentsVM commentForRow:row];
     cell.commentDateLb.text = [self.allCommentsVM createDateForRow:row];

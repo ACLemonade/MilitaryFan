@@ -9,8 +9,8 @@
 #import "AllCommentsViewModel.h"
 
 @implementation AllCommentsViewModel
-- (NSString *)iconIVForRow:(NSInteger)row{
-    return nil;
+- (NSURL *)iconURLForRow:(NSInteger)row{
+    return [NSURL URLWithString:[self modelForRow:row].headImageURL];
 }
 - (NSString *)userNameForRow:(NSInteger)row{
     return [self modelForRow:row].userName;

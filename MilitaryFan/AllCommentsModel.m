@@ -32,6 +32,7 @@
         if (array.firstObject) {
             for (BmobObject *obj in array) {
                 AllCommentsDetailModel *model = [AllCommentsDetailModel new];
+                model.headImageURL = [obj objectForKey:@"headImageURL"];
                 model.userName = [obj objectForKey:@"userName"];
                 model.comment = [obj objectForKey:@"comment"];
                 model.createDate = [obj objectForKey:@"createdAt"];

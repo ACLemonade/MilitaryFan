@@ -11,7 +11,7 @@
 #import "AllCommentsModel.h"
 @interface AllCommentsViewModel : NSObject
 /** UI部分 */
-- (NSString *)iconIVForRow:(NSInteger)row;
+- (NSURL *)iconURLForRow:(NSInteger)row;
 - (NSString *)userNameForRow:(NSInteger)row;
 - (NSString *)userLocationForRow:(NSInteger)row;
 - (NSString *)createDateForRow:(NSInteger)row;

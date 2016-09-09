@@ -29,15 +29,19 @@ __block __weak __typeof(&*self)weakSelf = self;\
 //UMeng标识
 #define kUMengAppKey @"57cf5bfce0f55ac7d30007b0"
 //头像图片路径
-#define kHeadImagePath [kDocPath stringByAppendingPathComponent:@"/headImage.png"]
+#define kHeadImagePath [kUserDirectoryPath stringByAppendingPathComponent:@"/headImage.png"]
 //详情页图片路径(用于分享)
 #define kDetailImagePath [kDocPath stringByAppendingPathComponent:@"/detailImage.png"]
-
+//本地数据库路径
 #define kDataBasePath [kDocPath stringByAppendingPathComponent:@"MilitaryFan.db"]
-
+//当前用户基本数据路径
 #define kUserPlistPath [kDocPath stringByAppendingPathComponent:@"User.plist"]
-
+//详情页临时数据路径
 #define kDetailPlistPath [kDocPath stringByAppendingPathComponent:@"Detail.plist"]
+//每个用户独有的文件夹路径
+#define kUserDirectoryPath [kDocPath stringByAppendingPathComponent:[[NSDictionary dictionaryWithContentsOfFile:kUserPlistPath] objectForKey:@"userName"]]
+//每个用户独有的plist文件(资料)
+#define kMePlistPath [kUserDirectoryPath stringByAppendingPathComponent:@"me.plist"]
 //缓存
 #define kInfoCachePath [kDocPath stringByAppendingPathComponent:@"InfoCache"]
 #define kDetailCachePath [kDocPath stringByAppendingPathComponent:@"DetailCache"]

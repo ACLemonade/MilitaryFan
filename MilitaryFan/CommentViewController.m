@@ -41,21 +41,26 @@
 #pragma mark - 协议方法 UITextViewDelegate
 
 #pragma mark - 方法 Methods
+//发表评论
 - (void)sendComment{
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+    NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
+    NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
+    
     BmobObject *obj = [BmobObject objectWithClassName:@"Comment"];
     [obj setObject:userName forKey:@"userName"];
     [obj setObject:self.aid forKey:@"Aid"];
     [obj setObject:@(self.detailType) forKey:@"Type"];
     [obj setObject:self.textView.text forKey:@"comment"];
+    [obj setObject:headImageURL forKey:@"headImageURL"];
     [obj setObject:self.locationView.locationLb.text forKey:@"location"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        if (isSuccessful) {
-            [Factory textHUDWithVC:self text:@"发表成功"];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }];
+            if (isSuccessful) {
+                [Factory textHUDWithVC:self text:@"发表成功"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
 }
 - (UIButton *)sendBtn{
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
