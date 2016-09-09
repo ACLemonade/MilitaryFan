@@ -28,8 +28,17 @@
 - (AllCommentsDetailModel *)modelForRow:(NSInteger)row{
     return [self.commentList objectAtIndex:row];
 }
+//评论个数
 - (NSInteger)commentNumber{
     return self.commentList.count;
+}
+//评论内容高度
+- (CGFloat)commentHeightForRow:(NSInteger)row{
+    NSString *comment = [self commentForRow:row];
+    CGSize commentSize = [comment boundingRectWithSize:CGSizeMake(kScreenW - 65, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17]} context:nil].size;
+    //15+title高度(20)+15+label高度+15+评论时间高度(17)+15
+    CGFloat totalHeight = commentSize.height + 97;
+    return totalHeight;
 }
 - (NSArray<AllCommentsDetailModel *> *)commentList{
     if (_commentList == nil) {

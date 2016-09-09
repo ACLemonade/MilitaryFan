@@ -14,7 +14,6 @@
 @interface AllCommentsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) AllCommentsViewModel *allCommentsVM;
-
 @end
 
 @implementation AllCommentsViewController
@@ -32,7 +31,7 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+    return [self.allCommentsVM commentHeightForRow:indexPath.row];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.01;

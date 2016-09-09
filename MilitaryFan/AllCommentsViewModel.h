@@ -19,6 +19,8 @@
 /** 数据部分 */
 //评论个数
 @property (nonatomic) NSInteger commentNumber;
+//评论内容(label)高度
+- (CGFloat)commentHeightForRow:(NSInteger)row;
 @property (nonatomic) NSArray<AllCommentsDetailModel *> *commentList;
 - (AllCommentsDetailModel *)modelForRow:(NSInteger)row;
 

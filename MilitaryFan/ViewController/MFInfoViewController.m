@@ -131,11 +131,13 @@
             break;
         }
         default:
-            return [UITableViewCell new];
+        {
+            UITableViewCell *cell = [UITableViewCell new];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
             break;
+        }
     }
-    
-
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //推荐,推广 103 排行榜 155 制高点 240
@@ -154,7 +156,7 @@
             return 272;
             break;
         default:
-            return 103;
+            return 0.01;
             break;
     }
 }
@@ -173,19 +175,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger row = indexPath.row;
-    if ([[self.infoVM itemCategoryForRow:row] isEqualToString:@"图片控"]) {
-        MFPicViewController *picVC = [MFPicViewController new];
-        picVC.aid = [self.infoVM itemAidForRow:row];
-        [self.navigationController pushViewController:picVC animated:YES];
-    }else{
-        DetailViewController *detailVC = [DetailViewController new];
-        detailVC.aid = [self.infoVM itemAidForRow:row];
-        detailVC.detailType = 1;
-        //隐藏tabBar
-        detailVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:detailVC animated:YES];
+    if (![[self.infoVM itemCategoryForRow:row] isEqualToString:@"推广"]) {
+        if ([[self.infoVM itemCategoryForRow:row] isEqualToString:@"图片控"]) {
+            MFPicViewController *picVC = [MFPicViewController new];
+            picVC.aid = [self.infoVM itemAidForRow:row];
+            [self.navigationController pushViewController:picVC animated:YES];
+        }else{
+            DetailViewController *detailVC = [DetailViewController new];
+            detailVC.aid = [self.infoVM itemAidForRow:row];
+            detailVC.detailType = 1;
+            //隐藏tabBar
+            detailVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
     }
-    
 }
 
 #pragma mark - 生命周期 LifeCircle

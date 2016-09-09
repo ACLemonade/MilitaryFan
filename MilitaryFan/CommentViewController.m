@@ -94,7 +94,7 @@
             make.top.left.right.mas_equalTo(0);
             make.height.mas_equalTo(200);
         }];
-        _textView.font = [UIFont systemFontOfSize:20];
+        _textView.font = [UIFont systemFontOfSize:17];
         _textView.delegate = self;
 	}
 	return _textView;
