@@ -16,5 +16,8 @@
 //+ (void)naviBarButtonWithViewController:(UIViewController *)viewController position:(NSString *)position image:(UIImage *)image text:(NSString *)text;
 //非导航控制器返回
 + (void)nonNaviClickBackWithViewController:(UIViewController *)viewController;
-
+//判断登录状态
+@property (nonatomic, readonly, getter=isUserLogin) BOOL userLogin;
+//提示框(收藏,点赞,评论)
++ (void)textHUDWithVC:(UIViewController *)vc text:(NSString *)text;
 @end

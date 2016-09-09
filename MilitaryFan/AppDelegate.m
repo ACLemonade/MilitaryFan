@@ -71,12 +71,12 @@
         LeftMenuViewController *leftVC = [LeftMenuViewController new];
         
         self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
-        self.window.rootViewController = self.sideMenuVC;
+        
     }
     return _sideMenuVC;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    self.window.rootViewController = self.sideMenuVC;
     [UINavigationBar appearance].translucent = NO;
     [UITabBar appearance].translucent = NO;
     

@@ -52,8 +52,8 @@
     [obj setObject:self.locationView.locationLb.text forKey:@"location"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
+            [Factory textHUDWithVC:self text:@"发表成功"];
             [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"发表成功");
         }
     }];
 }
@@ -94,6 +94,7 @@
             make.top.left.right.mas_equalTo(0);
             make.height.mas_equalTo(200);
         }];
+        _textView.font = [UIFont systemFontOfSize:20];
         _textView.delegate = self;
 	}
 	return _textView;
@@ -105,9 +106,9 @@
         [_locationView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(self.textView.mas_bottom).mas_equalTo(1);
             make.left.right.mas_equalTo(0);
-            make.height.mas_equalTo(30);
+            make.height.mas_equalTo(40);
         }];
-        _locationView.backgroundColor = [UIColor yellowColor];
+        _locationView.backgroundColor = [UIColor whiteColor];
         
     }
     return _locationView;

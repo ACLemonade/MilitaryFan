@@ -24,12 +24,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.section == 1) {
-        UIStoryboard *loginSb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-        LoginViewController *loginVC = [loginSb instantiateViewControllerWithIdentifier:@"LoginViewController"];
-        loginVC.previousVC = @"settingsVC";
-        [self.navigationController pushViewController:loginVC animated:YES];
-    }
+//    if (indexPath.section == 1) {
+//        UIStoryboard *loginSb = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+//        LoginViewController *loginVC = [loginSb instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//        loginVC.previousVC = @"settingsVC";
+//        [self.navigationController pushViewController:loginVC animated:YES];
+//    }
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {

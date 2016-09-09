@@ -70,11 +70,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0) {
-        //从User.plist读取登录信息
-        NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
-        NSNumber *loginState = [userDic objectForKey:@"loginState"];
+        //判断登录状态
+        Factory *factory = [[Factory alloc] init];
         //已经登录,则跳转至用户中心
-        if ([loginState integerValue]) {
+        if (factory.isUserLogin) {
             UserInfoCell *cell = [tableView cellForRowAtIndexPath:indexPath];
             UINavigationController *userNavi = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateInitialViewController];
             UserCenterViewController *userCenterVC = [userNavi.viewControllers objectAtIndex:0];
@@ -83,10 +82,7 @@
             };
             [self presentViewController:userNavi animated:YES completion:nil];
         }else{//否则跳转至登录界面
-            LoginViewController *loginVC = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController];
-            loginVC.previousVC = @"leftMenuVC";
-            UINavigationController *loginNavi = [[UINavigationController alloc] initWithRootViewController:loginVC];
-            [self presentViewController:loginNavi animated:YES completion:nil];
+            [self presentViewController:[[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController] animated:YES completion:nil];
         }
     }
     if (indexPath.section == 1) {
@@ -108,6 +104,10 @@
     return 20;
 }
 #pragma mark - 生命周期 LifeCircle
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView beginHeaderRefresh];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     WK(weakSelf);
@@ -115,7 +115,6 @@
         [weakSelf.tableView reloadData];
         [weakSelf.tableView endHeaderRefresh];
     }];
-    [self.tableView beginHeaderRefresh];
 }
 
 

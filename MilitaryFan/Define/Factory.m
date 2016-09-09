@@ -32,16 +32,19 @@
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     viewController.navigationItem.leftBarButtonItem = backBarBtn;
 }
-//+ (void)naviBarButtonWithViewController:(UIViewController *)viewController position:(NSString *)position image:(UIImage *)image text:(NSString *)text{
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    //设置文字
-//    [btn setTitle:text forState:UIControlStateNormal];
-//    //设置图片
-//    [btn setImage:image forState:UIControlStateNormal];
-//    [btn bk_addEventHandler:^(id sender) {
-//        [viewController dismissViewControllerAnimated:YES completion:nil];
-//    } forControlEvents:UIControlEventTouchUpInside];
-//    
-//}
-
+- (BOOL)isUserLogin{
+    NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+    NSNumber *loginState = [userDic objectForKey:@"loginState"];
+    if (loginState.integerValue) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
++ (void)textHUDWithVC:(UIViewController *)vc text:(NSString *)text{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:vc.navigationController.view animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.label.text = NSLocalizedString(text, @"HUD message title");
+    [hud hideAnimated:YES afterDelay:2.f];
+}
 @end

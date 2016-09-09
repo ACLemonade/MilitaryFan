@@ -121,7 +121,7 @@
             //------- 点赞/取消点赞 --------//
             [cell.likeBtn bk_addEventHandler:^(id sender) {
                 if (myUnlikeNumber) {
-                    NSLog(@"已经踩过,不能点赞");
+                    [Factory textHUDWithVC:self text:@"已经踩过,不能点赞"];
                 }else{
                     if (myLikeNumber) {
                         //取消点赞
@@ -132,7 +132,7 @@
                                 BmobObject *obj = array.firstObject;
                                 [obj setObject:@0 forKey:@"likeState"];
                                 [obj updateInBackground];
-                                NSLog(@"取消点赞");
+                                [Factory textHUDWithVC:self text:@"取消点赞"];
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     likeNumber--;
                                     myLikeNumber--;
@@ -154,7 +154,7 @@
                                 [obj setObject:@1 forKey:@"likeState"];
                                 //异步更新数据
                                 [obj updateInBackground];
-                                NSLog(@"点赞成功");
+                                [Factory textHUDWithVC:self text:@"点赞成功"];
                                 likeNumber++;
                                 myLikeNumber++;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -172,7 +172,7 @@
             //------- 踩/取消踩 --------//
             [cell.unlikeBtn bk_addEventHandler:^(id sender) {
                 if (myLikeNumber) {
-                    NSLog(@"已经赞过,不能踩");
+                    [Factory textHUDWithVC:self text:@"已经赞过,不能踩"];
                 }else{
                     //取消踩
                     if (myUnlikeNumber) {
@@ -183,7 +183,7 @@
                                 BmobObject *obj = array.firstObject;
                                 [obj setObject:@0 forKey:@"likeState"];
                                 [obj updateInBackground];
-                                NSLog(@"取消踩");
+                                [Factory textHUDWithVC:self text:@"取消踩"];
                                 myUnlikeNumber--;
                                 unlikeNumber--;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -203,7 +203,7 @@
                                 [obj setObject:@2 forKey:@"likeState"];
                                 //异步更新数据
                                 [obj updateInBackground];
-                                NSLog(@"踩成功");
+                                [Factory textHUDWithVC:self text:@"踩成功"];
                                 myUnlikeNumber++;
                                 unlikeNumber++;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -316,13 +316,13 @@
         if (resultCount) {
                 BOOL success = [db executeUpdate:@"delete from Collection where Aid = ?", self.aid];
                 if (success) {
-                    NSLog(@"取消收藏成功");
+                    [Factory textHUDWithVC:self text:@"取消收藏成功"];
                     [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
             }
         }else{
             BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @(self.detailType), self.detailVM.image, self.detailVM.title, self.detailVM.pubDate];
             if (success) {
-                NSLog(@"收藏成功");
+                [Factory textHUDWithVC:self text:@"收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }
@@ -470,10 +470,16 @@
         }];
         //点击评论
         [_funcView.myCommentBtn bk_addEventHandler:^(id sender) {
-            CommentViewController *commentVC = [CommentViewController new];
-            commentVC.aid = self.aid;
-            commentVC.detailType = self.detailType;
-            [self.navigationController pushViewController:commentVC animated:YES];
+            Factory *factory = [[Factory alloc] init];
+            if (factory.isUserLogin) {//如果是登录状态,则跳转至评论界面
+                CommentViewController *commentVC = [CommentViewController new];
+                commentVC.aid = self.aid;
+                commentVC.detailType = self.detailType;
+                [self.navigationController pushViewController:commentVC animated:YES];
+            }else{//否则跳转至登录界面
+                [self presentViewController:[[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController] animated:YES completion:nil];
+            }
+            
         } forControlEvents:UIControlEventTouchUpInside];
         //所有评论
         [_funcView.allCommentBtn bk_addEventHandler:^(id sender) {

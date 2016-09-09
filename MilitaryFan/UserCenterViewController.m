@@ -8,6 +8,7 @@
 
 #import "UserCenterViewController.h"
 #import "ModifyPasswordViewController.h"
+#import "AppDelegate.h"
 
 #define kTopViewH 350
 @interface UserCenterViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -41,6 +42,7 @@
         return cell;
     }else{
         LogoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LogoutCell"];
+        [cell.logoutBtn addTarget:self action:@selector(clickLogout:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
 }
@@ -60,6 +62,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //修改密码
     if (indexPath.section == 0 && indexPath.row == 2) {
         ModifyPasswordViewController *pwdVC = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ModifyPasswordViewController"];
         [self.navigationController pushViewController:pwdVC animated:YES];
@@ -132,6 +135,24 @@
     }];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)clickLogout:sender{
+    UIAlertController *alerVC = [UIAlertController alertControllerWithTitle:@"" message:@"您确定要退出吗?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+        [userDic setObject:@"Test" forKey:@"userName"];
+        [userDic setObject:@"" forKey:@"password"];
+        [userDic setObject:@(NO) forKey:@"loginState"];
+        [userDic writeToFile:kUserPlistPath atomically:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alerVC addAction:yesAction];
+    [alerVC addAction:cancelAction];
+    [self presentViewController:alerVC animated:YES completion:nil];
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
@@ -222,6 +243,7 @@
             make.top.left.mas_equalTo(8);
             make.bottom.right.mas_equalTo(-8);
         }];
+        
         _logoutBtn.backgroundColor = [UIColor redColor];
         [_logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font = [UIFont systemFontOfSize:17];

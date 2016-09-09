@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
-@property (nonatomic) NSString *previousVC;
 @end

@@ -55,8 +55,8 @@
                 //登录成功,弹出提示框
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    //点击确定刷新界面
-                    [self.navigationController popViewControllerAnimated:YES];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:YES completion:nil];
                 }];
                 [alertVC addAction:yesAction];
                 [self presentViewController:alertVC animated:YES completion:nil];
@@ -90,13 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_accountTF becomeFirstResponder];
-    if ([self.previousVC isEqualToString:@"leftMenuVC"]) {
         [Factory nonNaviClickBackWithViewController:self];
-    }
-    if ([self.previousVC isEqualToString:@"settingsVC"]) {
-        [Factory naviClickBackWithViewController:self];
-    }
-    
 }
 
 @end
