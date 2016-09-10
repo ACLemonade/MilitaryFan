@@ -58,10 +58,12 @@
         UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
         UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
         UINavigationController *settingsNavi = [[UINavigationController alloc] initWithRootViewController:settingsVC];
-        
-        pageNavi.tabBarItem.title = @"资讯";
-        videoNavi.tabBarItem.title = @"视频";
-        settingsNavi.tabBarItem.title = @"设置";
+        //资讯页tabbar标题,图片
+        pageNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"资讯" image:[UIImage imageNamed:@"importantNews_normal"] selectedImage:[UIImage imageNamed:@"importantNews"]];
+        //视频页tabbar标题,图片
+        videoNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"视频" image:[UIImage imageNamed:@"video_list_icon"] selectedImage:[UIImage imageNamed:@"video_list_icon"]];
+        //设置页tabbar标题,图片
+        settingsNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"设置" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         
         pageVC.navigationItem.title = @"军事迷";
         videoVC.navigationItem.title = @"军事迷";

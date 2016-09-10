@@ -11,7 +11,6 @@
 
 @implementation MFInfoViewModel
 #pragma mark - 懒加载 Lazy Load
-kLemonadeArchive
 - (instancetype)init{
     NSAssert(NO, @"%s", __func__);
     return nil;
@@ -151,6 +150,7 @@ kLemonadeArchive
             self.topList = model.data.slide;
             [self.itemList addObjectsFromArray:model.data.item];
             _currentPage = tmpPage;
+            //归档
             [CacheManager archiveMFInfoWithVM:self];
         }
         completionHandle(error);

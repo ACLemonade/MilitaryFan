@@ -254,8 +254,8 @@
 		8CC954471D6850190022F157 /* PageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageController.m; sourceTree = "<group>"; };
 		8CC954491D68522E0022F157 /* MFInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewController.h; sourceTree = "<group>"; };
 		8CC9544A1D68522E0022F157 /* MFInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewController.m; sourceTree = "<group>"; };
-		8CE370071D815F95004D5B93 /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
-		8CE370081D815F95004D5B93 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
+		8CE370071D815F95004D5B93 /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CacheManager.h; path = ../CacheManager/CacheManager.h; sourceTree = "<group>"; };
+		8CE370081D815F95004D5B93 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheManager.m; path = ../CacheManager/CacheManager.m; sourceTree = "<group>"; };
 		8CE5F4551D781FFE00FC85D6 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -359,6 +359,7 @@
 			isa = PBXGroup;
 			children = (
 				8C2A6F341D67F8CA0028F634 /* MilitaryFan */,
+				8C2A6F6F1D68006F0028F634 /* NetManager */,
 				8C2A6F711D68006F0028F634 /* Vendor */,
 				8C2A6F6C1D68006F0028F634 /* Category */,
 				8C9304FF1D6D498000F9182D /* Tools */,
@@ -429,15 +430,6 @@
 			path = MilitaryFanUITests;
 			sourceTree = "<group>";
 		};
-		8C2A6F6B1D68006F0028F634 /* CacheManager */ = {
-			isa = PBXGroup;
-			children = (
-				8CE370071D815F95004D5B93 /* CacheManager.h */,
-				8CE370081D815F95004D5B93 /* CacheManager.m */,
-			);
-			path = CacheManager;
-			sourceTree = "<group>";
-		};
 		8C2A6F6C1D68006F0028F634 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,7 +477,8 @@
 				8C2A6F991D68095A0028F634 /* MFInfoNetManager.h */,
 				8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */,
 			);
-			path = NetManager;
+			name = NetManager;
+			path = MilitaryFan/NetManager;
 			sourceTree = "<group>";
 		};
 		8C2A6F701D68006F0028F634 /* Resources */ = {
@@ -573,8 +566,6 @@
 				8C2A6F721D68006F0028F634 /* View */,
 				8C2A6F731D68006F0028F634 /* ViewController */,
 				8C2A6F741D68006F0028F634 /* ViewModel */,
-				8C2A6F6B1D68006F0028F634 /* CacheManager */,
-				8C2A6F6F1D68006F0028F634 /* NetManager */,
 			);
 			name = "资讯";
 			sourceTree = "<group>";
@@ -677,6 +668,8 @@
 			children = (
 				8C9305001D6D499C00F9182D /* Factory.h */,
 				8C9305011D6D499C00F9182D /* Factory.m */,
+				8CE370071D815F95004D5B93 /* CacheManager.h */,
+				8CE370081D815F95004D5B93 /* CacheManager.m */,
 			);
 			name = Tools;
 			path = MilitaryFan/Define;

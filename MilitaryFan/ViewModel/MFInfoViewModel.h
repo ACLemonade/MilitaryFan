@@ -10,7 +10,7 @@
 #import "MFInfoNetManager.h"
 #import "NSObject+ViewModel.h"
 
-@interface MFInfoViewModel : NSObject
+@interface MFInfoViewModel : BaseModel
 
 /** UI部分 */
 //头部

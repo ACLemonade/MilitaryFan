@@ -21,14 +21,14 @@
 + (BOOL)archiveMFInfoWithVM:(MFInfoViewModel *)viewModel;
 //首页解档
 + (MFInfoViewModel *)unArchiveMFInfoWithType:(InfoType)type;
-//首页归解档路径
-+ (NSString *)archivePathWithType:(InfoType)type;
+//视频页归档
++ (BOOL)archiveMFVideoWithVM:(MFVideoViewModel *)viewModel;
+//视频页解档
++(MFVideoViewModel *)unArchiveMFVideo;
 //详情页归档
 + (BOOL)archiveMFDetailWithVM:(id)viewModel;
 //详情页解档
 + (MFDetailViewModel *)unArchiveMFDetailWithAid:(NSString *)aid;
 + (MFPicViewModel *)unArchiveMFPicWithAid:(NSString *)aid;
 + (MFVideoDetailViewModel *)unArchiveMFVideoWithAid:(NSString *)aid;
-//详情页归解档路径
-+ (NSString *)archivePathWithAid:(NSString *)aid;
 @end

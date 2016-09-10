@@ -10,7 +10,6 @@
 #import "CacheManager.h"
 
 @implementation MFDetailViewModel
-kLemonadeArchive
 - (instancetype)init{
     NSAssert(NO, @"%s", __func__);
     return nil;
@@ -56,6 +55,7 @@ kLemonadeArchive
     [MFInfoNetManager getDetailWithAid:self.aid completionHandle:^(MFDetailModel *model, NSError *error) {
         if (!error) {
             self.model = model.data;
+            //归档
             [CacheManager archiveMFDetailWithVM:self];
         }
         completionHandle(error);

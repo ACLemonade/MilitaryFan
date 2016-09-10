@@ -7,6 +7,7 @@
 //
 
 #import "MFVideoDetailViewModel.h"
+#import "CacheManager.h"
 
 @implementation MFVideoDetailViewModel
 #pragma mark - 懒加载 Lazy Load
@@ -17,6 +18,11 @@
 - (instancetype)initWithAid:(NSString *)aid{
     if (self = [super init]) {
         self.aid = aid;
+        //解档
+        id obj = [CacheManager unArchiveMFVideoWithAid:aid];
+        if (obj) {
+            self = obj;
+        }
     }
     return self;
 }
@@ -51,6 +57,8 @@
     self.dataTask = [MFVideoNetManager getMFVideoDetailWithAid:self.aid completionHandle:^(MFVideoDetailModel *model, NSError *error) {
         if (!error) {
             self.model = model.data;
+            //归档
+            [CacheManager archiveMFDetailWithVM:self];
         }
         completionHandle(error);
     }];

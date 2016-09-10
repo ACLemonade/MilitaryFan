@@ -10,7 +10,7 @@
 #import "NSObject+ViewModel.h"
 #import "MFVideoNetManager.h"
 
-@interface MFVideoViewModel : NSObject
+@interface MFVideoViewModel : BaseModel
 /** UI部分 */
 - (NSURL *)iconURLForRow:(NSInteger)row;
 - (NSString *)titleForRow:(NSInteger)row;

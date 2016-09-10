@@ -13,22 +13,33 @@
 + (BOOL)archiveMFInfoWithVM:(MFInfoViewModel *)viewModel{
     return [NSKeyedArchiver archiveRootObject:viewModel toFile:[self archivePathWithType:viewModel.infoType]];
 }
+
 + (MFInfoViewModel *)unArchiveMFInfoWithType:(InfoType)type{
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePathWithType:type]];
 }
+//首页归解档路径
 + (NSString *)archivePathWithType:(InfoType)type{
     return [kInfoCachePath stringByAppendingPathComponent:@(type).stringValue];
 }
 //---- 首页归解档 ----/
 
+//---- 视频页首页归解档 ----/
++ (BOOL)archiveMFVideoWithVM:(MFVideoViewModel *)viewModel{
+    return [NSKeyedArchiver archiveRootObject:viewModel toFile:[kInfoCachePath stringByAppendingPathComponent:@(18).stringValue]];
+}
++ (MFVideoViewModel *)unArchiveMFVideo{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:[kInfoCachePath stringByAppendingPathComponent:@(18).stringValue]];
+}
+//---- 视频页首页归解档 ----/
+
 //---- 详情页归解档 ----/
 + (BOOL)archiveMFDetailWithVM:(id)viewModel{
     //图片详情页
-    if ([viewModel isKindOfClass:[MFPicViewModel class] ]) {
+    if ([viewModel isKindOfClass:[MFPicViewModel class]]) {
         return [NSKeyedArchiver archiveRootObject:(MFPicViewModel *)viewModel toFile:[self archivePathWithAid:((MFPicViewModel *)viewModel).aid]];
     }
     //视频详情页
-    if ([viewModel isKindOfClass:[MFVideoDetailViewModel class] ]) {
+    if ([viewModel isKindOfClass:[MFVideoDetailViewModel class]]) {
         return [NSKeyedArchiver archiveRootObject:(MFVideoDetailViewModel *)viewModel toFile:[self archivePathWithAid:((MFVideoDetailViewModel *)viewModel).aid]];
     }
     //普通详情页
@@ -47,6 +58,7 @@
 + (MFVideoDetailViewModel *)unArchiveMFVideoWithAid:(NSString *)aid{
     return [NSKeyedUnarchiver unarchiveObjectWithFile:[self archivePathWithAid:aid]];
 }
+//详情页归解档路径
 + (NSString *)archivePathWithAid:(NSString *)aid{
     return [kDetailCachePath stringByAppendingPathComponent:aid];
 }

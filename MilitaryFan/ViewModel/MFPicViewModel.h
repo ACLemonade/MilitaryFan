@@ -10,7 +10,7 @@
 #import "MFInfoNetManager.h"
 #import "NSObject+ViewModel.h"
 
-@interface MFPicViewModel : NSObject
+@interface MFPicViewModel : BaseModel
 /** UI部分 */
 - (NSURL *)iconURLForIndex:(NSInteger)index;
 - (NSString *)pictextForIndex:(NSInteger)index;

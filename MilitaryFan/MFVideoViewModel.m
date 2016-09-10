@@ -7,12 +7,17 @@
 //
 
 #import "MFVideoViewModel.h"
+#import "CacheManager.h"
 
 @implementation MFVideoViewModel
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)init{
     if (self = [super init]) {
         self.currentPage = 1;
+        id obj = [CacheManager unArchiveMFVideo];
+        if (obj) {
+            self = obj;
+        }
     }
     return self;
 }
@@ -63,9 +68,12 @@
                 [self.itemList removeAllObjects];
             }
             [self.itemList addObjectsFromArray:model.data.item];
+            _currentPage = tmpPage;
+            //归档
+            [CacheManager archiveMFVideoWithVM:self];
         }
         completionHandle(error);
-        _currentPage = tmpPage;
+        
     }];
 }
 @end

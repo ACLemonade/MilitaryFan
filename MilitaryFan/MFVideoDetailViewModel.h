@@ -11,7 +11,7 @@
 #import "MFVideoNetManager.h"
 #import "MFVideoDetailModel.h"
 
-@interface MFVideoDetailViewModel : NSObject
+@interface MFVideoDetailViewModel : BaseModel
 /** UI部分 */
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *pubDate;

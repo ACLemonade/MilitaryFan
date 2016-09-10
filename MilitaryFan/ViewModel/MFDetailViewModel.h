@@ -10,7 +10,7 @@
 #import "MFInfoNetManager.h"
 #import "NSObject+ViewModel.h"
 
-@interface MFDetailViewModel : NSObject
+@interface MFDetailViewModel : BaseModel
 /** UI部分 */
 /** 头部 */
 @property (nonatomic) NSString *title;
