@@ -107,8 +107,8 @@
     [[NSFileManager defaultManager] createDirectoryAtPath:kInfoCachePath withIntermediateDirectories:YES attributes:nil error:nil];
     //创建详情页缓存文件夹
     [[NSFileManager defaultManager] createDirectoryAtPath:kDetailCachePath withIntermediateDirectories:YES attributes:nil error:nil];
-    NSLog(@"%@", kDocPath);
-    
+//    NSLog(@"%@", kDocPath);
+//    NSLog(@"%@", [[NSFileManager defaultManager] subpathsAtPath:kDocPath]);
     
     return YES;
 }

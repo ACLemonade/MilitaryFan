@@ -310,7 +310,6 @@
 //    }
 //    [db close];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
-    NSLog(@"%@", kDocPath);
     [queue inDatabase:^(FMDatabase *db) {
         NSInteger resultCount = [db intForQuery:@"select count(*) from Collection where Aid = ?", self.aid];
         if (resultCount) {
@@ -336,10 +335,8 @@
     [myLikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         [[NSOperationQueue new] addOperationWithBlock:^{
             myLikeNumber = number;
-            NSLog(@"%@, %d", [NSThread currentThread], __LINE__);
         }];
     }];
-    NSLog(@"%d", __LINE__);
     return myLikeNumber;
 }
 - (void)clickShare:sender{

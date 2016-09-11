@@ -179,14 +179,17 @@
     NSMutableDictionary *meDic = [NSMutableDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
     [[NSOperationQueue new] addOperationWithBlock:^{
+        //上传头像,如果存在,则上传
         NSData *imageData = [NSData dataWithContentsOfFile:kHeadImagePath];
-        [BmobFile filesUploadBatchWithDataArray:@[@{@"filename": [NSString stringWithFormat:@"%@.png", userName], @"data": imageData}] progressBlock:nil resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
-            if (isSuccessful) {
-                BmobFile *bFile = array.firstObject;
-                [meDic setObject:bFile.url forKey:@"headImageURL"];
-                [meDic writeToFile:kMePlistPath atomically:YES];
-            }
-        }];
+        if (imageData) {
+            [BmobFile filesUploadBatchWithDataArray:@[@{@"filename": [NSString stringWithFormat:@"%@.png", userName], @"data": imageData}] progressBlock:nil resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
+                if (isSuccessful) {
+                    BmobFile *bFile = array.firstObject;
+                    [meDic setObject:bFile.url forKey:@"headImageURL"];
+                    [meDic writeToFile:kMePlistPath atomically:YES];
+                }
+            }];
+        }
     }];
 }
 #pragma mark - 懒加载 Lazy Load
@@ -204,6 +207,9 @@
             make.centerX.mas_equalTo(0);
             make.size.mas_equalTo(75);
         }];
+//        _iconBtn.layer.cornerRadius = 30;
+//        _iconBtn.layer.borderWidth = 5;
+//        _iconBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
         //如果已经设置过头像,则将其从文件中取出来
         if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
             [[NSOperationQueue new] addOperationWithBlock:^{

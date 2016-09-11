@@ -8,9 +8,10 @@
 
 #import "PageController.h"
 #import "MFInfoViewController.h"
+#import "UserCenterViewController.h"
 
 @interface PageController ()
-
+@property (nonatomic) UIBarButtonItem *headImageBtn;
 @end
 
 @implementation PageController
@@ -34,15 +35,12 @@
     [self.sideMenuViewController presentLeftMenuViewController];
 }
 #pragma mark - 生命周期 LifeCircle
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationItem.leftBarButtonItem = self.headImageBtn;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(segueLeft)];
-    self.navigationItem.leftBarButtonItem = leftBtn;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -63,4 +61,12 @@
 - (NSArray<NSString *> *)titles{
     return @[@"推荐", @"排行榜", @"制高点", @"图片控", @"大视野", @"读点史"];
 }
+#pragma mark - 懒加载 LazyLoad
+- (UIBarButtonItem *)headImageBtn {
+	if(_headImageBtn == nil) {
+        _headImageBtn = [[UIBarButtonItem alloc] initWithTitle:@"我" style:UIBarButtonItemStylePlain target:self action:@selector(segueLeft)];
+	}
+	return _headImageBtn;
+}
+
 @end
