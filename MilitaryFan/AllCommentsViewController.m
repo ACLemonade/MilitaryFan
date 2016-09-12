@@ -51,6 +51,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self tableView];
+    [Factory naviClickBackWithViewController:self];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

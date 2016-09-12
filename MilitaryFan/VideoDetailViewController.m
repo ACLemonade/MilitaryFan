@@ -29,13 +29,13 @@
         if (resultCount) {
             BOOL success = [db executeUpdate:@"delete from Collection where Aid = ?", self.aid];
             if (success) {
-                NSLog(@"取消收藏成功");
+                [Factory textHUDWithVC:self text:@"取消收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
             }
         }else{
             BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @18, self.detailVM.image, self.detailVM.title, self.detailVM.pubDate];
             if (success) {
-                NSLog(@"收藏成功");
+                [Factory textHUDWithVC:self text:@"收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }
@@ -69,6 +69,7 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"视频";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -85,7 +86,7 @@
         }];
     [Factory naviClickBackWithViewController:self];
     self.navigationItem.rightBarButtonItems = @[self.shareBtn, self.collectionBtn];
-    NSLog(@"%@", kDocPath);
+//    NSLog(@"%@", kDocPath);
 }
 #pragma mark - 懒加载 Lazy Load
 - (instancetype)init{
@@ -116,7 +117,7 @@
             make.edges.mas_equalTo(0);
         }];
         [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.detailVM.link]]];
-        
+//        NSLog(@"%@", self.detailVM.link);
 	}
 	return _webView;
 }

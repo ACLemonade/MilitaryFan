@@ -71,17 +71,17 @@
         
         tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
         LeftMenuViewController *leftVC = [LeftMenuViewController new];
-        
         self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
-        
+        self.sideMenuVC.backgroundImage = [UIImage imageNamed:@"background"];
     }
     return _sideMenuVC;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window.rootViewController = self.sideMenuVC;
     [UINavigationBar appearance].translucent = NO;
+    //全局设置导航栏背景色
+    [UINavigationBar appearance].barTintColor = kRGBA(157, 175, 105, 1.0);
     [UITabBar appearance].translucent = NO;
-    
     [self sideMenuVC];
     
     //电池条左上角wifi旁菊花标识
@@ -109,6 +109,19 @@
     [[NSFileManager defaultManager] createDirectoryAtPath:kDetailCachePath withIntermediateDirectories:YES attributes:nil error:nil];
 //    NSLog(@"%@", kDocPath);
 //    NSLog(@"%@", [[NSFileManager defaultManager] subpathsAtPath:kDocPath]);
+//    
+//    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
+//    if ([db open]) {
+//        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
+//        if (suc) {
+//            NSLog(@"Collection表不存在,创建成功");
+//        }else{
+//            NSLog(@"Collection表已存在,不创建");
+//        }
+//    }
+//    [db close];
+    
+    
     
     return YES;
 }

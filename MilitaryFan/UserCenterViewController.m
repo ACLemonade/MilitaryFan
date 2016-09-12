@@ -87,7 +87,7 @@
         //将图片存入文件
         [UIImagePNGRepresentation(image) writeToFile:kHeadImagePath atomically:YES];
     }];
-    NSLog(@"%@", kHeadImagePath);
+//    NSLog(@"%@", kHeadImagePath);
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
@@ -159,14 +159,14 @@
     [super viewDidLoad];
     [self tableView];
     self.navigationItem.title = @"我";
-    if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
-        NSLog(@"存在头像");
-    }else{
-        NSLog(@"不存在头像");
-    }
+//    if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
+//        NSLog(@"存在头像");
+//    }else{
+//        NSLog(@"不存在头像");
+//    }
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"menu_backBlack"] forState:UIControlStateNormal];
     backBtn.bounds = CGRectMake(0, 0, 22, 22);
     [backBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
@@ -207,9 +207,6 @@
             make.centerX.mas_equalTo(0);
             make.size.mas_equalTo(75);
         }];
-//        _iconBtn.layer.cornerRadius = 30;
-//        _iconBtn.layer.borderWidth = 5;
-//        _iconBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
         //如果已经设置过头像,则将其从文件中取出来
         if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
             [[NSOperationQueue new] addOperationWithBlock:^{

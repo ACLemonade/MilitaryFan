@@ -20,4 +20,7 @@
 @property (nonatomic, readonly, getter=isUserLogin) BOOL userLogin;
 //提示框(收藏,点赞,评论)
 + (void)textHUDWithVC:(UIViewController *)vc text:(NSString *)text;
+//提示框显示
+
+//提示框隐藏
 @end

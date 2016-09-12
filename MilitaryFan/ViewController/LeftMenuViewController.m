@@ -85,7 +85,7 @@
             [self presentViewController:[[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController] animated:YES completion:nil];
         }
     }
-    if (indexPath.section == 1) {
+    if (indexPath.section == 1 && indexPath.row == 0) {
         CollectionViewController *collectionVC = [CollectionViewController new];
         UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
         [self presentViewController:collectNavi animated:YES completion:nil];
@@ -102,6 +102,9 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 20;
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.backgroundColor = kRGBA(255, 255, 255, 0.5);
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
@@ -130,9 +133,7 @@
         }];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        //去弹簧效果
-//        _tableView.bounces = NO;
-        
+        _tableView.backgroundColor = [UIColor clearColor];
         //去掉分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         

@@ -52,13 +52,13 @@
         if (resultCount) {
             BOOL success = [db executeUpdate:@"delete from Collection where Aid = ?", self.aid];
             if (success) {
-                NSLog(@"取消收藏成功");
+                [Factory textHUDWithVC:self text:@"取消收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
             }
         }else{
             BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @18, self.picVM.image, self.picVM.title, self.picVM.pubDate];
             if (success) {
-                NSLog(@"收藏成功");
+                [Factory textHUDWithVC:self text:@"收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
             }
         }
@@ -73,7 +73,6 @@
         ;
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
         if (image && finished) {
-            NSLog(@"下载完成");
             UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
         }
     }];
@@ -82,8 +81,7 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if(!error){
-        NSLog(@"保存成功");
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"图片已成功保存至相册" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"下载成功" message:@"图片已成功保存至相册" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *scanAction = [UIAlertAction actionWithTitle:@"查看" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             UIImagePickerController *picker = [[UIImagePickerController alloc] init];
             picker.allowsEditing = YES;

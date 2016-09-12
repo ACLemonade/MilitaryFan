@@ -112,6 +112,7 @@
     _haveNewPwd = NO;
     _haveConfirm = NO;
     [Factory naviClickBackWithViewController:self];
+    self.navigationItem.title = @"修改密码";
 }
 
 @end

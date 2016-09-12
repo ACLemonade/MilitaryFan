@@ -93,8 +93,6 @@
                 cell.likeLb.text = [NSString stringWithFormat:@"%d", number];
                 likeNumber = number;
             }];
-//            likeNumber = [self clickLike];
-//            NSLog(@"%d", __LINE__);
             //总踩数
             BmobQuery *unlikeQuery = [BmobQuery queryWithClassName:@"Like"];
             [unlikeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @2}]];
@@ -108,7 +106,6 @@
             [myLikeQuery addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}, @{@"likeState": @1}]];
             [myLikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 myLikeNumber = number;
-//                NSLog(@"%@, %d", [NSThread currentThread], __LINE__);
             }];
             __block NSInteger myUnlikeNumber = 0;
             //查询当前aid并且踩状态为2数据
@@ -117,7 +114,6 @@
             [myUnlikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
                 myUnlikeNumber = number;
             }];
-//            NSLog(@"%d", __LINE__);
             //------- 点赞/取消点赞 --------//
             [cell.likeBtn bk_addEventHandler:^(id sender) {
                 if (myUnlikeNumber) {
@@ -301,14 +297,6 @@
     return @[@(totalHeight), contentArr];
 }
 - (void)collectArticle:(UIButton *)sender{
-//    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
-//    if ([db open]) {
-//        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
-//        if (suc) {
-//            NSLog(@"创建表成功");
-//        }
-//    }
-//    [db close];
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
     [queue inDatabase:^(FMDatabase *db) {
         NSInteger resultCount = [db intForQuery:@"select count(*) from Collection where Aid = ?", self.aid];
@@ -366,8 +354,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.navigationItem.title = @"军事迷";
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    NSLog(@"菊花显示%@", [NSThread currentThread]);
     [self.detailVM getDataWithMode:0 completionHandle:^(NSError *error) {
         if (error) {
             NSLog(@"error: %@", error);
@@ -378,42 +367,53 @@
             [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
             [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
         }
+       
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+//         NSLog(@"菊花消失 %@", [NSThread currentThread]);
     }];
     [Factory naviClickBackWithViewController:self];
-    
-    NSLog(@"%@", kDocPath);
+//    NSLog(@"%@", kDocPath);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
-    BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
-    [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}]];
-    [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-        if (number == 0) {
-            BmobObject *obj = [BmobObject objectWithClassName:@"Like"];
-            [obj setObject:userName forKey:@"userName"];
-            [obj setObject:self.aid forKey:@"Aid"];
-            [obj setObject:@(self.detailType) forKey:@"Type"];
-            [obj setObject:@0 forKey:@"likeState"];
-            [obj saveInBackground];
-        }
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
+        [query addTheConstraintByAndOperationWithArray:@[@{@"userName": userName}, @{@"Aid": self.aid}]];
+        [query countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
+            [[NSOperationQueue new] addOperationWithBlock:^{
+                if (number == 0) {
+                    BmobObject *obj = [BmobObject objectWithClassName:@"Like"];
+                    [obj setObject:userName forKey:@"userName"];
+                    [obj setObject:self.aid forKey:@"Aid"];
+                    [obj setObject:@(self.detailType) forKey:@"Type"];
+                    [obj setObject:@0 forKey:@"likeState"];
+                    [obj saveInBackground];
+//                    NSLog(@"点赞初始状态完成 %@", [NSThread currentThread]);
+                }
+            }];
+            
+        }];
     }];
-    if ([[NSFileManager defaultManager] fileExistsAtPath:kDetailPlistPath]) {
-        NSMutableDictionary *detailDic = [NSMutableDictionary dictionaryWithContentsOfFile:kDetailPlistPath];
-        [detailDic setObject:userName forKey:@"userName"];
-        [detailDic setObject:self.aid forKey:@"Aid"];
-        [detailDic setObject:@(self.detailType) forKey:@"Type"];
-        [detailDic writeToFile:kDetailPlistPath atomically:YES];
-    }else{
-        NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
-        [detailDic setObject:userName forKey:@"userName"];
-        [detailDic setObject:self.aid forKey:@"Aid"];
-        [detailDic setObject:@(self.detailType) forKey:@"Type"];
-        [detailDic writeToFile:kDetailPlistPath atomically:YES];
-    }
+    [[NSOperationQueue new] addOperationWithBlock:^{
+        if ([[NSFileManager defaultManager] fileExistsAtPath:kDetailPlistPath]) {
+            NSMutableDictionary *detailDic = [NSMutableDictionary dictionaryWithContentsOfFile:kDetailPlistPath];
+            [detailDic setObject:userName forKey:@"userName"];
+            [detailDic setObject:self.aid forKey:@"Aid"];
+            [detailDic setObject:@(self.detailType) forKey:@"Type"];
+            [detailDic writeToFile:kDetailPlistPath atomically:YES];
+        }else{
+            NSMutableDictionary *detailDic = [NSMutableDictionary dictionary];
+            [detailDic setObject:userName forKey:@"userName"];
+            [detailDic setObject:self.aid forKey:@"Aid"];
+            [detailDic setObject:@(self.detailType) forKey:@"Type"];
+            [detailDic writeToFile:kDetailPlistPath atomically:YES];
+        }
+//        NSLog(@"存入plist文件完成 %@", [NSThread currentThread]);
+    }];
+    
 }
 - (void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
