@@ -42,6 +42,9 @@
 - (NSString *)aidForRow:(NSInteger)row{
     return [self detailModelForRow:row].aid;
 }
+- (NSInteger)typeForRow:(NSInteger)row{
+    return [self detailModelForRow:row].type;
+}
 - (void)collectionUpdate{
     [self.collectionModel dbUpdate];
 }

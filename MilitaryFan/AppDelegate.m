@@ -19,6 +19,7 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialSinaSSOHandler.h>
 
+#import <SDImageCache.h>
 @interface AppDelegate ()
 
 @end
@@ -120,8 +121,8 @@
 //        }
 //    }
 //    [db close];
-    
-    
+//    NSInteger size = [[SDImageCache sharedImageCache] getSize];
+//    NSLog(@"%ld", size);
     
     return YES;
 }

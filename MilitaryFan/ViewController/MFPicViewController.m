@@ -7,6 +7,7 @@
 //
 
 #import "MFPicViewController.h"
+#import "ScanPicViewController.h"
 #import "MFPicViewModel.h"
 
 #import <UIImageView+WebCache.h>
@@ -18,6 +19,7 @@
 @property (nonatomic) UIBarButtonItem *collectionBtn;
 @property (nonatomic) UIBarButtonItem *downloadBtn;
 @property (nonatomic) UIBarButtonItem *shareBtn;
+@property (nonatomic) UIBarButtonItem *scanBtn;
 
 @end
 
@@ -56,7 +58,7 @@
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav"] forState:UIControlStateNormal];
             }
         }else{
-            BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @18, self.picVM.image, self.picVM.title, self.picVM.pubDate];
+            BOOL success = [db executeUpdate:@"insert into Collection (Name, Aid, Type, Image, Title, PubDate) values (?,?,?,?,?,?)", @"Test", self.aid, @2, self.picVM.image, self.picVM.title, self.picVM.pubDate];
             if (success) {
                 [Factory textHUDWithVC:self text:@"收藏成功"];
                 [sender setImage:[UIImage imageNamed:@"zhengwen_toolbar_fav2"] forState:UIControlStateNormal];
@@ -126,6 +128,7 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.picVM getDataWithMode:0 completionHandle:^(NSError *error) {
         if (error) {
             NSLog(@"error: %@", error);
@@ -138,7 +141,7 @@
         }
     }];
     [Factory naviClickBackWithViewController:self];
-    self.navigationItem.rightBarButtonItems = @[self.shareBtn, self.downloadBtn, self.collectionBtn];
+    self.navigationItem.rightBarButtonItems = @[self.shareBtn, self.downloadBtn, self.collectionBtn, self.scanBtn];
     NSLog(@"%@", kDocPath);
 }
 #pragma mark - 懒加载 Lazy Load
@@ -215,6 +218,22 @@
         _shareBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
 	}
 	return _shareBtn;
+}
+
+- (UIBarButtonItem *)scanBtn {
+	if(_scanBtn == nil) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.bounds = CGRectMake(0, 0, 24, 24);
+        btn.backgroundColor = [UIColor whiteColor];
+        //点击浏览
+        [btn bk_addEventHandler:^(id sender) {
+            ScanPicViewController *scanPicVC = [ScanPicViewController new];
+            scanPicVC.aid = self.aid;
+            [self.navigationController pushViewController:scanPicVC animated:YES];
+        } forControlEvents:UIControlEventTouchUpInside];
+        _scanBtn = [[UIBarButtonItem alloc] initWithCustomView:btn];
+	}
+	return _scanBtn;
 }
 
 @end

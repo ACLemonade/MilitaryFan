@@ -16,6 +16,7 @@
 		8C0DC5211D7F9CA900CC8120 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5201D7F9CA900CC8120 /* CoreTelephony.framework */; };
 		8C0DC5231D7F9CE700CC8120 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5221D7F9CE700CC8120 /* libz.tbd */; };
 		8C0DC5251D7F9CF900CC8120 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */; };
+		8C1577BD1D8D36C300D27A3D /* ScanPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1577BC1D8D36C300D27A3D /* ScanPicViewController.m */; };
 		8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */; };
 		8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */; };
 		8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */; };
@@ -126,6 +127,8 @@
 		8C0DC5201D7F9CA900CC8120 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		8C0DC5221D7F9CE700CC8120 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		8C1577BB1D8D36C300D27A3D /* ScanPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanPicViewController.h; sourceTree = "<group>"; };
+		8C1577BC1D8D36C300D27A3D /* ScanPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanPicViewController.m; sourceTree = "<group>"; };
 		8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
 		8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
 		8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
@@ -521,6 +524,8 @@
 				8C9304B61D6BEEB000F9182D /* DetailViewController.m */,
 				8C32F8641D7132960046F218 /* MFPicViewController.h */,
 				8C32F8651D7132960046F218 /* MFPicViewController.m */,
+				8C1577BB1D8D36C300D27A3D /* ScanPicViewController.h */,
+				8C1577BC1D8D36C300D27A3D /* ScanPicViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1133,6 +1138,7 @@
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
 				8CE370091D815F95004D5B93 /* CacheManager.m in Sources */,
+				8C1577BD1D8D36C300D27A3D /* ScanPicViewController.m in Sources */,
 				8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */,
 				8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,

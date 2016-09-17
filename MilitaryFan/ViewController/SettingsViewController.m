@@ -9,6 +9,8 @@
 #import "SettingsViewController.h"
 #import "LoginViewController.h"
 
+#import <SDImageCache.h>
+
 @interface SettingsViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *cachesNumberLb;
 
@@ -25,10 +27,30 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0 && indexPath.row == 0) {
-        [self removeDirectoryPath:kInfoCachePath];
-        [self removeDirectoryPath:kDetailCachePath];
-        self.cachesNumberLb.text = [self getCacheSize];
-        [Factory textHUDWithVC:self text:@"清理成功"];
+        //由于SDImageCache清理缓存为异步,所以得最后显示加一个墙
+        dispatch_queue_t queue = dispatch_queue_create(NULL, DISPATCH_QUEUE_CONCURRENT);
+        dispatch_async(queue, ^{
+            [self removeDirectoryPath:kInfoCachePath];
+            NSLog(@"1");
+        });
+        dispatch_async(queue, ^{
+            [self removeDirectoryPath:kDetailCachePath];
+            NSLog(@"2");
+        });
+        dispatch_async(queue, ^{
+            SDImageCache *cache = [SDImageCache sharedImageCache];
+            NSInteger cacheSize = [cache getSize];
+            while (cacheSize > 0) {
+                [cache clearDisk];
+                cacheSize = [cache getSize];
+                NSLog(@"3");
+            }
+        });
+        dispatch_barrier_sync(queue, ^{
+            self.cachesNumberLb.text = [self getCacheSize];
+            [Factory textHUDWithVC:self text:@"清理成功"];
+            NSLog(@"4");
+        });
     }
 }
 #pragma mark - 方法 Methods
@@ -80,13 +102,18 @@
     [manager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
 }
 - (NSString *)getCacheSize{
+    //首页viewModel缓存
     NSInteger infoCacheSize = [self getSizeOfFilePath:[kDocPath stringByAppendingPathComponent:@"InfoCache"]];
+    //详情页viewModel缓存
     NSInteger detailCacheSize = [self getSizeOfFilePath:[kDocPath stringByAppendingPathComponent:@"DetailCache"]];
-    NSInteger totalSize = infoCacheSize + detailCacheSize;
+    //SDImageCache缓存
+    NSInteger sdImageCacheSize = [[SDImageCache sharedImageCache] getSize];
+    
+    NSInteger totalSize = infoCacheSize + detailCacheSize + sdImageCacheSize;
     NSString *cacheSize = nil;
     // >=1M ---- ???M
     if (totalSize >= 1048576) {
-        cacheSize = [NSString stringWithFormat:@"%.1ldM", totalSize/1048576];
+        cacheSize = [NSString stringWithFormat:@"%.1fM", totalSize*1.0/1048576];
     }else{// <1M ---- ???K
         cacheSize = [NSString stringWithFormat:@"%ldK", totalSize/1024];
     }

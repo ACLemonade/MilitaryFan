@@ -33,7 +33,7 @@
 @end
 
 @implementation MFInfoViewController
-#pragma mark - 协议方法 UITableView Delegate/DataSource
+#pragma mark - 协议方法 iCarousel Delegate/DataSource
 - (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
     _icTitleLb.text = [self.infoVM topTitleForIndex:carousel.currentItemIndex];
     _pageControl.currentPage = carousel.currentItemIndex;
@@ -76,7 +76,7 @@
     [self.navigationController pushViewController:dVC animated:YES];
 }
 
-
+#pragma mark - 协议方法 UITableView Delegate/DataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.infoVM.itemNumber;
 }

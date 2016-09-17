@@ -42,9 +42,14 @@
     }
 }
 + (void)textHUDWithVC:(UIViewController *)vc text:(NSString *)text{
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:vc.navigationController.view animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:vc.view animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.label.text = NSLocalizedString(text, @"HUD message title");
     [hud hideAnimated:YES afterDelay:2.f];
+}
++ (void)autoShowHUDWithVC:(UIViewController *)vc withDelay:(NSTimeInterval)delay{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:vc.navigationController.view animated:YES];
+    [hud hideAnimated:YES afterDelay:delay];
+    hud.backgroundView.style = MBProgressHUDBackgroundStyleSolidColor;
 }
 @end

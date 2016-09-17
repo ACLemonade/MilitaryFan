@@ -33,7 +33,7 @@
 @end
 
 @implementation DetailViewController
-#pragma mark - 协议方法 UitableView Delegate/DataSource
+#pragma mark - 协议方法 UItableView Delegate/DataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }
@@ -223,15 +223,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = indexPath.row;
     switch (indexPath.section) {
         case 0:
             return 131;
             break;
         case 1:
         {
-            CGFloat contentH = [[[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:0] floatValue];
-            CGFloat imageH = [[[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:0] floatValue];
-            return contentH + imageH;
+            CGFloat contentHeight = [[[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:0] floatValue];
+            CGFloat imageHeight = [[[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:0] floatValue];
+            return contentHeight + imageHeight;
             break;
         }
         case 2:
@@ -251,12 +252,12 @@
 #pragma mark - 方法 Methods
 //返回一个数组
 //1.总高度
-//2.存放image的数组
+//2.imageView对象数组
 - (NSArray *)getDetailImagesWithImageArray:(NSArray *)imageArray{
     CGFloat totalHeight = 0;
     NSMutableArray *ivArr = [NSMutableArray array];
     for (NSString  *image in imageArray) {
-        CGFloat itemW = kScreenW-16;
+        CGFloat itemW = kScreenW - 16;
         CGFloat itemH = 0;
         NSURL *imageURL = [NSURL URLWithString:image];
         UIImageView *iv = [[UIImageView alloc] init];
@@ -269,7 +270,6 @@
         }
         itemH = itemW * (newImg.size.height/newImg.size.width);
         totalHeight += itemH;
-        
         iv.image = newImg;
         iv.bounds = CGRectMake(0, 0, itemW, itemH);
         [ivArr addObject:iv];
@@ -278,7 +278,7 @@
 }
 //返回一个数组
 //总高度
-//label数组
+//label对象数组
 - (NSArray *)getDetailContentWithContent:(NSArray<NSString *> *)content{
     CGFloat totalHeight = 0;
     NSMutableArray *contentArr = [NSMutableArray array];
@@ -289,10 +289,10 @@
         label.numberOfLines = 0;
         label.lineBreakMode = NSLineBreakByWordWrapping;
         //根据固定宽度,算出字符串所占高度
-        CGSize linesSz = [label.text boundingRectWithSize:CGSizeMake(kScreenW-16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: label.font} context:nil].size;
-        totalHeight += linesSz.height;
+        CGSize linesSz = [label.text boundingRectWithSize:CGSizeMake(kScreenW - 16, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: label.font} context:nil].size;
         label.bounds = CGRectMake(0, 0, linesSz.width, linesSz.height);
         [contentArr addObject:label];
+        totalHeight += linesSz.height;
     }
     return @[@(totalHeight), contentArr];
 }
@@ -355,7 +355,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"军事迷";
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [Factory autoShowHUDWithVC:self withDelay:3];
 //    NSLog(@"菊花显示%@", [NSThread currentThread]);
     [self.detailVM getDataWithMode:0 completionHandle:^(NSError *error) {
         if (error) {
@@ -394,7 +395,6 @@
 //                    NSLog(@"点赞初始状态完成 %@", [NSThread currentThread]);
                 }
             }];
-            
         }];
     }];
     [[NSOperationQueue new] addOperationWithBlock:^{

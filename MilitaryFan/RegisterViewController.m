@@ -123,10 +123,9 @@
 - (IBAction)getValidation:(id)sender {
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:_phoneTF.text zone:@"86" customIdentifier:nil result:^(NSError *error) {
         if (!error) {
-            NSLog(@"获取验证码成功");
+            [Factory textHUDWithVC:self text:@"获取验证码成功"];
         } else {
-            NSLog(@"错误信息：%@",error);
-            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"错误信息" message:@"手机号码格式错误" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"错误信息" message:[NSString stringWithFormat:@"%@", error] preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 ;
             }];
@@ -143,7 +142,7 @@
         //判断验证码是否正确
         [SMSSDK commitVerificationCode:_validationTF.text phoneNumber:_phoneTF.text zone:@"86" result:^(NSError *error) {
             if (!error) {
-                NSLog(@"验证成功");
+//                NSLog(@"验证成功");
                 BmobObject *userInfo = [BmobObject objectWithClassName:@"UserInfo"];
                 [userInfo setObject:_accountTF.text forKey:@"userName"];
                 [userInfo setObject:_passwordTF.text forKey:@"password"];
@@ -156,19 +155,32 @@
                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                             _myBlock(self.accountTF.text, self.passwordTF.text);
-                            [self.navigationController popViewControllerAnimated:YES];
+                                [self.navigationController popViewControllerAnimated:YES];
                         }];
                         [alert addAction:action];
                         [self presentViewController:alert animated:YES completion:nil];
                         
                     }else{
-                        NSLog(@"错误信息: %@", error);
+//                        NSLog(@"错误信息: %@", error);
+                        //注册失败
+                        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error] preferredStyle:UIAlertControllerStyleAlert];
+                        UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            [self dismissViewControllerAnimated:YES completion:nil];
+                        }];
+                        [alertVC addAction:yesAction];
+                        [self presentViewController:alertVC animated:YES completion:nil];
                     }
                 }];
             }
             else
             {
-                NSLog(@"错误信息:%@",error);
+                //验证码验证失败
+                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"%@", error] preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertVC addAction:yesAction];
+                [self presentViewController:alertVC animated:YES completion:nil];
             }
         }];
 

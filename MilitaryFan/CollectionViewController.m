@@ -8,6 +8,9 @@
 
 #import "CollectionViewController.h"
 #import "DetailViewController.h"
+#import "MFPicViewController.h"
+#import "VideoDetailViewController.h"
+
 #import "CollectionViewModel.h"
 #import "NormalCell.h"
 
@@ -50,9 +53,22 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DetailViewController *detailVC = [DetailViewController new];
-    detailVC.aid = [self.collectionVM aidForRow:indexPath.row];
-    [self.navigationController pushViewController:detailVC animated:YES];
+    NSInteger type = [self.collectionVM typeForRow:indexPath.row];
+    if (type == 1) {
+        DetailViewController *detailVC = [DetailViewController new];
+        detailVC.aid = [self.collectionVM aidForRow:indexPath.row];
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+    if (type == 2) {
+        MFPicViewController *picVC = [MFPicViewController new];
+        picVC.aid = [self.collectionVM aidForRow:indexPath.row];
+        [self.navigationController pushViewController:picVC animated:YES];
+    }
+    if (type == 18) {
+        VideoDetailViewController *videoVC = [[VideoDetailViewController alloc] initWithAid:[self.collectionVM aidForRow:indexPath.row]];
+        [self.navigationController pushViewController:videoVC animated:YES];
+    }
+    
 }
 //左滑按钮
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{

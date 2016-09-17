@@ -145,7 +145,7 @@
 
 - (NSArray *)dataList {
 	if(_dataList == nil) {
-        _dataList = @[@"我的收藏", @"我的点赞", @"我的评论", @"我的消息"];
+        _dataList = @[@"我的收藏", @"我的足迹", @"我的消息"];
 	}
 	return _dataList;
 }

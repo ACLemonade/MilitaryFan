@@ -19,6 +19,7 @@
 - (NSString *)pubDateForRow:(NSInteger)row;
 /** 数据部分 */
 - (NSString *)aidForRow:(NSInteger)row;
+- (NSInteger)typeForRow:(NSInteger)row;
 @property (nonatomic) CollectionModel *collectionModel;
 - (CollectionDetailModel *)detailModelForRow:(NSInteger)row;
 @property (nonatomic) NSMutableArray<CollectionDetailModel *> *itemList;

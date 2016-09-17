@@ -16,6 +16,7 @@
 @end
 @interface CollectionDetailModel : BaseModel
 @property (nonatomic) NSString *aid;
+@property (nonatomic) NSInteger type;
 @property (nonatomic) NSString *image;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *pubDate;

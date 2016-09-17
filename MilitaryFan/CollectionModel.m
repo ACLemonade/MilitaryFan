@@ -30,6 +30,7 @@
         while ([result next]) {
             CollectionDetailModel *model = [CollectionDetailModel new];
             model.aid = [result stringForColumn:@"Aid"];
+            model.type = [result longForColumn:@"Type"];
             model.image = [result stringForColumn:@"Image"];
             model.title = [result stringForColumn:@"Title"];
             model.pubDate = [result stringForColumn:@"PubDate"];
