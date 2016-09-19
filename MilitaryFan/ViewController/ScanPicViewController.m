@@ -48,10 +48,17 @@
     return value;
 }
 #pragma mark - 生命周期 LifeCircle
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    [self ic];
+    self.ic.autoscroll = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.ic.autoscroll = NO;
 }
 #pragma mark - 懒加载 LazyLoad
 - (iCarousel *)ic {
@@ -77,10 +84,9 @@
          iCarouselTypeInvertedTimeMachine,
          iCarouselTypeCustom
          */
-        _ic.type = iCarouselTypeTimeMachine;
+        _ic.type = iCarouselTypeCylinder;
         _ic.delegate = self;
         _ic.dataSource = self;
-        _ic.autoscroll = YES;
         _ic.scrollSpeed = 0.1;
 	}
 	return _ic;

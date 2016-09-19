@@ -224,7 +224,7 @@
 	if(_scanBtn == nil) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.bounds = CGRectMake(0, 0, 24, 24);
-        btn.backgroundColor = [UIColor whiteColor];
+        [btn setImage:[UIImage imageNamed:@"img_wutu_icon"] forState:UIControlStateNormal];
         //点击浏览
         [btn bk_addEventHandler:^(id sender) {
             ScanPicViewController *scanPicVC = [ScanPicViewController new];

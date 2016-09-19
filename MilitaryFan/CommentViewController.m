@@ -42,7 +42,8 @@
 
 #pragma mark - 方法 Methods
 //发表评论
-- (void)sendComment{
+- (void)sendComment:(UIButton *)sender{
+    sender.enabled = NO;
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
     NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
@@ -58,6 +59,7 @@
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
                 [Factory textHUDWithVC:self text:@"发表成功"];
+                sender.enabled = YES;
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }];
@@ -68,7 +70,7 @@
     [btn setTitle:@"发表" forState:UIControlStateNormal];
     [btn setTitleColor:kRGBA(0, 122, 255, 1.0) forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:17];
-    [btn addTarget:self action:@selector(sendComment) forControlEvents:UIControlEventTouchUpInside];
+    [btn addTarget:self action:@selector(sendComment:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

@@ -92,7 +92,7 @@
     }
     if (_haveAccount && _haveValidation && _havePassword && _haveConfirm) {
         _registerBtn.enabled = YES;
-        _registerBtn.backgroundColor = kRGBA(0, 122, 255, 1.0);
+        _registerBtn.backgroundColor = kRGBA(157, 175, 105, 1.0);
     }
 }
 
@@ -195,7 +195,7 @@
         }
         if (textField.text.length == 11) {
             _validationBtn.enabled = YES;
-            _validationBtn.backgroundColor = kRGBA(21, 162, 251, 1.0);
+            _validationBtn.backgroundColor = kRGBA(157, 175, 105, 1.0);
         }else{
             _validationBtn.enabled = NO;
             _validationBtn.backgroundColor = [UIColor lightGrayColor];

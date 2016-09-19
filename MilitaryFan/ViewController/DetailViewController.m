@@ -116,6 +116,7 @@
             }];
             //------- 点赞/取消点赞 --------//
             [cell.likeBtn bk_addEventHandler:^(id sender) {
+                cell.likeBtn.enabled = NO;
                 if (myUnlikeNumber) {
                     [Factory textHUDWithVC:self text:@"已经踩过,不能点赞"];
                 }else{
@@ -132,6 +133,7 @@
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     likeNumber--;
                                     myLikeNumber--;
+                                    cell.likeBtn.enabled = YES;
                                     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                         cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
                                     }];
@@ -153,6 +155,7 @@
                                 [Factory textHUDWithVC:self text:@"点赞成功"];
                                 likeNumber++;
                                 myLikeNumber++;
+                                cell.likeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
                                 }];
@@ -167,6 +170,7 @@
             } forControlEvents:UIControlEventTouchUpInside];
             //------- 踩/取消踩 --------//
             [cell.unlikeBtn bk_addEventHandler:^(id sender) {
+                cell.unlikeBtn.enabled = NO;
                 if (myLikeNumber) {
                     [Factory textHUDWithVC:self text:@"已经赞过,不能踩"];
                 }else{
@@ -182,6 +186,7 @@
                                 [Factory textHUDWithVC:self text:@"取消踩"];
                                 myUnlikeNumber--;
                                 unlikeNumber--;
+                                cell.unlikeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
                                 }];
@@ -202,6 +207,7 @@
                                 [Factory textHUDWithVC:self text:@"踩成功"];
                                 myUnlikeNumber++;
                                 unlikeNumber++;
+                                cell.unlikeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
                                 }];
