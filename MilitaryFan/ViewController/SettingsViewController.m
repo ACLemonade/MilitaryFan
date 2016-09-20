@@ -31,11 +31,11 @@
         dispatch_queue_t queue = dispatch_queue_create(NULL, DISPATCH_QUEUE_CONCURRENT);
         dispatch_async(queue, ^{
             [self removeDirectoryPath:kInfoCachePath];
-            NSLog(@"1");
+//            NSLog(@"1");
         });
         dispatch_async(queue, ^{
             [self removeDirectoryPath:kDetailCachePath];
-            NSLog(@"2");
+//            NSLog(@"2");
         });
         dispatch_async(queue, ^{
             SDImageCache *cache = [SDImageCache sharedImageCache];
@@ -43,13 +43,13 @@
             while (cacheSize > 0) {
                 [cache clearDisk];
                 cacheSize = [cache getSize];
-                NSLog(@"3");
+//                NSLog(@"3");
             }
         });
         dispatch_barrier_sync(queue, ^{
             self.cachesNumberLb.text = [self getCacheSize];
             [Factory textHUDWithVC:self text:@"清理成功"];
-            NSLog(@"4");
+//            NSLog(@"4");
         });
     }
 }

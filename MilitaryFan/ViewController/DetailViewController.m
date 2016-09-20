@@ -16,6 +16,7 @@
 #import <UIImageView+WebCache.h>
 #import <SDWebImage/SDImageCache.h>
 #import <UIControl+BlocksKit.h>
+#import "UIScrollView+Refresh.h"
 
 #import "FunctionView.h"
 
@@ -41,6 +42,7 @@
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     switch (indexPath.section) {
         case 0:
         {
@@ -54,6 +56,7 @@
         }
         case 1:
         {
+//            NSLog(@"计算cell创建开始");
             DetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailContentCell" forIndexPath:indexPath];
             //获得文字数组
             NSArray *labelArr = [[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:1];
@@ -75,6 +78,7 @@
                     currentHeight += iv.bounds.size.height;
                 }
             }
+//            NSLog(@"计算cell创建结束");
             return cell;
             break;
         }
@@ -226,18 +230,20 @@
             return [UITableViewCell new];
             break;
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger row = indexPath.row;
     switch (indexPath.section) {
         case 0:
             return 131;
             break;
         case 1:
         {
+//            NSLog(@"计算tableView高度开始");
             CGFloat contentHeight = [[[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:0] floatValue];
             CGFloat imageHeight = [[[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:0] floatValue];
+//            NSLog(@"计算tableView高度结束");
             return contentHeight + imageHeight;
             break;
         }
@@ -268,15 +274,20 @@
         NSURL *imageURL = [NSURL URLWithString:image];
         UIImageView *iv = [[UIImageView alloc] init];
         SDImageCache *imgCache = [SDImageCache sharedImageCache];
-        [imgCache storeImage:iv.image forKey:image toDisk:YES];
-        UIImage *newImg = [imgCache imageFromDiskCacheForKey:image];
-        if (!newImg) {
-            NSData *data = [NSData dataWithContentsOfURL:imageURL];
-            newImg = [UIImage imageWithData:data];
+        UIImage *newImage = [[UIImage alloc] init];
+        if ([imgCache diskImageExistsWithKey:image]) {
+            newImage = [imgCache imageFromDiskCacheForKey:image];
+        }else{
+            [imgCache storeImage:iv.image forKey:image toDisk:YES];
+            newImage = [imgCache imageFromDiskCacheForKey:image];
+            if (!newImage) {
+                NSData *data = [NSData dataWithContentsOfURL:imageURL];
+                newImage = [UIImage imageWithData:data];
+            }
         }
-        itemH = itemW * (newImg.size.height/newImg.size.width);
+        itemH = itemW * (newImage.size.height/newImage.size.width);
         totalHeight += itemH;
-        iv.image = newImg;
+        iv.image = newImage;
         iv.bounds = CGRectMake(0, 0, itemW, itemH);
         [ivArr addObject:iv];
     }
@@ -361,23 +372,29 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"军事迷";
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [Factory autoShowHUDWithVC:self withDelay:3];
-//    NSLog(@"菊花显示%@", [NSThread currentThread]);
-    [self.detailVM getDataWithMode:0 completionHandle:^(NSError *error) {
-        if (error) {
-            NSLog(@"error: %@", error);
-        }else{
-            [self.tableview reloadData];
-            [self.view bringSubviewToFront:self.funcView];
-            UIImageView *iv = [UIImageView new];
-            [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
-            [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
-        }
-       
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//         NSLog(@"菊花消失 %@", [NSThread currentThread]);
-    }];
+    //是否存在缓存
+//    if (self.detailVM.model) {
+//        WK(weakSelf);
+//        [self.tableview addHeaderRefresh:^{
+//            [weakSelf.tableview endHeaderRefresh];
+//        }];
+//        [self.tableview beginHeaderRefresh];
+//    }else{
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [self.detailVM getDataWithMode:0 completionHandle:^(NSError *error) {
+            if (error) {
+                NSLog(@"error: %@", error);
+            }else{
+                [self.tableview reloadData];
+                [self.view bringSubviewToFront:self.funcView];
+                UIImageView *iv = [UIImageView new];
+                [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
+                [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
+            }
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+        }];
+//    }
     [Factory naviClickBackWithViewController:self];
 //    NSLog(@"%@", kDocPath);
 }

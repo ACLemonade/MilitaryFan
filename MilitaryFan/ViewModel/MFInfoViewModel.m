@@ -19,10 +19,10 @@
     if (self = [super init]) {
         self.infoType = infoType;
         self.currentPage = 1;
-//        id obj = [CacheManager unArchiveMFInfoWithType:infoType];
-//        if (obj) {
-//            self = obj;
-//        }
+        id obj = [CacheManager unArchiveMFInfoWithType:infoType];
+        if (obj) {
+            self = obj;
+        }
     }
     return self;
 }
