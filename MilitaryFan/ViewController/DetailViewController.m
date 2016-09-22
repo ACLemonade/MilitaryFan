@@ -91,11 +91,12 @@
             __block NSInteger likeNumber;
             __block NSInteger unlikeNumber;
             //总点赞数
-            BmobQuery *likeQuery = [BmobQuery queryWithClassName:@"Like"];
-            [likeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @1}]];
-            [likeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
-                cell.likeLb.text = [NSString stringWithFormat:@"%d", number];
-                likeNumber = number;
+            [self clickLikeWithCompletionHandle:^(int number) {
+//                NSLog(@"thread: %@", [NSThread currentThread]);
+                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                    cell.likeLb.text = [NSString stringWithFormat:@"%d", number];
+                    likeNumber = number;
+                }];
             }];
             //总踩数
             BmobQuery *unlikeQuery = [BmobQuery queryWithClassName:@"Like"];
@@ -120,10 +121,11 @@
             }];
             //------- 点赞/取消点赞 --------//
             [cell.likeBtn bk_addEventHandler:^(id sender) {
-                cell.likeBtn.enabled = NO;
+
                 if (myUnlikeNumber) {
                     [Factory textHUDWithVC:self text:@"已经踩过,不能点赞"];
                 }else{
+                    cell.likeBtn.enabled = NO;
                     if (myLikeNumber) {
                         //取消点赞
                         BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
@@ -134,14 +136,11 @@
                                 [obj setObject:@0 forKey:@"likeState"];
                                 [obj updateInBackground];
                                 [Factory textHUDWithVC:self text:@"取消点赞"];
+                                likeNumber--;
+                                myLikeNumber--;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                    likeNumber--;
-                                    myLikeNumber--;
                                     cell.likeBtn.enabled = YES;
-                                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                        cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
-                                    }];
-                                    
+                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
                                 }];
                             }
                         }];
@@ -159,8 +158,8 @@
                                 [Factory textHUDWithVC:self text:@"点赞成功"];
                                 likeNumber++;
                                 myLikeNumber++;
-                                cell.likeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.likeBtn.enabled = YES;
                                     cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
                                 }];
                                 
@@ -174,10 +173,10 @@
             } forControlEvents:UIControlEventTouchUpInside];
             //------- 踩/取消踩 --------//
             [cell.unlikeBtn bk_addEventHandler:^(id sender) {
-                cell.unlikeBtn.enabled = NO;
                 if (myLikeNumber) {
                     [Factory textHUDWithVC:self text:@"已经赞过,不能踩"];
                 }else{
+                    cell.unlikeBtn.enabled = NO;
                     //取消踩
                     if (myUnlikeNumber) {
                         BmobQuery *query = [BmobQuery queryWithClassName:@"Like"];
@@ -190,8 +189,8 @@
                                 [Factory textHUDWithVC:self text:@"取消踩"];
                                 myUnlikeNumber--;
                                 unlikeNumber--;
-                                cell.unlikeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.unlikeBtn.enabled = YES;
                                     cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
                                 }];
                                 
@@ -211,8 +210,8 @@
                                 [Factory textHUDWithVC:self text:@"踩成功"];
                                 myUnlikeNumber++;
                                 unlikeNumber++;
-                                cell.unlikeBtn.enabled = YES;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                    cell.unlikeBtn.enabled = YES;
                                     cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
                                 }];
                                 
@@ -332,17 +331,15 @@
         }
     }];
 }
-- (NSInteger)clickLike{
-    __block NSInteger myLikeNumber = 0;
+- (void)clickLikeWithCompletionHandle:(void(^)(int number))completionHandle{
     //查询当前aid并且点赞状态为1数据
     BmobQuery *myLikeQuery = [BmobQuery queryWithClassName:@"Like"];
     [myLikeQuery addTheConstraintByAndOperationWithArray:@[@{@"Aid": self.aid}, @{@"likeState": @1}]];
     [myLikeQuery countObjectsInBackgroundWithBlock:^(int number, NSError *error) {
         [[NSOperationQueue new] addOperationWithBlock:^{
-            myLikeNumber = number;
+            completionHandle(number);
         }];
     }];
-    return myLikeNumber;
 }
 - (void)clickShare:sender{
     NSArray *shareToSnsNames = @[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToQQ,UMShareToQzone];

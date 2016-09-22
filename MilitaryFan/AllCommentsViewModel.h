@@ -23,8 +23,7 @@
 - (CGFloat)commentHeightForRow:(NSInteger)row;
 @property (nonatomic) NSArray<AllCommentsDetailModel *> *commentList;
 - (AllCommentsDetailModel *)modelForRow:(NSInteger)row;
-
 @property (nonatomic) AllCommentsModel *allCommentsModel;
-- (void)commentUpdate;
+- (void)commentUpdateWithComplationHandle:(void(^)(NSArray * array))completionHandle;
 
 @end

@@ -11,8 +11,8 @@
 @class AllCommentsDetailModel;
 
 @interface AllCommentsModel : BaseModel
-@property (nonatomic) NSMutableArray<AllCommentsDetailModel *> *commentList;
-- (void)dbUpdate;
+
+- (void)dbUpdateWithCompletionHandle:(void(^)(NSArray<AllCommentsDetailModel *> * array))completionHandle;
 @end
 @interface AllCommentsDetailModel : BaseModel
 //头像

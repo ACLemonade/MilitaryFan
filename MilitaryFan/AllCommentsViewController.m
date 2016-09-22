@@ -50,15 +50,16 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self tableView];
     [Factory naviClickBackWithViewController:self];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView endHeaderRefresh];
+        [weakSelf.allCommentsVM commentUpdateWithComplationHandle:^(NSArray *array) {
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView endHeaderRefresh];
+        }];
     }];
     [self.tableView beginHeaderRefresh];
 }

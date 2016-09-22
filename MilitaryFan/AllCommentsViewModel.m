@@ -40,19 +40,16 @@
     CGFloat totalHeight = commentSize.height + 97;
     return totalHeight;
 }
-- (NSArray<AllCommentsDetailModel *> *)commentList{
-    if (_commentList == nil) {
-        _commentList = self.allCommentsModel.commentList;
-    }
-    return _commentList;
-}
-- (AllCommentsModel *)allCommentsModel {
-    if(_allCommentsModel == nil) {
+- (AllCommentsModel *)allCommentsModel{
+    if (_allCommentsModel == nil) {
         _allCommentsModel = [[AllCommentsModel alloc] init];
     }
     return _allCommentsModel;
 }
-- (void)commentUpdate{
-    [self.allCommentsModel dbUpdate];
+- (void)commentUpdateWithComplationHandle:(void(^)(NSArray * array))completionHandle{
+    [self.allCommentsModel dbUpdateWithCompletionHandle:^(NSArray<AllCommentsDetailModel *> *array) {
+        self.commentList = array;
+        completionHandle(self.commentList);
+    }];
 }
 @end

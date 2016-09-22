@@ -8,20 +8,18 @@
 
 #import "AllCommentsModel.h"
 
+@interface AllCommentsModel ()
+@property (nonatomic) NSMutableArray<AllCommentsDetailModel *> *commentList;
+@end
 @implementation AllCommentsModel
-- (instancetype)init{
-    if (self = [super init]) {
-        [self dbUpdate];
-    }
-    return self;
-}
+
 - (NSMutableArray<AllCommentsDetailModel *> *)commentList {
     if(_commentList == nil) {
         _commentList = [NSMutableArray<AllCommentsDetailModel *> array];
     }
     return _commentList;
 }
-- (void)dbUpdate{
+- (void)dbUpdateWithCompletionHandle:(void(^)(NSArray<AllCommentsDetailModel *> * array))completionHandle{
     NSDictionary *detailDic = [NSDictionary dictionaryWithContentsOfFile:kDetailPlistPath];
     NSString *aid = [detailDic objectForKey:@"Aid"];
     NSInteger detailType = [[detailDic objectForKey:@"Type"] integerValue];
@@ -40,6 +38,7 @@
                 [self.commentList addObject:model];
 //                NSLog(@"数据库查询");
             }
+            completionHandle([self.commentList copy]);
         }
     }];
 }

@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="rocket_2" translatesAutoresizingMaskIntoConstraints="NO" id="Vwq-tQ-0e8">
-                                <rect key="frame" x="0.0" y="-5" width="375" height="672"/>
+                                <rect key="frame" x="0.0" y="-7" width="375" height="682"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Vwq-tQ-0e8" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-25" id="YLS-ME-5bT"/>
+                            <constraint firstItem="Vwq-tQ-0e8" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-27" id="YLS-ME-5bT"/>
                             <constraint firstAttribute="trailing" secondItem="Vwq-tQ-0e8" secondAttribute="trailing" id="mED-tQ-DtI"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Vwq-tQ-0e8" secondAttribute="bottom" id="oCI-7H-xuF"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Vwq-tQ-0e8" secondAttribute="bottom" constant="-8" id="oCI-7H-xuF"/>
                             <constraint firstItem="Vwq-tQ-0e8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="wB3-Zp-WQ2"/>
                         </constraints>
                     </view>

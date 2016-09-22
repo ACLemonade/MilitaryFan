@@ -60,7 +60,9 @@
             if (isSuccessful) {
                 [Factory textHUDWithVC:self text:@"发表成功"];
                 sender.enabled = YES;
+//                NSLog(@"%@", [NSThread currentThread]);
                 [self.navigationController popViewControllerAnimated:YES];
+
             }
         }];
 }
