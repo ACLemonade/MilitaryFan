@@ -63,6 +63,9 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NormalCell"];
         }
         cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
+        if (indexPath.row>0) {
+            cell.textLabel.textColor = [UIColor grayColor];
+        }
         
         return cell;
     }
@@ -90,6 +93,7 @@
         UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
         [self presentViewController:collectNavi animated:YES completion:nil];
     }
+
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
@@ -105,6 +109,9 @@
 }
 - (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.backgroundColor = kRGBA(255, 255, 255, 0.5);
+    if (indexPath.row > 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
@@ -145,7 +152,7 @@
 
 - (NSArray *)dataList {
 	if(_dataList == nil) {
-        _dataList = @[@"我的收藏", @"我的足迹", @"我的消息"];
+        _dataList = @[@"我的收藏", @"我的足迹(开发中)", @"我的消息(开发中)"];
 	}
 	return _dataList;
 }

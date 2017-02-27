@@ -7,6 +7,7 @@
 //
 
 #import "ModifyPasswordViewController.h"
+#import "AppDelegate.h"
 
 @interface ModifyPasswordViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *oldPasswordTF;
@@ -35,13 +36,16 @@
             _oldWarningLb.text = @"";
             _haveOldPwd = YES;
         }
+        NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+        NSString *userName = [userDic objectForKey:@"userName"];
         BmobQuery *pwdQuery = [BmobQuery queryWithClassName:@"UserInfo"];
+        [pwdQuery whereKey:@"userName" equalTo:userName];
         [pwdQuery whereKey:@"password" equalTo:_oldPasswordTF.text];
         pwdQuery.limit = 1;
         [pwdQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
             if (!error) {
                 if (array.firstObject) {
-                    _oldWarningLb.text = @"";
+                    _oldWarningLb.text = @"密码正确";
                     _haveOldPwd = YES;
                 }else{
                     _oldWarningLb.text = @"密码不正确";
@@ -70,7 +74,7 @@
     }
     if (_haveOldPwd && _haveNewPwd && _haveConfirm) {
         _modifyBtn.enabled = YES;
-        _modifyBtn.backgroundColor = kRGBA(21, 126, 251, 1.0);
+        _modifyBtn.backgroundColor = kRGBA(157, 175, 105, 1.0);
     }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -89,14 +93,34 @@
 }
 #pragma mark - 方法 Methods
 - (IBAction)clickModify:(id)sender {
-    BmobObject *obj = [BmobObject objectWithClassName:@"UserInfo"];
-    [obj setObject:_newpasswordTF.text forKey:@"password"];
-    [self notice];
+    NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+    NSString *userName = [userDic objectForKey:@"userName"];
+    BmobQuery *pwdQuery = [BmobQuery queryWithClassName:@"UserInfo"];
+    [pwdQuery whereKey:@"userName" equalTo:userName];
+    pwdQuery.limit = 1;
+    [pwdQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (array.firstObject) {
+            BmobObject *obj = array.firstObject;
+            [obj setObject:_newpasswordTF.text forKey:@"password"];
+            [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                if (isSuccessful) {
+                    [self notice];
+                }
+            }];
+        }
+    }];
 }
 - (void)notice{
+
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"密码修改成功" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popViewControllerAnimated:YES];
+        NSMutableDictionary *userDic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
+        [userDic setObject:@"Test" forKey:@"userName"];
+        [userDic setObject:@"" forKey:@"password"];
+        [userDic setObject:@(NO) forKey:@"loginState"];
+        [userDic writeToFile:kUserPlistPath atomically:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     [alertVC addAction:yesAction];
     [self presentViewController:alertVC animated:YES completion:nil];

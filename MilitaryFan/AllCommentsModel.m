@@ -28,6 +28,7 @@
     [query addTheConstraintByAndOperationWithArray:@[@{@"Aid": aid}, @{@"Type": @(detailType)}]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (array.firstObject) {
+            [self.commentList removeAllObjects];
             for (BmobObject *obj in array) {
                 AllCommentsDetailModel *model = [AllCommentsDetailModel new];
                 model.headImageURL = [obj objectForKey:@"headImageURL"];

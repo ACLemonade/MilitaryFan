@@ -150,7 +150,7 @@
                 [userInfo saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                     //判断保存是否成功
                     if (isSuccessful) {
-                        NSLog(@"注册成功!");
+//                        NSLog(@"注册成功!");
                         //添加提示框(注册是否成功)
                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

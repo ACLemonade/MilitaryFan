@@ -83,6 +83,7 @@
     //全局设置导航栏背景色
     [UINavigationBar appearance].barTintColor = kRGBA(157, 175, 105, 1.0);
     [UITabBar appearance].translucent = NO;
+//    [UITabBar appearance].barTintColor = kRGBA(157, 175, 105, 1.0);
     [self sideMenuVC];
     
     //电池条左上角wifi旁菊花标识

@@ -59,6 +59,10 @@
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
+    if (indexPath.section == 0 && indexPath.row < 2) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.textLabel.textColor = [UIColor grayColor];
+    }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -246,7 +250,7 @@
 
 - (NSArray *)dataList {
 	if(_dataList == nil) {
-        _dataList = @[@"个人资料", @"我的好友", @"修改密码"];
+        _dataList = @[@"个人资料(开发中)", @"我的好友(开发中)", @"修改密码"];
 	}
 	return _dataList;
 }
