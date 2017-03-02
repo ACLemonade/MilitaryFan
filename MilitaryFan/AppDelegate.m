@@ -124,6 +124,7 @@
 //    [db close];
 //    NSInteger size = [[SDImageCache sharedImageCache] getSize];
 //    NSLog(@"%ld", size);
+    NSLog(@"应用文件路径:%@", kDocPath);
     
     return YES;
 }

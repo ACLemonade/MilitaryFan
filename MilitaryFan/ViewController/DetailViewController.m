@@ -21,6 +21,7 @@
 #import "FunctionView.h"
 
 @interface DetailContentCell : UITableViewCell
+@property (nonatomic, strong) UILabel *contentLb;
 @end
 
 
@@ -39,11 +40,15 @@
     return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 1) {
+        return self.detailVM.content.count;
+    }
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    switch (indexPath.section) {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    switch (section) {
         case 0:
         {
             DetailHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailHeaderCell" forIndexPath:indexPath];
@@ -52,36 +57,45 @@
             cell.authorLb.text = self.detailVM.author;
             cell.clickLb.text = self.detailVM.click;
             return cell;
-            break;
         }
+            break;
+            
         case 1:
         {
-//            NSLog(@"计算cell创建开始");
-            DetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DetailContentCell" forIndexPath:indexPath];
-            //获得文字数组
-            NSArray *labelArr = [[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:1];
-            //获得配图数组
-            NSArray *ivArr = [[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:1];
-            //当前高度
-            CGFloat currentHeight = 0;
-            // 文 图 文 图 文
-            for (int i = 0; i<labelArr.count; i++) {
-                UILabel *label = [labelArr objectAtIndex:i];
-                [cell.contentView addSubview:label];
-                label.frame = CGRectMake(8, currentHeight, label.bounds.size.width, label.bounds.size.height);
-                currentHeight += label.bounds.size.height;
-                
-                if (i<ivArr.count) {
-                    UIImageView *iv = [ivArr objectAtIndex:i];
-                    [cell.contentView addSubview:iv];
-                    iv.frame = CGRectMake(8, currentHeight, iv.bounds.size.width, iv.bounds.size.height);
-                    currentHeight += iv.bounds.size.height;
-                }
-            }
-//            NSLog(@"计算cell创建结束");
+
+            DetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"DetailContentCell"]];
+            
+//            [tableView registerClass:[DetailContentCell class] forCellReuseIdentifier:[NSString stringWithFormat:@"DetailContentCell%ld%ld", section, row]];
+//            DetailContentCell *cell = [tableView dequeueReusableCellWithIdentifier:[NSString stringWithFormat:@"DetailContentCell%ld%ld", section, row]];
+//            //获得文字数组
+//            NSArray *labelArr = [[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:1];
+//            //获得配图数组
+//            NSArray *ivArr = [[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:1];
+//            //当前高度
+//            CGFloat currentHeight = 0;
+//            // 文 图 文 图 文
+//            for (int i = 0; i<labelArr.count; i++) {
+//                UILabel *label = [labelArr objectAtIndex:i];
+//                [cell.contentView addSubview:label];
+//                label.frame = CGRectMake(8, currentHeight, label.bounds.size.width, label.bounds.size.height);
+//                currentHeight += label.bounds.size.height;
+//                
+//                if (i<ivArr.count) {
+//                    UIImageView *iv = [ivArr objectAtIndex:i];
+//                    [cell.contentView addSubview:iv];
+//                    iv.frame = CGRectMake(8, currentHeight, iv.bounds.size.width, iv.bounds.size.height);
+//                    currentHeight += iv.bounds.size.height;
+//                }
+//            }
+            
+            NSString *content = [self.detailVM.content objectAtIndex:row];
+            CGFloat height = [[[self heightArrayForContentArray:self.detailVM.content] objectAtIndex:row] floatValue];
+            cell.contentLb.frame = CGRectMake(8, 8, kScreenW-16, height);
+            NSDictionary *attributeDic = [[self attributesDictionaryArrayForContentArray:self.detailVM.content] objectAtIndex:row];
+            cell.contentLb.attributedText = [[NSAttributedString alloc] initWithString:content attributes:attributeDic];
             return cell;
-            break;
         }
+            break;
         //点赞cell
         case 2:
         {
@@ -140,7 +154,7 @@
                                 myLikeNumber--;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.likeBtn.enabled = YES;
-                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
+                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", (long)likeNumber];
                                 }];
                             }
                         }];
@@ -160,7 +174,7 @@
                                 myLikeNumber++;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.likeBtn.enabled = YES;
-                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", likeNumber];
+                                    cell.likeLb.text = [NSString stringWithFormat:@"%ld", (long)likeNumber];
                                 }];
                                 
                                 
@@ -191,7 +205,7 @@
                                 unlikeNumber--;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.unlikeBtn.enabled = YES;
-                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
+                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", (long)unlikeNumber];
                                 }];
                                 
                                 
@@ -212,7 +226,7 @@
                                 unlikeNumber++;
                                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                     cell.unlikeBtn.enabled = YES;
-                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", unlikeNumber];
+                                    cell.unlikeLb.text = [NSString stringWithFormat:@"%ld", (long)unlikeNumber];
                                 }];
                                 
                             }
@@ -223,8 +237,8 @@
                 }
             } forControlEvents:UIControlEventTouchUpInside];
             return cell;
-            break;
         }
+            break;
         default:
             return [UITableViewCell new];
             break;
@@ -233,17 +247,21 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.section) {
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    switch (section) {
         case 0:
             return 131;
             break;
         case 1:
         {
-//            NSLog(@"计算tableView高度开始");
-            CGFloat contentHeight = [[[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:0] floatValue];
-            CGFloat imageHeight = [[[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:0] floatValue];
-//            NSLog(@"计算tableView高度结束");
-            return contentHeight + imageHeight;
+////            NSLog(@"计算tableView高度开始");
+//            CGFloat contentHeight = [[[self getDetailContentWithContent:self.detailVM.content] objectAtIndex:0] floatValue];
+//            CGFloat imageHeight = [[[self getDetailImagesWithImageArray:self.detailVM.pics] objectAtIndex:0] floatValue];
+////            NSLog(@"计算tableView高度结束");
+//            return contentHeight + imageHeight;
+            CGFloat height = [[[self heightArrayForContentArray:self.detailVM.content] objectAtIndex:row] floatValue]+16;
+            return height;
             break;
         }
         case 2:
@@ -261,6 +279,36 @@
     return 0.01;
 }
 #pragma mark - 方法 Methods
+/** 根据文本数组获取高度数组 */
+- (NSArray *)heightArrayForContentArray:(NSArray<NSString *> *)contentArray{
+    NSMutableArray *heightArray = [NSMutableArray array];
+    for (NSString *content in contentArray) {
+        CGFloat height = [Factory heightWithContent:content font:[UIFont systemFontOfSize:16] width:kScreenW-16];
+        [heightArray addObject:@(height)];
+    }
+    return heightArray;
+}
+/** 根据文本数组获得属性字典数组 */
+- (NSArray<NSDictionary *> *)attributesDictionaryArrayForContentArray:(NSArray<NSString *> *)contentArray{
+    NSMutableArray *attributesDictionaryArray = [NSMutableArray array];
+    for (NSString *content in contentArray) {
+        NSDictionary *dic = [Factory attributesDictionaryWithContent:content font:[UIFont systemFontOfSize:16] width:kScreenW-16];
+        [attributesDictionaryArray addObject:dic];
+    }
+    return attributesDictionaryArray;
+}
+/** 根据图片数组获取高度数组 */
+- (NSArray *)heightArrayForPicsArray:(NSArray<NSString *> *)picsArray{
+    NSMutableArray *heightArray = [NSMutableArray array];
+    for (NSString *picURLString in picsArray) {
+        UIImage *pic = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:picURLString]]];
+        CGFloat height = kScreenW * pic.size.height / pic.size.width;
+        [heightArray addObject:@(height)];
+    }
+    return heightArray;
+}
+
+
 //返回一个数组
 //1.总高度
 //2.imageView对象数组
@@ -382,7 +430,9 @@
             if (error) {
                 NSLog(@"error: %@", error);
             }else{
+                NSLog(@"请求成功");
                 [self.tableview reloadData];
+                NSLog(@"刷新成功");
                 [self.view bringSubviewToFront:self.funcView];
                 UIImageView *iv = [UIImageView new];
                 [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
@@ -394,6 +444,9 @@
 //    }
     [Factory naviClickBackWithViewController:self];
 //    NSLog(@"%@", kDocPath);
+    NSLog(@"aid:%@", self.aid);
+    NSArray *heightArr = [self heightArrayForPicsArray:self.detailVM.pics];
+    NSLog(@"图片高度数组%@", heightArr);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -511,6 +564,19 @@
 @end
 
 @implementation DetailContentCell
-
-
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self contentLb];
+    }
+    return self;
+}
+- (UILabel *)contentLb{
+    if (_contentLb == nil) {
+        _contentLb = [[UILabel alloc] init];
+        _contentLb.numberOfLines = 0;
+        _contentLb.font = [UIFont systemFontOfSize:16];
+        [self.contentView addSubview:_contentLb];
+    }
+    return _contentLb;
+}
 @end
