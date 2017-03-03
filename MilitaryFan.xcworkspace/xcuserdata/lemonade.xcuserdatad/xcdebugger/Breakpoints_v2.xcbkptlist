@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510135050.91268"
+            timestampString = "510221606.354754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "536"
-            endingLineNumber = "536"
+            startingLineNumber = "496"
+            endingLineNumber = "496"
             landmarkName = "-funcView"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137520.938851"
+            timestampString = "510221606.354754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137520.938851"
+            timestampString = "510221606.354754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "-didFinishGetUMSocialDataInViewController:"
             landmarkType = "7">
          </BreakpointContent>
@@ -548,11 +548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137520.938851"
+            timestampString = "510221606.354754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "416"
-            endingLineNumber = "416"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -564,11 +564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137520.938851"
+            timestampString = "510221606.354754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -788,7 +788,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510138043.463995"
+                  timestampString = "510222133.984379"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
@@ -803,7 +803,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510138043.465512"
+                  timestampString = "510222133.9859"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
@@ -820,11 +820,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137520.938851"
+            timestampString = "510216682.565249"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -842,22 +842,6 @@
             startingLineNumber = "142"
             endingLineNumber = "142"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510137679.100274"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
-            landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

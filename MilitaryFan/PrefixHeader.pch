@@ -13,6 +13,7 @@
 #import "Factory.h"
 
 #import <AFNetworking.h>
+#import <UIKit+AFNetworking.h>
 #import <Block.h>
 #import <BlocksKit.h>
 #import <UIControl+BlocksKit.h>
