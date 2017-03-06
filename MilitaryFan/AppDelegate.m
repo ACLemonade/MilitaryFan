@@ -13,7 +13,8 @@
 #import "PageController.h"
 #import "LeftMenuViewController.h"
 #import "VideoViewController.h"
-#import "SettingsViewController.h"
+#import "VoteViewController.h"
+#import "FAQViewController.h"
 
 #import <UMSocialQQHandler.h>
 #import <UMSocialWechatHandler.h>
@@ -49,28 +50,36 @@
 }
 - (RESideMenu *)sideMenuVC{
     if (_sideMenuVC == nil) {
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
         UITabBarController *tab = [[UITabBarController alloc] init];
-        
-        PageController *pageVC = [PageController new];
-        VideoViewController *videoVC = [VideoViewController new];
-        SettingsViewController *settingsVC = [sb instantiateViewControllerWithIdentifier:@"SettingsViewController"];
+        //咨询页(分页显示,类似于网易新闻)
+        PageController *pageVC = [[PageController alloc] init];
+        //视频页
+        VideoViewController *videoVC = [[VideoViewController alloc] init];
+        //投票页
+        VoteViewController *voteVC = [[VoteViewController alloc] init];
+        //问答页
+        FAQViewController *faqVC = [[FAQViewController alloc] init];
         
         UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
         UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
-        UINavigationController *settingsNavi = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+        UINavigationController *voteNavi = [[UINavigationController alloc] initWithRootViewController:voteVC];
+        UINavigationController *faqNavi = [[UINavigationController alloc] initWithRootViewController:faqVC];
+        
         //资讯页tabbar标题,图片
         pageNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"资讯" image:[UIImage imageNamed:@"importantNews_normal"] selectedImage:[UIImage imageNamed:@"importantNews"]];
         //视频页tabbar标题,图片
         videoNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"视频" image:[UIImage imageNamed:@"video_list_icon"] selectedImage:[UIImage imageNamed:@"video_list_icon"]];
-        //设置页tabbar标题,图片
-        settingsNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"设置" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
+        //投票页tabbar标题,图片
+        voteNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"投票" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
+        //问答页tabbar标题,图片
+        faqNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"问答" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         
         pageVC.navigationItem.title = @"军事迷";
         videoVC.navigationItem.title = @"军事迷";
-        settingsVC.navigationItem.title = @"军事迷";
+        voteVC.navigationItem.title = @"军事迷";
+        faqVC.navigationItem.title = @"军事迷";
         
-        tab.viewControllers = @[pageNavi, videoNavi, settingsNavi];
+        tab.viewControllers = @[pageNavi, videoNavi, voteNavi, faqNavi];
         LeftMenuViewController *leftVC = [LeftMenuViewController new];
         self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
         self.sideMenuVC.backgroundImage = [UIImage imageNamed:@"background"];
@@ -109,22 +118,20 @@
     [[NSFileManager defaultManager] createDirectoryAtPath:kInfoCachePath withIntermediateDirectories:YES attributes:nil error:nil];
     //创建详情页缓存文件夹
     [[NSFileManager defaultManager] createDirectoryAtPath:kDetailCachePath withIntermediateDirectories:YES attributes:nil error:nil];
-//    NSLog(@"%@", kDocPath);
-//    NSLog(@"%@", [[NSFileManager defaultManager] subpathsAtPath:kDocPath]);
-//    
-//    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
-//    if ([db open]) {
-//        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
-//        if (suc) {
-//            NSLog(@"Collection表不存在,创建成功");
-//        }else{
-//            NSLog(@"Collection表已存在,不创建");
-//        }
-//    }
-//    [db close];
-//    NSInteger size = [[SDImageCache sharedImageCache] getSize];
-//    NSLog(@"%ld", size);
-    NSLog(@"应用文件路径:%@", kDocPath);
+
+    FMDatabase *db = [FMDatabase databaseWithPath:kDataBasePath];
+    if ([db open]) {
+        BOOL suc = [db executeUpdate:@"create table Collection (Name text, Aid text, Type integer, Image text, Title text, PubDate text)"];
+        if (suc) {
+            NSLog(@"Collection表不存在,创建成功");
+        }else{
+            NSLog(@"Collection表已存在,不创建");
+        }
+    }
+    [db close];
+    
+    NSLog(@"应用文件路径: %@", kDocPath);
+    NSLog(@"本地数据库路径: %@", kDataBasePath);
     
     return YES;
 }

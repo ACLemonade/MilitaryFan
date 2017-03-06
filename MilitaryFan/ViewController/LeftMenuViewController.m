@@ -9,6 +9,7 @@
 #import "LeftMenuViewController.h"
 #import "UserCenterViewController.h"
 #import "CollectionViewController.h"
+#import "SettingsViewController.h"
 #import "LoginViewController.h"
 #import "UserInfoCell.h"
 
@@ -88,10 +89,27 @@
             [self presentViewController:[[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateInitialViewController] animated:YES completion:nil];
         }
     }
-    if (indexPath.section == 1 && indexPath.row == 0) {
-        CollectionViewController *collectionVC = [CollectionViewController new];
-        UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
-        [self presentViewController:collectNavi animated:YES completion:nil];
+    if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                CollectionViewController *collectionVC = [CollectionViewController new];
+                UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
+                [self presentViewController:collectNavi animated:YES completion:nil];
+            }
+                break;
+            case 3:
+            {
+                UINavigationController *navi = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateInitialViewController];
+                [self presentViewController:navi animated:YES completion:nil];
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+        
     }
 
 }
@@ -107,27 +125,24 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 20;
 }
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.backgroundColor = kRGBA(255, 255, 255, 0.5);
-    if (indexPath.row > 0) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
+}
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+//    if (indexPath.row > 0) {
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    }
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.tableView beginHeaderRefresh];
+    [self.tableView reloadData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WK(weakSelf);
-    [self.tableView addHeaderRefresh:^{
-        [weakSelf.tableView reloadData];
-        [weakSelf.tableView endHeaderRefresh];
-    }];
+    
 }
-
-
 #pragma mark - 懒加载 Lazy Load
 - (UITableView *)tableView {
 	if(_tableView == nil) {
@@ -138,11 +153,13 @@
             make.left.right.mas_equalTo(0);
             make.height.mas_equalTo(390);
         }];
-        _tableView.delegate = self;
-        _tableView.dataSource = self;
+        
         _tableView.backgroundColor = [UIColor clearColor];
         //去掉分割线
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.scrollEnabled = NO;
         
         [_tableView registerNib:[UINib nibWithNibName:@"UserInfoCell" bundle:nil] forCellReuseIdentifier:@"UserInfoCell"];
         
@@ -152,7 +169,7 @@
 
 - (NSArray *)dataList {
 	if(_dataList == nil) {
-        _dataList = @[@"我的收藏", @"我的足迹(开发中)", @"我的消息(开发中)"];
+        _dataList = @[@"我的收藏", @"我的足迹(开发中)", @"我的消息(开发中)", @"设置"];
 	}
 	return _dataList;
 }

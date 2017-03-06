@@ -84,10 +84,10 @@
          iCarouselTypeInvertedTimeMachine,
          iCarouselTypeCustom
          */
-        _ic.type = iCarouselTypeCylinder;
+        _ic.type = iCarouselTypeTimeMachine;
         _ic.delegate = self;
         _ic.dataSource = self;
-        _ic.scrollSpeed = 0.1;
+        _ic.scrollSpeed = 1;
 	}
 	return _ic;
 }

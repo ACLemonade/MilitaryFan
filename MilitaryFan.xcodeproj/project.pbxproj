@@ -47,6 +47,9 @@
 		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
 		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
+		8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5921E6CFE8000466B33 /* VoteViewController.m */; };
+		8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5951E6CFE8E00466B33 /* FAQViewController.m */; };
+		8C89A59C1E6D57E400466B33 /* ChooseQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
 		8C9304B41D6BEAF000F9182D /* MFDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B31D6BEAF000F9182D /* MFDetailViewModel.m */; };
 		8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B61D6BEEB000F9182D /* DetailViewController.m */; };
@@ -187,6 +190,12 @@
 		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
+		8C89A5911E6CFE8000466B33 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
+		8C89A5921E6CFE8000466B33 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
+		8C89A5941E6CFE8E00466B33 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
+		8C89A5951E6CFE8E00466B33 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
+		8C89A59A1E6D57E300466B33 /* ChooseQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseQuestionViewController.h; sourceTree = "<group>"; };
+		8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseQuestionViewController.m; sourceTree = "<group>"; };
 		8C9304AF1D6BE82E00F9182D /* MFDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailModel.h; sourceTree = "<group>"; };
 		8C9304B01D6BE82E00F9182D /* MFDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFDetailModel.m; sourceTree = "<group>"; };
 		8C9304B21D6BEAF000F9182D /* MFDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFDetailViewModel.h; sourceTree = "<group>"; };
@@ -390,15 +399,15 @@
 		8C2A6F341D67F8CA0028F634 /* MilitaryFan */ = {
 			isa = PBXGroup;
 			children = (
-				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
-				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
+				8CFA13B11D73E54200DAF1E4 /* 登录注册模块 */,
+				8C9304E21D6C777600F9182D /* 个人中心模块 */,
+				8C9304D91D6C762200F9182D /* 新闻资讯模块 */,
+				8C89A5871E6CFC3A00466B33 /* 投票模块 */,
+				8C89A5881E6CFC5100466B33 /* 问答模块 */,
+				8C9304DB1D6C763900F9182D /* 设置模块 */,
 				8CC41D931D7E3B4D00748D0D /* 评论 */,
 				8CAFCA361D7A4EB200616F53 /* 收藏 */,
-				8CFA13B11D73E54200DAF1E4 /* 登录&注册 */,
-				8C9304E21D6C777600F9182D /* 我的 */,
 				8C9304DA1D6C762C00F9182D /* 视频 */,
-				8C9304DB1D6C763900F9182D /* 设置 */,
-				8C9304D91D6C762200F9182D /* 资讯 */,
 			);
 			path = MilitaryFan;
 			sourceTree = "<group>";
@@ -406,6 +415,8 @@
 		8C2A6F351D67F8CA0028F634 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8C2A6F381D67F8CA0028F634 /* AppDelegate.h */,
+				8C2A6F391D67F8CA0028F634 /* AppDelegate.m */,
 				8C2A6F821D6801870028F634 /* PrefixHeader.pch */,
 				8C2A6F411D67F8CA0028F634 /* MilitaryFan.xcdatamodeld */,
 				8C2A6F491D67F8CA0028F634 /* Info.plist */,
@@ -564,7 +575,91 @@
 			path = PSCollectionView;
 			sourceTree = "<group>";
 		};
-		8C9304D91D6C762200F9182D /* 资讯 */ = {
+		8C89A5871E6CFC3A00466B33 /* 投票模块 */ = {
+			isa = PBXGroup;
+			children = (
+				8C89A5891E6CFDF100466B33 /* Model */,
+				8C89A58A1E6CFDF100466B33 /* View */,
+				8C89A58B1E6CFDF100466B33 /* ViewController */,
+				8C89A58C1E6CFDF100466B33 /* ViewModel */,
+			);
+			path = "投票模块";
+			sourceTree = "<group>";
+		};
+		8C89A5881E6CFC5100466B33 /* 问答模块 */ = {
+			isa = PBXGroup;
+			children = (
+				8C89A58D1E6CFDFF00466B33 /* Model */,
+				8C89A58E1E6CFDFF00466B33 /* View */,
+				8C89A58F1E6CFDFF00466B33 /* ViewController */,
+				8C89A5901E6CFDFF00466B33 /* ViewModel */,
+			);
+			path = "问答模块";
+			sourceTree = "<group>";
+		};
+		8C89A5891E6CFDF100466B33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C89A58A1E6CFDF100466B33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C89A58B1E6CFDF100466B33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C89A5911E6CFE8000466B33 /* VoteViewController.h */,
+				8C89A5921E6CFE8000466B33 /* VoteViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8C89A58C1E6CFDF100466B33 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C89A58D1E6CFDFF00466B33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C89A58E1E6CFDFF00466B33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C89A58F1E6CFDFF00466B33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C89A5941E6CFE8E00466B33 /* FAQViewController.h */,
+				8C89A5951E6CFE8E00466B33 /* FAQViewController.m */,
+				8C89A59A1E6D57E300466B33 /* ChooseQuestionViewController.h */,
+				8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8C89A5901E6CFDFF00466B33 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C9304D91D6C762200F9182D /* 新闻资讯模块 */ = {
 			isa = PBXGroup;
 			children = (
 				8C2A6F6E1D68006F0028F634 /* Model */,
@@ -572,7 +667,7 @@
 				8C2A6F731D68006F0028F634 /* ViewController */,
 				8C2A6F741D68006F0028F634 /* ViewModel */,
 			);
-			name = "资讯";
+			name = "新闻资讯模块";
 			sourceTree = "<group>";
 		};
 		8C9304DA1D6C762C00F9182D /* 视频 */ = {
@@ -587,12 +682,12 @@
 			name = "视频";
 			sourceTree = "<group>";
 		};
-		8C9304DB1D6C763900F9182D /* 设置 */ = {
+		8C9304DB1D6C763900F9182D /* 设置模块 */ = {
 			isa = PBXGroup;
 			children = (
 				8C9304E11D6C76FA00F9182D /* ViewController */,
 			);
-			name = "设置";
+			name = "设置模块";
 			sourceTree = "<group>";
 		};
 		8C9304DC1D6C76B100F9182D /* ViewController */ = {
@@ -657,7 +752,7 @@
 			name = ViewController;
 			sourceTree = "<group>";
 		};
-		8C9304E21D6C777600F9182D /* 我的 */ = {
+		8C9304E21D6C777600F9182D /* 个人中心模块 */ = {
 			isa = PBXGroup;
 			children = (
 				8C1E76FC1D765B1B0051F8B1 /* Model */,
@@ -665,7 +760,7 @@
 				8C1E76FD1D765B270051F8B1 /* ViewModel */,
 				8C1E76FB1D765B120051F8B1 /* ViewController */,
 			);
-			name = "我的";
+			name = "个人中心模块";
 			sourceTree = "<group>";
 		};
 		8C9304FF1D6D498000F9182D /* Tools */ = {
@@ -814,7 +909,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		8CFA13B11D73E54200DAF1E4 /* 登录&注册 */ = {
+		8CFA13B11D73E54200DAF1E4 /* 登录注册模块 */ = {
 			isa = PBXGroup;
 			children = (
 				8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */,
@@ -823,7 +918,7 @@
 				8CFA13B81D74237C00DAF1E4 /* RegisterViewController.h */,
 				8CFA13B91D74237C00DAF1E4 /* RegisterViewController.m */,
 			);
-			name = "登录&注册";
+			name = "登录注册模块";
 			sourceTree = "<group>";
 		};
 		AA81014BFDE7981FF535E469 /* Frameworks */ = {
@@ -1168,6 +1263,7 @@
 				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
+				8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */,
 				8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
@@ -1175,7 +1271,9 @@
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
+				8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
+				8C89A59C1E6D57E400466B33 /* ChooseQuestionViewController.m in Sources */,
 				8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */,
 				8C2A6F8F1D6802690028F634 /* PSCollectionViewCell.m in Sources */,
 			);

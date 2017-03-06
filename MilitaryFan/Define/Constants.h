@@ -15,6 +15,8 @@
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 //三原色的设置
 #define kRGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+//Masonry mas_equalTo()简写宏
+#define MAS_SHORTHAND_GLOBALS
 //Documents文件夹的路径
 #define kDocPath NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject
 //appdelegate的实例对象

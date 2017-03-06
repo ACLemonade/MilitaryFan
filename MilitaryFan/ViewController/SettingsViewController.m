@@ -128,6 +128,7 @@
     [super viewWillAppear:animated];
 //    NSLog(@"viewWillAppear");
     self.cachesNumberLb.text = [self getCacheSize];
+    [Factory nonNaviClickBackWithViewController:self];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

@@ -194,7 +194,7 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
         [weakSelf.infoVM getDataWithMode:RequestRefresh completionHandle:^(NSError *error) {
@@ -253,6 +253,7 @@
 #pragma mark - 懒加载 Lazy Load
 - (UITableView *)tableView {
 	if(_tableView == nil) {
+//        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, CGRectGetMaxY(self.view.frame) - CGRectGetMaxY(self.ic.frame)+64) style:UITableViewStyleGrouped];
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
