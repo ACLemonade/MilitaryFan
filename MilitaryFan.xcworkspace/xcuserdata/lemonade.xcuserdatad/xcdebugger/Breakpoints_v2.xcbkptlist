@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510221606.354754"
+            timestampString = "510571680.891178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "496"
-            endingLineNumber = "496"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
             landmarkName = "-funcView"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510221606.354754"
+            timestampString = "510571680.891178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,7 +218,7 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -234,7 +234,7 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "-tableView:numberOfRowsInSection:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -260,11 +260,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510221606.354754"
+            timestampString = "510571680.891178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
             landmarkName = "-didFinishGetUMSocialDataInViewController:"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,7 +282,7 @@
             startingLineNumber = "22"
             endingLineNumber = "22"
             landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -298,7 +298,7 @@
             startingLineNumber = "95"
             endingLineNumber = "95"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -314,7 +314,7 @@
             startingLineNumber = "130"
             endingLineNumber = "130"
             landmarkName = "-locationManager"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -330,7 +330,7 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -346,7 +346,7 @@
             startingLineNumber = "34"
             endingLineNumber = "34"
             landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -362,7 +362,7 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "-locationManager:didUpdateLocations:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -490,7 +490,7 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "-tableView:heightForRowAtIndexPath:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -506,7 +506,7 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "-sendComment:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -548,11 +548,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510221606.354754"
+            timestampString = "510571680.891178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -564,11 +564,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MilitaryFan/ViewController/DetailViewController.m"
-            timestampString = "510221606.354754"
+            timestampString = "510571680.891178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "407"
-            endingLineNumber = "407"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -586,7 +586,7 @@
             startingLineNumber = "59"
             endingLineNumber = "59"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -650,7 +650,7 @@
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -788,7 +788,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510483124.450825"
+                  timestampString = "510571783.00973"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
@@ -803,7 +803,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510483124.452305"
+                  timestampString = "510571783.011111"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"

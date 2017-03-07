@@ -84,7 +84,7 @@
             } else {    //图片
                 [cell.contentLb removeFromSuperview];
                 __block __weak __typeof(&*cell.picIV)weakIV = cell.picIV;
-//                __block __weak __typeof(&*cell)weakCell = cell;
+                __block __weak __typeof(&*cell)weakCell = cell;
                 __block CGFloat height = [[self.picsArray objectAtIndex:(row-1)/2] floatValue];
                 cell.picIV.frame = CGRectMake(8, 8, kScreenW-16, height);
                 [cell.picIV setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.detailVM.pics objectAtIndex:(row-1)/2]]] placeholderImage:[UIImage imageNamed:@"default-1"] success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
@@ -92,7 +92,10 @@
                     height = (kScreenW-16)*image.size.height/image.size.width;
                     [self.picsArray replaceObjectAtIndex:(row-1)/2 withObject:[@(height) stringValue]];
 //                    weakIV.frame = CGRectMake(8, 8, kScreenW-16, height);
+//                    [self respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)];
+//                    [self performSelector:@selector(tableView:heightForRowAtIndexPath:) withObject:tableView withObject:indexPath];
                     [weakIV setNeedsDisplay];
+//                    [weakCell setNeedsLayout];
 //                    NSLog(@"currentThread: %@", [NSThread currentThread]);
                 } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
                     NSLog(@"error: %@", error);

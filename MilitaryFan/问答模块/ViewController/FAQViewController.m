@@ -42,6 +42,7 @@
 #pragma mark - 方法 Methods
 - (void)askQuestion:(UIButton *)sender{
     ChooseQuestionViewController *chooseQuestionVC = [[ChooseQuestionViewController alloc] init];
+    chooseQuestionVC.questionActionType = QuestionActionTypeAsk;
     [self.navigationController pushViewController:chooseQuestionVC animated:YES];
 }
 #pragma mark - 生命周期 LifeCircle

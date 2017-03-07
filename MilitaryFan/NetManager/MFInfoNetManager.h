@@ -23,7 +23,6 @@ typedef NS_ENUM(NSUInteger, InfoType) {
     InfoTypeBigWide,
     InfoTypeHistory
 };
-
 @interface MFInfoNetManager : NSObject
 //第一页
 + (id)getMFInfoWithType:(InfoType)infoType currentPage:(NSInteger)currentPage completionHandle:kCompletionHandleBlock

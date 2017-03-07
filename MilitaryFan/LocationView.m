@@ -38,7 +38,8 @@
         [_locationIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerY.mas_equalTo(0);
             make.left.mas_equalTo(15);
-            make.size.mas_equalTo(20);
+            make.width.mas_equalTo(15);
+            make.height.mas_equalTo(22);
         }];
         [_locationIV setImage:[UIImage imageNamed:@"UMS_No_Location"]];
 	}

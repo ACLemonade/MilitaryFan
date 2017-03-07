@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChooseQuestionViewController : UIViewController
+typedef NS_ENUM(NSUInteger, QuestionActionType) {
+    QuestionActionTypeAsk,
+    QuestionActionTypeAnswer
+};
 
+@interface ChooseQuestionViewController : UIViewController
+/** 操作方式(提问/回答) */
+@property (nonatomic, assign) QuestionActionType questionActionType;
 @end

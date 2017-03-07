@@ -47,6 +47,7 @@ __block __weak __typeof(&*self)weakSelf = self;\
 //缓存
 #define kInfoCachePath [kDocPath stringByAppendingPathComponent:@"InfoCache"]
 #define kDetailCachePath [kDocPath stringByAppendingPathComponent:@"DetailCache"]
+
 //归解档
 #define kLemonadeArchive \
 - (void)encodeWithCoder:(NSCoder *)aCoder{\
@@ -76,5 +77,7 @@ free(varList);\
 }\
 return self;\
 }\
+
+
 
 #endif /* Constants_h */

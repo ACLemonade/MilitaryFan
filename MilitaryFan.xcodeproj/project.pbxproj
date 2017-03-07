@@ -91,6 +91,7 @@
 		8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9544A1D68522E0022F157 /* MFInfoViewController.m */; };
 		8CE370091D815F95004D5B93 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE370081D815F95004D5B93 /* CacheManager.m */; };
 		8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */; };
+		8CF035151E6E883F00F763AD /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF035141E6E883F00F763AD /* AskQuestionViewController.m */; };
 		8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */; };
 		8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */; };
 		8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B91D74237C00DAF1E4 /* RegisterViewController.m */; };
@@ -270,6 +271,8 @@
 		8CE370081D815F95004D5B93 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheManager.m; path = ../CacheManager/CacheManager.m; sourceTree = "<group>"; };
 		8CE5F4551D781FFE00FC85D6 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		8CF035131E6E883F00F763AD /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
+		8CF035141E6E883F00F763AD /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
 		8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8CFA13B51D74236B00DAF1E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 				8C89A5951E6CFE8E00466B33 /* FAQViewController.m */,
 				8C89A59A1E6D57E300466B33 /* ChooseQuestionViewController.h */,
 				8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */,
+				8CF035121E6E537600F763AD /* AskViewController */,
+				8CF035111E6E537600F763AD /* AnswerViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -907,6 +912,22 @@
 				8CC41D9F1D7EB61100748D0D /* AllCommentsModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		8CF035111E6E537600F763AD /* AnswerViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AnswerViewController;
+			sourceTree = "<group>";
+		};
+		8CF035121E6E537600F763AD /* AskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8CF035131E6E883F00F763AD /* AskQuestionViewController.h */,
+				8CF035141E6E883F00F763AD /* AskQuestionViewController.m */,
+			);
+			path = AskViewController;
 			sourceTree = "<group>";
 		};
 		8CFA13B11D73E54200DAF1E4 /* 登录注册模块 */ = {
@@ -1272,6 +1293,7 @@
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
 				8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */,
+				8CF035151E6E883F00F763AD /* AskQuestionViewController.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
 				8C89A59C1E6D57E400466B33 /* ChooseQuestionViewController.m in Sources */,
 				8C9304D81D6C74EE00F9182D /* VideoViewController.m in Sources */,
