@@ -49,7 +49,7 @@
     NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
     
     BmobObject *obj = [BmobObject objectWithClassName:@"Question"];
-    [obj setObject:userName forKey:@"userName"];
+    [obj setObject:userName forKey:@"askName"];
     //字段保留,暂无用处
     [obj setObject:@"" forKey:@"Aid"];
     [obj setObject:@(self.detailType) forKey:@"Type"];
@@ -58,6 +58,7 @@
     [obj setObject:self.textView.text forKey:@"question"];
     [obj setObject:@(NO) forKey:@"resolvedState"];
     [obj setObject:@"" forKey:@"answerName"];
+    [obj setObject:@0 forKey:@"answerNumber"];
     [obj setObject:@0 forKey:@"rewardScore"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
@@ -65,7 +66,6 @@
             sender.enabled = YES;
             //                NSLog(@"%@", [NSThread currentThread]);
             [self.navigationController popToRootViewControllerAnimated:YES];
-            
         }
     }];
 }

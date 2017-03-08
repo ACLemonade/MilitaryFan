@@ -8,6 +8,7 @@
 
 #import "ChooseQuestionViewController.h"
 #import "AskQuestionViewController.h"
+#import "AnswerQuestionViewController.h"
 
 @interface ChooseQuestionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -45,9 +46,15 @@
             //提问
         case 0:
         {
-            AskQuestionViewController *askQuestionVC = [[AskQuestionViewController alloc] init];
-            askQuestionVC.detailType = 10;
-            [self.navigationController pushViewController:askQuestionVC animated:YES];
+            if (self.questionActionType == 0) {
+                AskQuestionViewController *askQuestionVC = [[AskQuestionViewController alloc] init];
+                askQuestionVC.detailType = self.questionActionType+10;
+                [self.navigationController pushViewController:askQuestionVC animated:YES];
+            } else {
+                AnswerQuestionViewController *answerQuestionVC = [[AnswerQuestionViewController alloc] init];
+                answerQuestionVC.detailType = self.questionActionType+10;
+                [self.navigationController pushViewController:answerQuestionVC animated:YES];
+            }
         }
             break;
             //回答

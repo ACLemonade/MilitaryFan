@@ -8,6 +8,9 @@
 
 #import "FAQViewController.h"
 #import "ChooseQuestionViewController.h"
+#import "FAQViewModel.h"
+#import "QuestionCell.h"
+#import "UIScrollView+Refresh.h"
 
 @interface FAQViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 /** 问答搜索框 */
@@ -16,16 +19,27 @@
 @property (nonatomic, strong) UITableView *tableView;
 /** 提问按钮 */
 @property (nonatomic, strong) UIButton *askQuestionBtn;
+/** 回答按钮 */
+@property (nonatomic, strong) UIButton *answerQuestionBtn;
+/** ViewModel数据项 */
+@property (nonatomic, strong) FAQViewModel *faqVM;
 
 @end
 
 @implementation FAQViewController
 #pragma mark - 协议方法 UITableViewDataSource/Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.faqVM.latestQuestionNumber;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return [UITableViewCell new];
+    NSInteger row = indexPath.row;
+    QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuestionCell class]) forIndexPath:indexPath];
+    cell.contentLb.text = [self.faqVM contentForRow:row];
+    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row]];
+    cell.resolvedStateLb.text = [self.faqVM resolvedStateForRow:row];
+    cell.answerNumberLb.text = [self.faqVM answerNumberForRow:row];
+    cell.createTimeLb.text = [self.faqVM createTimeForRow:row];
+    return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
@@ -40,9 +54,9 @@
     cell.preservesSuperviewLayoutMargins = NO;
 }
 #pragma mark - 方法 Methods
-- (void)askQuestion:(UIButton *)sender{
+- (void)chooseQuestion:(UIButton *)sender{
     ChooseQuestionViewController *chooseQuestionVC = [[ChooseQuestionViewController alloc] init];
-    chooseQuestionVC.questionActionType = QuestionActionTypeAsk;
+    chooseQuestionVC.questionActionType = sender.tag-100;
     [self.navigationController pushViewController:chooseQuestionVC animated:YES];
 }
 #pragma mark - 生命周期 LifeCircle
@@ -50,7 +64,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self searchBar];
-    [self tableView];
+    WK(weakSelf);
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.faqVM getAllQuestionWithCompletionHandle:^(NSError *error) {
+            if (!error) {
+                [weakSelf.tableView reloadData];
+            } else {
+                NSLog(@"error: %@", error);
+            }
+            [weakSelf.tableView endHeaderRefresh];
+        }];
+    }];
+    [self.tableView beginHeaderRefresh];
 }
 #pragma mark - 懒加载 LazyLoad
 - (UISearchBar *)searchBar {
@@ -87,10 +112,13 @@
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.left.right.equalTo(0);
-            make.bottom.equalTo(self.askQuestionBtn.mas_top);
+            make.bottom.equalTo(self.answerQuestionBtn.mas_top);
         }];
+        _tableView.estimatedRowHeight = 100;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([QuestionCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([QuestionCell class])];
     }
     return _tableView;
 }
@@ -100,7 +128,8 @@
         [self.view addSubview:_askQuestionBtn];
         //位置,大小
         [_askQuestionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.bottom.equalTo(0);
+            make.left.bottom.equalTo(0);
+            make.width.equalTo(kScreenW/2-1);
             make.height.equalTo(40);
         }];
         //文本文字
@@ -111,11 +140,43 @@
         [_askQuestionBtn setTitleColor:kRGBA(63, 154, 253, 1) forState:UIControlStateNormal];
         //背景色
         _askQuestionBtn.backgroundColor = kRGBA(206, 224, 247, 1);
+        //tag值
+        _askQuestionBtn.tag = 100;
         //点击事件--提问
-        [_askQuestionBtn addTarget:self action:@selector(askQuestion:) forControlEvents:UIControlEventTouchUpInside];
+        [_askQuestionBtn addTarget:self action:@selector(chooseQuestion:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return _askQuestionBtn;
 }
-
+- (UIButton *)answerQuestionBtn{
+    if (_answerQuestionBtn == nil) {
+        _answerQuestionBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.view addSubview:_answerQuestionBtn];
+        //位置,大小
+        [_answerQuestionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.bottom.equalTo(0);
+            make.width.equalTo(self.askQuestionBtn);
+            make.height.equalTo(self.askQuestionBtn);
+        }];
+        //文本文字
+        [_answerQuestionBtn setTitle:@"我要回答" forState:UIControlStateNormal];
+        //文本大小
+        _answerQuestionBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+        //文本颜色
+        [_answerQuestionBtn setTitleColor:kRGBA(63, 154, 253, 1) forState:UIControlStateNormal];
+        //背景色
+        _answerQuestionBtn.backgroundColor = kRGBA(206, 224, 247, 1);
+        //tag值
+        _answerQuestionBtn.tag = 101;
+        //点击事件--回答
+        [_answerQuestionBtn addTarget:self action:@selector(chooseQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _answerQuestionBtn;
+}
+- (FAQViewModel *)faqVM{
+    if (_faqVM == nil) {
+        _faqVM = [[FAQViewModel alloc] init];
+    }
+    return _faqVM;
+}
 @end

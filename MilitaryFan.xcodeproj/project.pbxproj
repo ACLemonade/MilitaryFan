@@ -17,6 +17,11 @@
 		8C0DC5231D7F9CE700CC8120 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5221D7F9CE700CC8120 /* libz.tbd */; };
 		8C0DC5251D7F9CF900CC8120 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */; };
 		8C1577BD1D8D36C300D27A3D /* ScanPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1577BC1D8D36C300D27A3D /* ScanPicViewController.m */; };
+		8C1A346E1E6F920E00F49894 /* QuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A346C1E6F920E00F49894 /* QuestionCell.m */; };
+		8C1A346F1E6F920E00F49894 /* QuestionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1A346D1E6F920E00F49894 /* QuestionCell.xib */; };
+		8C1A34721E6F9A8600F49894 /* FAQViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A34711E6F9A8600F49894 /* FAQViewModel.m */; };
+		8C1A34751E6F9AB900F49894 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A34741E6F9AB900F49894 /* QuestionModel.m */; };
+		8C1A34781E6FEDC600F49894 /* AnswerQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1A34771E6FEDC600F49894 /* AnswerQuestionViewController.m */; };
 		8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */; };
 		8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */; };
 		8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */; };
@@ -133,6 +138,15 @@
 		8C0DC5241D7F9CF900CC8120 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		8C1577BB1D8D36C300D27A3D /* ScanPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanPicViewController.h; sourceTree = "<group>"; };
 		8C1577BC1D8D36C300D27A3D /* ScanPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanPicViewController.m; sourceTree = "<group>"; };
+		8C1A346B1E6F920E00F49894 /* QuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionCell.h; sourceTree = "<group>"; };
+		8C1A346C1E6F920E00F49894 /* QuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionCell.m; sourceTree = "<group>"; };
+		8C1A346D1E6F920E00F49894 /* QuestionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionCell.xib; sourceTree = "<group>"; };
+		8C1A34701E6F9A8600F49894 /* FAQViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewModel.h; sourceTree = "<group>"; };
+		8C1A34711E6F9A8600F49894 /* FAQViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewModel.m; sourceTree = "<group>"; };
+		8C1A34731E6F9AB900F49894 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
+		8C1A34741E6F9AB900F49894 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
+		8C1A34761E6FEDC600F49894 /* AnswerQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerQuestionViewController.h; sourceTree = "<group>"; };
+		8C1A34771E6FEDC600F49894 /* AnswerQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerQuestionViewController.m; sourceTree = "<group>"; };
 		8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
 		8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
 		8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
@@ -633,6 +647,8 @@
 		8C89A58D1E6CFDFF00466B33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8C1A34731E6F9AB900F49894 /* QuestionModel.h */,
+				8C1A34741E6F9AB900F49894 /* QuestionModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -640,6 +656,9 @@
 		8C89A58E1E6CFDFF00466B33 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8C1A346B1E6F920E00F49894 /* QuestionCell.h */,
+				8C1A346C1E6F920E00F49894 /* QuestionCell.m */,
+				8C1A346D1E6F920E00F49894 /* QuestionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,6 +679,8 @@
 		8C89A5901E6CFDFF00466B33 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8C1A34701E6F9A8600F49894 /* FAQViewModel.h */,
+				8C1A34711E6F9A8600F49894 /* FAQViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -917,6 +938,8 @@
 		8CF035111E6E537600F763AD /* AnswerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8C1A34761E6FEDC600F49894 /* AnswerQuestionViewController.h */,
+				8C1A34771E6FEDC600F49894 /* AnswerQuestionViewController.m */,
 			);
 			path = AnswerViewController;
 			sourceTree = "<group>";
@@ -1076,6 +1099,7 @@
 			files = (
 				8C9304BF1D6C1F1D00F9182D /* PicCell.xib in Resources */,
 				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
+				8C1A346F1E6F920E00F49894 /* QuestionCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
@@ -1244,8 +1268,10 @@
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8CC41DA01D7EB61100748D0D /* AllCommentsModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
+				8C1A34781E6FEDC600F49894 /* AnswerQuestionViewController.m in Sources */,
 				8C79062F1D790D42005555C8 /* FunctionView.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
+				8C1A346E1E6F920E00F49894 /* QuestionCell.m in Sources */,
 				8CC41DA71D7EC41800748D0D /* AllCommentsCell.m in Sources */,
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
 				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
@@ -1287,7 +1313,9 @@
 				8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */,
 				8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */,
 				8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */,
+				8C1A34751E6F9AB900F49894 /* QuestionModel.m in Sources */,
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
+				8C1A34721E6F9A8600F49894 /* FAQViewModel.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
