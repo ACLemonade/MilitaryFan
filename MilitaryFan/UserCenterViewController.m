@@ -211,6 +211,8 @@
             make.centerX.mas_equalTo(0);
             make.size.mas_equalTo(75);
         }];
+        _iconBtn.imageView.layer.masksToBounds = YES;
+        _iconBtn.imageView.layer.cornerRadius = _iconBtn.frame.size.width/2;
         //如果已经设置过头像,则将其从文件中取出来
         if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
             [[NSOperationQueue new] addOperationWithBlock:^{

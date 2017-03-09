@@ -88,7 +88,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = kRGBA(239, 239, 244, 1.0);
     [self.textView becomeFirstResponder];
     [self locationView];
     //开始定位

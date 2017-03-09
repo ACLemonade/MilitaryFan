@@ -10,6 +10,8 @@
 #import "QuestionCell.h"
 #import "FAQViewModel.h"
 
+#import "UIScrollView+Refresh.h"
+
 @interface AnswerQuestionViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 /** ViewModel数据项 */
@@ -18,9 +20,48 @@
 
 @implementation AnswerQuestionViewController
 #pragma mark - 协议方法 UITableViewDelegate/DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.faqVM.questionNumber;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = indexPath.row;
+    QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuestionCell class]) forIndexPath:indexPath];
+    cell.contentLb.text = [self.faqVM contentForRow:row];
+    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row] placeholderImage:[UIImage imageNamed:@"Persn_login"]];
+    cell.resolvedStateLb.text = [self.faqVM resolvedStateForRow:row];
+    cell.answerNumberLb.text = [self.faqVM answerNumberForRow:row];
+    cell.createTimeLb.text = [self.faqVM createTimeForRow:row];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.01;
+}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //左侧分割线留白
+    cell.separatorInset = UIEdgeInsetsZero;
+    cell.layoutMargins = UIEdgeInsetsZero;
+    cell.preservesSuperviewLayoutMargins = NO;
+}
+
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    WK(weakSelf);
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.faqVM getQuestionWithDetailType:weakSelf.detailType completionHandle:^(NSError *error) {
+            if (!error) {
+                [weakSelf.tableView reloadData];
+            } else {
+                NSLog(@"error: %@", error);
+            }
+            [weakSelf.tableView endHeaderRefresh];
+        }];
+    }];
+    [self.tableView beginHeaderRefresh];
 }
 #pragma mark - 懒加载 LazyLoad
 - (UITableView *)tableView{

@@ -10,7 +10,9 @@
 #import "ChooseQuestionViewController.h"
 #import "FAQViewModel.h"
 #import "QuestionCell.h"
+
 #import "UIScrollView+Refresh.h"
+
 
 @interface FAQViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 /** 问答搜索框 */
@@ -29,13 +31,13 @@
 @implementation FAQViewController
 #pragma mark - 协议方法 UITableViewDataSource/Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.faqVM.latestQuestionNumber;
+    return self.faqVM.questionNumber;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = indexPath.row;
     QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuestionCell class]) forIndexPath:indexPath];
     cell.contentLb.text = [self.faqVM contentForRow:row];
-    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row]];
+    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row] placeholderImage:[UIImage imageNamed:@"Persn_login"]];
     cell.resolvedStateLb.text = [self.faqVM resolvedStateForRow:row];
     cell.answerNumberLb.text = [self.faqVM answerNumberForRow:row];
     cell.createTimeLb.text = [self.faqVM createTimeForRow:row];

@@ -8,11 +8,15 @@
 
 #import "AskQuestionViewController.h"
 #import "LocationView.h"
+#import "RewardView.h"
 
 @interface AskQuestionViewController () <UITextViewDelegate, CLLocationManagerDelegate>
-@property (nonatomic) UITextView *textView;
-@property (nonatomic) LocationView *locationView;
+@property (nonatomic, strong) UITextView *textView;
+
+@property (nonatomic, strong) LocationView *locationView;
 @property (nonatomic) CLLocationManager *locationManager;
+
+@property (nonatomic, strong) RewardView *rewardView;
 @end
 
 @implementation AskQuestionViewController
@@ -59,7 +63,12 @@
     [obj setObject:@(NO) forKey:@"resolvedState"];
     [obj setObject:@"" forKey:@"answerName"];
     [obj setObject:@0 forKey:@"answerNumber"];
-    [obj setObject:@0 forKey:@"rewardScore"];
+    if (self.detailType - 10) {
+        [obj setObject:@(self.rewardView.rewardTF.text.integerValue) forKey:@"rewardScore"];
+    } else {
+        [obj setObject:@0 forKey:@"rewardScore"];
+    }
+    
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             [Factory textHUDWithVC:self text:@"发表成功"];
@@ -78,9 +87,28 @@
     [btn addTarget:self action:@selector(askQuestion:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
 }
+//选择积分数值
+- (void)chooseRewardScore:(UIButton *)sender{
+    NSInteger score = [self.rewardView.rewardTF.text integerValue];
+    if (sender.tag - 10) {  //加
+        if (score == 10) {
+            return;
+        }
+        score++;
+            } else {    //减
+        if (score == 1) {
+            return;
+        }
+        score--;
+    }
+    self.rewardView.rewardTF.text = @(score).stringValue;
+    [self.rewardView.rewardTF setNeedsLayout];
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
+
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -91,9 +119,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = kRGBA(239, 239, 244, 1.0);
     [self.textView becomeFirstResponder];
     [self locationView];
+    //积分问题才会显示
+    if (self.detailType - 10) {
+        [self rewardView];
+    }
     //开始定位
     [self.locationManager startUpdatingLocation];
 }
@@ -135,5 +167,20 @@
         }
     }
     return _locationManager;
+}
+- (RewardView *)rewardView{
+    if (_rewardView == nil) {
+        _rewardView = [[RewardView alloc] init];
+        [self.view addSubview:_rewardView];
+        [_rewardView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.locationView.mas_bottom).equalTo(1);
+            make.left.right.equalTo(0);
+            make.height.equalTo(40);
+        }];
+        [_rewardView.minusBtn addTarget:self action:@selector(chooseRewardScore:) forControlEvents:UIControlEventTouchUpInside];
+        [_rewardView.plusBtn addTarget:self action:@selector(chooseRewardScore:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+    return _rewardView;
 }
 @end

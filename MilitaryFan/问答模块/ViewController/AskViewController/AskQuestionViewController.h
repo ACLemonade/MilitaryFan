@@ -13,5 +13,5 @@
 //@property (nonatomic) NSString *aid;
 
 /** 文本类型 */
-@property (nonatomic) NSInteger detailType;
+@property (nonatomic) QuestionDetailType detailType;
 @end

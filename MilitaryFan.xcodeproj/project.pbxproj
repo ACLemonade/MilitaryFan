@@ -51,6 +51,8 @@
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
 		8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8681D717BE50046F218 /* DetailVideoCell.m */; };
 		8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C32F8691D717BE50046F218 /* DetailVideoCell.xib */; };
+		8C5B48F01E70DEB50006634A /* RewardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B48EF1E70DEB50006634A /* RewardView.m */; };
+		8C5B48F31E71442C0006634A /* QuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B48F21E71442C0006634A /* QuestionView.m */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
 		8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5921E6CFE8000466B33 /* VoteViewController.m */; };
 		8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5951E6CFE8E00466B33 /* FAQViewController.m */; };
@@ -203,6 +205,10 @@
 		8C32F8671D717BE50046F218 /* DetailVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVideoCell.h; sourceTree = "<group>"; };
 		8C32F8681D717BE50046F218 /* DetailVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVideoCell.m; sourceTree = "<group>"; };
 		8C32F8691D717BE50046F218 /* DetailVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVideoCell.xib; sourceTree = "<group>"; };
+		8C5B48EE1E70DEB50006634A /* RewardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RewardView.h; sourceTree = "<group>"; };
+		8C5B48EF1E70DEB50006634A /* RewardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RewardView.m; sourceTree = "<group>"; };
+		8C5B48F11E71442C0006634A /* QuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionView.h; sourceTree = "<group>"; };
+		8C5B48F21E71442C0006634A /* QuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionView.m; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		8C89A5911E6CFE8000466B33 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
@@ -659,6 +665,10 @@
 				8C1A346B1E6F920E00F49894 /* QuestionCell.h */,
 				8C1A346C1E6F920E00F49894 /* QuestionCell.m */,
 				8C1A346D1E6F920E00F49894 /* QuestionCell.xib */,
+				8C5B48EE1E70DEB50006634A /* RewardView.h */,
+				8C5B48EF1E70DEB50006634A /* RewardView.m */,
+				8C5B48F11E71442C0006634A /* QuestionView.h */,
+				8C5B48F21E71442C0006634A /* QuestionView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1276,6 +1286,7 @@
 				8C93050D1D6D953000F9182D /* MFVideoDetailModel.m in Sources */,
 				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
 				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
+				8C5B48F31E71442C0006634A /* QuestionView.m in Sources */,
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
@@ -1298,6 +1309,7 @@
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
 				8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */,
 				8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */,
+				8C5B48F01E70DEB50006634A /* RewardView.m in Sources */,
 				8C9305021D6D499C00F9182D /* Factory.m in Sources */,
 				8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */,
 				8C93056D1D6DC92100F9182D /* DetailHeaderCell.m in Sources */,

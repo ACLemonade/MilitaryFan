@@ -10,8 +10,8 @@
 #import "QuestionModel.h"
 
 @interface FAQViewModel : NSObject
-/** 最新问题数量 */
-@property (nonatomic, assign) NSInteger latestQuestionNumber;
+/** 问题数量 */
+@property (nonatomic, assign) NSInteger questionNumber;
 
 @property (nonatomic, strong) NSMutableArray<QuestionModel *> *dataList;
 
@@ -28,4 +28,7 @@
 - (NSString *)createTimeForRow:(NSInteger)row;
 /** 获取全部问题列表 */
 - (void)getAllQuestionWithCompletionHandle:(void(^)(NSError *error))completionHandle;
+/** 根据detailType获取问题列表 */
+- (void)getQuestionWithDetailType:(QuestionDetailType)detailType completionHandle:(void(^)(NSError *error))completionHandle;
+ 
 @end

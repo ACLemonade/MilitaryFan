@@ -22,7 +22,6 @@
     return 4;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NormalCell" forIndexPath:indexPath];
     UIButton *functionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -42,25 +41,22 @@
 - (void)clickAction:(UIButton *)sender{
 //    sender.backgroundColor = [UIColor lightGrayColor];
     NSLog(@"%@, %@", self.questionActionType == 0 ? @"提问" : @"回答", [self.dataArray objectAtIndex:sender.tag-100]);
-    switch (sender.tag - 100) {
-            //提问
+    NSInteger index = sender.tag - 100;
+    switch (index) {
+            //普通问题
         case 0:
-        {
-            if (self.questionActionType == 0) {
-                AskQuestionViewController *askQuestionVC = [[AskQuestionViewController alloc] init];
-                askQuestionVC.detailType = self.questionActionType+10;
-                [self.navigationController pushViewController:askQuestionVC animated:YES];
-            } else {
-                AnswerQuestionViewController *answerQuestionVC = [[AnswerQuestionViewController alloc] init];
-                answerQuestionVC.detailType = self.questionActionType+10;
-                [self.navigationController pushViewController:answerQuestionVC animated:YES];
-            }
-        }
-            break;
-            //回答
+            //积分悬赏问题
         case 1:
         {
-            
+            if (self.questionActionType == 0) {     //提问功能
+                AskQuestionViewController *askQuestionVC = [[AskQuestionViewController alloc] init];
+                askQuestionVC.detailType = QuestionDetailTypeNormal + index;
+                [self.navigationController pushViewController:askQuestionVC animated:YES];
+            } else {    //回答功能
+                AnswerQuestionViewController *answerQuestionVC = [[AnswerQuestionViewController alloc] init];
+                answerQuestionVC.detailType = QuestionDetailTypeNormal + index;
+                [self.navigationController pushViewController:answerQuestionVC animated:YES];
+            }
         }
             break;
             //我的消息

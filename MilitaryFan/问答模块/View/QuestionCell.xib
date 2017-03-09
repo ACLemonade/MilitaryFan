@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="512" height="169"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="512" height="168"/>
+                <rect key="frame" x="0.0" y="0.0" width="512" height="168.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GLD-ho-eca">
@@ -26,9 +26,8 @@
                             <constraint firstAttribute="height" constant="15" id="LQw-Jg-RqM"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-1X-lQx">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Persn_login" translatesAutoresizingMaskIntoConstraints="NO" id="Jp5-1X-lQx">
                         <rect key="frame" x="467" y="15" width="30" height="30"/>
-                        <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="cZn-EV-jvT"/>
                             <constraint firstAttribute="width" constant="30" id="eSo-D6-yRr"/>
@@ -108,4 +107,7 @@
             <point key="canvasLocation" x="-9" y="50.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Persn_login" width="74" height="74"/>
+    </resources>
 </document>

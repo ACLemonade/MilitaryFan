@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSUInteger, QuestionActionType) {
+    QuestionActionTypeAsk,
+    QuestionActionTypeAnswer
+};
+typedef NS_ENUM(NSUInteger, QuestionDetailType) {
+    QuestionDetailTypeNormal = 10,
+    QuestionDetailTypeReward = 11
+};
+
 @interface Factory : NSObject
 /** 导航控制器返回(默认) */
 + (void)naviClickBackWithViewController:(UIViewController *)viewController;

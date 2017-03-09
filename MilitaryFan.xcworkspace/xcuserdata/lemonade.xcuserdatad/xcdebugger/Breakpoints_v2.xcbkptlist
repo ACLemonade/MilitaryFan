@@ -788,7 +788,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510656133.619785"
+                  timestampString = "510738487.013887"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
@@ -803,7 +803,7 @@
                   moduleName = "MilitaryFan"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lemonade/Desktop/Projects/MilitaryFan/MilitaryFan/RegisterViewController.m"
-                  timestampString = "510656133.621225"
+                  timestampString = "510738487.01534"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
@@ -858,6 +858,70 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "-getAllQuestionWithCompletionHandle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MilitaryFan/&#x95ee;&#x7b54;&#x6a21;&#x5757;/ViewController/AskViewController/AskQuestionViewController.m"
+            timestampString = "510722260.133438"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MilitaryFan/&#x95ee;&#x7b54;&#x6a21;&#x5757;/ViewModel/FAQViewModel.m"
+            timestampString = "510735596.642153"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "-getAllQuestionWithCompletionHandle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MilitaryFan/&#x95ee;&#x7b54;&#x6a21;&#x5757;/ViewModel/FAQViewModel.m"
+            timestampString = "510736517.996234"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-getAllQuestionWithCompletionHandle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MilitaryFan/&#x95ee;&#x7b54;&#x6a21;&#x5757;/ViewController/FAQViewController.m"
+            timestampString = "510736535.761366"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
