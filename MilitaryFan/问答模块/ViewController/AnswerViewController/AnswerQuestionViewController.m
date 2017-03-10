@@ -7,6 +7,8 @@
 //
 
 #import "AnswerQuestionViewController.h"
+#import "AnswerQuestionDetailViewController.h"
+
 #import "QuestionCell.h"
 #import "FAQViewModel.h"
 
@@ -45,7 +47,11 @@
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    AnswerQuestionDetailViewController *aqDetailVC = [[AnswerQuestionDetailViewController alloc] init];
+    [self.navigationController pushViewController:aqDetailVC animated:YES];
+}
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -99,6 +99,11 @@
 		8CE370091D815F95004D5B93 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE370081D815F95004D5B93 /* CacheManager.m */; };
 		8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */; };
 		8CF035151E6E883F00F763AD /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF035141E6E883F00F763AD /* AskQuestionViewController.m */; };
+		8CF4A14B1E7238B600C29A26 /* AnswerQuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4A14A1E7238B600C29A26 /* AnswerQuestionDetailViewController.m */; };
+		8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4A14D1E723A6200C29A26 /* QuestionDetailCell.m */; };
+		8CF4A1501E723A6200C29A26 /* QuestionDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF4A14E1E723A6200C29A26 /* QuestionDetailCell.xib */; };
+		8CF4A1541E724A9000C29A26 /* AnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4A1521E724A9000C29A26 /* AnswerCell.m */; };
+		8CF4A1551E724A9000C29A26 /* AnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF4A1531E724A9000C29A26 /* AnswerCell.xib */; };
 		8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */; };
 		8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */; };
 		8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B91D74237C00DAF1E4 /* RegisterViewController.m */; };
@@ -293,6 +298,14 @@
 		8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
 		8CF035131E6E883F00F763AD /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
 		8CF035141E6E883F00F763AD /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
+		8CF4A1491E7238B600C29A26 /* AnswerQuestionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerQuestionDetailViewController.h; sourceTree = "<group>"; };
+		8CF4A14A1E7238B600C29A26 /* AnswerQuestionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerQuestionDetailViewController.m; sourceTree = "<group>"; };
+		8CF4A14C1E723A6200C29A26 /* QuestionDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionDetailCell.h; sourceTree = "<group>"; };
+		8CF4A14D1E723A6200C29A26 /* QuestionDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionDetailCell.m; sourceTree = "<group>"; };
+		8CF4A14E1E723A6200C29A26 /* QuestionDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionDetailCell.xib; sourceTree = "<group>"; };
+		8CF4A1511E724A9000C29A26 /* AnswerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerCell.h; sourceTree = "<group>"; };
+		8CF4A1521E724A9000C29A26 /* AnswerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerCell.m; sourceTree = "<group>"; };
+		8CF4A1531E724A9000C29A26 /* AnswerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnswerCell.xib; sourceTree = "<group>"; };
 		8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8CFA13B51D74236B00DAF1E4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -665,6 +678,12 @@
 				8C1A346B1E6F920E00F49894 /* QuestionCell.h */,
 				8C1A346C1E6F920E00F49894 /* QuestionCell.m */,
 				8C1A346D1E6F920E00F49894 /* QuestionCell.xib */,
+				8CF4A14C1E723A6200C29A26 /* QuestionDetailCell.h */,
+				8CF4A14D1E723A6200C29A26 /* QuestionDetailCell.m */,
+				8CF4A14E1E723A6200C29A26 /* QuestionDetailCell.xib */,
+				8CF4A1511E724A9000C29A26 /* AnswerCell.h */,
+				8CF4A1521E724A9000C29A26 /* AnswerCell.m */,
+				8CF4A1531E724A9000C29A26 /* AnswerCell.xib */,
 				8C5B48EE1E70DEB50006634A /* RewardView.h */,
 				8C5B48EF1E70DEB50006634A /* RewardView.m */,
 				8C5B48F11E71442C0006634A /* QuestionView.h */,
@@ -950,6 +969,8 @@
 			children = (
 				8C1A34761E6FEDC600F49894 /* AnswerQuestionViewController.h */,
 				8C1A34771E6FEDC600F49894 /* AnswerQuestionViewController.m */,
+				8CF4A1491E7238B600C29A26 /* AnswerQuestionDetailViewController.h */,
+				8CF4A14A1E7238B600C29A26 /* AnswerQuestionDetailViewController.m */,
 			);
 			path = AnswerViewController;
 			sourceTree = "<group>";
@@ -1113,11 +1134,13 @@
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
+				8CF4A1501E723A6200C29A26 /* QuestionDetailCell.xib in Resources */,
 				8C1E770C1D767D760051F8B1 /* UserCenter.storyboard in Resources */,
 				8C9305071D6D791800F9182D /* ShareCell.xib in Resources */,
 				8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */,
 				8CC954451D6840C40022F157 /* TopCell.xib in Resources */,
 				8CC41DA81D7EC41800748D0D /* AllCommentsCell.xib in Resources */,
+				8CF4A1551E724A9000C29A26 /* AnswerCell.xib in Resources */,
 				8C2A6F451D67F8CA0028F634 /* Assets.xcassets in Resources */,
 				8C2A6F401D67F8CA0028F634 /* Settings.storyboard in Resources */,
 				8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */,
@@ -1278,8 +1301,10 @@
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8CC41DA01D7EB61100748D0D /* AllCommentsModel.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
+				8CF4A1541E724A9000C29A26 /* AnswerCell.m in Sources */,
 				8C1A34781E6FEDC600F49894 /* AnswerQuestionViewController.m in Sources */,
 				8C79062F1D790D42005555C8 /* FunctionView.m in Sources */,
+				8CF4A14B1E7238B600C29A26 /* AnswerQuestionDetailViewController.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
 				8C1A346E1E6F920E00F49894 /* QuestionCell.m in Sources */,
 				8CC41DA71D7EC41800748D0D /* AllCommentsCell.m in Sources */,
@@ -1330,6 +1355,7 @@
 				8C1A34721E6F9A8600F49894 /* FAQViewModel.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
+				8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
 				8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */,
