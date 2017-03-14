@@ -101,4 +101,7 @@
     NSDictionary *dic = @{NSFontAttributeName:font, NSParagraphStyleAttributeName:paragraphStyle, NSKernAttributeName:@1.5f};
     return dic;
 }
++ (id)classConvertedFromBmobObject:(BmobObject *)bmobObject{
+    return nil;
+}
 @end

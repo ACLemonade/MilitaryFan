@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import <BmobSDK/Bmob.h>
 
 typedef NS_ENUM(NSUInteger, QuestionActionType) {
     QuestionActionTypeAsk,
@@ -65,4 +65,6 @@ typedef NS_ENUM(NSUInteger, QuestionDetailType) {
  */
 + (NSDictionary *)attributesDictionaryWithContent:(NSString *)content font:(UIFont *)font width:(CGFloat)width;
 
+/** 将BmobObject对象转化成目标对象 */
++ (id)classConvertedFromBmobObject:(BmobObject *)bmobObject;
 @end

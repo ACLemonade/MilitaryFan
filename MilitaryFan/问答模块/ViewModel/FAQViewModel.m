@@ -16,6 +16,9 @@
 - (QuestionModel *)modelForRow:(NSInteger)row{
     return [self.dataList objectAtIndex:row];
 }
+- (NSString *)objectIdForRow:(NSInteger)row{
+    return [self modelForRow:row].objectId;
+}
 - (NSString *)contentForRow:(NSInteger)row{
     return [self modelForRow:row].question;
 }
@@ -41,7 +44,7 @@
     questionQuery.limit = 20;
     [questionQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (!error) {
-            NSLog(@"array: %@", array);
+//            NSLog(@"array: %@", array);
             for (BmobObject *obj in array) {
                 QuestionModel *model = [[QuestionModel alloc] init];
                 /*

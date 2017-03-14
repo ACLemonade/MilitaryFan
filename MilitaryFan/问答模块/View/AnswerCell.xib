@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="579" height="236"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="579" height="235"/>
+                <rect key="frame" x="0.0" y="0.0" width="579" height="235.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqR-zh-US5">
@@ -41,7 +41,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2MD-Rk-JvE" firstAttribute="centerY" secondItem="eqR-zh-US5" secondAttribute="centerY" id="6lE-H6-fbT"/>
                             <constraint firstAttribute="trailing" secondItem="fg3-HI-Rhk" secondAttribute="trailing" constant="15" id="BwD-rO-guC"/>
@@ -54,7 +53,6 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-sH-Jml">
                         <rect key="frame" x="0.0" y="195" width="579" height="40"/>
-                        <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="mau-Lg-I5i"/>
                         </constraints>
@@ -82,6 +80,12 @@
                     <constraint firstItem="T3A-Lb-yi3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="sqF-3i-V4S"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="answerContentLb" destination="T3A-Lb-yi3" id="1zR-FM-qUl"/>
+                <outlet property="answerNameLb" destination="2MD-Rk-JvE" id="EBw-fW-XBz"/>
+                <outlet property="headIV" destination="ALs-7D-55O" id="EZU-Xw-6F1"/>
+                <outlet property="locationLb" destination="fg3-HI-Rhk" id="QnA-0R-lhd"/>
+            </connections>
             <point key="canvasLocation" x="18.5" y="47"/>
         </tableViewCell>
     </objects>

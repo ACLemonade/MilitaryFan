@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AnswerQuestionDetailViewController : UIViewController
-
+/** 问题Id */
+@property (nonatomic, strong) NSString *objectId;
 @end

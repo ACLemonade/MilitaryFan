@@ -16,6 +16,8 @@
 @property (nonatomic, strong) NSMutableArray<QuestionModel *> *dataList;
 
 - (QuestionModel *)modelForRow:(NSInteger)row;
+/** 问题Id */
+- (NSString *)objectIdForRow:(NSInteger)row;
 /** 问题内容 */
 - (NSString *)contentForRow:(NSInteger)row;
 /** 提问者头像 */

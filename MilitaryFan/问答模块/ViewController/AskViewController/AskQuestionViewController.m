@@ -72,10 +72,11 @@
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             [Factory textHUDWithVC:self text:@"发表成功"];
-            sender.enabled = YES;
+            
             //                NSLog(@"%@", [NSThread currentThread]);
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
+        sender.enabled = YES;
     }];
 }
 - (UIButton *)sendBtn{

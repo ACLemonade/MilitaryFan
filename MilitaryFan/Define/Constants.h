@@ -15,6 +15,8 @@
 #define kScreenH [UIScreen mainScreen].bounds.size.height
 //三原色的设置
 #define kRGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
+//获取状态栏和本界面导航栏的高度
+#define STATUSBAR_AND_NAVIGATIONBAR_HEIGHT (20 + 44) 
 //Masonry mas_equalTo()简写宏
 #define MAS_SHORTHAND_GLOBALS
 //Documents文件夹的路径
@@ -78,6 +80,9 @@ free(varList);\
 return self;\
 }\
 
-
+//大图默认图片
+#define kDefaultBigImage [UIImage imageNamed:@"default-1"]
+//头像默认图片
+#define kDefaultHeadImage [UIImage imageNamed:@"Persn_login"]
 
 #endif /* Constants_h */

@@ -8,6 +8,7 @@
 
 #import "FAQViewController.h"
 #import "ChooseQuestionViewController.h"
+#import "AnswerQuestionDetailViewController.h"
 #import "FAQViewModel.h"
 #import "QuestionCell.h"
 
@@ -54,6 +55,15 @@
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSInteger row = indexPath.row;
+    AnswerQuestionDetailViewController *aqDetailVC = [[AnswerQuestionDetailViewController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    aqDetailVC.objectId = [self.faqVM objectIdForRow:row];
+    [self.navigationController pushViewController:aqDetailVC animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 #pragma mark - 方法 Methods
 - (void)chooseQuestion:(UIButton *)sender{
