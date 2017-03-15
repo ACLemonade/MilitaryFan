@@ -9,6 +9,7 @@
 #import "RegisterViewController.h"
 
 
+
 @interface RegisterViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;
@@ -28,6 +29,8 @@
 @property (nonatomic) BOOL haveValidation;
 @property (nonatomic) BOOL havePassword;
 @property (nonatomic) BOOL haveConfirm;
+
+
 @end
 
 
@@ -118,6 +121,7 @@
     
     return YES;
 }
+
 #pragma mark - 方法 Methods
 //获取验证码
 - (IBAction)getValidation:(id)sender {
@@ -142,7 +146,8 @@
         //判断验证码是否正确
         [SMSSDK commitVerificationCode:_validationTF.text phoneNumber:_phoneTF.text zone:@"86" result:^(NSError *error) {
             if (!error) {
-//                NSLog(@"验证成功");
+                NSLog(@"验证成功");
+                NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
                 BmobObject *userInfo = [BmobObject objectWithClassName:@"UserInfo"];
                 [userInfo setObject:_accountTF.text forKey:@"userName"];
                 [userInfo setObject:_passwordTF.text forKey:@"password"];
@@ -217,6 +222,9 @@
     self.havePassword = NO;
     self.haveConfirm = NO;
     [Factory naviClickBackWithViewController:self];
+    
+
 }
+#pragma mark - 懒加载 LazyLoad
 
 @end

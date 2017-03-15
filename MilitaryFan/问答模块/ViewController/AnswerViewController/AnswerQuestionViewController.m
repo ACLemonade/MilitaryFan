@@ -60,9 +60,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [Factory naviClickBackWithViewController:self];
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
-        [weakSelf.faqVM getQuestionWithDetailType:weakSelf.detailType completionHandle:^(NSError *error) {
+//        [weakSelf.faqVM getQuestionWithDetailType:weakSelf.detailType completionHandle:^(NSError *error) {
+//            if (!error) {
+//                [weakSelf.tableView reloadData];
+//            } else {
+//                NSLog(@"error: %@", error);
+//            }
+//            [weakSelf.tableView endHeaderRefresh];
+//        }];
+        [weakSelf.faqVM getQuestionDataWithDetailType:weakSelf.detailType completionHandle:^(NSError *error) {
             if (!error) {
                 [weakSelf.tableView reloadData];
             } else {

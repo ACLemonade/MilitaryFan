@@ -24,4 +24,6 @@
 @property (nonatomic, strong) NSString *createdAt;
 /** 更新时间 */
 @property (nonatomic, strong) NSString *updatedAt;
+
+@property (nonatomic, strong) NSString *headImageURL;
 @end

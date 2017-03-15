@@ -8,6 +8,14 @@
 
 #import "AnswerQuestionDetailViewModel.h"
 
+@interface AnswerQuestionDetailViewModel ()
+/** 获得回答列表(不含头像) */
+- (void)getAllAnswerWithoutHeadImageWithAskId:(NSString *)askId completionHandle:(void(^)(NSArray *userNameArray, NSError *error))completionHandle;
+@end
+
+@interface AnswerQuestionDetailViewModel ()
+@property (nonatomic, strong) NSMutableArray *headImageList;
+@end
 @implementation AnswerQuestionDetailViewModel
 #pragma mark - 问题数据项
 - (NSURL *)headImageURL{
@@ -55,7 +63,18 @@
                 }
             }
             [self.questionModel setValuesForKeysWithDictionary:[dataDic copy]];
-            completionHandle(nil);
+            BmobQuery *userQuery = [BmobQuery queryWithClassName:@"UserInfo"];
+            userQuery.limit = 1;
+            [userQuery whereKey:@"userName" equalTo:self.questionModel.askName];
+            [userQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                if (!error) {
+                    BmobObject *userObj = array.firstObject;
+                    self.questionModel.headImageURL = [userObj objectForKey:@"headImageURL"];
+                    completionHandle(nil);
+                } else {
+                    completionHandle(error);
+                }
+            }];
         } else {
             completionHandle(error);
         }
@@ -66,7 +85,7 @@
     return self.answerList.count;
 }
 - (NSURL *)answerHeadImageURLForRow:(NSInteger)row{
-    return nil;
+    return [NSURL URLWithString:[self modelForRow:row].headImageURL];
 }
 - (NSString *)answerNameForRow:(NSInteger)row{
     return [self modelForRow:row].answerName;
@@ -86,9 +105,16 @@
     }
     return _answerList;
 }
-- (void)getAllAnswerWithoutHeadImageWithCompletionHandle:(void (^)(NSArray *, NSError *))completionHandle{
+- (NSMutableArray *)headImageList{
+    if (_headImageList == nil) {
+        _headImageList = [NSMutableArray array];
+    }
+    return _headImageList;
+}
+- (void)getAllAnswerWithoutHeadImageWithAskId:(NSString *)askId completionHandle:(void (^)(NSArray *, NSError *))completionHandle{
     [self.answerList removeAllObjects];
     BmobQuery *answerQuery = [BmobQuery queryWithClassName:@"Answer"];
+    [answerQuery whereKey:@"askId" equalTo:askId];
     [answerQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (!error) {
             NSMutableArray *arr = [NSMutableArray array];
@@ -104,6 +130,28 @@
         } else {
             NSLog(@"error: %@", error);
             completionHandle(nil, error);
+        }
+    }];
+}
+- (void)getAllAnswerWithAskId:(NSString *)askId completionHandle:(void (^)(NSError *))completionHandle{
+    [self getAllAnswerWithoutHeadImageWithAskId:askId completionHandle:^(NSArray *userNameArray, NSError *error) {
+        if (!error) {
+            for (int i = 0; i < userNameArray.count; i++) {
+                NSString *userName = [userNameArray objectAtIndex:i];
+                AnswerModel *model = [self.answerList objectAtIndex:i];
+                BmobQuery *userQuery = [BmobQuery queryWithClassName:@"UserInfo"];
+                userQuery.limit = 1;
+                [userQuery whereKey:@"userName" equalTo:userName];
+                [userQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                    NSLog(@"array: %@", array);
+                    BmobObject *userObj = array.firstObject;
+                    model.headImageURL = [userObj objectForKey:@"headImageURL"];
+                    completionHandle(nil);
+                }];
+            }
+        } else {
+            NSLog(@"error: %@", error);
+            completionHandle(error);
         }
     }];
 }

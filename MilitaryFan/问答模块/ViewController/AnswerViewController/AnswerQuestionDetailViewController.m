@@ -13,6 +13,8 @@
 
 #import "AnswerView.h"
 
+#import "UIScrollView+Refresh.h"
+
 #define kViewBottomY (kScreenH - STATUSBAR_AND_NAVIGATIONBAR_HEIGHT)
 @interface AnswerQuestionDetailViewController () <UITableViewDataSource, UITableViewDelegate, AnswerViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -96,12 +98,21 @@
     BmobObject *obj = [BmobObject objectWithClassName:@"Answer"];
     [obj setObject:userName forKey:@"answerName"];
     [obj setObject:self.objectId forKey:@"askId"];
+    [obj setObject:self.aqDetailVM.askName forKey:@"askName"];
     [obj setObject:@(self.aqDetailVM.questionType) forKey:@"Type"];
     [obj setObject:self.answerView.contentView.text forKey:@"content"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         sender.enabled = YES;
         if (isSuccessful) {
             NSLog(@"回答成功");
+            [Factory textHUDWithVC:self text:@"回答成功"];
+            [self.view endEditing:YES];
+            self.answerView.contentView.text = @"";
+            BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"Question" objectId:self.objectId];
+            [obj incrementKey:@"answerNumber"];
+            [obj updateInBackground];
+            [self.tableView beginHeaderRefresh];
+            
         } else {
             NSLog(@"error: %@", error);
         }
@@ -115,20 +126,36 @@
 //    NSLog(@"viewFrame: %@", NSStringFromCGRect(self.view.frame));
 //    NSLog(@"frame: %@", NSStringFromCGRect(self.answerView.frame));
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    //获取问题详情数据
     [self.aqDetailVM getQuestionDetailWithObjectId:self.objectId completionHandle:^(NSError *error) {
         if (!error) {
             [self.tableView reloadData];
+            
         } else {
             NSLog(@"error: %@", error);
         }
     }];
-    [self.aqDetailVM getAllAnswerWithoutHeadImageWithCompletionHandle:^(NSArray *array, NSError *error) {
-        if (!error) {
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"error: %@", error);
-        }
+//    [self.aqDetailVM getAllAnswerWithoutHeadImageWithCompletionHandle:^(NSArray *userNameArray, NSError *error) {
+//        if (!error) {
+//            [self.tableView reloadData];
+//        } else {
+//            NSLog(@"error: %@", error);
+//        }
+//    }];
+    WK(weakSelf);
+    //获取回答列表数据
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.aqDetailVM getAllAnswerWithAskId:weakSelf.objectId completionHandle:^(NSError *error) {
+            if (!error) {
+                [weakSelf.tableView reloadData];
+            } else {
+                NSLog(@"error: %@", error);
+            }
+            [weakSelf.tableView endHeaderRefresh];
+        }];
+        [weakSelf.tableView endHeaderRefresh];
     }];
+    [self.tableView beginHeaderRefresh];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];

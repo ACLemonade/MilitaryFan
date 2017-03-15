@@ -41,8 +41,7 @@
 - (AnswerModel *)modelForRow:(NSInteger)row;
 
 @property (nonatomic, strong) NSMutableArray<AnswerModel *> *answerList;
-/** 获得回答列表(不含头像) */
-- (void)getAllAnswerWithoutHeadImageWithCompletionHandle:(void(^)(NSArray *array, NSError *error))completionHandle;
 
-- (void)getAllAnswerWithCompletionHandle:(void(^)(NSError *error))completionHandle;
+/** 获得回答列表(含头像) */
+- (void)getAllAnswerWithAskId:(NSString *)askId completionHandle:(void(^)(NSError *error))completionHandle;
 @end

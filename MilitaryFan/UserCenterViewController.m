@@ -188,9 +188,23 @@
         if (imageData) {
             [BmobFile filesUploadBatchWithDataArray:@[@{@"filename": [NSString stringWithFormat:@"%@.png", userName], @"data": imageData}] progressBlock:nil resultBlock:^(NSArray *array, BOOL isSuccessful, NSError *error) {
                 if (isSuccessful) {
+                    //将头像信息存入云端文件库
                     BmobFile *bFile = array.firstObject;
                     [meDic setObject:bFile.url forKey:@"headImageURL"];
                     [meDic writeToFile:kMePlistPath atomically:YES];
+                    //将头像信息存入云端UserInfo数据库
+                    BmobQuery *userQuery = [BmobQuery queryWithClassName:@"UserInfo"];
+                    userQuery.limit = 1;
+                    [userQuery whereKey:@"userName" equalTo:userName];
+                    [userQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                        if (!error) {
+                            BmobObject *userObj = array.firstObject;
+                            [userObj setObject:bFile.url forKey:@"headImageURL"];
+                            [userObj updateInBackground];
+                        } else {
+                            NSLog(@"error: %@", error);
+                        }
+                    }];
                 }
             }];
         }

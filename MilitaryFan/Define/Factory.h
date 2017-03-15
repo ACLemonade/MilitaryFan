@@ -15,6 +15,7 @@ typedef NS_ENUM(NSUInteger, QuestionActionType) {
     QuestionActionTypeAnswer
 };
 typedef NS_ENUM(NSUInteger, QuestionDetailType) {
+    QuestionDetailTypeNone = 0,
     QuestionDetailTypeNormal = 10,
     QuestionDetailTypeReward = 11
 };

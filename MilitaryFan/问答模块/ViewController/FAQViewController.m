@@ -78,7 +78,15 @@
     [self searchBar];
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
-        [weakSelf.faqVM getAllQuestionWithCompletionHandle:^(NSError *error) {
+//        [weakSelf.faqVM getAllQuestionWithCompletionHandle:^(NSError *error) {
+//            if (!error) {
+//                [weakSelf.tableView reloadData];
+//            } else {
+//                NSLog(@"error: %@", error);
+//            }
+//            [weakSelf.tableView endHeaderRefresh];
+//        }];
+        [weakSelf.faqVM getQuestionDataWithDetailType:0 completionHandle:^(NSError *error) {
             if (!error) {
                 [weakSelf.tableView reloadData];
             } else {

@@ -29,8 +29,9 @@
 /** 提问时间 */
 - (NSString *)createTimeForRow:(NSInteger)row;
 /** 获取全部问题列表 */
-- (void)getAllQuestionWithCompletionHandle:(void(^)(NSError *error))completionHandle;
+//- (void)getAllQuestionWithCompletionHandle:(void(^)(NSError *error))completionHandle;
+
 /** 根据detailType获取问题列表 */
-- (void)getQuestionWithDetailType:(QuestionDetailType)detailType completionHandle:(void(^)(NSError *error))completionHandle;
- 
+- (void)getQuestionDataWithDetailType:(QuestionDetailType)detailType completionHandle:(void(^)(NSError *error))completionHandle;
+//- (void)getQuestionWithDetailType:(QuestionDetailType)detailType completionHandle:(void(^)(NSError *error))completionHandle;
 @end

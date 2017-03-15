@@ -10,13 +10,16 @@
 #import "RegisterViewController.h"
 #import "LeftMenuViewController.h"
 #import "AppDelegate.h"
+@import CoreLocation;
 
-@interface LoginViewController () <UITextFieldDelegate>
+@interface LoginViewController () <UITextFieldDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *accountTF;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTF;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (weak, nonatomic) IBOutlet UIButton *registerBtn;
 
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSString *meLocation;
 @end
 
 @implementation LoginViewController
@@ -35,6 +38,33 @@
     }
     return YES;
 }
+#pragma mark - 协议方法 CLLocationManagerDelegate
+//定位成功以后,返回位置
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+    //    NSLog(@"location %@", locations);
+    //地理反编码 经纬度-->位置
+    CLLocation *myLocation = locations.firstObject;
+    CLGeocoder *coder = [CLGeocoder new];
+    [coder reverseGeocodeLocation:myLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        CLPlacemark *mark = placemarks.firstObject;
+        if (!mark) {
+            return;
+        }else{
+            //            NSLog(@"%@", mark.addressDictionary);
+            //省
+            NSString *administrativeArea = mark.administrativeArea;
+            //市
+            NSString *locality = mark.locality;
+            //区
+            NSString *subLocality = mark.subLocality;
+            //街道
+            NSString *thoroughfare = mark.thoroughfare;
+            
+            self.meLocation = [NSString stringWithFormat:@"%@%@%@%@", administrativeArea, locality, subLocality, thoroughfare];
+        }
+    }];
+}
+
 #pragma mark - 方法 Methods
 - (IBAction)userLogin:(id)sender {
     BmobQuery *loginQuery = [BmobQuery queryWithClassName:@"UserInfo"];
@@ -46,6 +76,7 @@
             NSLog(@"错误信息: %@",error);
         }else{
             if (array.firstObject) {
+                BmobObject *userObj = (BmobObject *)array.firstObject;
                 [[NSOperationQueue new] addOperationWithBlock:^{
                     //将登录信息写入User.plist文件中
                     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithContentsOfFile:kUserPlistPath];
@@ -58,8 +89,12 @@
                     //每个用户独有的plist文件
                     NSMutableDictionary *meDic = [NSMutableDictionary dictionary];
                     [meDic setObject:_accountTF.text forKey:@"userName"];
-                    [meDic setObject:@"" forKey:@"headImageURL"];
+                    [meDic setObject:[userObj objectForKey:@"headImageURL"] forKey:@"headImageURL"];
+                    [meDic setObject:self.meLocation forKey:@"location"];
                     [meDic writeToFile:kMePlistPath atomically:YES];
+                    //将位置,头像信息存入云端数据库
+                    [userObj setObject:self.meLocation forKey:@"location"];
+                    [userObj updateInBackground];
                 }];
                 //登录成功,弹出提示框
                 UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
@@ -100,7 +135,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_accountTF becomeFirstResponder];
-        [Factory nonNaviClickBackWithViewController:self];
+    [Factory nonNaviClickBackWithViewController:self];
+    [self.locationManager startUpdatingLocation];
 }
-
+#pragma mark - 懒加载 LazyLoad
+- (CLLocationManager *)locationManager {
+    if(_locationManager == nil) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        //前台定位
+        if ([_locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [_locationManager requestWhenInUseAuthorization];
+        }
+    }
+    return _locationManager;
+}
 @end

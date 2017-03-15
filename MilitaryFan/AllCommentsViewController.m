@@ -60,6 +60,7 @@
             [weakSelf.tableView reloadData];
             [weakSelf.tableView endHeaderRefresh];
         }];
+        [weakSelf.tableView endHeaderRefresh];
     }];
     [self.tableView beginHeaderRefresh];
 }

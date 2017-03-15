@@ -44,20 +44,20 @@
 #pragma mark - 协议方法 UITextViewDelegate
 
 #pragma mark - 方法 Methods
-//发表评论
+//发表问题
 - (void)askQuestion:(UIButton *)sender{
     sender.enabled = NO;
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
-    NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
+//    NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
-    NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
+//    NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
     
     BmobObject *obj = [BmobObject objectWithClassName:@"Question"];
     [obj setObject:userName forKey:@"askName"];
     //字段保留,暂无用处
     [obj setObject:@"" forKey:@"Aid"];
     [obj setObject:@(self.detailType) forKey:@"Type"];
-    [obj setObject:headImageURL forKey:@"headImageURL"];
+//    [obj setObject:headImageURL forKey:@"headImageURL"];
     [obj setObject:self.locationView.locationLb.text forKey:@"location"];
     [obj setObject:self.textView.text forKey:@"question"];
     [obj setObject:@(NO) forKey:@"resolvedState"];
