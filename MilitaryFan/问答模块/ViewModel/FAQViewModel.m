@@ -40,7 +40,7 @@
     return [@([self modelForRow:row].answerNumber) stringValue];
 }
 - (NSString *)createTimeForRow:(NSInteger)row{
-    return [self modelForRow:row].createdAt;
+    return SUB_TIME([self modelForRow:row].createdAt);
 }
 //- (void)getAllQuestionWithCompletionHandle:(void (^)(NSError *))completionHandle{
 //    [self.dataList removeAllObjects];
@@ -127,6 +127,9 @@
 - (void)getQuestionDataWithoutHeadImageWithDetailType:(QuestionDetailType)detailType completionHandle:(void (^)(NSArray *, NSError *))completionHandle{
     [self.dataList removeAllObjects];
     BmobQuery *questionQuery = [BmobQuery queryWithClassName:@"Question"];
+    //按时间倒序
+    [questionQuery orderByDescending:@"createdAt"];
+    //过滤 普通问题&积分问题
     if (detailType != 0) {
         [questionQuery whereKey:@"Type" equalTo:@(detailType)];
     }

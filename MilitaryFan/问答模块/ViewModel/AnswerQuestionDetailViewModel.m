@@ -31,7 +31,7 @@
     return self.questionModel.question;
 }
 - (NSString *)createTime{
-    return self.questionModel.createdAt;
+    return SUB_TIME(self.questionModel.createdAt);
 }
 - (QuestionModel *)questionModel{
     if (_questionModel == nil) {
@@ -94,7 +94,7 @@
     return [self modelForRow:row].answerContent;
 }
 - (NSString *)answerTimeForRow:(NSInteger)row{
-    return [self modelForRow:row].createdAt;
+    return SUB_TIME([self modelForRow:row].createdAt);
 }
 - (AnswerModel *)modelForRow:(NSInteger)row{
     return [self.answerList objectAtIndex:row];
@@ -143,7 +143,7 @@
                 userQuery.limit = 1;
                 [userQuery whereKey:@"userName" equalTo:userName];
                 [userQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-                    NSLog(@"array: %@", array);
+//                    NSLog(@"array: %@", array);
                     BmobObject *userObj = array.firstObject;
                     model.headImageURL = [userObj objectForKey:@"headImageURL"];
                     completionHandle(nil);

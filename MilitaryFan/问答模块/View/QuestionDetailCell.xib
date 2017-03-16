@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="493" height="148"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="493" height="147.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="493" height="147"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eI3-MJ-xaP">
@@ -26,12 +26,12 @@
                             <constraint firstAttribute="width" constant="30" id="Jic-Dd-LLo"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-cT-M8g">
-                        <rect key="frame" x="15" y="65" width="30" height="30"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ask" translatesAutoresizingMaskIntoConstraints="NO" id="0Wy-cT-M8g">
+                        <rect key="frame" x="15" y="65" width="20" height="20"/>
                         <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="h5x-zD-H8w"/>
-                            <constraint firstAttribute="width" constant="30" id="lWi-Zu-Nkb"/>
+                            <constraint firstAttribute="height" constant="20" id="h5x-zD-H8w"/>
+                            <constraint firstAttribute="width" constant="20" id="lWi-Zu-Nkb"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtN-eK-p9S">
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WoN-9F-US6">
-                        <rect key="frame" x="60" y="65" width="418" height="37"/>
+                        <rect key="frame" x="55" y="65" width="423" height="37"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="4hh-Lh-xzM"/>
                         </constraints>
@@ -55,7 +55,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1970-01-01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoE-YY-KFG">
                                 <rect key="frame" x="67" y="15" width="65" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提问于" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-SZ-fEf">
@@ -77,7 +77,7 @@
                 <constraints>
                     <constraint firstItem="0Wy-cT-M8g" firstAttribute="top" secondItem="eI3-MJ-xaP" secondAttribute="bottom" constant="15" id="5UY-lL-WXf"/>
                     <constraint firstAttribute="bottom" secondItem="hGD-UF-haX" secondAttribute="bottom" id="9FO-bb-XXB"/>
-                    <constraint firstItem="WoN-9F-US6" firstAttribute="leading" secondItem="0Wy-cT-M8g" secondAttribute="trailing" constant="15" id="CsA-t7-QT3"/>
+                    <constraint firstItem="WoN-9F-US6" firstAttribute="leading" secondItem="0Wy-cT-M8g" secondAttribute="trailing" constant="20" id="CsA-t7-QT3"/>
                     <constraint firstItem="mtN-eK-p9S" firstAttribute="centerY" secondItem="eI3-MJ-xaP" secondAttribute="centerY" id="EZm-9u-jQ2"/>
                     <constraint firstAttribute="trailing" secondItem="hGD-UF-haX" secondAttribute="trailing" id="Fkb-gY-ft0"/>
                     <constraint firstItem="mtN-eK-p9S" firstAttribute="leading" secondItem="eI3-MJ-xaP" secondAttribute="trailing" constant="15" id="NM6-IF-h1L"/>
@@ -99,4 +99,7 @@
             <point key="canvasLocation" x="-25.5" y="8"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ask" width="42" height="42"/>
+    </resources>
 </document>

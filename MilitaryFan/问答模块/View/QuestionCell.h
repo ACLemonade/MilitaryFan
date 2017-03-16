@@ -17,6 +17,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *resolvedStateLb;
 /** 回答条数 */
 @property (weak, nonatomic) IBOutlet UILabel *answerNumberLb;
+/** 积分图标 */
+@property (weak, nonatomic) IBOutlet UIImageView *rewardIV;
+/** 积分数 */
+@property (weak, nonatomic) IBOutlet UILabel *rewardScoreLb;
+
+
 /** 问题创建时间 */
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLb;
 

@@ -12,10 +12,6 @@
 @interface FAQViewModel : NSObject
 /** 问题数量 */
 @property (nonatomic, assign) NSInteger questionNumber;
-
-@property (nonatomic, strong) NSMutableArray<QuestionModel *> *dataList;
-
-- (QuestionModel *)modelForRow:(NSInteger)row;
 /** 问题Id */
 - (NSString *)objectIdForRow:(NSInteger)row;
 /** 问题内容 */
@@ -28,6 +24,10 @@
 - (NSString *)answerNumberForRow:(NSInteger)row;
 /** 提问时间 */
 - (NSString *)createTimeForRow:(NSInteger)row;
+
+- (QuestionModel *)modelForRow:(NSInteger)row;
+
+@property (nonatomic, strong) NSMutableArray<QuestionModel *> *dataList;
 /** 获取全部问题列表 */
 //- (void)getAllQuestionWithCompletionHandle:(void(^)(NSError *error))completionHandle;
 

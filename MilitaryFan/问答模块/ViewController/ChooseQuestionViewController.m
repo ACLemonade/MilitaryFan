@@ -9,6 +9,8 @@
 #import "ChooseQuestionViewController.h"
 #import "AskQuestionViewController.h"
 #import "AnswerQuestionViewController.h"
+#import "MyAnswerViewController.h"
+#import "MyAskViewController.h"
 
 @interface ChooseQuestionViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -59,16 +61,18 @@
             }
         }
             break;
-            //我的消息
+            //我的提问
         case 2:
         {
-            
+            MyAskViewController *myAskVC = [[MyAskViewController alloc] init];
+            [self.navigationController pushViewController:myAskVC animated:YES];
         }
             break;
-            //我的积分
+            //我的回答
         case 3:
         {
-            
+            MyAnswerViewController *myAnswerVC = [[MyAnswerViewController alloc] init];
+            [self.navigationController pushViewController:myAnswerVC animated:YES];
         }
             break;
             
@@ -119,7 +123,7 @@
 
 - (NSArray *)dataArray{
     if (_dataArray == nil) {
-        _dataArray = @[@"普通问题", @"积分悬赏", @"我的消息", @"我的积分"];
+        _dataArray = @[@"普通问题", @"积分悬赏", @"我的提问", @"我的回答"];
     }
     return _dataArray;
 }

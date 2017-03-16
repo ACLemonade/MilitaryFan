@@ -29,9 +29,11 @@
         [_iconIV mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(15);
             make.centerY.equalTo(0);
-            make.size.equalTo(20);
+            make.size.equalTo(15);
         }];
-        _iconIV.backgroundColor = [UIColor lightGrayColor];
+        _iconIV.image = [UIImage imageNamed:@"reward"];
+//        _iconIV.image = [UIImage imageNamed:@"money"];
+//        _iconIV.backgroundColor = [UIColor lightGrayColor];
     }
     return _iconIV;
 }
@@ -40,7 +42,7 @@
         _nameLb = [[UILabel alloc] init];
         [self addSubview:_nameLb];
         [_nameLb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.iconIV.mas_right).equalTo(30);
+            make.left.equalTo(self.iconIV.mas_right).equalTo(15);
             make.centerY.equalTo(0);
         }];
         _nameLb.text = @"悬赏积分";

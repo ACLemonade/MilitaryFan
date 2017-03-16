@@ -56,6 +56,10 @@
 		8C5B48F01E70DEB50006634A /* RewardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B48EF1E70DEB50006634A /* RewardView.m */; };
 		8C5B48F31E71442C0006634A /* QuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B48F21E71442C0006634A /* QuestionView.m */; };
 		8C62FE901E7676D0001F6C8E /* AnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C62FE8F1E7676D0001F6C8E /* AnswerView.m */; };
+		8C6534A31E7A23D600826382 /* MyAnswerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534A21E7A23D600826382 /* MyAnswerViewModel.m */; };
+		8C6534A61E7A260E00826382 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534A51E7A260E00826382 /* MyAnswerViewController.m */; };
+		8C6534AA1E7A657F00826382 /* MyAskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534A91E7A657F00826382 /* MyAskViewModel.m */; };
+		8C6534AD1E7A65A200826382 /* MyAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534AC1E7A65A200826382 /* MyAskViewController.m */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
 		8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5921E6CFE8000466B33 /* VoteViewController.m */; };
 		8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5951E6CFE8E00466B33 /* FAQViewController.m */; };
@@ -223,6 +227,14 @@
 		8C5B48F21E71442C0006634A /* QuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionView.m; sourceTree = "<group>"; };
 		8C62FE8E1E7676D0001F6C8E /* AnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerView.h; sourceTree = "<group>"; };
 		8C62FE8F1E7676D0001F6C8E /* AnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerView.m; sourceTree = "<group>"; };
+		8C6534A11E7A23D600826382 /* MyAnswerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnswerViewModel.h; sourceTree = "<group>"; };
+		8C6534A21E7A23D600826382 /* MyAnswerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnswerViewModel.m; sourceTree = "<group>"; };
+		8C6534A41E7A260E00826382 /* MyAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnswerViewController.h; sourceTree = "<group>"; };
+		8C6534A51E7A260E00826382 /* MyAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnswerViewController.m; sourceTree = "<group>"; };
+		8C6534A81E7A657F00826382 /* MyAskViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskViewModel.h; sourceTree = "<group>"; };
+		8C6534A91E7A657F00826382 /* MyAskViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewModel.m; sourceTree = "<group>"; };
+		8C6534AB1E7A65A200826382 /* MyAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskViewController.h; sourceTree = "<group>"; };
+		8C6534AC1E7A65A200826382 /* MyAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewController.m; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
 		8C89A5911E6CFE8000466B33 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
@@ -620,6 +632,42 @@
 			path = PSCollectionView;
 			sourceTree = "<group>";
 		};
+		8C65349B1E7A208900826382 /* MyAnswerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C6534A41E7A260E00826382 /* MyAnswerViewController.h */,
+				8C6534A51E7A260E00826382 /* MyAnswerViewController.m */,
+			);
+			path = MyAnswerViewController;
+			sourceTree = "<group>";
+		};
+		8C65349C1E7A208900826382 /* MyAskViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C6534AB1E7A65A200826382 /* MyAskViewController.h */,
+				8C6534AC1E7A65A200826382 /* MyAskViewController.m */,
+			);
+			path = MyAskViewController;
+			sourceTree = "<group>";
+		};
+		8C6534A01E7A23B500826382 /* MyAnswerViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8C6534A11E7A23D600826382 /* MyAnswerViewModel.h */,
+				8C6534A21E7A23D600826382 /* MyAnswerViewModel.m */,
+			);
+			path = MyAnswerViewModel;
+			sourceTree = "<group>";
+		};
+		8C6534A71E7A656D00826382 /* MyAskViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8C6534A81E7A657F00826382 /* MyAskViewModel.h */,
+				8C6534A91E7A657F00826382 /* MyAskViewModel.m */,
+			);
+			path = MyAskViewModel;
+			sourceTree = "<group>";
+		};
 		8C89A5871E6CFC3A00466B33 /* 投票模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +762,8 @@
 				8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */,
 				8CF035121E6E537600F763AD /* AskViewController */,
 				8CF035111E6E537600F763AD /* AnswerViewController */,
+				8C65349C1E7A208900826382 /* MyAskViewController */,
+				8C65349B1E7A208900826382 /* MyAnswerViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -725,6 +775,8 @@
 				8C1A34711E6F9A8600F49894 /* FAQViewModel.m */,
 				8C2910AE1E7785420062E30A /* AnswerQuestionDetailViewModel.h */,
 				8C2910AF1E7785420062E30A /* AnswerQuestionDetailViewModel.m */,
+				8C6534A71E7A656D00826382 /* MyAskViewModel */,
+				8C6534A01E7A23B500826382 /* MyAnswerViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1348,6 +1400,8 @@
 				8CC954481D6850190022F157 /* PageController.m in Sources */,
 				8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */,
 				8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */,
+				8C6534A61E7A260E00826382 /* MyAnswerViewController.m in Sources */,
+				8C6534AA1E7A657F00826382 /* MyAskViewModel.m in Sources */,
 				8C62FE901E7676D0001F6C8E /* AnswerView.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
 				8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */,
@@ -1362,6 +1416,7 @@
 				8C2A6F3A1D67F8CA0028F634 /* AppDelegate.m in Sources */,
 				8C2A6F8C1D6802690028F634 /* iCarousel.m in Sources */,
 				8C9305061D6D791800F9182D /* ShareCell.m in Sources */,
+				8C6534A31E7A23D600826382 /* MyAnswerViewModel.m in Sources */,
 				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
@@ -1374,6 +1429,7 @@
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */,
+				8C6534AD1E7A65A200826382 /* MyAskViewController.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
 				8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */,
