@@ -73,6 +73,16 @@
                             <constraint firstAttribute="height" constant="45" id="tqs-jw-CIK"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已解决" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVz-Kb-xQC">
+                        <rect key="frame" x="408" y="20" width="70" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="2Y0-f1-Utm"/>
+                            <constraint firstAttribute="height" constant="35" id="BMN-VI-owh"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0Wy-cT-M8g" firstAttribute="top" secondItem="eI3-MJ-xaP" secondAttribute="bottom" constant="15" id="5UY-lL-WXf"/>
@@ -83,7 +93,9 @@
                     <constraint firstItem="mtN-eK-p9S" firstAttribute="leading" secondItem="eI3-MJ-xaP" secondAttribute="trailing" constant="15" id="NM6-IF-h1L"/>
                     <constraint firstAttribute="trailing" secondItem="WoN-9F-US6" secondAttribute="trailing" constant="15" id="Rcx-4c-Eap"/>
                     <constraint firstItem="WoN-9F-US6" firstAttribute="top" secondItem="0Wy-cT-M8g" secondAttribute="top" id="U7w-8h-y3l"/>
+                    <constraint firstAttribute="trailing" secondItem="GVz-Kb-xQC" secondAttribute="trailing" constant="15" id="Wsh-V7-FvF"/>
                     <constraint firstItem="hGD-UF-haX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="cUS-TT-vUz"/>
+                    <constraint firstItem="GVz-Kb-xQC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="cgu-PK-EFU"/>
                     <constraint firstItem="eI3-MJ-xaP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="hs9-ag-ake"/>
                     <constraint firstItem="hGD-UF-haX" firstAttribute="top" secondItem="WoN-9F-US6" secondAttribute="bottom" id="oWG-Dr-heS"/>
                     <constraint firstItem="0Wy-cT-M8g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="paH-5Y-UZ6"/>
@@ -95,6 +107,7 @@
                 <outlet property="contentLb" destination="WoN-9F-US6" id="ciN-SC-YC8"/>
                 <outlet property="createTimeLb" destination="zoE-YY-KFG" id="NDN-43-nrE"/>
                 <outlet property="headIV" destination="eI3-MJ-xaP" id="DMO-an-foL"/>
+                <outlet property="resolvedStateLb" destination="GVz-Kb-xQC" id="gJ3-ar-rll"/>
             </connections>
             <point key="canvasLocation" x="-25.5" y="8"/>
         </tableViewCell>

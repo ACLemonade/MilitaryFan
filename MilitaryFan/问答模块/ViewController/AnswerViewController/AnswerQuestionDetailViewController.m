@@ -43,12 +43,17 @@
         cell.askNameLb.text = self.aqDetailVM.askName;
         cell.contentLb.text = self.aqDetailVM.questionContent;
         cell.createTimeLb.text = self.aqDetailVM.createTime;
+        cell.resolvedStateLb.hidden = self.aqDetailVM.resolovedHidden;
         return cell;
     } else {
         AnswerCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([AnswerCell class]) forIndexPath:indexPath];
         [cell.headIV setImageWithURL:[self.aqDetailVM answerHeadImageURLForRow:row] placeholderImage:kDefaultHeadImage];
         cell.answerNameLb.text = [self.aqDetailVM answerNameForRow:row];
         cell.answerContentLb.text = [self.aqDetailVM answerContentForRow:row];
+        [cell.adoptBtn addTarget:self action:@selector(adoptAnswer:) forControlEvents:UIControlEventTouchUpInside];
+        cell.adoptBtn.tag = 1000 + row;
+        cell.adoptBtn.hidden = [self.aqDetailVM adoptionHiddenStateForRow:row];
+        cell.adoptBtn.enabled = [self.aqDetailVM adoptionEnabledStateForRow:row];
         return cell;
     }
     
@@ -64,6 +69,8 @@
     cell.separatorInset = UIEdgeInsetsZero;
     cell.layoutMargins = UIEdgeInsetsZero;
     cell.preservesSuperviewLayoutMargins = NO;
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 #pragma mark - 协议方法 AnswerViewDelegate
 - (void)answerView:(AnswerView *)answerView contentViewDidChanged:(UITextView *)contentView{
@@ -83,6 +90,57 @@
     }];
 }
 #pragma mark - 方法 Methods
+- (void)adoptAnswer:(UIButton *)sender{
+    sender.enabled = NO;
+    [Factory textHUDWithVC:self text:@"已采纳回答"];
+    NSInteger row = sender.tag - 1000;
+    NSString *answerObjectId = [self.aqDetailVM answerObjectIdForRow:row];
+    NSString *answerName = [self.aqDetailVM answerNameForRow:row];
+    //更新Reward表
+    BmobQuery *rewardQuery = [BmobQuery queryWithClassName:@"Reward"];
+    rewardQuery.limit = 1;
+    [rewardQuery whereKey:@"userName" equalTo:answerName];
+    [rewardQuery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (!error) {
+            BmobObject *rewardObj = array.firstObject;
+            [rewardObj incrementKey:@"rewardScore" byNumber:@(self.aqDetailVM.rewardScore)];
+            [rewardObj updateInBackground];
+        } else {
+            NSLog(@"error: %@", error);
+        }
+    }];
+    //更新Answer表
+    BmobObject *answerObj = [BmobObject objectWithoutDataWithClassName:@"Answer" objectId:answerObjectId];
+    [answerObj setObject:@1 forKey:@"adoptionState"];
+    [answerObj updateInBackground];
+    //更新Question表
+    NSString *questionObjectId = self.aqDetailVM.questionObjectId;
+    BmobObject *questionObj = [BmobObject objectWithoutDataWithClassName:@"Question" objectId:questionObjectId];
+    [questionObj setObject:answerName forKey:@"answerName"];
+    [questionObj setObject:@YES forKey:@"resolvedState"];
+    [questionObj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (!error) {
+            [self.aqDetailVM getQuestionDetailWithObjectId:self.objectId completionHandle:^(NSError *error) {
+                if (!error) {
+                    [self.tableView reloadData];
+                } else {
+                    NSLog(@"error: %@", error);
+                }
+            }];
+            
+            [self.aqDetailVM getAllAnswerWithAskId:self.objectId completionHandle:^(NSError *error) {
+                if (!error) {
+                    [self.tableView reloadData];
+                } else {
+                    NSLog(@"error: %@", error);
+                }
+            }];
+        } else {
+            NSLog(@"error: %@", error);
+            [Factory textHUDWithVC:self text:@"操作失败"];
+        }
+    }];
+}
 - (void)keyboardDidChanged:(NSNotification *)sender{
     NSLog(@"%@", sender.userInfo);
     CGRect rect = [[sender.userInfo objectForKey:@"UIKeyboardFrameEndUserInfoKey"] CGRectValue];
@@ -101,6 +159,7 @@
     [obj setObject:self.aqDetailVM.askName forKey:@"askName"];
     [obj setObject:@(self.aqDetailVM.questionType) forKey:@"Type"];
     [obj setObject:self.answerView.contentView.text forKey:@"content"];
+    [obj setObject:@0 forKey:@"adoptionState"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         sender.enabled = YES;
         if (isSuccessful) {
@@ -110,11 +169,31 @@
             self.answerView.contentView.text = @"";
             BmobObject *obj = [BmobObject objectWithoutDataWithClassName:@"Question" objectId:self.objectId];
             [obj incrementKey:@"answerNumber"];
-            [obj updateInBackground];
-            [self.tableView beginHeaderRefresh];
-            
+            [obj updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                if (!error) {
+                    [self.aqDetailVM getQuestionDetailWithObjectId:self.objectId completionHandle:^(NSError *error) {
+                        if (!error) {
+                            [self.tableView reloadData];
+                        } else {
+                            NSLog(@"error: %@", error);
+                        }
+                    }];
+                    
+                    [self.aqDetailVM getAllAnswerWithAskId:self.objectId completionHandle:^(NSError *error) {
+                        if (!error) {
+                            [self.tableView reloadData];
+                        } else {
+                            NSLog(@"error: %@", error);
+                        }
+                    }];
+                } else {
+                    NSLog(@"error: %@", error);
+                    [Factory textHUDWithVC:self text:@"操作失败"];
+                }
+            }];
         } else {
             NSLog(@"error: %@", error);
+            [Factory textHUDWithVC:self text:@"操作失败"];
         }
     }];
 }
@@ -123,39 +202,26 @@
     [super viewDidLoad];
     [self tableView];
     [self answerView];
+
 //    NSLog(@"viewFrame: %@", NSStringFromCGRect(self.view.frame));
 //    NSLog(@"frame: %@", NSStringFromCGRect(self.answerView.frame));
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    //获取问题详情数据
+
     [self.aqDetailVM getQuestionDetailWithObjectId:self.objectId completionHandle:^(NSError *error) {
         if (!error) {
             [self.tableView reloadData];
-            
         } else {
             NSLog(@"error: %@", error);
         }
     }];
-//    [self.aqDetailVM getAllAnswerWithoutHeadImageWithCompletionHandle:^(NSArray *userNameArray, NSError *error) {
-//        if (!error) {
-//            [self.tableView reloadData];
-//        } else {
-//            NSLog(@"error: %@", error);
-//        }
-//    }];
-    WK(weakSelf);
-    //获取回答列表数据
-    [self.tableView addHeaderRefresh:^{
-        [weakSelf.aqDetailVM getAllAnswerWithAskId:weakSelf.objectId completionHandle:^(NSError *error) {
-            if (!error) {
-                [weakSelf.tableView reloadData];
-            } else {
-                NSLog(@"error: %@", error);
-            }
-            [weakSelf.tableView endHeaderRefresh];
-        }];
-        [weakSelf.tableView endHeaderRefresh];
+
+    [self.aqDetailVM getAllAnswerWithAskId:self.objectId completionHandle:^(NSError *error) {
+        if (!error) {
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"error: %@", error);
+        }
     }];
-    [self.tableView beginHeaderRefresh];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -163,11 +229,11 @@
 #pragma mark - 懒加载 LazyLoad
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, self.view.frame.size.height - STATUSBAR_AND_NAVIGATIONBAR_HEIGHT - 46) style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(0);
-        }];
+//        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(0);
+//        }];
         _tableView.estimatedRowHeight = 145;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         

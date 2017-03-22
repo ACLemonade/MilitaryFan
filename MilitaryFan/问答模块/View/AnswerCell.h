@@ -17,5 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *answerContentLb;
 /** 回答者位置 */
 @property (weak, nonatomic) IBOutlet UILabel *locationLb;
+/** 采纳按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *adoptBtn;
+/** 举报按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *tipOffBtn;
 
 @end

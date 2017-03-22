@@ -40,7 +40,11 @@
             make.right.equalTo(self.sendBtn.mas_left).equalTo(-5);
         }];
         _contentView.font = [UIFont systemFontOfSize:16];
-        _contentView.backgroundColor = kRGBA(239, 239, 244, 1.0);
+//        _contentView.backgroundColor = kRGBA(239, 239, 244, 1.0);
+        _contentView.layer.masksToBounds = YES;
+        _contentView.layer.cornerRadius = 10;
+        _contentView.layer.borderColor = kRGBA(200, 200, 200, 1.0).CGColor;
+        _contentView.layer.borderWidth = 1;
 //        _contentView.layoutManager.allowsNonContiguousLayout = NO;
         _contentView.delegate = self;
         
@@ -57,7 +61,11 @@
             make.width.equalTo(40);
             make.height.equalTo(36);
         }];
-        _sendBtn.backgroundColor = [UIColor grayColor];
+        UIImage *image = [UIImage imageNamed:@"task_btn_share"];
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        [_sendBtn setImage:image forState:UIControlStateNormal];
+        
+//        _sendBtn.backgroundColor = [UIColor grayColor];
     }
     return _sendBtn;
     

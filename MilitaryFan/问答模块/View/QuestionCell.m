@@ -14,6 +14,11 @@
     [super awakeFromNib];
     _headIV.layer.masksToBounds = YES;
     _headIV.layer.cornerRadius = _headIV.frame.size.width/2;
+    
+    _meLb.layer.masksToBounds = YES;
+    _meLb.layer.cornerRadius = _meLb.frame.size.width/2;
+    _meLb.layer.borderColor = kRGBA(100, 100, 100, 1.0).CGColor;
+    _meLb.layer.borderWidth = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

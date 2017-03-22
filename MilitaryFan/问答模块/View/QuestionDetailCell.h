@@ -17,5 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLb;
 /** 提问时间 */
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLb;
+/** 解决状态 */
+@property (weak, nonatomic) IBOutlet UILabel *resolvedStateLb;
 
 @end

@@ -26,6 +26,11 @@
 - (NSString *)contentForRow:(NSInteger)row{
     return [self modelForRow:row].question;
 }
+- (BOOL)meHideStateForRow:(NSInteger)row{
+    NSString *userName = [[NSDictionary dictionaryWithContentsOfFile:kUserPlistPath] objectForKey:@"userName"];
+    NSString *tmpName = [self modelForRow:row].askName;
+    return [tmpName isEqualToString:userName] ? NO : YES;
+}
 - (NSURL *)headImageURLFor:(NSInteger)row{
     return [NSURL URLWithString:[self modelForRow:row].headImageURL];
 }
@@ -38,6 +43,9 @@
 }
 - (NSString *)answerNumberForRow:(NSInteger)row{
     return [@([self modelForRow:row].answerNumber) stringValue];
+}
+- (NSString *)rewardScoreForRow:(NSInteger)row{
+    return [@([self modelForRow:row].rewardScore) stringValue];
 }
 - (NSString *)createTimeForRow:(NSInteger)row{
     return SUB_TIME([self modelForRow:row].createdAt);

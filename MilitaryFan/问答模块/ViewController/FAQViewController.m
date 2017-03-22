@@ -38,10 +38,13 @@
     NSInteger row = indexPath.row;
     QuestionCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QuestionCell class]) forIndexPath:indexPath];
     cell.contentLb.text = [self.faqVM contentForRow:row];
-    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row] placeholderImage:[UIImage imageNamed:@"Persn_login"]];
+    [cell.headIV setImageWithURL:[self.faqVM headImageURLFor:row] placeholderImage:kDefaultHeadImage];
     cell.resolvedStateLb.text = [self.faqVM resolvedStateForRow:row];
+    cell.resolvedStateLb.textColor = [[self.faqVM resolvedStateForRow:row] isEqualToString:@"已解决"] ? kRGBA(150, 150, 150, 1.0) : [UIColor redColor];
     cell.answerNumberLb.text = [self.faqVM answerNumberForRow:row];
+    cell.rewardScoreLb.text = [self.faqVM rewardScoreForRow:row];
     cell.createTimeLb.text = [self.faqVM createTimeForRow:row];
+    cell.meLb.hidden = [self.faqVM meHideStateForRow:row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

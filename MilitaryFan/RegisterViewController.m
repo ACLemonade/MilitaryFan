@@ -156,6 +156,11 @@
                     //判断保存是否成功
                     if (isSuccessful) {
 //                        NSLog(@"注册成功!");
+                        //注册成功之时添加Reward表信息
+                        BmobObject *rewardObj = [BmobObject objectWithClassName:@"Reward"];
+                        [rewardObj setObject:kUserName forKey:@"userName"];
+                        [rewardObj setObject:@0 forKey:@"rewardScore"];
+                        [rewardObj saveInBackground];
                         //添加提示框(注册是否成功)
                         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"恭喜" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
                         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

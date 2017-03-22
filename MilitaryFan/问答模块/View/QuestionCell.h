@@ -25,5 +25,7 @@
 
 /** 问题创建时间 */
 @property (weak, nonatomic) IBOutlet UILabel *createTimeLb;
+/** 是否为"我"提出的问题 */
+@property (weak, nonatomic) IBOutlet UILabel *meLb;
 
 @end

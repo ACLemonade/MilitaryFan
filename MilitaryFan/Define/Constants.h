@@ -25,6 +25,8 @@
 [fullTime isEqualToString:@""] ? @"" : [fullTime substringToIndex:10] \
 //Masonry mas_equalTo()简写宏
 #define MAS_SHORTHAND_GLOBALS
+//当前登录用户名
+#define kUserName [[NSDictionary dictionaryWithContentsOfFile:kUserPlistPath] objectForKey:@"userName"]
 //appdelegate的实例对象
 #define kAppdelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 //把self转化为 __weak __block的方式, 方便的在block中使用而不导致内存循环应用问题

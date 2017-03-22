@@ -18,11 +18,17 @@
 @end
 @implementation AnswerQuestionDetailViewModel
 #pragma mark - 问题数据项
+- (NSString *)questionObjectId{
+    return self.questionModel.objectId;
+}
 - (NSURL *)headImageURL{
     return [NSURL URLWithString:self.questionModel.headImageURL];
 }
 - (NSString *)askName{
     return self.questionModel.askName;
+}
+- (NSString *)answerName{
+    return self.questionModel.answerName;
 }
 - (NSInteger)questionType{
     return self.questionModel.Type;
@@ -30,8 +36,14 @@
 - (NSString *)questionContent{
     return self.questionModel.question;
 }
+- (NSInteger)rewardScore{
+    return self.questionModel.rewardScore;
+}
 - (NSString *)createTime{
     return SUB_TIME(self.questionModel.createdAt);
+}
+- (BOOL)resolovedHidden{
+    return !self.questionModel.resolvedState;
 }
 - (QuestionModel *)questionModel{
     if (_questionModel == nil) {
@@ -84,6 +96,9 @@
 - (NSInteger)allAnswerNumber{
     return self.answerList.count;
 }
+- (NSString *)answerObjectIdForRow:(NSInteger)row{
+    return [self modelForRow:row].objectId;
+}
 - (NSURL *)answerHeadImageURLForRow:(NSInteger)row{
     return [NSURL URLWithString:[self modelForRow:row].headImageURL];
 }
@@ -95,6 +110,16 @@
 }
 - (NSString *)answerTimeForRow:(NSInteger)row{
     return SUB_TIME([self modelForRow:row].createdAt);
+}
+- (BOOL)adoptionEnabledStateForRow:(NSInteger)row{
+    return ![self modelForRow:row].adoptionState;
+}
+- (BOOL)adoptionHiddenStateForRow:(NSInteger)row{
+    if (self.questionModel.resolvedState && (![self modelForRow:row].adoptionState)) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 - (AnswerModel *)modelForRow:(NSInteger)row{
     return [self.answerList objectAtIndex:row];
@@ -120,8 +145,10 @@
             NSMutableArray *arr = [NSMutableArray array];
             for (BmobObject *obj in array) {
                 AnswerModel *model = [[AnswerModel alloc] init];
+                model.objectId = obj.objectId;
                 model.answerName = [obj objectForKey:@"answerName"];
                 model.answerContent = [obj objectForKey:@"content"];
+                model.adoptionState = [[obj objectForKey:@"adoptionState"] integerValue];
                 model.createdAt = [obj objectForKey:@"createdAt"];
                 [arr addObject:model.answerName];
                 [self.answerList addObject:model];

@@ -36,9 +36,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell" forIndexPath:indexPath];
-        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
         //小箭头
         cell.accessoryType = 1;
+        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
+        //加一条分割线
+        UIView *lineView = [[UIView alloc] init];
+        [cell addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.bottom.right.equalTo(0);
+            make.height.equalTo(0.5);
+        }];
+        lineView.backgroundColor = kRGBA(150, 150, 150, 1.0);
+        
         return cell;
     }else{
         LogoutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LogoutCell"];
@@ -55,13 +64,15 @@
     self.topView.frame = frame;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    //左侧分割线留白
-    cell.separatorInset = UIEdgeInsetsZero;
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
-    if (indexPath.section == 0 && indexPath.row < 2) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.textColor = [UIColor grayColor];
+    if (indexPath.section == 0) {
+        //左侧分割线留白
+        cell.separatorInset = UIEdgeInsetsZero;
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = NO;
+        if (indexPath.row < 2) {
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.textLabel.textColor = [UIColor grayColor];
+        }
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -255,6 +266,8 @@
         }];
         _tableView.contentInset = UIEdgeInsetsMake(kTopViewH*0.5, 0, 0, 0);
         [_tableView insertSubview:self.topView atIndex:0];
+        
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         
@@ -275,6 +288,7 @@
 @implementation LogoutCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = TABLEVIEW_BACKGROUNDCOLOR;
         [self logoutBtn];
     }
     return self;
@@ -292,6 +306,8 @@
         [_logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
         _logoutBtn.titleLabel.font = [UIFont systemFontOfSize:17];
         [_logoutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _logoutBtn.layer.masksToBounds = YES;
+        _logoutBtn.layer.cornerRadius = 5;
     }
     return _logoutBtn;
 }
