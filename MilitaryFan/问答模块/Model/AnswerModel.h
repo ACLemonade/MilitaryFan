@@ -20,6 +20,8 @@
 @property (nonatomic, assign) NSInteger Type;
 /** 问题Id */
 @property (nonatomic, strong) NSString *askId;
+/** 位置 */
+@property (nonatomic, strong) NSString *location;
 /** 采纳状态 */
 @property (nonatomic, assign) NSInteger adoptionState;
 /** 创建时间 */

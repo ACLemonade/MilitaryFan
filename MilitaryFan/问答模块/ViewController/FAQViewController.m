@@ -30,6 +30,12 @@
 @end
 
 @implementation FAQViewController
+#pragma mark - 协议方法 UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+}
+
+
 #pragma mark - 协议方法 UITableViewDataSource/Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.faqVM.questionNumber;
@@ -99,6 +105,10 @@
         }];
     }];
     [self.tableView beginHeaderRefresh];
+    //当网络不好的时候的处理
+    [NSTimer bk_scheduledTimerWithTimeInterval:5 block:^(NSTimer *timer) {
+        [self.tableView endHeaderRefresh];
+    } repeats:NO];
 }
 #pragma mark - 懒加载 LazyLoad
 - (UISearchBar *)searchBar {

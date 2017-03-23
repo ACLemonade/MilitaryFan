@@ -17,6 +17,8 @@
 @property (nonatomic, strong) NSURL *headImageURL;
 /** 提问者昵称 */
 @property (nonatomic, strong) NSString *askName;
+/** 提问者位置 */
+@property (nonatomic, strong) NSString *askLocation;
 /** 回答者昵称 */
 @property (nonatomic, strong) NSString *answerName;
 /** 问题类型 */
@@ -27,17 +29,14 @@
 @property (nonatomic, assign) NSInteger rewardScore;
 /** 提问时间 */
 @property (nonatomic, strong) NSString *createTime;
-/** 是否显示"已解决" */
-@property (nonatomic, assign) BOOL resolovedHidden;
+/** 问题解决状态 */
+@property (nonatomic, assign) BOOL questionResolvedState;
 
 @property (nonatomic, strong) QuestionModel *questionModel;
 /** 根据objectId得到问题 */
 - (void)getQuestionDetailWithObjectId:(NSString *)objectId completionHandle:(void(^)(NSError *error))completionHandle;
 
-
-
 @property (nonatomic, assign) NSInteger allAnswerNumber;
-
 /** 回答Id */
 - (NSString *)answerObjectIdForRow:(NSInteger)row;
 /** 回答者头像 */
@@ -46,6 +45,8 @@
 - (NSString *)answerNameForRow:(NSInteger)row;
 /** 回答内容 */
 - (NSString *)answerContentForRow:(NSInteger)row;
+/** 回答者位置 */
+- (NSString *)answerLocationForRow:(NSInteger)row;
 /** 回答时间 */
 - (NSString *)answerTimeForRow:(NSInteger)row;
 /** 是否可点击采纳按钮 */

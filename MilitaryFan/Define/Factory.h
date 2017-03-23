@@ -68,4 +68,27 @@ typedef NS_ENUM(NSUInteger, QuestionDetailType) {
 
 /** 将BmobObject对象转化成目标对象 */
 + (id)classConvertedFromBmobObject:(BmobObject *)bmobObject;
+
+/*  显示提示框
+ *
+ *  @param  viewController      显示在哪个控制器上
+ *  @param  title               提示框标题
+ *  @param  message             提示框信息
+ *
+ *  @param  yesActionHander     "确定"按钮点击事件
+ *  @param  cancelActionHander  "取消"按钮点击事件
+ *
+ *  @param  completionHandler   提示框显示完成事件
+ *
+ */
++ (void)showAlertViewInViewController:(UIViewController *)viewController withTitle:(nullable NSString *)title message:(nullable NSString *)message yesActionHander:(void(^ __nullable)(UIAlertAction *yesAction))yesActionHander cancelActionHander:(void(^ __nullable)(UIAlertAction *cancelAction))cancelActionHander completionHandler:(void(^ __nullable)(void))completionHandler;
+
+
+
+
+
+
+
+
+
 @end

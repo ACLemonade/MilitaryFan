@@ -27,6 +27,9 @@
 - (NSString *)askName{
     return self.questionModel.askName;
 }
+- (NSString *)askLocation{
+    return self.questionModel.location;
+}
 - (NSString *)answerName{
     return self.questionModel.answerName;
 }
@@ -42,8 +45,9 @@
 - (NSString *)createTime{
     return SUB_TIME(self.questionModel.createdAt);
 }
-- (BOOL)resolovedHidden{
-    return !self.questionModel.resolvedState;
+
+- (BOOL)questionResolvedState{
+    return self.questionModel.resolvedState;
 }
 - (QuestionModel *)questionModel{
     if (_questionModel == nil) {
@@ -111,11 +115,14 @@
 - (NSString *)answerTimeForRow:(NSInteger)row{
     return SUB_TIME([self modelForRow:row].createdAt);
 }
+- (NSString *)answerLocationForRow:(NSInteger)row{
+    return [self modelForRow:row].location;
+}
 - (BOOL)adoptionEnabledStateForRow:(NSInteger)row{
     return ![self modelForRow:row].adoptionState;
 }
 - (BOOL)adoptionHiddenStateForRow:(NSInteger)row{
-    if (self.questionModel.resolvedState && (![self modelForRow:row].adoptionState)) {
+    if ((self.questionModel.resolvedState && ![self modelForRow:row].adoptionState) || ![self.askName isEqualToString:kUserName]) {
         return YES;
     } else {
         return NO;
@@ -148,6 +155,7 @@
                 model.objectId = obj.objectId;
                 model.answerName = [obj objectForKey:@"answerName"];
                 model.answerContent = [obj objectForKey:@"content"];
+                model.location = [obj objectForKey:@"location"];
                 model.adoptionState = [[obj objectForKey:@"adoptionState"] integerValue];
                 model.createdAt = [obj objectForKey:@"createdAt"];
                 [arr addObject:model.answerName];

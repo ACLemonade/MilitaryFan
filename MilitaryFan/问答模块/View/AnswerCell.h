@@ -20,6 +20,6 @@
 /** 采纳按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *adoptBtn;
 /** 举报按钮 */
-@property (weak, nonatomic) IBOutlet UIButton *tipOffBtn;
+@property (weak, nonatomic) IBOutlet UIButton *reportBtn;
 
 @end

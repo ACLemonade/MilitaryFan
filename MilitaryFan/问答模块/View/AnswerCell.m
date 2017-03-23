@@ -18,10 +18,10 @@
     self.adoptBtn.layer.masksToBounds = YES;
     self.adoptBtn.layer.cornerRadius = 8;
     
-    self.tipOffBtn.layer.masksToBounds = YES;
-    self.tipOffBtn.layer.cornerRadius = 8;
-    self.tipOffBtn.layer.borderColor = kRGBA(150, 150, 150, 1.0).CGColor;
-    self.tipOffBtn.layer.borderWidth = 0.5;
+    self.reportBtn.layer.masksToBounds = YES;
+    self.reportBtn.layer.cornerRadius = 8;
+    self.reportBtn.layer.borderColor = kRGBA(150, 150, 150, 1.0).CGColor;
+    self.reportBtn.layer.borderWidth = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

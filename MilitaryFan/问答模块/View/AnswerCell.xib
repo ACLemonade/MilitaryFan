@@ -125,7 +125,7 @@
                 <outlet property="answerNameLb" destination="2MD-Rk-JvE" id="EBw-fW-XBz"/>
                 <outlet property="headIV" destination="ALs-7D-55O" id="EZU-Xw-6F1"/>
                 <outlet property="locationLb" destination="fg3-HI-Rhk" id="QnA-0R-lhd"/>
-                <outlet property="tipOffBtn" destination="CO2-Xr-8Fy" id="EsO-UW-3nc"/>
+                <outlet property="reportBtn" destination="CO2-Xr-8Fy" id="jXQ-Eu-4T2"/>
             </connections>
             <point key="canvasLocation" x="18.5" y="47"/>
         </tableViewCell>

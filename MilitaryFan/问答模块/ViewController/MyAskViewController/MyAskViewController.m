@@ -11,6 +11,8 @@
 #import "MyAskViewModel.h"
 #import "QuestionCell.h"
 
+#import "UIScrollView+Refresh.h"
+
 @interface MyAskViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) MyAskViewModel *myAskVM;
@@ -58,13 +60,18 @@
     [super viewDidLoad];
     self.view.backgroundColor = TABLEVIEW_BACKGROUNDCOLOR;
     NSString *userName = [[NSDictionary dictionaryWithContentsOfFile:kUserPlistPath] objectForKey:@"userName"];
-    [self.myAskVM getMyQuestionWithAskName:userName completionHandle:^(NSError *error) {
-        if (!error) {
-            [self.tableView reloadData];
-        } else {
-            NSLog(@"error: %@", error);
-        }
+    WK(weakSelf);
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.myAskVM getMyQuestionWithAskName:userName completionHandle:^(NSError *error) {
+            if (!error) {
+                [weakSelf.tableView reloadData];
+            } else {
+                NSLog(@"error: %@", error);
+            }
+            [weakSelf.tableView endHeaderRefresh];
+        }];
     }];
+    [self.tableView beginHeaderRefresh];
 }
 #pragma mark - 懒加载 LazyLoad
 - (UITableView *)tableView{

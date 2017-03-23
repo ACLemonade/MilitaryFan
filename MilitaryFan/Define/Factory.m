@@ -104,4 +104,19 @@
 + (id)classConvertedFromBmobObject:(BmobObject *)bmobObject{
     return nil;
 }
+
++ (void)showAlertViewInViewController:(UIViewController *)viewController withTitle:(NSString *)title message:(NSString *)message yesActionHander:(void (^)(UIAlertAction *))yesActionHander cancelActionHander:(void (^)(UIAlertAction *))cancelActionHander completionHandler:(void (^)(void))completionHandler{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        yesActionHander(action);
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        cancelActionHander(action);
+    }];
+    [alertVC addAction:yesAction];
+    [alertVC addAction:cancelAction];
+    [viewController presentViewController:alertVC animated:YES completion:^{
+        completionHandler();
+    }];
+}
 @end

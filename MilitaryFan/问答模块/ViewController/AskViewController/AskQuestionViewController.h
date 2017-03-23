@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@import CoreLocation;
+
 
 @interface AskQuestionViewController : UIViewController
 //@property (nonatomic) NSString *aid;

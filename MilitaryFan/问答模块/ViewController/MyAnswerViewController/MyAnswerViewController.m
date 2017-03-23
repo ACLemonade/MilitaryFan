@@ -31,6 +31,8 @@
     [cell.headIV setImageWithURL:[self.myAnswerVM answerHeadImageURLForSection:section] placeholderImage:kDefaultHeadImage];
     cell.answerNameLb.text = [self.myAnswerVM answerNameForForSection:section];
     cell.answerContentLb.text = [self.myAnswerVM answerContentForForSection:section];
+    cell.adoptBtn.hidden = YES;
+    cell.reportBtn.hidden = YES;
     return cell;
 }
 

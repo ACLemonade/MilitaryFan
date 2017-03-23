@@ -10,6 +10,8 @@
 #import "LocationView.h"
 #import "RewardView.h"
 
+@import CoreLocation;
+
 @interface AskQuestionViewController () <UITextViewDelegate, CLLocationManagerDelegate>
 @property (nonatomic, strong) UITextView *textView;
 
