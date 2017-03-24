@@ -13,7 +13,7 @@
 + (void)naviClickBackWithViewController:(UIViewController *)viewController{
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"menu_backBlack"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"NavBack"] forState:UIControlStateNormal];
     backBtn.bounds = CGRectMake(0, 0, 22, 22);
     [backBtn bk_addEventHandler:^(id sender) {
         [viewController.navigationController popViewControllerAnimated:YES];
@@ -24,7 +24,7 @@
 + (void)nonNaviClickBackWithViewController:(UIViewController *)viewController{
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"menu_backBlack"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"NavBack"] forState:UIControlStateNormal];
     backBtn.bounds = CGRectMake(0, 0, 22, 22);
     [backBtn bk_addEventHandler:^(id sender) {
         [viewController dismissViewControllerAnimated:YES completion:nil];

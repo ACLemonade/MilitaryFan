@@ -129,8 +129,7 @@
     NSString *answerName = [self.aqDetailVM answerNameForRow:row];
     NSString *askName = self.aqDetailVM.askName;
     if ([answerName isEqualToString:askName]) {
-        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"自问自答将无法获得积分,您确定要继续采纳吗?" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [Factory showAlertViewInViewController:self withTitle:@"提示" message:@"自问自答将无法获得积分,您确定要继续采纳吗?" yesActionHander:^(UIAlertAction *yesAction) {
             sender.enabled = NO;
             NSString *answerObjectId = [self.aqDetailVM answerObjectIdForRow:row];
             //更新Answer表
@@ -165,15 +164,13 @@
                     [Factory textHUDWithVC:self text:@"操作失败"];
                 }
             }];
-        }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        } cancelActionHander:^(UIAlertAction *cancelAction) {
             //重新交互
             sender.userInteractionEnabled = YES;
+            
+        } completionHandler:^{
+            ;
         }];
-        [alertVC addAction:cancelAction];
-        [alertVC addAction:yesAction];
-        [self presentViewController:alertVC animated:YES completion:nil];
-        
     } else {
         sender.enabled = NO;
         NSString *answerObjectId = [self.aqDetailVM answerObjectIdForRow:row];

@@ -91,7 +91,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self tableView];
-    [Factory nonNaviClickBackWithViewController:self];
+//    [Factory nonNaviClickBackWithViewController:self];
+    [Factory naviClickBackWithViewController:self];
     self.navigationItem.title = @"收藏";
     self.automaticallyAdjustsScrollViewInsets = NO;
 }

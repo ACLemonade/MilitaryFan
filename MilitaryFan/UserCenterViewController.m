@@ -7,7 +7,13 @@
 //
 
 #import "UserCenterViewController.h"
+
+#import "MyDetailInfoViewController.h"
+#import "CollectionViewController.h"
+#import "MyAskViewController.h"
+#import "MyAnswerViewController.h"
 #import "ModifyPasswordViewController.h"
+
 #import "AppDelegate.h"
 
 #define kTopViewH 350
@@ -15,7 +21,7 @@
 @property (nonatomic) UITableView *tableView;
 @property (nonatomic) UIImageView *topView;
 @property (nonatomic) UIButton *iconBtn;
-@property (nonatomic) NSArray *dataList;
+@property (nonatomic) NSArray *titleList;
 @end
 
 @interface LogoutCell : UITableViewCell
@@ -31,14 +37,14 @@
     if (section == 1) {
         return 1;
     }
-    return self.dataList.count;
+    return self.titleList.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NormalCell" forIndexPath:indexPath];
         //小箭头
         cell.accessoryType = 1;
-        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self.titleList objectAtIndex:indexPath.row];
         //加一条分割线
         UIView *lineView = [[UIView alloc] init];
         [cell addSubview:lineView];
@@ -46,7 +52,7 @@
             make.left.bottom.right.equalTo(0);
             make.height.equalTo(0.5);
         }];
-        lineView.backgroundColor = kRGBA(150, 150, 150, 1.0);
+        lineView.backgroundColor = TABLEVIEW_BACKGROUNDCOLOR;
         
         return cell;
     }else{
@@ -56,12 +62,19 @@
     }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
     CGFloat offsetY = scrollView.contentOffset.y;
     CGFloat offsetH = -kTopViewH * 0.5 - offsetY;
+    //修改头像按钮frame
+    CGRect iconBtnFrame = self.iconBtn.frame;
+    iconBtnFrame.origin.y = -offsetY-iconBtnFrame.size.height;
+    self.iconBtn.frame = iconBtnFrame;
     if (offsetH < 0) return;
-    CGRect frame = self.topView.frame;
-    frame.size.height = kTopViewH + offsetH;
-    self.topView.frame = frame;
+    //修改头部视图frame
+    CGRect topViewFrame = self.topView.frame;
+    topViewFrame.size.height = kTopViewH + offsetH;
+    self.topView.frame = topViewFrame;
+    
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
@@ -69,18 +82,56 @@
         cell.separatorInset = UIEdgeInsetsZero;
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
-        if (indexPath.row < 2) {
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.textLabel.textColor = [UIColor grayColor];
-        }
+//        if (indexPath.row < 2) {
+//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+//            cell.textLabel.textColor = [UIColor grayColor];
+//        }
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //修改密码
-    if (indexPath.section == 0 && indexPath.row == 2) {
-        ModifyPasswordViewController *pwdVC = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ModifyPasswordViewController"];
-        [self.navigationController pushViewController:pwdVC animated:YES];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section == 0) {
+        switch (row) {
+                //我的资料
+            case 0:
+            {
+                MyDetailInfoViewController *myDetailInfoVC = [[MyDetailInfoViewController alloc] init];
+                [self.navigationController pushViewController:myDetailInfoVC animated:YES];
+            }
+                break;
+                //我的收藏
+            case 1:
+            {
+                CollectionViewController *collectionVC = [[CollectionViewController alloc] init];
+                [self.navigationController pushViewController:collectionVC animated:YES];
+            }
+                break;
+                //我的提问
+            case 2:
+            {
+                MyAskViewController *myAskVC = [[MyAskViewController alloc] init];
+                [self.navigationController pushViewController:myAskVC animated:YES];
+            }
+                break;
+                //我的回答
+            case 3:
+            {
+                MyAnswerViewController *myAnswerVC = [[MyAnswerViewController alloc] init];
+                [self.navigationController pushViewController:myAnswerVC animated:YES];
+            }
+                break;
+                //修改密码
+            case 4:
+            {
+                ModifyPasswordViewController *pwdVC = [[UIStoryboard storyboardWithName:@"UserCenter" bundle:nil] instantiateViewControllerWithIdentifier:@"ModifyPasswordViewController"];
+                [self.navigationController pushViewController:pwdVC animated:YES];
+            }
+                break;
+            default:
+                break;
+        }
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -173,6 +224,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tableView];
+    [self iconBtn];
+    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
+    NSLog(@"%@", NSStringFromCGRect(self.iconBtn.frame));
     self.navigationItem.title = @"我";
 //    if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
 //        NSLog(@"存在头像");
@@ -181,7 +235,7 @@
 //    }
     //返回按钮
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"menu_backBlack"] forState:UIControlStateNormal];
+    [backBtn setImage:[UIImage imageNamed:@"NavBack"] forState:UIControlStateNormal];
     backBtn.bounds = CGRectMake(0, 0, 22, 22);
     [backBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
@@ -229,13 +283,15 @@
         _topView.image = [UIImage imageNamed:@"BlackBird"];
         //打开imageView的用户交互,因为需要点击button更换头像
         _topView.userInteractionEnabled = YES;
+        
+	}
+	return _topView;
+}
+- (UIButton *)iconBtn{
+    if (_iconBtn == nil) {
         _iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_topView addSubview:_iconBtn];
-        [_iconBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(0);
-            make.centerX.mas_equalTo(0);
-            make.size.mas_equalTo(75);
-        }];
+        _iconBtn.frame = CGRectMake(kScreenW/2-37.5, kTopViewH/2-75, 75, 75);
+        [self.view addSubview:_iconBtn];
         _iconBtn.imageView.layer.masksToBounds = YES;
         _iconBtn.imageView.layer.cornerRadius = _iconBtn.frame.size.width/2;
         //如果已经设置过头像,则将其从文件中取出来
@@ -246,17 +302,15 @@
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                     [_iconBtn setImage:headImage forState:UIControlStateNormal];
                 }];
-                
             }];
         }else{//否则,使用默认头像
             [_iconBtn setImage:[UIImage imageNamed:@"Persn_login"] forState:UIControlStateNormal];
         }
         
         [_iconBtn addTarget:self action:@selector(changeMyIconIV) forControlEvents:UIControlEventTouchUpInside];
-	}
-	return _topView;
+    }
+    return _iconBtn;
 }
-
 - (UITableView *)tableView {
 	if(_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -266,7 +320,7 @@
         }];
         _tableView.contentInset = UIEdgeInsetsMake(kTopViewH*0.5, 0, 0, 0);
         [_tableView insertSubview:self.topView atIndex:0];
-        
+
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -277,11 +331,11 @@
 	return _tableView;
 }
 
-- (NSArray *)dataList {
-	if(_dataList == nil) {
-        _dataList = @[@"个人资料(开发中)", @"我的好友(开发中)", @"修改密码"];
+- (NSArray *)titleList {
+	if(_titleList == nil) {
+        _titleList = @[@"我的资料", @"我的收藏", @"我的提问", @"我的回答", @"修改密码"];
 	}
-	return _dataList;
+	return _titleList;
 }
 
 @end
@@ -298,13 +352,14 @@
         _logoutBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [self.contentView addSubview:_logoutBtn];
         [_logoutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.mas_equalTo(8);
-            make.bottom.right.mas_equalTo(-8);
+            make.top.bottom.mas_equalTo(0);
+            make.left.mas_equalTo(8);
+            make.right.mas_equalTo(-8);
         }];
         
         _logoutBtn.backgroundColor = [UIColor redColor];
         [_logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
-        _logoutBtn.titleLabel.font = [UIFont systemFontOfSize:17];
+        _logoutBtn.titleLabel.font = [UIFont systemFontOfSize:20];
         [_logoutBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _logoutBtn.layer.masksToBounds = YES;
         _logoutBtn.layer.cornerRadius = 5;

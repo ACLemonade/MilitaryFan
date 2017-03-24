@@ -74,6 +74,7 @@
         //问答页tabbar标题,图片
         faqNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"问答" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         
+        
         pageVC.navigationItem.title = @"军事迷";
         videoVC.navigationItem.title = @"军事迷";
         voteVC.navigationItem.title = @"军事迷";
@@ -82,7 +83,7 @@
         tab.viewControllers = @[pageNavi, videoNavi, voteNavi, faqNavi];
         LeftMenuViewController *leftVC = [LeftMenuViewController new];
         self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
-        self.sideMenuVC.backgroundImage = [UIImage imageNamed:@"background"];
+        self.sideMenuVC.backgroundImage = [UIImage imageNamed:@"background_2"];
     }
     return _sideMenuVC;
 }
@@ -90,9 +91,13 @@
     self.window.rootViewController = self.sideMenuVC;
     [UINavigationBar appearance].translucent = NO;
     //全局设置导航栏背景色
-    [UINavigationBar appearance].barTintColor = kRGBA(157, 175, 105, 1.0);
+    [UINavigationBar appearance].barTintColor = kRGBA(35, 144, 230, 1.0);
+    //导航栏标题字体和颜色
+    [UINavigationBar appearance].titleTextAttributes = @{NSFontAttributeName: [UIFont systemFontOfSize:17], NSForegroundColorAttributeName: [UIColor whiteColor]};
+    //导航上各item颜色
+    [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+    //导航栏透明度
     [UITabBar appearance].translucent = NO;
-//    [UITabBar appearance].barTintColor = kRGBA(157, 175, 105, 1.0);
     [self sideMenuVC];
     
     //电池条左上角wifi旁菊花标识

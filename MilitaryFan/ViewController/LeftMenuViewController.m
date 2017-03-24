@@ -17,7 +17,7 @@
 
 @interface LeftMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) UITableView *tableView;
-@property (nonatomic) NSArray *dataList;
+@property (nonatomic) NSArray *titleList;
 @end
 
 @implementation LeftMenuViewController
@@ -29,7 +29,7 @@
     if (section == 0) {
         return 1;
     }else{
-        return self.dataList.count;
+        return self.titleList.count;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -63,11 +63,10 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NormalCell"];
         }
-        cell.textLabel.text = [self.dataList objectAtIndex:indexPath.row];
-        if (indexPath.row>0) {
-            cell.textLabel.textColor = [UIColor grayColor];
-        }
-        
+        cell.textLabel.text = [self.titleList objectAtIndex:indexPath.row];
+//        if (indexPath.row>0) {
+//            cell.textLabel.textColor = [UIColor grayColor];
+//        }
         return cell;
     }
 }
@@ -91,14 +90,16 @@
     }
     if (indexPath.section == 1) {
         switch (indexPath.row) {
+                //关于
             case 0:
             {
-                CollectionViewController *collectionVC = [CollectionViewController new];
-                UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
-                [self presentViewController:collectNavi animated:YES completion:nil];
+//                CollectionViewController *collectionVC = [CollectionViewController new];
+//                UINavigationController *collectNavi = [[UINavigationController alloc] initWithRootViewController:collectionVC];
+//                [self presentViewController:collectNavi animated:YES completion:nil];
             }
                 break;
-            case 3:
+                //设置
+            case 1:
             {
                 UINavigationController *navi = [[UIStoryboard storyboardWithName:@"Settings" bundle:nil] instantiateInitialViewController];
                 [self presentViewController:navi animated:YES completion:nil];
@@ -117,13 +118,13 @@
     if (indexPath.section == 0) {
         return 134;
     }
-    return 44;
+    return 60;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 20;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 20;
+    return 40;
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.backgroundColor = kRGBA(255, 255, 255, 0.5);
@@ -167,11 +168,11 @@
 	return _tableView;
 }
 
-- (NSArray *)dataList {
-	if(_dataList == nil) {
-        _dataList = @[@"我的收藏", @"我的足迹(开发中)", @"我的消息(开发中)", @"设置"];
+- (NSArray *)titleList {
+	if(_titleList == nil) {
+        _titleList = @[@"关于", @"设置"];
 	}
-	return _dataList;
+	return _titleList;
 }
 
 @end

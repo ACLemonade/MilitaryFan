@@ -34,10 +34,7 @@
 
 @implementation MFInfoViewController
 #pragma mark - 协议方法 iCarousel Delegate/DataSource
-- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
-    _icTitleLb.text = [self.infoVM topTitleForIndex:carousel.currentItemIndex];
-    _pageControl.currentPage = carousel.currentItemIndex;
-}
+
 //头部视图个数
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     return self.infoVM.topNumber;
@@ -59,6 +56,10 @@
     UIImageView *iv = [view viewWithTag:1000];
     [iv setImageWithURL:[self.infoVM topIconURLForIndex:index]];
     return view;
+}
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel{
+    _icTitleLb.text = [self.infoVM topTitleForIndex:carousel.currentItemIndex];
+    _pageControl.currentPage = carousel.currentItemIndex;
 }
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value{
     //循环滚动
@@ -242,7 +243,7 @@
         [_ic reloadData];
         [self carouselCurrentItemIndexDidChange:self.ic];
         //开启定时器
-        _timer = [NSTimer bk_scheduledTimerWithTimeInterval:2 block:^(NSTimer *timer) {
+        _timer = [NSTimer bk_scheduledTimerWithTimeInterval:3 block:^(NSTimer *timer) {
             [_ic scrollToItemAtIndex:_ic.currentItemIndex+1 animated:YES];
         } repeats:YES];
     }else{

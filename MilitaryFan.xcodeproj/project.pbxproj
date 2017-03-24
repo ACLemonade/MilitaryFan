@@ -86,6 +86,7 @@
 		8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305701D6DCB5400F9182D /* DetailLikeCell.m */; };
 		8C9305731D6DCB5400F9182D /* DetailLikeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */; };
 		8CA6D3BD1D8019D0009E1DBB /* LocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CA6D3BC1D8019D0009E1DBB /* LocationView.m */; };
+		8CAEFCBF1E84CAFD0001B148 /* MyDetailInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAEFCBE1E84CAFD0001B148 /* MyDetailInfoViewController.m */; };
 		8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */; };
 		8CAFCA431D7A502300616F53 /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA421D7A502300616F53 /* CollectionModel.m */; };
 		8CAFCA461D7A602C00616F53 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAFCA451D7A602C00616F53 /* CollectionViewController.m */; };
@@ -283,6 +284,8 @@
 		8C9305711D6DCB5400F9182D /* DetailLikeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailLikeCell.xib; sourceTree = "<group>"; };
 		8CA6D3BB1D8019D0009E1DBB /* LocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationView.h; sourceTree = "<group>"; };
 		8CA6D3BC1D8019D0009E1DBB /* LocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationView.m; sourceTree = "<group>"; };
+		8CAEFCBD1E84CAFD0001B148 /* MyDetailInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDetailInfoViewController.h; sourceTree = "<group>"; };
+		8CAEFCBE1E84CAFD0001B148 /* MyDetailInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDetailInfoViewController.m; sourceTree = "<group>"; };
 		8CAFCA3A1D7A4F5800616F53 /* CollectionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewModel.h; sourceTree = "<group>"; };
 		8CAFCA3B1D7A4F5800616F53 /* CollectionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewModel.m; sourceTree = "<group>"; };
 		8CAFCA411D7A502300616F53 /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 				8C1E77091D767D5E0051F8B1 /* UserCenterViewController.m */,
 				8CE5F4551D781FFE00FC85D6 /* ModifyPasswordViewController.h */,
 				8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */,
+				8CAEFCBD1E84CAFD0001B148 /* MyDetailInfoViewController.h */,
+				8CAEFCBE1E84CAFD0001B148 /* MyDetailInfoViewController.m */,
 				8C1E770B1D767D760051F8B1 /* UserCenter.storyboard */,
 			);
 			name = ViewController;
@@ -1405,6 +1410,7 @@
 				8C62FE901E7676D0001F6C8E /* AnswerView.m in Sources */,
 				8C2A6F7E1D6801000028F634 /* NSObject+MJExtension.m in Sources */,
 				8C1E770A1D767D5E0051F8B1 /* UserCenterViewController.m in Sources */,
+				8CAEFCBF1E84CAFD0001B148 /* MyDetailInfoViewController.m in Sources */,
 				8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */,
 				8C5B48F01E70DEB50006634A /* RewardView.m in Sources */,
 				8C9305021D6D499C00F9182D /* Factory.m in Sources */,
