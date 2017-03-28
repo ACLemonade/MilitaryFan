@@ -283,12 +283,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = TABLEVIEW_BACKGROUNDCOLOR;
+    [Factory naviClickBackWithViewController:self];
     [self tableView];
     [self.locationManager startUpdatingLocation];
 //    NSLog(@"viewFrame: %@", NSStringFromCGRect(self.view.frame));
 //    NSLog(@"frame: %@", NSStringFromCGRect(self.answerView.frame));
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
-
     [self.aqDetailVM getQuestionDetailWithObjectId:self.objectId completionHandle:^(NSError *error) {
         if (!error) {
             if (!self.aqDetailVM.questionResolvedState) {
@@ -332,11 +332,11 @@
 }
 - (AnswerView *)answerView{
     if (_answerView == nil) {
-        
         _answerView = [[AnswerView alloc] initWithFrame:CGRectMake(0, kViewBottomY - 46, kScreenW, 46)];
 //        [self.view addSubview:_answerView];
         _answerView.delegate = self;
-        _answerView.backgroundColor = [UIColor whiteColor];
+//        _answerView.backgroundColor = [UIColor whiteColor];
+        _answerView.backgroundColor = kRGBA(206, 224, 247, 1.0);
         [_answerView.sendBtn addTarget:self action:@selector(sendAnswer:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _answerView;

@@ -14,6 +14,16 @@
     [super awakeFromNib];
     self.iconIV.layer.masksToBounds = YES;
     self.iconIV.layer.cornerRadius = self.iconIV.bounds.size.width/2;
+    
+    self.replyBtn.layer.masksToBounds = YES;
+    self.replyBtn.layer.cornerRadius = 8;
+    self.replyBtn.layer.borderColor = kRGBA(150, 150, 150, 1.0).CGColor;
+    self.replyBtn.layer.borderWidth = 0.5;
+    
+    self.reportBtn.layer.masksToBounds = YES;
+    self.reportBtn.layer.cornerRadius = 8;
+    self.reportBtn.layer.borderColor = kRGBA(150, 150, 150, 1.0).CGColor;
+    self.reportBtn.layer.borderWidth = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

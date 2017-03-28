@@ -74,7 +74,6 @@
         //问答页tabbar标题,图片
         faqNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"问答" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         
-        
         pageVC.navigationItem.title = @"军事迷";
         videoVC.navigationItem.title = @"军事迷";
         voteVC.navigationItem.title = @"军事迷";

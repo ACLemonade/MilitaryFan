@@ -11,18 +11,18 @@
 @class AllCommentsDetailModel;
 
 @interface AllCommentsModel : BaseModel
-
-- (void)dbUpdateWithCompletionHandle:(void(^)(NSArray<AllCommentsDetailModel *> * array))completionHandle;
-@end
-@interface AllCommentsDetailModel : BaseModel
-//头像
+/** 评论Id */
+@property (nonatomic, strong) NSString *objectId;
+/** 头像 */
 @property (nonatomic) NSString *headImageURL;
-//用户名
+/** 评论者昵称 */
 @property (nonatomic) NSString *userName;
-//评论内容
+/** 评论内容 */
 @property (nonatomic) NSString *comment;
-//评论时间
+/** 评论时间 */
 @property (nonatomic) NSString *createDate;
-//评论地点
+/** 评论地点 */
 @property (nonatomic) NSString *location;
+/** 点赞个数 */
+@property (nonatomic, assign) NSInteger likeNumber;
 @end

@@ -45,17 +45,18 @@
 - (void)sendComment:(UIButton *)sender{
     sender.enabled = NO;
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
-    NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
+//    NSDictionary *meDic = [NSDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
-    NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
+//    NSString *headImageURL = [meDic objectForKey:@"headImageURL"];
     
     BmobObject *obj = [BmobObject objectWithClassName:@"Comment"];
     [obj setObject:userName forKey:@"userName"];
     [obj setObject:self.aid forKey:@"Aid"];
     [obj setObject:@(self.detailType) forKey:@"Type"];
     [obj setObject:self.textView.text forKey:@"comment"];
-    [obj setObject:headImageURL forKey:@"headImageURL"];
+//    [obj setObject:headImageURL forKey:@"headImageURL"];
     [obj setObject:self.locationView.locationLb.text forKey:@"location"];
+    [obj setObject:@0 forKey:@"likeNumber"];
     [obj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
             if (isSuccessful) {
                 [Factory textHUDWithVC:self text:@"发表成功"];
