@@ -11,7 +11,7 @@
 #import "UserCenterViewController.h"
 
 @interface PageController ()
-@property (nonatomic) UIBarButtonItem *headImageBtn;
+@property (nonatomic, strong) UIButton *headImageBtn;
 @end
 
 @implementation PageController
@@ -37,7 +37,8 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.navigationItem.leftBarButtonItem = self.headImageBtn;
+//    [self.headImageBtn setImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:kHeadImagePath]] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.headImageBtn];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,9 +63,13 @@
     return @[@"推荐", @"排行榜", @"制高点", @"图片控", @"大视野", @"读点史"];
 }
 #pragma mark - 懒加载 LazyLoad
-- (UIBarButtonItem *)headImageBtn {
+- (UIButton *)headImageBtn {
 	if(_headImageBtn == nil) {
-        _headImageBtn = [[UIBarButtonItem alloc] initWithTitle:@"我" style:UIBarButtonItemStylePlain target:self action:@selector(segueLeft)];
+        _headImageBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _headImageBtn.bounds = CGRectMake(0, 0, 22, 22);
+//        [_headImageBtn setImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:kHeadImagePath]] forState:UIControlStateNormal];
+        [_headImageBtn setTitle:@"我" forState:UIControlStateNormal];
+        [_headImageBtn addTarget:self action:@selector(segueLeft) forControlEvents:UIControlEventTouchUpInside];
 	}
 	return _headImageBtn;
 }

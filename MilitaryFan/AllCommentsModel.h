@@ -25,4 +25,8 @@
 @property (nonatomic) NSString *location;
 /** 点赞个数 */
 @property (nonatomic, assign) NSInteger likeNumber;
+/** 回复个数 */
+@property (nonatomic, assign) NSInteger replyNumber;
+/** 举报个数 */
+@property (nonatomic, assign) NSInteger reportNumber;
 @end

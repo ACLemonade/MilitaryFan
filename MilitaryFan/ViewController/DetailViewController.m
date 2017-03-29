@@ -39,7 +39,8 @@
 @property (nonatomic, strong) NSArray<NSString *> *contentArray;
 /** 图片高度数组 */
 @property (nonatomic, strong) NSMutableArray<NSString *> *picsArray;
-
+/** 图片数组 */
+@property (nonatomic, strong) NSMutableArray<UIImage *> *imagesArray;
 @end
 
 @implementation DetailViewController
@@ -87,24 +88,30 @@
                 __block __weak __typeof(&*cell)weakCell = cell;
                 __block CGFloat height = [[self.picsArray objectAtIndex:(row-1)/2] floatValue];
                 cell.picIV.frame = CGRectMake(8, 8, kScreenW-16, height);
-                [cell.picIV setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.detailVM.pics objectAtIndex:(row-1)/2]]] placeholderImage:kDefaultBigImage success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-                    weakIV.image = image;
-                    height = (kScreenW-16)*image.size.height/image.size.width;
-                    [self.picsArray replaceObjectAtIndex:(row-1)/2 withObject:[@(height) stringValue]];
-                    
-//                    weakIV.frame = CGRectMake(8, 8, kScreenW-16, height);
-//                    [tableView beginUpdates];
-//                    [tableView endUpdates];
-//                    [self respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)];
-//                    [self performSelector:@selector(tableView:heightForRowAtIndexPath:) withObject:tableView withObject:indexPath];
-//                    [weakIV setNeedsDisplay];
-//                    self.tableview.rowHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath];
-//                    [weakCell setNeedsLayout];
-//                    [weakCell layoutIfNeeded];
-//                    NSLog(@"currentThread: %@", [NSThread currentThread]);
-                } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                    NSLog(@"error: %@", error);
-                }];
+//                if (self.picsArray.count > (row-1)/2) {
+//                    [cell.picIV setImage:[self.imagesArray objectAtIndex:(row-1)/2]];
+//                } else {
+//                    [cell.picIV setImage:kDefaultBigImage];
+//                }
+                [cell.picIV setImageWithURL:[self.detailVM.pics objectAtIndex:(row-1)/2] placeholderImage:kDefaultBigImage];
+//                [cell.picIV setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[self.detailVM.pics objectAtIndex:(row-1)/2]]] placeholderImage:kDefaultBigImage success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+//                    weakIV.image = image;
+//                    height = (kScreenW-16)*image.size.height/image.size.width;
+//                    [self.picsArray replaceObjectAtIndex:(row-1)/2 withObject:[@(height) stringValue]];
+//                    
+////                    weakIV.frame = CGRectMake(8, 8, kScreenW-16, height);
+////                    [tableView beginUpdates];
+////                    [tableView endUpdates];
+////                    [self respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)];
+////                    [self performSelector:@selector(tableView:heightForRowAtIndexPath:) withObject:tableView withObject:indexPath];
+////                    [weakIV setNeedsDisplay];
+////                    self.tableview.rowHeight = [self tableView:tableView heightForRowAtIndexPath:indexPath];
+////                    [weakCell setNeedsLayout];
+////                    [weakCell layoutIfNeeded];
+////                    NSLog(@"currentThread: %@", [NSThread currentThread]);
+//                } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+//                    NSLog(@"error: %@", error);
+//                }];
                 [cell.contentView addSubview:cell.picIV];
                 return cell;
             }
@@ -402,13 +409,37 @@
             }else{
                 NSLog(@"请求成功");
                 [self.tableview reloadData];
-                NSLog(@"刷新成功");
                 [self.view bringSubviewToFront:self.funcView];
                 UIImageView *iv = [UIImageView new];
                 [iv setImageWithURL:[NSURL URLWithString:self.detailVM.image]];
                 [UIImagePNGRepresentation(iv.image) writeToFile:kDetailImagePath atomically:YES];
+//                for (int i = 0; i < self.detailVM.pics.count; i++) {
+//                    NSString *imageURL = [self.detailVM.pics objectAtIndex:i];
+//                    UIImageView *imageView = [[UIImageView alloc] init];
+//                    [imageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]] placeholderImage:kDefaultBigImage success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+//                        CGFloat height = (kScreenW-16)*image.size.height/image.size.width;
+//                        [self.picsArray replaceObjectAtIndex:i withObject:[@(height) stringValue]];
+//                        [self.imagesArray addObject:image];
+//                        NSLog(@"%@", [NSThread currentThread]);
+//                        [self.tableview layoutIfNeeded];
+//                    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+//                        NSLog(@"error: %@", error);
+//                    }];
+//                }
+                for (int i = 0; i < self.detailVM.pics.count; i++) {
+                    NSString *picURLString = [self.detailVM.pics objectAtIndex:i];
+                    [[NSOperationQueue new] addOperationWithBlock:^{
+                        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:picURLString]];
+                        UIImage *pic = [UIImage imageWithData:data];
+                        CGFloat height = (kScreenW-16)*pic.size.height/pic.size.width;
+                        [self.picsArray replaceObjectAtIndex:i withObject:@(height).stringValue];
+                        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                            [self.tableview reloadData];
+                        }];
+                    }];
+                }
+   
             }
-            
             [MBProgressHUD hideHUDForView:self.view animated:YES];
         }];
 //    }
@@ -543,6 +574,12 @@
         
     }
     return _picsArray;
+}
+- (NSMutableArray<UIImage *> *)imagesArray{
+    if (_imagesArray == nil) {
+        _imagesArray = [NSMutableArray array];
+            }
+    return _imagesArray;
 }
 @end
 

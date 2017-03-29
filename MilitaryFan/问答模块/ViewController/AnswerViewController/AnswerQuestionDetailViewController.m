@@ -293,6 +293,8 @@
         if (!error) {
             if (!self.aqDetailVM.questionResolvedState) {
                 [self.view addSubview:self.answerView];
+            } else {
+                self.tableView.frame = CGRectMake(0, 0, kScreenW, self.view.frame.size.height);
             }
             [self.tableView reloadData];
         } else {
@@ -314,7 +316,7 @@
 #pragma mark - 懒加载 LazyLoad
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, self.view.frame.size.height - STATUSBAR_AND_NAVIGATIONBAR_HEIGHT - 46) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kViewBottomY - 46) style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
 //        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.edges.equalTo(0);

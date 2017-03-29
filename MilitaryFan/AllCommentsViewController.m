@@ -7,14 +7,18 @@
 //
 
 #import "AllCommentsViewController.h"
-#import "AllCommentsCell.h"
-
+#import "ReplyViewController.h"
 #import "AllCommentsViewModel.h"
+#import "AllCommentsCell.h"
 #import "UIScrollView+Refresh.h"
 #import <UIKit+AFNetworking.h>
+
+#define kViewBottomY (kScreenH - STATUSBAR_AND_NAVIGATIONBAR_HEIGHT)
+
 @interface AllCommentsViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic) UITableView *tableView;
-@property (nonatomic) AllCommentsViewModel *allCommentsVM;
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) AllCommentsViewModel *allCommentsVM;
 @end
 
 @implementation AllCommentsViewController
@@ -33,8 +37,9 @@
     cell.likeNumberLb.text = [self.allCommentsVM likeNumberForRow:row];
     cell.likeBtn.tag = 1000 + row;
     [cell.likeBtn addTarget:self action:@selector(likeComment:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.replyBtn addTarget:self action:@selector(replyComment:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.reportBtn addTarget:self action:@selector(reportComment:) forControlEvents:UIControlEventTouchUpInside];
+    cell.revealReplyBtn.tag = 2000;
+    [cell.revealReplyBtn addTarget:self action:@selector(revealReply:) forControlEvents:UIControlEventTouchUpInside];
+    cell.reportBtn.hidden = YES;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -100,11 +105,12 @@
         }
     }];
 }
-- (void)replyComment:(UIButton *)sender{
-    NSLog(@"回复评论");
-}
-- (void)reportComment:(UIButton *)sender{
-    NSLog(@"举报评论");
+- (void)revealReply:(UIButton *)sender{
+    NSInteger row = sender.tag - 2000;
+    AllCommentsModel *model = [self.allCommentsVM modelForRow:row];
+    ReplyViewController *replyVC = [[ReplyViewController alloc] init];
+    replyVC.commentModel = model;
+    [self.navigationController pushViewController:replyVC animated:YES];
 }
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
@@ -132,14 +138,15 @@
     }];
     [self.tableView beginHeaderRefresh];
 }
+
 #pragma mark - 懒加载 LazyLoad
 - (UITableView *)tableView {
 	if(_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kViewBottomY) style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
-        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
-        }];
+//        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.mas_equalTo(0);
+//        }];
         _tableView.estimatedRowHeight = UITableViewAutomaticDimension;
         _tableView.rowHeight = 150;
         _tableView.delegate = self;
@@ -148,6 +155,7 @@
 	}
 	return _tableView;
 }
+
 - (AllCommentsViewModel *)allCommentsVM {
 	if(_allCommentsVM == nil) {
 		_allCommentsVM = [[AllCommentsViewModel alloc] init];

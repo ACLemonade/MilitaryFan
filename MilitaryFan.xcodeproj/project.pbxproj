@@ -106,6 +106,10 @@
 		8CC9544B1D68522E0022F157 /* MFInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9544A1D68522E0022F157 /* MFInfoViewController.m */; };
 		8CE370091D815F95004D5B93 /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE370081D815F95004D5B93 /* CacheManager.m */; };
 		8CE5F4571D781FFE00FC85D6 /* ModifyPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */; };
+		8CE764131E8B9652004613DC /* ReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE764121E8B9652004613DC /* ReplyViewController.m */; };
+		8CE764161E8B969C004613DC /* ReplyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE764151E8B969C004613DC /* ReplyViewModel.m */; };
+		8CE7641A1E8BAF66004613DC /* ReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE764181E8BAF66004613DC /* ReplyCell.m */; };
+		8CE7641B1E8BAF66004613DC /* ReplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE764191E8BAF66004613DC /* ReplyCell.xib */; };
 		8CF035151E6E883F00F763AD /* AskQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF035141E6E883F00F763AD /* AskQuestionViewController.m */; };
 		8CF4A14B1E7238B600C29A26 /* AnswerQuestionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4A14A1E7238B600C29A26 /* AnswerQuestionDetailViewController.m */; };
 		8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF4A14D1E723A6200C29A26 /* QuestionDetailCell.m */; };
@@ -320,6 +324,13 @@
 		8CE370081D815F95004D5B93 /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CacheManager.m; path = ../CacheManager/CacheManager.m; sourceTree = "<group>"; };
 		8CE5F4551D781FFE00FC85D6 /* ModifyPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyPasswordViewController.h; sourceTree = "<group>"; };
 		8CE5F4561D781FFE00FC85D6 /* ModifyPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyPasswordViewController.m; sourceTree = "<group>"; };
+		8CE764111E8B9652004613DC /* ReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyViewController.h; sourceTree = "<group>"; };
+		8CE764121E8B9652004613DC /* ReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyViewController.m; sourceTree = "<group>"; };
+		8CE764141E8B969C004613DC /* ReplyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyViewModel.h; sourceTree = "<group>"; };
+		8CE764151E8B969C004613DC /* ReplyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyViewModel.m; sourceTree = "<group>"; };
+		8CE764171E8BAF66004613DC /* ReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyCell.h; sourceTree = "<group>"; };
+		8CE764181E8BAF66004613DC /* ReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyCell.m; sourceTree = "<group>"; };
+		8CE764191E8BAF66004613DC /* ReplyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReplyCell.xib; sourceTree = "<group>"; };
 		8CF035131E6E883F00F763AD /* AskQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskQuestionViewController.h; sourceTree = "<group>"; };
 		8CF035141E6E883F00F763AD /* AskQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskQuestionViewController.m; sourceTree = "<group>"; };
 		8CF4A1491E7238B600C29A26 /* AnswerQuestionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerQuestionDetailViewController.h; sourceTree = "<group>"; };
@@ -1002,6 +1013,8 @@
 				8CC41D951D7E3B6C00748D0D /* CommentViewController.m */,
 				8CC41D9B1D7EB5E400748D0D /* AllCommentsViewController.h */,
 				8CC41D9C1D7EB5E400748D0D /* AllCommentsViewController.m */,
+				8CE764111E8B9652004613DC /* ReplyViewController.h */,
+				8CE764121E8B9652004613DC /* ReplyViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -1012,6 +1025,9 @@
 				8CC41DA41D7EC41800748D0D /* AllCommentsCell.h */,
 				8CC41DA51D7EC41800748D0D /* AllCommentsCell.m */,
 				8CC41DA61D7EC41800748D0D /* AllCommentsCell.xib */,
+				8CE764171E8BAF66004613DC /* ReplyCell.h */,
+				8CE764181E8BAF66004613DC /* ReplyCell.m */,
+				8CE764191E8BAF66004613DC /* ReplyCell.xib */,
 				8CA6D3BB1D8019D0009E1DBB /* LocationView.h */,
 				8CA6D3BC1D8019D0009E1DBB /* LocationView.m */,
 			);
@@ -1023,6 +1039,8 @@
 			children = (
 				8CC41DA11D7EB62500748D0D /* AllCommentsViewModel.h */,
 				8CC41DA21D7EB62500748D0D /* AllCommentsViewModel.m */,
+				8CE764141E8B969C004613DC /* ReplyViewModel.h */,
+				8CE764151E8B969C004613DC /* ReplyViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -1218,6 +1236,7 @@
 				8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */,
 				8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
+				8CE7641B1E8BAF66004613DC /* ReplyCell.xib in Resources */,
 				8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1372,6 +1391,7 @@
 				8C9304F11D6D416700F9182D /* VideoDetailViewController.m in Sources */,
 				8C32F8631D7128230046F218 /* MFPicModel.m in Sources */,
 				8CC41DA01D7EB61100748D0D /* AllCommentsModel.m in Sources */,
+				8CE7641A1E8BAF66004613DC /* ReplyCell.m in Sources */,
 				8C9304BE1D6C1F1D00F9182D /* PicCell.m in Sources */,
 				8CF4A1541E724A9000C29A26 /* AnswerCell.m in Sources */,
 				8C1A34781E6FEDC600F49894 /* AnswerQuestionViewController.m in Sources */,
@@ -1385,6 +1405,7 @@
 				8C32F86A1D717BE50046F218 /* DetailVideoCell.m in Sources */,
 				8C9304EE1D6D322900F9182D /* MFVideoViewModel.m in Sources */,
 				8C5B48F31E71442C0006634A /* QuestionView.m in Sources */,
+				8CE764161E8B969C004613DC /* ReplyViewModel.m in Sources */,
 				8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */,
 				8C2A6F921D68058E0028F634 /* BaseModel.m in Sources */,
 				8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */,
@@ -1432,6 +1453,7 @@
 				8C1A34751E6F9AB900F49894 /* QuestionModel.m in Sources */,
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
 				8C1A34721E6F9A8600F49894 /* FAQViewModel.m in Sources */,
+				8CE764131E8B9652004613DC /* ReplyViewController.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */,

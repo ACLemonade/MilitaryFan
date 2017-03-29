@@ -23,9 +23,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 /** 点赞人数 */
 @property (weak, nonatomic) IBOutlet UILabel *likeNumberLb;
-/** 回复按钮 */
-@property (weak, nonatomic) IBOutlet UIButton *replyBtn;
 /** 举报按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *reportBtn;
+/** 查看回复按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *revealReplyBtn;
+
 
 @end
