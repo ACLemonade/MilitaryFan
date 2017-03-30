@@ -16,6 +16,8 @@
 @property (nonatomic) NSMutableArray<AllCommentsModel *> *commentList;
 
 @property (nonatomic) AllCommentsModel *allCommentsModel;
+
+- (AllCommentsModel *)modelForRow:(NSInteger)row;
 /** 评论Id */
 - (NSString *)commentIdForRow:(NSInteger)row;
 /** 头像 */
@@ -32,10 +34,10 @@
 - (BOOL)likeStateForRow:(NSInteger)row;
 /** 点赞数 */
 - (NSString *)likeNumberForRow:(NSInteger)row;
+/** 查看回复按钮标题 */
+- (NSString *)revealReplyTitleForRow:(NSInteger)row;
 /** 评论内容(label)高度 */
 - (CGFloat)commentHeightForRow:(NSInteger)row;
-
-- (AllCommentsModel *)modelForRow:(NSInteger)row;
 
 - (void)getAllCommentWithCompletionHandler:(void(^)(NSError *error))completionHandler;
 @end

@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = TABLEVIEW_BACKGROUNDCOLOR;
+    [Factory naviClickBackWithViewController:self];
     NSLog(@"我的资料页");
 }
 

@@ -83,8 +83,8 @@ typedef NS_ENUM(NSUInteger, QuestionDetailType) {
  */
 /** 定制提示框 */
 + (void)showAlertViewInViewController:(UIViewController *)viewController withTitle:(nullable NSString *)title message:(nullable NSString *)message yesActionHander:(void(^ __nullable)(UIAlertAction *yesAction))yesActionHander cancelActionHander:(void(^ __nullable)(UIAlertAction *cancelAction))cancelActionHander completionHandler:(void(^ __nullable)(void))completionHandler;
-
-
+/** 指定时间距当前时间的时间间隔字符串,为评论等多处时间显示而个性化定制 */
++ (NSString *)timeIntervalStringSinceCurrentDate:(NSDate *)date;
 
 
 

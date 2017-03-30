@@ -119,4 +119,22 @@
         completionHandler();
     }];
 }
++ (NSString *)timeIntervalStringSinceCurrentDate:(NSDate *)date{
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSinceDate:date];
+    NSInteger difference = timeInterval;
+    if (difference < 60) {
+        return @"刚刚";
+    } else if (difference < 60*60) {
+        return [NSString stringWithFormat:@"%ld分钟前", difference / 60];
+    } else if (difference < 60*60*24) {
+        return [NSString stringWithFormat:@"%ld小时前", difference / (60*60)];
+    } else if (difference < 60*60*24*2) {
+        return @"昨天";
+    } else {
+        NSDateFormatter *dataFormatter = [[NSDateFormatter alloc] init];
+        dataFormatter.dateFormat = @"yyyy-MM-dd";
+        NSString *replyTime = [dataFormatter stringFromDate:date];
+        return replyTime;
+    }
+}
 @end

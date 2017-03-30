@@ -10,6 +10,7 @@
 #import "ReplyViewModel.h"
 
 #import "AllCommentsCell.h"
+#import "ReplyCell.h"
 #import "AnswerView.h"
 #import "UIScrollView+Refresh.h"
 #import <UIKit+AFNetworking.h>
@@ -31,7 +32,7 @@
     if (section == 0) {
         return 1;
     }
-    return 0;
+    return self.replyVM.replyListNumber;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger section = indexPath.section;
@@ -50,8 +51,21 @@
         [cell.reportBtn addTarget:self action:@selector(reportComment:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     } else {    //回复详情
-        return [UITableViewCell new];
+        ReplyCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ReplyCell class]) forIndexPath:indexPath];
+        cell.replyNameLb.text = [self.replyVM replyNameForRow:row];
+        cell.replyTimeLb.text = [self.replyVM replyTimeForRow:row];
+        cell.replyContentLb.text = [self.replyVM replyContentForRow:row];
+        return cell;
     }
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return 150;
+    }
+    return 65;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewAutomaticDimension;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
@@ -61,9 +75,9 @@
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //左侧分割线留白
-    cell.separatorInset = UIEdgeInsetsZero;
-    cell.layoutMargins = UIEdgeInsetsZero;
-    cell.preservesSuperviewLayoutMargins = NO;
+//    cell.separatorInset = UIEdgeInsetsZero;
+//    cell.layoutMargins = UIEdgeInsetsZero;
+//    cell.preservesSuperviewLayoutMargins = NO;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -146,6 +160,7 @@
     [replyObj setObject:commentId forKey:@"commentId"];
     [replyObj setObject:commentName forKey:@"commentName"];
     [replyObj setObject:aid forKey:@"Aid"];
+    [replyObj setObject:self.answerView.contentView.text forKey:@"content"];
     [replyObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         if (isSuccessful) {
             //更新Comment表
@@ -183,12 +198,26 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"所有回复";
+    self.navigationItem.title = [NSString stringWithFormat:@"所有回复(%ld)", self.commentModel.replyNumber];
     [Factory naviClickBackWithViewController:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    WK(weakSelf);
     [self tableView];
     [self answerView];
+    WK(weakSelf);
+    [self.tableView addHeaderRefresh:^{
+        [weakSelf.replyVM getAllReplyWithCommentId:weakSelf.replyVM.commentId completionHandler:^(NSError *error) {
+            if (!error) {
+                [weakSelf.tableView reloadData];
+                if (weakSelf.commentModel.replyNumber == 0) {
+                    [weakSelf.answerView.contentView becomeFirstResponder];
+                }
+            } else {
+                NSLog(@"error: %@", error);
+            }
+            [weakSelf.tableView endHeaderRefresh];
+        }];
+    }];
+    [weakSelf.tableView beginHeaderRefresh];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChanged:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -201,11 +230,14 @@
         //        [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         //            make.edges.mas_equalTo(0);
         //        }];
-        _tableView.estimatedRowHeight = UITableViewAutomaticDimension;
-        _tableView.rowHeight = 150;
+//        _tableView.estimatedRowHeight = UITableViewAutomaticDimension;
+//        _tableView.rowHeight = 65;
+//        _tableView.separatorInset = UIEdgeInsetsMake(0, 65, 0, 0);
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([AllCommentsCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([AllCommentsCell class])];
+        [_tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ReplyCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ReplyCell class])];
     }
     return _tableView;
 }

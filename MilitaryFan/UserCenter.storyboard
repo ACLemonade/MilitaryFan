@@ -125,7 +125,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vI-6W-sPo">
                                 <rect key="frame" x="345" y="129.5" width="0.0" height="0.0"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="9FX-jT-ayG"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="76" id="9FX-jT-ayG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.27541835799999997" blue="0.27216946749999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

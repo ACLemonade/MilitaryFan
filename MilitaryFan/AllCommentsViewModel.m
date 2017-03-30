@@ -23,6 +23,9 @@
     }
     return _commentList;
 }
+- (AllCommentsModel *)modelForRow:(NSInteger)row{
+    return [self.commentList objectAtIndex:row];
+}
 - (NSString *)commentIdForRow:(NSInteger)row{
     return [self modelForRow:row].objectId;
 }
@@ -45,8 +48,9 @@
 - (NSString *)likeNumberForRow:(NSInteger)row{
     return [@([self modelForRow:row].likeNumber) stringValue];
 }
-- (AllCommentsModel *)modelForRow:(NSInteger)row{
-    return [self.commentList objectAtIndex:row];
+- (NSString *)revealReplyTitleForRow:(NSInteger)row{
+    NSInteger replyNumber = [self modelForRow:row].replyNumber;
+    return replyNumber == 0 ? @"点击回复" : [NSString stringWithFormat:@"查看%ld条回复", replyNumber];
 }
 //评论内容高度
 - (CGFloat)commentHeightForRow:(NSInteger)row{
@@ -76,6 +80,7 @@
                 model.createDate = [obj objectForKey:@"createdAt"];
                 model.location = [obj objectForKey:@"location"];
                 model.likeNumber = [[obj objectForKey:@"likeNumber"] integerValue];
+                model.replyNumber = [[obj objectForKey:@"replyNumber"] integerValue];
                 [self.commentList addObject:model];
                 [userNameArray addObject:model.userName];
             }

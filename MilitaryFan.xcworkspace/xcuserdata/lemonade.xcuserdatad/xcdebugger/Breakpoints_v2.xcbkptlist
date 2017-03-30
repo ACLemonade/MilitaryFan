@@ -170,7 +170,7 @@
             startingLineNumber = "28"
             endingLineNumber = "28"
             landmarkName = "-dbUpdate"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -435,22 +435,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MilitaryFan/CommentViewController.m"
-            timestampString = "495988246.517154"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-sendComment:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MilitaryFan/VideoDetailViewController.m"
             timestampString = "495376399.503848"
             startingColumnNumber = "9223372036854775807"
@@ -505,7 +489,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "457"
             endingLineNumber = "457"
-            landmarkName = "-viewDidLoad"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1002,22 +986,6 @@
             startingLineNumber = "91"
             endingLineNumber = "91"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MilitaryFan/&#x95ee;&#x7b54;&#x6a21;&#x5757;/ViewController/AnswerViewController/AnswerQuestionDetailViewController.m"
-            timestampString = "512447910.571331"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
-            landmarkName = "-keyboardDidChanged:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

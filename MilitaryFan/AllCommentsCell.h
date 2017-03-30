@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *reportBtn;
 /** 查看回复按钮 */
 @property (weak, nonatomic) IBOutlet UIButton *revealReplyBtn;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 
 
 @end

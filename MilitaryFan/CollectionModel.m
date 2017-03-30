@@ -26,7 +26,7 @@
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:kDataBasePath];
     [queue inDatabase:^(FMDatabase *db) {
         self.collectionNumber = [db intForQuery:@"select count(*) from Collection"];
-        FMResultSet *result = [db executeQuery:@"select * from Collection"];
+        FMResultSet *result = [db executeQuery:@"select * from Collection order by PubDate desc"];
         while ([result next]) {
             CollectionDetailModel *model = [CollectionDetailModel new];
             model.aid = [result stringForColumn:@"Aid"];

@@ -37,9 +37,12 @@
     cell.likeNumberLb.text = [self.allCommentsVM likeNumberForRow:row];
     cell.likeBtn.tag = 1000 + row;
     [cell.likeBtn addTarget:self action:@selector(likeComment:) forControlEvents:UIControlEventTouchUpInside];
-    cell.revealReplyBtn.tag = 2000;
+    cell.revealReplyBtn.tag = 2000 + row;
+    [cell.revealReplyBtn setTitle:[self.allCommentsVM revealReplyTitleForRow:row] forState:UIControlStateNormal];
     [cell.revealReplyBtn addTarget:self action:@selector(revealReply:) forControlEvents:UIControlEventTouchUpInside];
-    cell.reportBtn.hidden = YES;
+    [cell.reportBtn addTarget:self action:@selector(reportComment:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.reportBtn.hidden = YES;
+    cell.separatorView.hidden = YES;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -105,6 +108,9 @@
         }
     }];
 }
+- (void)reportComment:(UIButton *)sender{
+    NSLog(@"举报评论");
+}
 - (void)revealReply:(UIButton *)sender{
     NSInteger row = sender.tag - 2000;
     AllCommentsModel *model = [self.allCommentsVM modelForRow:row];
@@ -115,10 +121,11 @@
 #pragma mark - 生命周期 LifeCircle
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [Factory naviClickBackWithViewController:self];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [Factory naviClickBackWithViewController:self];
     self.navigationItem.title = @"所有评论";
     WK(weakSelf);
     [self.tableView addHeaderRefresh:^{
@@ -128,6 +135,7 @@
 //        }];
         [weakSelf.allCommentsVM getAllCommentWithCompletionHandler:^(NSError *error) {
             if (!error) {
+                weakSelf.navigationItem.title = [NSString stringWithFormat:@"所有评论(%ld)", weakSelf.allCommentsVM.commentNumber];
                 [weakSelf.tableView reloadData];
             } else {
                 NSLog(@"error: %@", error);

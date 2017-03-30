@@ -292,6 +292,7 @@
         _iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _iconBtn.frame = CGRectMake(kScreenW/2-37.5, kTopViewH/2-75, 75, 75);
         [self.view addSubview:_iconBtn];
+        _iconBtn.contentMode = UIViewContentModeScaleAspectFill;
         _iconBtn.imageView.layer.masksToBounds = YES;
         _iconBtn.imageView.layer.cornerRadius = _iconBtn.frame.size.width/2;
         //如果已经设置过头像,则将其从文件中取出来

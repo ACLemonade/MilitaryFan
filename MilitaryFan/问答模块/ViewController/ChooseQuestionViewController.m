@@ -27,7 +27,7 @@
     NSInteger row = indexPath.row;
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NormalCell" forIndexPath:indexPath];
     UIButton *functionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    functionBtn.frame = CGRectMake(0, 0, (kScreenW-5*2-5)/2, (kScreenW-5*2-5)/2);
+    functionBtn.frame = CGRectMake(0, 0, (kScreenW - 5*2-5) / 2, (kScreenH- STATUSBAR_AND_NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT - 5*2-5) / 2);
     functionBtn.backgroundColor = [UIColor whiteColor];
     [functionBtn setTitle:[self.dataArray objectAtIndex:row] forState:UIControlStateNormal];
     [functionBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -85,6 +85,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.title = @"军事迷";
     [self collectionView];
     [Factory naviClickBackWithViewController:self];
 }
@@ -107,14 +108,14 @@
 - (UICollectionViewFlowLayout *)collectionViewLayout{
     if (_collectionViewLayout == nil) {
         _collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
-        //行间距(纵向间距)
+        //行间距
         _collectionViewLayout.minimumLineSpacing = 5;
-        //列间距(横向间距)
+        //列间距
         _collectionViewLayout.minimumInteritemSpacing = 5;
-        //每个item大小
-        _collectionViewLayout.itemSize = CGSizeMake((kScreenW-5*2-_collectionViewLayout.minimumInteritemSpacing)/2, (kScreenW-5*2-_collectionViewLayout.minimumInteritemSpacing)/2);
         //上下左右内边距
-        _collectionViewLayout.sectionInset = UIEdgeInsetsMake((kScreenH-5-_collectionViewLayout.itemSize.width*2)/2, 5, (kScreenH-5-_collectionViewLayout.itemSize.width*2)/2, 5);
+        _collectionViewLayout.sectionInset = UIEdgeInsetsMake(5, 5, 5, 5);
+        //每个item大小
+        _collectionViewLayout.itemSize = CGSizeMake((kScreenW- 5*2 -_collectionViewLayout.minimumInteritemSpacing) / 2, (kScreenH- STATUSBAR_AND_NAVIGATIONBAR_HEIGHT - TABBAR_HEIGHT - 5*2 -_collectionViewLayout.minimumLineSpacing) / 2);
         //滚动方向
         _collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     }

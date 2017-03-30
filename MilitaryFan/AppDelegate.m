@@ -13,7 +13,6 @@
 #import "PageController.h"
 #import "LeftMenuViewController.h"
 #import "VideoViewController.h"
-#import "VoteViewController.h"
 #import "FAQViewController.h"
 
 #import <UMSocialQQHandler.h>
@@ -55,31 +54,25 @@
         PageController *pageVC = [[PageController alloc] init];
         //视频页
         VideoViewController *videoVC = [[VideoViewController alloc] init];
-        //投票页
-        VoteViewController *voteVC = [[VoteViewController alloc] init];
         //问答页
         FAQViewController *faqVC = [[FAQViewController alloc] init];
         
         UINavigationController *pageNavi = [[UINavigationController alloc] initWithRootViewController:pageVC];
         UINavigationController *videoNavi = [[UINavigationController alloc] initWithRootViewController:videoVC];
-        UINavigationController *voteNavi = [[UINavigationController alloc] initWithRootViewController:voteVC];
         UINavigationController *faqNavi = [[UINavigationController alloc] initWithRootViewController:faqVC];
         
         //资讯页tabbar标题,图片
         pageNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"资讯" image:[UIImage imageNamed:@"importantNews_normal"] selectedImage:[UIImage imageNamed:@"importantNews"]];
         //视频页tabbar标题,图片
         videoNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"视频" image:[UIImage imageNamed:@"video_list_icon"] selectedImage:[UIImage imageNamed:@"video_list_icon"]];
-        //投票页tabbar标题,图片
-        voteNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"投票" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         //问答页tabbar标题,图片
         faqNavi.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"问答" image:[UIImage imageNamed:@"seting_normal"] selectedImage:[UIImage imageNamed:@"seting"]];
         
         pageVC.navigationItem.title = @"军事迷";
         videoVC.navigationItem.title = @"军事迷";
-        voteVC.navigationItem.title = @"军事迷";
         faqVC.navigationItem.title = @"军事迷";
         
-        tab.viewControllers = @[pageNavi, videoNavi, voteNavi, faqNavi];
+        tab.viewControllers = @[pageNavi, videoNavi, faqNavi];
         LeftMenuViewController *leftVC = [LeftMenuViewController new];
         self.sideMenuVC = [[RESideMenu alloc] initWithContentViewController:tab leftMenuViewController:leftVC rightMenuViewController:nil];
         self.sideMenuVC.backgroundImage = [UIImage imageNamed:@"background_2"];

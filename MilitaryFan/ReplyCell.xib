@@ -22,29 +22,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="547" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复者昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJW-qg-Sgl">
-                                <rect key="frame" x="15" y="8" width="62" height="15"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="65" y="7" width="67" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.082352941176470587" green="0.49411764705882355" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回复时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clM-6r-d7d">
                                 <rect key="frame" x="482" y="8" width="50" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="S1c-bq-hpc"/>
                             <constraint firstItem="TJW-qg-Sgl" firstAttribute="centerY" secondItem="Za1-NP-x2v" secondAttribute="centerY" id="TeN-ck-X5b"/>
                             <constraint firstAttribute="trailing" secondItem="clM-6r-d7d" secondAttribute="trailing" constant="15" id="Uqb-pk-vFg"/>
                             <constraint firstItem="clM-6r-d7d" firstAttribute="centerY" secondItem="Za1-NP-x2v" secondAttribute="centerY" id="eNM-5R-fV9"/>
-                            <constraint firstItem="TJW-qg-Sgl" firstAttribute="leading" secondItem="Za1-NP-x2v" secondAttribute="leading" constant="15" id="vhw-I2-hMi"/>
+                            <constraint firstItem="TJW-qg-Sgl" firstAttribute="leading" secondItem="Za1-NP-x2v" secondAttribute="leading" constant="65" id="vhw-I2-hMi"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8X-o8-aoQ">
-                        <rect key="frame" x="15" y="30" width="517" height="84.5"/>
+                        <rect key="frame" x="65" y="30" width="467" height="85"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Ukl-VI-ypb"/>
                         </constraints>
@@ -52,10 +51,20 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVV-GA-kuk">
+                        <rect key="frame" x="65" y="123" width="482" height="1"/>
+                        <color key="backgroundColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="gj0-tL-mr5"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="x8X-o8-aoQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="63u-lV-4FB"/>
+                    <constraint firstItem="x8X-o8-aoQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="63u-lV-4FB"/>
+                    <constraint firstAttribute="trailing" secondItem="RVV-GA-kuk" secondAttribute="trailing" id="DJU-O2-PbQ"/>
                     <constraint firstItem="Za1-NP-x2v" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RH2-Np-Pdg"/>
+                    <constraint firstItem="RVV-GA-kuk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="65" id="VAi-VR-bl6"/>
+                    <constraint firstAttribute="bottom" secondItem="RVV-GA-kuk" secondAttribute="bottom" id="W9N-OU-ucm"/>
                     <constraint firstAttribute="trailing" secondItem="Za1-NP-x2v" secondAttribute="trailing" id="eZ9-ys-eJ6"/>
                     <constraint firstAttribute="trailing" secondItem="x8X-o8-aoQ" secondAttribute="trailing" constant="15" id="hZC-MU-K5V"/>
                     <constraint firstItem="x8X-o8-aoQ" firstAttribute="top" secondItem="Za1-NP-x2v" secondAttribute="bottom" id="jQL-Of-bYK"/>
@@ -63,6 +72,11 @@
                     <constraint firstAttribute="bottom" secondItem="x8X-o8-aoQ" secondAttribute="bottom" constant="10" id="uV1-Mu-D5A"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="replyContentLb" destination="x8X-o8-aoQ" id="AD2-dZ-HXm"/>
+                <outlet property="replyNameLb" destination="TJW-qg-Sgl" id="MLT-m9-vhg"/>
+                <outlet property="replyTimeLb" destination="clM-6r-d7d" id="QFG-NG-pxM"/>
+            </connections>
             <point key="canvasLocation" x="7.5" y="49.5"/>
         </tableViewCell>
     </objects>

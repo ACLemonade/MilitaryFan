@@ -18,8 +18,10 @@
 //三原色的设置
 #define kRGBA(R,G,B,A) [UIColor colorWithRed:R/255.0 green:G/255.0 blue:B/255.0 alpha:A]
 #define TABLEVIEW_BACKGROUNDCOLOR kRGBA(239, 239, 244, 1.0)
-//获取状态栏和本界面导航栏的高度
-#define STATUSBAR_AND_NAVIGATIONBAR_HEIGHT (20 + 44) \
+//状态栏导航栏的高度
+#define STATUSBAR_AND_NAVIGATIONBAR_HEIGHT (20 + 44)
+//菜单栏高度
+#define TABBAR_HEIGHT 49
 //获取简洁时间 -- yyyy-mm-dd
 #define SUB_TIME(fullTime) \
 [fullTime isEqualToString:@""] ? @"" : [fullTime substringToIndex:10] \

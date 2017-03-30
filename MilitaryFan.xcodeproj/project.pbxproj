@@ -60,8 +60,8 @@
 		8C6534A61E7A260E00826382 /* MyAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534A51E7A260E00826382 /* MyAnswerViewController.m */; };
 		8C6534AA1E7A657F00826382 /* MyAskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534A91E7A657F00826382 /* MyAskViewModel.m */; };
 		8C6534AD1E7A65A200826382 /* MyAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6534AC1E7A65A200826382 /* MyAskViewController.m */; };
+		8C6DB7B41E8C9AEF00F3DB01 /* ReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6DB7B31E8C9AEF00F3DB01 /* ReplyModel.m */; };
 		8C79062F1D790D42005555C8 /* FunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C79062E1D790D42005555C8 /* FunctionView.m */; };
-		8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5921E6CFE8000466B33 /* VoteViewController.m */; };
 		8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A5951E6CFE8E00466B33 /* FAQViewController.m */; };
 		8C89A59C1E6D57E400466B33 /* ChooseQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C89A59B1E6D57E400466B33 /* ChooseQuestionViewController.m */; };
 		8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304B01D6BE82E00F9182D /* MFDetailModel.m */; };
@@ -240,10 +240,10 @@
 		8C6534A91E7A657F00826382 /* MyAskViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewModel.m; sourceTree = "<group>"; };
 		8C6534AB1E7A65A200826382 /* MyAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskViewController.h; sourceTree = "<group>"; };
 		8C6534AC1E7A65A200826382 /* MyAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewController.m; sourceTree = "<group>"; };
+		8C6DB7B21E8C9AEF00F3DB01 /* ReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyModel.h; sourceTree = "<group>"; };
+		8C6DB7B31E8C9AEF00F3DB01 /* ReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyModel.m; sourceTree = "<group>"; };
 		8C79062D1D790D42005555C8 /* FunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionView.h; sourceTree = "<group>"; };
 		8C79062E1D790D42005555C8 /* FunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionView.m; sourceTree = "<group>"; };
-		8C89A5911E6CFE8000466B33 /* VoteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoteViewController.h; sourceTree = "<group>"; };
-		8C89A5921E6CFE8000466B33 /* VoteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoteViewController.m; sourceTree = "<group>"; };
 		8C89A5941E6CFE8E00466B33 /* FAQViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FAQViewController.h; sourceTree = "<group>"; };
 		8C89A5951E6CFE8E00466B33 /* FAQViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FAQViewController.m; sourceTree = "<group>"; };
 		8C89A59A1E6D57E300466B33 /* ChooseQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseQuestionViewController.h; sourceTree = "<group>"; };
@@ -475,7 +475,6 @@
 				8CFA13B11D73E54200DAF1E4 /* 登录注册模块 */,
 				8C9304E21D6C777600F9182D /* 个人中心模块 */,
 				8C9304D91D6C762200F9182D /* 新闻资讯模块 */,
-				8C89A5871E6CFC3A00466B33 /* 投票模块 */,
 				8C89A5881E6CFC5100466B33 /* 问答模块 */,
 				8C9304DB1D6C763900F9182D /* 设置模块 */,
 				8CC41D931D7E3B4D00748D0D /* 评论 */,
@@ -684,17 +683,6 @@
 			path = MyAskViewModel;
 			sourceTree = "<group>";
 		};
-		8C89A5871E6CFC3A00466B33 /* 投票模块 */ = {
-			isa = PBXGroup;
-			children = (
-				8C89A5891E6CFDF100466B33 /* Model */,
-				8C89A58A1E6CFDF100466B33 /* View */,
-				8C89A58B1E6CFDF100466B33 /* ViewController */,
-				8C89A58C1E6CFDF100466B33 /* ViewModel */,
-			);
-			path = "投票模块";
-			sourceTree = "<group>";
-		};
 		8C89A5881E6CFC5100466B33 /* 问答模块 */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,36 +692,6 @@
 				8C89A5901E6CFDFF00466B33 /* ViewModel */,
 			);
 			path = "问答模块";
-			sourceTree = "<group>";
-		};
-		8C89A5891E6CFDF100466B33 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8C89A58A1E6CFDF100466B33 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8C89A58B1E6CFDF100466B33 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				8C89A5911E6CFE8000466B33 /* VoteViewController.h */,
-				8C89A5921E6CFE8000466B33 /* VoteViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		8C89A58C1E6CFDF100466B33 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8C89A58D1E6CFDFF00466B33 /* Model */ = {
@@ -1050,6 +1008,8 @@
 			children = (
 				8CC41D9E1D7EB61100748D0D /* AllCommentsModel.h */,
 				8CC41D9F1D7EB61100748D0D /* AllCommentsModel.m */,
+				8C6DB7B21E8C9AEF00F3DB01 /* ReplyModel.h */,
+				8C6DB7B31E8C9AEF00F3DB01 /* ReplyModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1460,7 +1420,7 @@
 				8C6534AD1E7A65A200826382 /* MyAskViewController.m in Sources */,
 				8C9304D51D6C72BF00F9182D /* SettingsViewController.m in Sources */,
 				8CC41DA31D7EB62500748D0D /* AllCommentsViewModel.m in Sources */,
-				8C89A5931E6CFE8000466B33 /* VoteViewController.m in Sources */,
+				8C6DB7B41E8C9AEF00F3DB01 /* ReplyModel.m in Sources */,
 				8CF035151E6E883F00F763AD /* AskQuestionViewController.m in Sources */,
 				8C2A6F371D67F8CA0028F634 /* main.m in Sources */,
 				8C89A59C1E6D57E400466B33 /* ChooseQuestionViewController.m in Sources */,

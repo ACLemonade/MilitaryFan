@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "AllCommentsModel.h"
+#import "ReplyModel.h"
 
 @interface ReplyViewModel : NSObject
 #pragma mark - 评论详情
@@ -33,4 +34,16 @@
 /** 回复个数 */
 @property (nonatomic, assign) NSString *replyNumber;
 #pragma mark - 回复详情
+@property (nonatomic, strong) NSMutableArray<ReplyModel *> *replyList;
+@property (nonatomic, assign) NSInteger replyListNumber;
+
+- (ReplyModel *)modelForRow:(NSInteger)row;
+/** 回复者昵称 */
+- (NSString *)replyNameForRow:(NSInteger)row;
+/** 回复时间 */
+- (NSString *)replyTimeForRow:(NSInteger)row;
+/** 回复内容 */
+- (NSString *)replyContentForRow:(NSInteger)row;
+/** 根据评论Id获取回复列表 */
+- (void)getAllReplyWithCommentId:(NSString *)commentId completionHandler:(void(^)(NSError *error))completionHandler;
 @end
