@@ -14,13 +14,14 @@
 #import "MyAnswerViewController.h"
 #import "ModifyPasswordViewController.h"
 
+#import "UserCenterHeadView.h"
+
 #import "AppDelegate.h"
 
-#define kTopViewH 350
+#define kHeadViewH 285
 @interface UserCenterViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic) UITableView *tableView;
-@property (nonatomic) UIImageView *topView;
-@property (nonatomic) UIButton *iconBtn;
+@property (nonatomic, strong) UserCenterHeadView *headView;
 @property (nonatomic) NSArray *titleList;
 @end
 
@@ -64,16 +65,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     NSLog(@"%@", NSStringFromCGPoint(scrollView.contentOffset));
     CGFloat offsetY = scrollView.contentOffset.y;
-    CGFloat offsetH = -kTopViewH * 0.5 - offsetY;
-    //修改头像按钮frame
-    CGRect iconBtnFrame = self.iconBtn.frame;
-    iconBtnFrame.origin.y = -offsetY-iconBtnFrame.size.height;
-    self.iconBtn.frame = iconBtnFrame;
-    if (offsetH < 0) return;
-    //修改头部视图frame
-    CGRect topViewFrame = self.topView.frame;
-    topViewFrame.size.height = kTopViewH + offsetH;
-    self.topView.frame = topViewFrame;
+    CGRect headViewFrame = self.headView.frame;
+    CGFloat newY = offsetY + 20;
+    CGFloat newHeight =  -20 - offsetY + kHeadViewH;
+    //    //修改头部视图frame
+    headViewFrame.origin.y = newY;
+    headViewFrame.size.height = newHeight;
+    self.headView.frame = headViewFrame;
     
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -140,6 +138,12 @@
     }
     return 44;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        return kHeadViewH;
+    }
+    return 0.01;
+}
 #pragma mark - 协议方法 UIImagePickerController Delegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *image = info[UIImagePickerControllerOriginalImage];
@@ -147,7 +151,7 @@
     //关闭自动渲染
     [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     //设置头像
-    [_iconBtn setImage:image forState:UIControlStateNormal];
+    [self.headView.iconBtn setImage:image forState:UIControlStateNormal];
     //将存储图片放到子线程
     [[NSOperationQueue new] addOperationWithBlock:^{
         //将图片存入文件
@@ -224,26 +228,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self tableView];
-    [self iconBtn];
-    NSLog(@"%@", NSStringFromCGRect(self.view.frame));
-    NSLog(@"%@", NSStringFromCGRect(self.iconBtn.frame));
-    self.navigationItem.title = @"我";
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
-//        NSLog(@"存在头像");
-//    }else{
-//        NSLog(@"不存在头像");
-//    }
-    //返回按钮
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backBtn setImage:[UIImage imageNamed:@"NavBack"] forState:UIControlStateNormal];
-    backBtn.bounds = CGRectMake(0, 0, 22, 22);
-    [backBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *backBarBtn = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
-    self.navigationItem.leftBarButtonItem = backBarBtn;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     NSDictionary *userDic = [NSDictionary dictionaryWithContentsOfFile:kUserPlistPath];
     NSMutableDictionary *meDic = [NSMutableDictionary dictionaryWithContentsOfFile:kMePlistPath];
     NSString *userName = [userDic objectForKey:@"userName"];
@@ -276,51 +268,35 @@
     }];
 }
 #pragma mark - 懒加载 Lazy Load
-- (UIImageView *)topView {
-	if(_topView == nil) {
-        _topView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -kTopViewH, kScreenW, kTopViewH)];
-        _topView.contentMode = UIViewContentModeScaleAspectFill;
-        _topView.image = [UIImage imageNamed:@"BlackBird"];
-        //打开imageView的用户交互,因为需要点击button更换头像
-        _topView.userInteractionEnabled = YES;
-        
-	}
-	return _topView;
-}
-- (UIButton *)iconBtn{
-    if (_iconBtn == nil) {
-        _iconBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _iconBtn.frame = CGRectMake(kScreenW/2-37.5, kTopViewH/2-75, 75, 75);
-        [self.view addSubview:_iconBtn];
-        _iconBtn.contentMode = UIViewContentModeScaleAspectFill;
-        _iconBtn.imageView.layer.masksToBounds = YES;
-        _iconBtn.imageView.layer.cornerRadius = _iconBtn.frame.size.width/2;
+- (UserCenterHeadView *)headView{
+    if (_headView == nil) {
+        _headView = [[UserCenterHeadView alloc] initWithFrame:CGRectMake(0, 0, kScreenW, kHeadViewH)];
         //如果已经设置过头像,则将其从文件中取出来
         if ([[NSFileManager defaultManager] fileExistsAtPath:kHeadImagePath]) {
             [[NSOperationQueue new] addOperationWithBlock:^{
                 NSData *data = [NSData dataWithContentsOfFile:kHeadImagePath];
                 UIImage *headImage = [UIImage imageWithData:data];
                 [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                    [_iconBtn setImage:headImage forState:UIControlStateNormal];
+                    [_headView.iconBtn setImage:headImage forState:UIControlStateNormal];
                 }];
             }];
         }else{//否则,使用默认头像
-            [_iconBtn setImage:[UIImage imageNamed:@"Persn_login"] forState:UIControlStateNormal];
+            [_headView.iconBtn setImage:[UIImage imageNamed:@"Persn_login"] forState:UIControlStateNormal];
         }
-        
-        [_iconBtn addTarget:self action:@selector(changeMyIconIV) forControlEvents:UIControlEventTouchUpInside];
+        [_headView.iconBtn addTarget:self action:@selector(changeMyIconIV) forControlEvents:UIControlEventTouchUpInside];
+        [_headView.naviBackBtn addTarget:self action:@selector(naviBack:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _iconBtn;
+    return _headView;
 }
 - (UITableView *)tableView {
 	if(_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.mas_equalTo(0);
+            make.top.equalTo(-20);
+            make.left.bottom.right.equalTo(0);
         }];
-        _tableView.contentInset = UIEdgeInsetsMake(kTopViewH*0.5, 0, 0, 0);
-        [_tableView insertSubview:self.topView atIndex:0];
+        [_tableView insertSubview:self.headView atIndex:0];
 
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.delegate = self;

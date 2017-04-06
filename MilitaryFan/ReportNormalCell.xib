@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="109" id="KGk-i7-Jjw" customClass="ReportNormalCell">
+            <rect key="frame" x="0.0" y="0.0" width="493" height="109"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="493" height="108"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bP-7B-v2a">
+                        <rect key="frame" x="15" y="15" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="ZEp-gF-zoL"/>
+                            <constraint firstAttribute="width" constant="20" id="fB4-bG-kGL"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="UMS_oauth_off"/>
+                        <state key="selected" image="UMS_oauth_on"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctk-D9-4TH">
+                        <rect key="frame" x="50" y="15" width="40" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Lxu-q3-iBU"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWw-B7-FOH">
+                        <rect key="frame" x="0.0" y="107" width="493" height="1"/>
+                        <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="dFE-bf-Ufu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="SWw-B7-FOH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KhL-2J-rdk"/>
+                    <constraint firstAttribute="bottom" secondItem="SWw-B7-FOH" secondAttribute="bottom" id="NNe-1g-4qF"/>
+                    <constraint firstItem="7bP-7B-v2a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Nkx-Dz-xEW"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ctk-D9-4TH" secondAttribute="trailing" constant="15" id="P5b-sJ-yml"/>
+                    <constraint firstItem="ctk-D9-4TH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="Sbk-od-Tfy"/>
+                    <constraint firstItem="7bP-7B-v2a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="cfT-ki-C27"/>
+                    <constraint firstItem="ctk-D9-4TH" firstAttribute="leading" secondItem="7bP-7B-v2a" secondAttribute="trailing" constant="15" id="m9C-ai-R9H"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ctk-D9-4TH" secondAttribute="bottom" constant="15" id="vVu-g3-8lb"/>
+                    <constraint firstAttribute="trailing" secondItem="SWw-B7-FOH" secondAttribute="trailing" id="yN0-el-OzN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="normalReportLb" destination="ctk-D9-4TH" id="iy2-5c-woR"/>
+                <outlet property="selectBtn" destination="7bP-7B-v2a" id="0Wp-Z5-Wb8"/>
+            </connections>
+            <point key="canvasLocation" x="-0.5" y="40.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="UMS_oauth_off" width="21" height="21"/>
+        <image name="UMS_oauth_on" width="21" height="21"/>
+    </resources>
+</document>

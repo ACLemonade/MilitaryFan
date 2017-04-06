@@ -48,6 +48,11 @@
 		8C2A6F951D6805C70028F634 /* MFInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F941D6805C70028F634 /* MFInfoModel.m */; };
 		8C2A6F9B1D68095A0028F634 /* MFInfoNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9A1D68095A0028F634 /* MFInfoNetManager.m */; };
 		8C2A6F9F1D682F5C0028F634 /* MFInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */; };
+		8C2CF3531E95D40900AD7D8C /* UserCenterHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CF3521E95D40900AD7D8C /* UserCenterHeadView.m */; };
+		8C2CF35B1E95E66600AD7D8C /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CF35A1E95E66600AD7D8C /* ReportViewController.m */; };
+		8C2CF35E1E95E69100AD7D8C /* ReportViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CF35D1E95E69100AD7D8C /* ReportViewModel.m */; };
+		8C2CF3621E96211D00AD7D8C /* SubmitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C2CF3601E96211D00AD7D8C /* SubmitCell.m */; };
+		8C2CF3631E96211D00AD7D8C /* SubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C2CF3611E96211D00AD7D8C /* SubmitCell.xib */; };
 		8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F85F1D7127380046F218 /* MFPicViewModel.m */; };
 		8C32F8631D7128230046F218 /* MFPicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8621D7128230046F218 /* MFPicModel.m */; };
 		8C32F8661D7132960046F218 /* MFPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C32F8651D7132960046F218 /* MFPicViewController.m */; };
@@ -119,6 +124,11 @@
 		8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CFA13B31D73E5D800DAF1E4 /* Login.storyboard */; };
 		8CFA13B71D74236B00DAF1E4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */; };
 		8CFA13BA1D74237C00DAF1E4 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFA13B91D74237C00DAF1E4 /* RegisterViewController.m */; };
+		8CFD1A861E8E31BE0044F0DE /* ReportNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD1A841E8E31BE0044F0DE /* ReportNormalCell.m */; };
+		8CFD1A871E8E31BE0044F0DE /* ReportNormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD1A851E8E31BE0044F0DE /* ReportNormalCell.xib */; };
+		8CFD1A8B1E8E31E10044F0DE /* ReportInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD1A891E8E31E10044F0DE /* ReportInputCell.m */; };
+		8CFD1A8C1E8E31E10044F0DE /* ReportInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CFD1A8A1E8E31E10044F0DE /* ReportInputCell.xib */; };
+		8CFD1A8F1E8E3F0B0044F0DE /* MyDetailInfoViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFD1A8E1E8E3F0B0044F0DE /* MyDetailInfoViewModel.m */; };
 		D3EFE60F0B50F03842A880A4 /* libPods-MilitaryFan.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */; };
 		F6612A65A54B599A37E32B50 /* libPods-MilitaryFanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1902B8039400427DD72BB34A /* libPods-MilitaryFanTests.a */; };
 /* End PBXBuildFile section */
@@ -217,6 +227,15 @@
 		8C2A6F9C1D6809830028F634 /* MFInfoPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFInfoPath.h; sourceTree = "<group>"; };
 		8C2A6F9D1D682F5C0028F634 /* MFInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFInfoViewModel.h; sourceTree = "<group>"; };
 		8C2A6F9E1D682F5C0028F634 /* MFInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFInfoViewModel.m; sourceTree = "<group>"; };
+		8C2CF3511E95D40900AD7D8C /* UserCenterHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterHeadView.h; sourceTree = "<group>"; };
+		8C2CF3521E95D40900AD7D8C /* UserCenterHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterHeadView.m; sourceTree = "<group>"; };
+		8C2CF3591E95E66600AD7D8C /* ReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		8C2CF35A1E95E66600AD7D8C /* ReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		8C2CF35C1E95E69100AD7D8C /* ReportViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportViewModel.h; sourceTree = "<group>"; };
+		8C2CF35D1E95E69100AD7D8C /* ReportViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportViewModel.m; sourceTree = "<group>"; };
+		8C2CF35F1E96211D00AD7D8C /* SubmitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubmitCell.h; sourceTree = "<group>"; };
+		8C2CF3601E96211D00AD7D8C /* SubmitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubmitCell.m; sourceTree = "<group>"; };
+		8C2CF3611E96211D00AD7D8C /* SubmitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubmitCell.xib; sourceTree = "<group>"; };
 		8C32F85E1D7127380046F218 /* MFPicViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicViewModel.h; sourceTree = "<group>"; };
 		8C32F85F1D7127380046F218 /* MFPicViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFPicViewModel.m; sourceTree = "<group>"; };
 		8C32F8611D7128230046F218 /* MFPicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPicModel.h; sourceTree = "<group>"; };
@@ -346,6 +365,14 @@
 		8CFA13B61D74236B00DAF1E4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8CFA13B81D74237C00DAF1E4 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		8CFA13B91D74237C00DAF1E4 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		8CFD1A831E8E31BE0044F0DE /* ReportNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportNormalCell.h; sourceTree = "<group>"; };
+		8CFD1A841E8E31BE0044F0DE /* ReportNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportNormalCell.m; sourceTree = "<group>"; };
+		8CFD1A851E8E31BE0044F0DE /* ReportNormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportNormalCell.xib; sourceTree = "<group>"; };
+		8CFD1A881E8E31E10044F0DE /* ReportInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportInputCell.h; sourceTree = "<group>"; };
+		8CFD1A891E8E31E10044F0DE /* ReportInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportInputCell.m; sourceTree = "<group>"; };
+		8CFD1A8A1E8E31E10044F0DE /* ReportInputCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportInputCell.xib; sourceTree = "<group>"; };
+		8CFD1A8D1E8E3F0B0044F0DE /* MyDetailInfoViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDetailInfoViewModel.h; sourceTree = "<group>"; };
+		8CFD1A8E1E8E3F0B0044F0DE /* MyDetailInfoViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDetailInfoViewModel.m; sourceTree = "<group>"; };
 		9CDCCF84CCA5B831C43ED7B3 /* Pods-MilitaryFan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFan.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFan/Pods-MilitaryFan.release.xcconfig"; sourceTree = "<group>"; };
 		AF96E92B5B1828CD3E718278 /* Pods-MilitaryFanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MilitaryFanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MilitaryFanUITests/Pods-MilitaryFanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FD60826E84BCF8445152565E /* libPods-MilitaryFan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MilitaryFan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -406,6 +433,17 @@
 				8C1E76FE1D765C8A0051F8B1 /* UserInfoCell.h */,
 				8C1E76FF1D765C8A0051F8B1 /* UserInfoCell.m */,
 				8C1E77001D765C8A0051F8B1 /* UserInfoCell.xib */,
+				8CFD1A831E8E31BE0044F0DE /* ReportNormalCell.h */,
+				8CFD1A841E8E31BE0044F0DE /* ReportNormalCell.m */,
+				8CFD1A851E8E31BE0044F0DE /* ReportNormalCell.xib */,
+				8CFD1A881E8E31E10044F0DE /* ReportInputCell.h */,
+				8CFD1A891E8E31E10044F0DE /* ReportInputCell.m */,
+				8CFD1A8A1E8E31E10044F0DE /* ReportInputCell.xib */,
+				8C2CF3511E95D40900AD7D8C /* UserCenterHeadView.h */,
+				8C2CF3521E95D40900AD7D8C /* UserCenterHeadView.m */,
+				8C2CF35F1E96211D00AD7D8C /* SubmitCell.h */,
+				8C2CF3601E96211D00AD7D8C /* SubmitCell.m */,
+				8C2CF3611E96211D00AD7D8C /* SubmitCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -436,6 +474,8 @@
 		8C1E76FD1D765B270051F8B1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8CFD1A8D1E8E3F0B0044F0DE /* MyDetailInfoViewModel.h */,
+				8CFD1A8E1E8E3F0B0044F0DE /* MyDetailInfoViewModel.m */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -478,6 +518,7 @@
 				8C89A5881E6CFC5100466B33 /* 问答模块 */,
 				8C9304DB1D6C763900F9182D /* 设置模块 */,
 				8CC41D931D7E3B4D00748D0D /* 评论 */,
+				8C2CF3541E95E5D400AD7D8C /* 举报 */,
 				8CAFCA361D7A4EB200616F53 /* 收藏 */,
 				8C9304DA1D6C762C00F9182D /* 视频 */,
 			);
@@ -645,6 +686,49 @@
 				8C2A6F8B1D6802690028F634 /* PSCollectionViewCell.m */,
 			);
 			path = PSCollectionView;
+			sourceTree = "<group>";
+		};
+		8C2CF3541E95E5D400AD7D8C /* 举报 */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CF3551E95E60700AD7D8C /* ViewController */,
+				8C2CF3561E95E60700AD7D8C /* ViewModel */,
+				8C2CF3571E95E60700AD7D8C /* View */,
+				8C2CF3581E95E60700AD7D8C /* Model */,
+			);
+			path = "举报";
+			sourceTree = "<group>";
+		};
+		8C2CF3551E95E60700AD7D8C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CF3591E95E66600AD7D8C /* ReportViewController.h */,
+				8C2CF35A1E95E66600AD7D8C /* ReportViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8C2CF3561E95E60700AD7D8C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8C2CF35C1E95E69100AD7D8C /* ReportViewModel.h */,
+				8C2CF35D1E95E69100AD7D8C /* ReportViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C2CF3571E95E60700AD7D8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C2CF3581E95E60700AD7D8C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8C65349B1E7A208900826382 /* MyAnswerViewController */ = {
@@ -1182,6 +1266,7 @@
 				8C93056E1D6DC92100F9182D /* DetailHeaderCell.xib in Resources */,
 				8C1A346F1E6F920E00F49894 /* QuestionCell.xib in Resources */,
 				8C2A6F8D1D6802690028F634 /* .gitignore in Resources */,
+				8CFD1A871E8E31BE0044F0DE /* ReportNormalCell.xib in Resources */,
 				8CC954401D6840B10022F157 /* RankListCell.xib in Resources */,
 				8C2A6F481D67F8CA0028F634 /* LaunchScreen.storyboard in Resources */,
 				8CF4A1501E723A6200C29A26 /* QuestionDetailCell.xib in Resources */,
@@ -1195,7 +1280,9 @@
 				8C2A6F401D67F8CA0028F634 /* Settings.storyboard in Resources */,
 				8C1E77021D765C8A0051F8B1 /* UserInfoCell.xib in Resources */,
 				8C32F86B1D717BE50046F218 /* DetailVideoCell.xib in Resources */,
+				8CFD1A8C1E8E31E10044F0DE /* ReportInputCell.xib in Resources */,
 				8CC9543B1D68406B0022F157 /* NormalCell.xib in Resources */,
+				8C2CF3631E96211D00AD7D8C /* SubmitCell.xib in Resources */,
 				8CE7641B1E8BAF66004613DC /* ReplyCell.xib in Resources */,
 				8CFA13B41D73E5D800DAF1E4 /* Login.storyboard in Resources */,
 			);
@@ -1356,6 +1443,7 @@
 				8CF4A1541E724A9000C29A26 /* AnswerCell.m in Sources */,
 				8C1A34781E6FEDC600F49894 /* AnswerQuestionViewController.m in Sources */,
 				8C2910B01E7785420062E30A /* AnswerQuestionDetailViewModel.m in Sources */,
+				8CFD1A8F1E8E3F0B0044F0DE /* MyDetailInfoViewModel.m in Sources */,
 				8C79062F1D790D42005555C8 /* FunctionView.m in Sources */,
 				8CF4A14B1E7238B600C29A26 /* AnswerQuestionDetailViewController.m in Sources */,
 				8C93050A1D6D90D600F9182D /* MFVideoDetailViewModel.m in Sources */,
@@ -1372,7 +1460,10 @@
 				8CE370091D815F95004D5B93 /* CacheManager.m in Sources */,
 				8C1577BD1D8D36C300D27A3D /* ScanPicViewController.m in Sources */,
 				8C32F8601D7127380046F218 /* MFPicViewModel.m in Sources */,
+				8C2CF35E1E95E69100AD7D8C /* ReportViewModel.m in Sources */,
+				8C2CF35B1E95E66600AD7D8C /* ReportViewController.m in Sources */,
 				8C2910B31E77D4860062E30A /* AnswerModel.m in Sources */,
+				8CFD1A861E8E31BE0044F0DE /* ReportNormalCell.m in Sources */,
 				8C1E77011D765C8A0051F8B1 /* UserInfoCell.m in Sources */,
 				8CC9543A1D68406B0022F157 /* NormalCell.m in Sources */,
 				8C9304B71D6BEEB000F9182D /* DetailViewController.m in Sources */,
@@ -1406,6 +1497,8 @@
 				8C6534A31E7A23D600826382 /* MyAnswerViewModel.m in Sources */,
 				8C9304B11D6BE82E00F9182D /* MFDetailModel.m in Sources */,
 				8C2A6F801D6801000028F634 /* UIScrollView+Refresh.m in Sources */,
+				8C2CF3531E95D40900AD7D8C /* UserCenterHeadView.m in Sources */,
+				8CFD1A8B1E8E31E10044F0DE /* ReportInputCell.m in Sources */,
 				8CC9543F1D6840B10022F157 /* RankListCell.m in Sources */,
 				8C89A5961E6CFE8E00466B33 /* FAQViewController.m in Sources */,
 				8CAFCA3C1D7A4F5800616F53 /* CollectionViewModel.m in Sources */,
@@ -1414,6 +1507,7 @@
 				8C9304E81D6D2DAE00F9182D /* MFVideoModel.m in Sources */,
 				8C1A34721E6F9A8600F49894 /* FAQViewModel.m in Sources */,
 				8CE764131E8B9652004613DC /* ReplyViewController.m in Sources */,
+				8C2CF3621E96211D00AD7D8C /* SubmitCell.m in Sources */,
 				8CC954441D6840C40022F157 /* TopCell.m in Sources */,
 				8C9305721D6DCB5400F9182D /* DetailLikeCell.m in Sources */,
 				8CF4A14F1E723A6200C29A26 /* QuestionDetailCell.m in Sources */,

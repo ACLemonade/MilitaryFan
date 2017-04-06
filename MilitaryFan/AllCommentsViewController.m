@@ -8,8 +8,12 @@
 
 #import "AllCommentsViewController.h"
 #import "ReplyViewController.h"
+#import "ReportViewController.h"
+
 #import "AllCommentsViewModel.h"
+
 #import "AllCommentsCell.h"
+
 #import "UIScrollView+Refresh.h"
 #import <UIKit+AFNetworking.h>
 
@@ -40,6 +44,7 @@
     cell.revealReplyBtn.tag = 2000 + row;
     [cell.revealReplyBtn setTitle:[self.allCommentsVM revealReplyTitleForRow:row] forState:UIControlStateNormal];
     [cell.revealReplyBtn addTarget:self action:@selector(revealReply:) forControlEvents:UIControlEventTouchUpInside];
+    cell.reportBtn.tag = 3000 + row;
     [cell.reportBtn addTarget:self action:@selector(reportComment:) forControlEvents:UIControlEventTouchUpInside];
 //    cell.reportBtn.hidden = YES;
     cell.separatorView.hidden = YES;
@@ -110,6 +115,13 @@
 }
 - (void)reportComment:(UIButton *)sender{
     NSLog(@"举报评论");
+    NSInteger row = sender.tag - 3000;
+    NSString *commentId = [self.allCommentsVM commentIdForRow:row];
+    NSString *commentName = [self.allCommentsVM userNameForRow:row];
+    ReportViewController *reportVC = [[ReportViewController alloc] init];
+    reportVC.reportedId = commentId;
+    reportVC.reportedName = commentName;
+    [self.navigationController pushViewController:reportVC animated:YES];
 }
 - (void)revealReply:(UIButton *)sender{
     NSInteger row = sender.tag - 2000;
